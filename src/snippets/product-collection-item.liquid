@@ -1,0 +1,56 @@
+<!-- product-collection-item.liquid -->
+{% for product in collection.products %}
+
+        {%- comment %}
+        	for swatches
+        {% endcomment -%}
+    	{% capture availableVariant %}{%endcapture%}
+        {% for variant in product.variants %}
+          {% if variant.available %}
+          	{% capture availableVariant %} {{availableVariant}} {{ variant.title | replace: ' ', '' }} + {{ variant.image | img_url: '700x'}} + {{ variant.url }}, {%endcapture%}
+          {% endif %}
+        {% endfor %}
+
+        {%- comment %}
+          for filter
+        {% endcomment -%}
+        {% capture filterVariants %}{%endcapture%}
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              {% capture filterVariants %}{{filterVariants}}{{ variant.title | replace: ' ', '' }}, {%endcapture%}
+            {% endif %}
+          {% endfor %}
+
+
+          {%- for product_option in product.options_with_values -%}
+          {% capture option_data %} {{ product_option.name }}: {% endcapture %}
+            {%- for value in product_option.values -%}
+              {% capture option_data %}{{value | downcase}}, {% endcapture %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+
+          {%- if product.tags contains 'collage' -%}
+            {% assign collage_item = 'collage-item' %}
+            {% else %}
+            {% assign collage_item = '' %}
+          {%- endif -%}
+
+{%include "collection-item", availableVariant: availableVariant, filterVariants: filterVariants, optionData: option_data, collage_item: collage_item %}
+
+    {% else %}
+
+      {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+        {% for i in (1..8) %}
+          <a href="#">
+            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+          </a>
+          <p><a href="#">{{ 'homepage.onboarding.product_title' | t }}</a></p>
+          <p>{{ 1999 | money }}</p>
+        {% endfor %}
+      {% else %}
+        <p>{{ 'collections.general.no_matches' | t }}</p>
+      {% endif %}
+
+    {% endfor %}

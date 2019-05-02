@@ -1,0 +1,106 @@
+<!-- footer.liquid -->
+
+<footer class="gutter">
+  {% if section.settings.show_payment_icons %}
+    {% unless shop.enabled_payment_types == empty %}
+      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+      <ul class="payment-icons">
+        {% for type in shop.enabled_payment_types %}
+          <li>
+            {{ type | payment_type_svg_tag: class: 'icon' }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endunless %}
+  {% endif %}
+
+
+<div class="footer-grid grid-2-break">
+
+  {%- include 'newsletter' -%}
+
+  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+  <ul class="footer-socials medium-up--hide">
+    {% for social in social_accounts %}
+      {%- assign social_handle = social | handleize -%}
+      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+      {% if settings[social_link] != blank %}
+        <li>
+          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+            {% include social_icon %}
+          </a>
+          <span class="icon-fallback-text visually-hidden">{{ social }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+
+  {%- assign footer_linklist = section.settings.footer_linklist -%}
+  {% if linklists[footer_linklist].links.size > 0 %}
+    <ul class="footer-nav">
+      {% for link in linklists[footer_linklist].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+
+<div class="space-s">
+</div>
+
+  <div class="copy-right-container">
+    <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Newsletter Heading",
+        "default": "Subscribe to our newsletter"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Newsetter Subheading",
+        "default": "A short sentence describing what someone will receive by subscribing"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_placeholder",
+        "label": "Newsletter Placeholder",
+        "default": "Email Address"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_submit",
+        "label": "Newsletter Submit Copy",
+        "default": "Submit"
+      },
+      {
+        "type": "paragraph",
+        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      }
+    ]
+  }
+
+{% endschema %}

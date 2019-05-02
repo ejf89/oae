@@ -1,0 +1,53 @@
+<!-- grid-responsive-navbar-primary.liquid -->
+
+
+
+  <h1>YO</h1>
+  <h1>YO</h1>
+  <h1>YO</h1>
+
+  <ul class="topnav desktop-nav small--hide" id="myTopnav-desktop--left">
+    {% for link in linklists[section.settings.main_linklist-secondary].links %}
+    {%- assign child_list_handle = link.title | handleize -%}
+    {% if menus[child_list_handle].links != blank %}
+    <li  class="dropdown site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
+      <a href="{{ link.url }}" class="site-nav__link dropbtn">
+        {{ link.title }}
+        {% include 'icon-arrow-down' %}
+      </a>
+      <ul class="site-nav__submenu dropdown-content">
+        {% for childlink in menus[child_list_handle].links %}
+          {% assign sub_child_handle = childlink.title | handleize  %}
+          {%- if menus[sub_child_handle].links != blank -%}
+
+                <li class=" site-nav--has-submenu child-with-sub {% if childlink.active %}site-nav--active{% endif %}">
+                  <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}  {% include 'icon-arrow-down' %}</a>
+                  <ul class="sub-child-menu">
+                    {%- for link in menus[sub_child_handle].links-%}
+                      <li class ="dropdown">
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+            {%- else  -%}
+
+            <li {% if childlink.active %}class="site-nav--active"{% endif %}>
+              <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+            </li>
+
+          {%- endif -%}
+
+        {% endfor %}
+      </ul>
+    </li>
+    {% else %}
+    <li {% if link.active %}class="site-nav--active"{% endif %}>
+      <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+
+
+
+  </ul>

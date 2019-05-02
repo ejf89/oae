@@ -1,0 +1,40 @@
+<section class="newsletter-container">
+
+  {% if section.settings.section_title != blank %}
+    <label for="Email"><h1 class="newsletter-header">{{ section.settings.section_title | escape }}</h1></label>
+  {% endif %}
+  {% if section.settings.subheading != blank %}
+    <p>{{ section.settings.subheading | escape }}</p>
+  {% endif %}
+
+  <div class="space-s">
+
+  </div>
+
+  {% form 'customer' %}
+    {{ form.errors | default_errors }}
+    {% if form.posted_successfully? %}
+      <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+    {% else %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+
+      <div class="newsletter-contact">
+        <input type="email"
+        class="newsletter-contact_input"
+        name="contact[email]"
+        id="Email"
+        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+        placeholder="{{ section.settings.newsletter_placeholder }}"
+        autocorrect="off"
+        autocapitalize="off">
+        <button type="submit" name="commit" id="Subscribe" class="newsletter-contact_submit">
+          <span>{{ section.settings.newsletter_submit }}</span>
+        </button>
+
+      </div>
+    {% endif %}
+  {% endform %}
+  <div class="space-s">
+
+  </div>
+</section>

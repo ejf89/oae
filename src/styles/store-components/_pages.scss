@@ -1,0 +1,117 @@
+/*================ Contact Page  ================*/
+
+.contact-page {
+  /* height: 300px; */
+  display: flex;
+  min-height: 520px;
+  height: 65vh;
+}
+
+.contact-page-container {
+  margin: auto;
+  width: 100%;
+}
+
+.contact-page-container{
+  h1{
+    text-align: center;
+  }
+
+  .contact-form{
+    margin: auto;
+    max-width: 500px;
+    input, textarea{
+      font-size: 20px;
+      display: block;
+      height: 52px;
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      resize: none;
+}
+  }
+
+  label {
+    font-size: 20px;
+  }
+}
+
+#contact_form{
+  @include media-query($small){
+    // width: 80%;
+    margin: auto;
+  };
+}
+
+/*================ Customer Account Page  ================*/
+.customer-account-page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+button{
+  border-radius: 7px;
+}
+
+#address_form_new, .edit-address-form{
+  // display: flex;
+  flex-direction: column;
+  label{
+    margin-bottom: 0;
+  }
+  input{
+    width: 100%;
+  }
+  input[type=checkbox]{
+    width: 0;
+  }
+}
+
+
+
+
+
+/*================ About Page  ================*/
+.about-page-container, .page-container{
+  background-color: --color-2;
+  padding: 4% 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  // align-items: center;
+  margin: auto;
+  max-width: 1250px;
+
+  .image-contain>img, .image-fit{
+    transform: translate(-50%, 0%);
+    // width: 41%;
+    // max-height: 9rem;
+  }
+}
+.text-with-image-container{
+
+  padding: 3rem;
+  @include media-query($small){
+    width: 100% !important;
+  };
+  &.half{
+    margin: auto;
+    width: 50%;
+    display: inline-block;
+    // vertical-align: top;
+  }
+  &.full{
+    width: 100%;
+    .text-content{
+      width: 50%;
+      margin: auto;
+      @include media-query($small){
+        width: 100% !important;
+      };
+    }
+  }
+}

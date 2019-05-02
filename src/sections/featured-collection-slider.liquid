@@ -1,0 +1,81 @@
+
+{% assign related_source = collections[section.settings.collection] %}
+
+      <div id="featured-collection-slider-container" class="section-bottom-padding">
+        <div class="section-header section-header--medium gutter">
+
+          <h1 class="h4 text-left section-header__title" >{{ section.settings.heading }}</h1>
+        </div>
+        <div class="">
+
+
+          <div class="featured-collection-slider js-slider-hook product-collection-items desktop-slider-padding" data-slider="featured-collection-slider" data-options="{
+            contain: false,
+            wrapAround: true,
+            imagesLoaded: true,
+            variableWidth: true,
+            prevNextButtons: false,
+            cellAlign: 'center',
+            pageDots: false
+          }">
+            {% for product in related_source.products  %}
+
+
+                {%- for pair in handle_gradients_split -%}
+                  {%- if pair contains product.handle -%}
+                    {% assign gradient_tag = pair | split: '+' | last %}
+                  {%- endif -%}
+                {%- endfor -%}
+
+
+                    {% include 'collection-item',  availableVariant: availableVariant, slider_child: true, gradient_tag: gradient_tag %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+      </div>
+
+      <script type="text/javascript">
+
+      // $(document).ready(function(){
+      //   $('.featured-collection-slider').flickity({
+      //     contain: false,
+      //     wrapAround: true,
+      //     imagesLoaded: true,
+      //     variableWidth: true,
+      //     prevNextButtons: false,
+      //     cellAlign: 'center',
+      //     pageDots: false
+      //   })
+      // })
+
+      </script>
+
+
+
+
+{% schema %}
+  {
+    "name": "Feat. Collection Sliderr",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feat. Collection Slider",
+        "category": "Homepage"
+      }
+    ]
+  }
+{% endschema %}

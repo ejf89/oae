@@ -1,0 +1,36 @@
+
+/*================ Customer Pages  ================*/
+
+.customer-form{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  @include media-query($small){
+    width: 80%;
+  };
+
+  h1, a{
+    font-family: var(--font-second);
+  }
+  button{
+    border-radius: 7px !important;
+  }
+
+  input{
+    width: 80%;
+    border-radius: 7px;
+  }
+  input[type=submit]{
+    width: 100%;    
+  }
+  *{
+    margin: 1rem 0;
+    padding: 15px;
+  }
+  ::-webkit-input-placeholder{
+    text-align: center;
+  }
+}

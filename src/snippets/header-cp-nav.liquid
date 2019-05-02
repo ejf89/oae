@@ -1,0 +1,62 @@
+<!-- header-cp-nav.liquid -->
+
+<div data-section-id="{{ section.id }}" data-section-type="header-section" >
+  <header class="header " role="banner" >
+
+
+    {%- comment %}
+    	This is a foo
+    <form class="" action="/search" method="get" role="search" id="desktop-search-form">
+      <label for="Search" class="label-hidden">
+        {{ 'general.search.placeholder' | t }}
+      </label>
+      <!-- <input class="desktop-search-input" type="search" name="q" id="Search" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}"> -->
+      <button type="submit" class="btn desktop-search-trigger js-body-add-class"  data-body-class="search-bar-open">
+        {% include 'icon-search' %}
+        <span class="icon-fallback-text">SEARCH</span>
+      </button>
+    </form>
+    {% endcomment -%}
+
+    {% if shop.customer_accounts_enabled %}
+      <ul class="small--hide">
+        {% if customer %}
+
+        {%- comment %}
+        	This is a foo
+            {% if customer.first_name != blank %}
+            <li>
+
+              <a href="/account/logout">{% include 'icon-user' %} </a>
+          </li>
+          {% endif %}
+          {% endcomment -%}
+          <li>  <a href="/account">account</a> </li>
+
+          {%- comment %}
+          	This is a foo
+          <li class="nav-logout-link">{{ 'layout.customer.log_out' | t | customer_logout_link }}  </li>
+          {% endcomment -%}
+
+        {% else %}
+
+          <li>
+            <a href="/account">account</a>
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+
+    <ul>
+
+
+
+    <a href="/cart" class="test1 header-cart-link" >
+
+
+      <span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span>
+    </a>
+    </ul>
+
+  </header>
+</div>

@@ -1,0 +1,65 @@
+<!-- Blog-Slider.liquid -->
+<div class="blog-slider-container blog-slider slideshow-height-{{ section.settings.slideshow_height }}">
+
+  {%- for article in blogs[section.settings.blog].articles limit: section.settings.article_count  -%}
+    <a class="slideshow-slide  image-fit" href="{{ article.url }}">
+        {% if article.image != blank %}
+        {{ article.image | img_url: '800x800' | img_tag: article.title }}
+        {% elsif article == empty %}
+        {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+        {{ '_article-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+        {% endif %}
+
+    </a>
+  {%- endfor -%}
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Blog Slider",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blog"
+      },
+      {
+        "type": "range",
+        "id": "article_count",
+        "label": "Article Count",
+        "min": 3,
+        "max": 24,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "select",
+        "id": "slideshow_height",
+        "label": "Section height",
+        "default": "small",
+        "options": [
+          {
+            "label": "Small",
+            "value": "small"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "Large",
+            "value": "large"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog Slider",
+        "category": "Homepage"
+      }
+    ]
+  }
+{% endschema %}

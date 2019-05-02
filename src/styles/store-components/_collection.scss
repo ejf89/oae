@@ -1,0 +1,88 @@
+.collection-container{
+  padding-top: $mobile-header-height;
+}
+
+
+.product-image-container{
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  // min-width: 100%;
+  justify-content: center;
+  align-items: center;
+  @include media-query($medium-up){
+    padding: 2rem 0;
+  };
+  .responsive-image__image{
+    margin: auto;
+  }
+}
+
+.collection-container .product-image-container{
+  background: transparent !important;
+  display: block;
+}
+
+.product-collection-item{
+  width: 100%;
+}
+
+.product-card-canvas{
+ position: relative;
+ padding-top: 125%;
+ min-height: 20vh;
+}
+
+.product-card-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.product-card-front{
+  @include transition(all 300ms);
+  &:hover{
+    opacity: 0;
+  }
+  &.no-hover{
+    opacity: 1 !important;
+  }
+}
+
+.product-card-image__back{
+  @include media-query($small){
+    display: none;
+  };
+}
+
+// LIST // LIST // LIST //
+// LIST // LIST // LIST //
+// LIST // LIST // LIST //
+// LIST // LIST // LIST //
+
+// .product-collection-items.list{
+//   .product-collection-item{
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     .product-image-container{
+//       width: 25%;
+//     }
+//   }
+// }
+
+
+// COLLAGE // COLLAGE // COLLAGE //
+// COLLAGE // COLLAGE // COLLAGE //
+// COLLAGE // COLLAGE // COLLAGE //
+// COLLAGE // COLLAGE // COLLAGE //
+//
+// .collage-item{
+//   grid-column: span 2;
+//   grid-row: span 2;
+// }

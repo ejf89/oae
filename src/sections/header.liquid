@@ -1,0 +1,158 @@
+<!-- header.liquid -->
+
+<style>
+  {% if section.settings.logo != blank %}
+    .site-header__logo-image {
+      max-width: {{ section.settings.logo_max_width }}px;
+      /* margin: auto; */
+    }
+  {% endif %}
+</style>
+{%- comment %}
+	This is a foo
+{% include 'minicart' %}
+{% endcomment -%}
+{% include 'announcement-bar' %}
+{% include "mobile-nav" %}
+
+  <nav class="grid-responsive-navbar wrapper" role="navigation" style="background: {{section.settings.header_color}};">
+
+
+    {%- comment %}
+    	This is a foo
+    {%- if section.settings.main_linklist-primary -%}
+      {% include "grid-responsive-navbar-primary"%}
+    {%- endif -%}
+    {% endcomment -%}
+
+    <div class="logo small--hide">
+      <h1 class="h1" itemscope itemtype="http://schema.org/Organization">
+        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+          {% if section.settings.logo != blank %}
+          {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+          <img src="{{ section.settings.logo | img_url: image_size }}"
+          srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+          alt="{{ section.settings.logo.alt | default: shop.name }}"
+          itemprop="logo">
+          {% else %}
+          {{ shop.name }}
+          {% endif %}
+        </a>
+      </h1>
+    </div>
+
+
+
+  <div class="logo mobile-logo small--show medium-up--hide">
+    <h1 class="h1 gutter" itemscope itemtype="http://schema.org/Organization">
+      <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+        {% if section.settings.logo != blank %}
+        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+        <img src="{{ section.settings.logo | img_url: image_size }}"
+        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+        alt="{{ section.settings.logo.alt | default: shop.name }}"
+        itemprop="logo">
+        {% else %}
+        {{ shop.name }}
+        {% endif %}
+      </a>
+    </h1>
+  </div>
+
+
+
+  <a href="/cart" class="TEST-2 header-cart-link medium-up--hide"  >
+    Cart
+    <span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span>
+  </a>
+
+  {% include "grid-responsive-navbar-secondary"%}
+
+{%- comment %}
+	Header Control Panel Snippet (Account, Login, Cart)
+  <div class="">{% include "header-cp-nav" %}  </div>
+  {% endcomment -%}
+
+</nav>
+
+
+</div>
+
+<script type="text/javascript">
+  //INCLUDED FOR CART ITEM COUNT
+    var cartJson = {{ cart | json }};
+
+    $(function() {
+
+        //Initialise Cart.js once the page has loaded
+        CartJS.init(cartJson, {
+            "dataAPI": true,
+            "requestBodyClass": "cartjs-loading"
+        });
+
+        $(document).on('click', '.mini-cart-item-remove', function(event){
+
+            //Get item line number in the cart
+            var miniCartItemLineNumber = $(this).data('item-line-number');
+
+
+            CartJS.removeItem(miniCartItemLineNumber, {
+                "success": function(data, textStatus, jqXHR) {
+                    // callback placeholder
+                },
+                "error": function(jqXHR, textStatus, errorThrown) {
+                    console.log('Error: ' + errorThrown);
+                }
+            });
+
+        });
+
+
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image"
+      },
+      {
+        "type": "range",
+        "id": "logo_max_width",
+        "min": 20,
+        "max": 450,
+        "step": 10,
+        "unit": "px",
+        "label": "Custom logo width",
+        "default": 30
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist-secondary",
+        "label": "Menu (right)",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist-primary",
+        "label": "Secondary Menu (left)",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile_linklist",
+        "label": "Mobile Menu"
+      },
+      {
+        "type": "color",
+        "label": "Header Color",
+        "id": "header_color",
+        "default": "#322f78"
+      }
+    ]
+  }
+{% endschema %}

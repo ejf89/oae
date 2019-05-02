@@ -1,0 +1,35 @@
+<!-- collection.liquid -->
+
+<div class="collection-container grid-3-break-2 gutter max-width">
+
+  {%- for product in collection.products -%}
+    {% include "collection-item" %}
+  {%- endfor -%}
+
+
+</div>
+
+<script type="text/javascript">
+
+var url = '{{shop.url}}' + "/products/fresh-memes-expansion-pack"
+
+$.get( url, function( data ){
+  var html = $.parseHTML(data)
+  var prods = $('.product-collection-item')
+  var gradient_data = $(html).find('#product-gradient-data').text().trim().split(', ')
+  gradient_data.shift()
+
+  $(gradient_data).each((i, el) => {
+      var handle = el.split('+')[0]
+      var color = el.split('+')[1]
+      var collection_item = $(`[data-handle='${handle}']`)
+
+      if (collection_item.length) {
+        collection_item.find('.product-image-container').css('background', color)
+      }
+  })
+
+} )
+
+
+</script>

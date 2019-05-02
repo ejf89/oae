@@ -1,0 +1,78 @@
+<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm--{{ section.id }}" class="product-single__form cta-full">
+            {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
+              {% for option in product.options_with_values %}
+                <div class="radio-wrapper js product-form__item">
+                  <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
+                    for="ProductSelect-option-{{ forloop.index0 }}">
+                    {{ option.name }}
+                  </label>
+                  <fieldset class="single-option-radio"
+                    name="{{ option.name }}"
+                    id="ProductSelect-option-{{ forloop.index0 }}">
+                    {% assign option_index = forloop.index %}
+                    {% for value in option.values %}
+                      {% assign variant_label_state = true %}
+                      {% if product.options.size == 1 %}
+                        {% unless product.variants[forloop.index0].available  %}
+                          {% assign variant_label_state = false %}
+                        {% endunless %}
+                      {% endif %}
+                      <input type="radio"
+                        {% if option.selected_value == value %} checked="checked"{% endif %}
+                        {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                        value="{{ value | escape }}"
+                        data-index="option{{ option_index }}"
+                        name="{{ option.name }}"
+                        class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                        id="ProductSelect-option-{{ option.name }}-{{ value | escape }}">
+                      <label for="ProductSelect-option-{{ option.name }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
+                    {% endfor %}
+                  </fieldset>
+                </div>
+              {% endfor %}
+            {% endunless %}
+
+            <select name="id" id="ProductSelect" class="product-single__variants no-js">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option {% if variant == product.selected_or_first_available_variant %}
+                    selected="selected" {% endif %}
+                    data-sku="{{ variant.sku }}"
+                    value="{{ variant.id }}">
+                    {{ variant.title }} - {{ variant.price | money_with_currency }}
+                  </option>
+                {% else %}
+                  <option disabled="disabled">
+                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                  </option>
+                {% endif %}
+              {% endfor %}
+            </select>
+
+            {% comment %}
+            <div class="product-single__quantity">
+              <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+              <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+            </div>
+            {% endcomment %}
+
+            <div class="product-single__add-to-cart">
+              <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="add-to-cart cta cta-purple "{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                <span class="add-to-cart-text">
+                  {% if current_variant.available %}
+                    {{ 'products.product.add_to_cart' | t }} - {{product.price | money }}
+                  {% else %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% endif %}
+                </span>
+              </button>
+            </div>
+          </form>
+
+          {%- if block.settings.vendor_link -%}
+
+            <div class="cta cta-orange cta-full">
+              <a class="cta-link" href="{{block.settings.vendor_link}}">Buy on Amazon.com</a>
+            </div>
+
+          {%- endif -%}

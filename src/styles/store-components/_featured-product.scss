@@ -1,0 +1,21 @@
+
+
+.featured-product.grid-2-break{
+  grid-column-gap: 0px;
+}
+
+.featured-product .product-content-block{
+  @include gutter;
+  min-width: 100%;
+  padding-bottom: $section-gutter;
+
+  @include media-query($medium-down){
+    background: transparent !important;
+  };
+
+  @include media-query($medium-up){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  };
+}

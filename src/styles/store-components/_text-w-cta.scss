@@ -1,0 +1,7 @@
+.text-with-cta{
+  @include media-query($medium-up){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  };
+}

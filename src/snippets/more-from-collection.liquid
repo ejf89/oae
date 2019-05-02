@@ -1,0 +1,57 @@
+<!-- more-from-collection.liquid -->
+
+{% assign number_of_products = 3 %}
+{% assign number_of_products_to_fetch = number_of_products | plus: 1 %}
+
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+  {% assign found_a_collection = false %}
+  {% for c in product.collections %}
+    {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if collection and collection.products_count > 1 %}
+<div id="related-products">
+  <div class="section-header section-header--medium">
+    <h1 class="h4 text-center italic section-header__title" >Related</h1>
+  </div>
+  <div class="">
+    {% assign current_product = product %}
+    {% assign current_product_found = false %}
+
+
+    <!-- <div class="grid-3 product-collection-items mobile-slider js-mobile-grid-remove "> -->
+    <div class="related-product-slider product-collection-items  ">
+    {% for product in collection.products limit: number_of_products_to_fetch %}
+
+
+    {%- comment %}
+      for swatches
+    {% endcomment -%}
+  {% capture availableVariant %}{%endcapture%}
+    {% for variant in product.variants %}
+      {% if variant.available %}
+        {% capture availableVariant %} {{availableVariant}} {{ variant.title | replace: ' ', '' }} + {{ variant.image | img_url: '700x'}} + {{ variant.url }}, {%endcapture%}
+      {% endif %}
+    {% endfor %}
+
+      {% if product.handle == current_product.handle %}
+        {% assign current_product_found = true %}
+      {% else %}
+        {% unless current_product_found == false and forloop.last %}
+          {% assign grid_item_width = 'one-quarter  small--one-half' %}
+          {% include 'collection-item',  availableVariant: availableVariant, slider_child: true %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+      </div>
+
+  </div>
+</div>
+{% endif %}
+
+
+<div class="space-m"></div>

@@ -1,0 +1,42 @@
+@charset 'UTF-8';
+
+
+
+@import "./src/styles/_variables.scss";
+@import "./src/styles/_mixins.scss";
+@import "./src/styles/_reset.scss";
+@import "./src/styles/_grid.scss";
+@import "./src/styles/_bismuth-normalize.scss";
+@import "./src/styles/_helpers.scss";
+@import "./src/styles/_vendor.scss";
+@import "./src/styles/_sliders.scss";
+@import "./src/styles/store-components/_header.scss";
+@import "./src/styles/store-components/_index.scss";
+@import "./src/styles/store-components/_homepage.scss";
+@import "./src/styles/store-components/_hero-static.scss";
+@import "./src/styles/store-components/_featured-product.scss";
+@import "./src/styles/store-components/_text-w-cta.scss";
+@import "./src/styles/store-components/_pages.scss";
+@import "./src/styles/store-components/_footer.scss";
+@import "./src/styles/store-components/_blog.scss";
+@import "./src/styles/store-components/_collection.scss";
+@import "./src/styles/store-components/_list-collections.scss";
+@import "./src/styles/store-components/_product.scss";
+@import "./src/styles/store-components/_cart.scss";
+@import "./src/styles/store-components/_customer-pages.scss";
+@import "./src/styles/store-components/_video-hero.scss";
+
+
+*{
+  font-family: var(--font-second) !important;
+}
+
+// F.O.U.C. FIX
+html {
+    visibility: visible;
+    opacity: 1;
+}
+// MINI CART FLASH FI
+.mini-cart{
+  display: block;
+}

@@ -1,0 +1,76 @@
+<!-- product-collection-slider.liquid -->
+
+
+{%- for block in section.blocks -%}
+  {% capture handle_gradients %}{{handle_gradients}}, {{ block.settings.selected_product }}+{{ block.settings.gradient_tag }}{% endcapture %}
+{%- endfor -%}
+
+{% assign handle_gradients_split = handle_gradients | split: ", "  %}
+
+<div id="product-gradient-data" class="product-gradient-values visually-hidden">
+  {{handle_gradients}}
+</div>
+
+
+{%- if collection -%}
+
+
+{% assign related_source = collections[collection] %}
+
+
+      <div id="product-collection-container">
+        <div class="section-header section-header--medium gutter">
+          <h1 class="h4 text-left section-header__title" >{{related_source.title}}</h1>
+        </div>
+        <div class="">
+          {% assign current_product = product %}
+          {% assign current_product_found = false %}
+
+          <div class="product-collection-slider product-collection-items js-slider-hook" data-slider="product-collection-slider" data-options="{
+            contain: false,
+            wrapAround: true,
+            imagesLoaded: true,
+            variableWidth: true,
+            prevNextButtons: false,
+            cellAlign: 'left'
+          }">
+            {% for product in related_source.products  %}
+
+
+                {%- for pair in handle_gradients_split -%}
+                  {%- if pair contains product.handle -%}
+                    {% assign gradient_tag = pair | split: '+' | last %}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                  {% if product.handle == current_product.handle %}
+                    {% assign current_product_found = true %}
+                  {% else %}
+                    {% unless current_product_found == false and forloop.last %}
+                    {% include 'collection-item',  availableVariant: availableVariant, slider_child: true, gradient_tag: gradient_tag %}
+                    {% endunless %}
+                  {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+      </div>
+
+      <script type="text/javascript">
+
+      // $(document).ready(function(){
+      //   $('.product-collection-slider').flickity({
+      //     contain: false,
+      //     wrapAround: true,
+      //     imagesLoaded: true,
+      //     variableWidth: true,
+      //     prevNextButtons: false,
+      //     cellAlign: 'center',
+      //     pageDots: false
+      //   })
+      // })
+
+      </script>
+
+  {%- endif -%}

@@ -1,0 +1,18 @@
+.hero-static{
+  min-height: 20vh;
+  padding: 3rem $gutter;
+  @include media-query($medium-up){
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  };
+}
+
+.hero-static-text{
+  @include media-query($medium-up){
+    max-width: 50%;
+    line-height: inherit;
+    margin: $large-gutter auto;
+  };
+}

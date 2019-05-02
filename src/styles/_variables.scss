@@ -1,0 +1,129 @@
+// 2.1 STORE (logo,mailchimp id, instagram id)
+// 2.2 SIZING
+// 2.3 COLORS
+// 2.4 FONTS
+// 2.6 SPACING
+
+
+//  ____  _____  ______          _  _______   ____ _____ _   _ _______ _____
+// |  _ \|  __ \|  ____|   /\   | |/ |  __ \ / __ |_   _| \ | |__   __/ ____|
+// | |_) | |__) | |__     /  \  | ' /| |__) | |  | || | |  \| |  | | | (___
+// |  _ <|  _  /|  __|   / /\ \ |  < |  ___/| |  | || | | . ` |  | |  \___ \
+// | |_) | | \ \| |____ / ____ \| . \| |    | |__| _| |_| |\  |  | |  ____) |
+// |____/|_|  \_|______/_/    \_|_|\_|_|     \____|_____|_| \_|  |_| |_____/
+$size-medium: 750px;
+$size-large: 990px;
+$size-widescreen: 1500px;
+$max-width: $size-widescreen;
+$small: 'small';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$widescreen: 'widescreen';
+$breakpoint-has-widths: ($small, $medium-up);
+// The `$breakpoints` list is used to build our media queries.
+$breakpoints: (
+  $small '(max-width: #{$size-medium - 1})',
+  $medium '(min-width: #{$size-medium}) and (max-width: #{$size-large - 1})',
+  $medium-down '(max-width: #{$size-large - 1})',
+  $medium-up '(min-width: #{$size-medium})',
+  $large '(min-width: #{$size-large}) and (max-width: #{$size-widescreen - 1})',
+  $large-down '(max-width: #{$size-widescreen - 1})',
+  $large-up '(min-width: #{$size-large})',
+  $widescreen '(min-width: #{$size-widescreen})'
+);
+$breakpoint-has-widths: ('small', 'medium', 'medium-down', 'medium-up', 'large-down', 'large-up', 'large', 'widescreen');
+
+
+
+
+//   _____ ____  _      ____  _____   _____
+//  / ____/ __ \| |    / __ \|  __ \ / ____|
+// | |   | |  | | |   | |  | | |__) | (___
+// | |   | |  | | |   | |  | |  _  / \___ \
+// | |___| |__| | |___| |__| | | \ \ ____) |
+//  \_____\____/|______\____/|_|  \_|_____/
+
+$color-body: gray;
+$color-bg: gray;
+$color-border: gray;
+$color-link: gray;
+$color-red:#B83724;
+$color-background: #E8E5DF;
+
+// Helper colors for form error states
+$color-disabled: #000;
+$color-disabled-border: #000;
+$color-error: red;
+$color-error-bg: lightyellow;
+$color-success: green;
+$color-success-bg: lightgreen;
+
+$gradient-anchor:#000;
+
+
+
+
+//  _________     _______   ____   _____ _____           _____  _    ___     __
+// |__   __\ \   / |  __ \ / __ \ / ____|  __ \    /\   |  __ \| |  | \ \   / /
+//    | |   \ \_/ /| |__) | |  | | |  __| |__) |  /  \  | |__) | |__| |\ \_/ /
+//    | |    \   / |  ___/| |  | | | |_ |  _  /  / /\ \ |  ___/|  __  | \   /
+//    | |     | |  | |    | |__| | |__| | | \ \ / ____ \| |    | |  | |  | |
+//    |_|     |_|  |_|     \____/ \_____|_|  \_/_/    \_|_|    |_|  |_|  |_|
+
+/*================ Typography & Text ================*/
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-size-base: 20px;
+
+
+.text-left{text-align: left !important;}
+.text-right{text-align: right !important;}
+.text-center{text-align: center !important;}
+
+/*================ Responsive Text Alignment Mixin ================*/
+@mixin responsive-text-align-helper($breakpoint: '') {
+  // sass-lint:disable no-important
+  .#{$breakpoint}text-left {text-align: left !important;}
+  .#{$breakpoint}text-right {text-align: right !important;}
+  .#{$breakpoint}text-center {text-align: center !important;}
+}
+/*================ Responsive Text Alignment Mixin ================*/
+@mixin responsive-text-align-helper($breakpoint: '') {
+  .#{$breakpoint}text-left {text-align: left !important;}
+  .#{$breakpoint}text-right {text-align: right !important;}
+  .#{$breakpoint}text-center {text-align: center !important;}
+}
+
+
+
+//   _____ _____        _____ _____ _   _  _____
+//  / ____|  __ \ /\   / ____|_   _| \ | |/ ____|
+// | (___ | |__) /  \ | |      | | |  \| | |  __
+//  \___ \|  ___/ /\ \| |      | | | . ` | | |_ |
+//  ____) | |  / ____ | |____ _| |_| |\  | |__| |
+// |_____/|_| /_/    \_\_____|_____|_| \_|\_____|
+
+$space-s: 20px;
+$space-m: 60px;
+$space-l: 120px;
+
+/*================ Spaces Classes ================*/
+.space-xs{width:100%;height:$space-s - 18;}
+.space-s{width:100%;height:$space-s;}
+.space-m{width:100%;height:$space-m;}
+.space-l{width:100%;height:$space-l;}
+
+$half-gutter: 15px;
+$gutter: 30px;
+$double-gutter: 60px;
+$large-gutter: 160px;
+$grid-gap: 10px;
+$section-gutter: 16px;
+$desktop-gutter: 100px;
+
+$max-width: 1800px;
+$section-max-width: 1400px;

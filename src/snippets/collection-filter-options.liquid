@@ -1,0 +1,298 @@
+<!-- collection-filter-options.liquid -->
+
+{% if collection.url == blank  %}
+	{% assign collection-url = "/collections/all" %}
+{%else%}
+	{% assign collection-url = collection.url %}
+{%endif%}
+
+
+<h4 id="collection-top">Collection Filters</h4>
+<div class=" grid-6">
+
+	 <!-- Make a list of product types -->
+	{% for product in collection.products %}
+
+		{% assign product-type = product.type %}
+		{% unless product-type-list contains product-type %}
+		    {% capture product-type-list %}{{ product-type-list }}, {{ product-type }}{% endcapture %}
+		{% endunless %}
+
+	{% endfor %}
+
+	{% assign product_type_list_split = product-type-list | split: ", " %}
+
+
+	<div class="filter-container " id="item-type">
+		<label for="filter_by_type "> Type
+			<select class="filter-by-type-select filter-select js-data-productType " name="">
+				<option value="Clear">Clear</option>
+
+				{%- for product_type in product_type_list_split -%}
+					{%- if product_type != "" -%}
+					<option class="tag-check" value="{{ product_type }} ">
+						{{ product_type }}
+					</option>
+					{%- endif -%}
+				{%- endfor -%}
+			</select>
+		</label>
+		</div>
+
+		 <!-- Make a list of productVendor -->
+		{% for product in collection.products %}
+			{% assign product-vendor = product.vendor %}
+			{% unless product-vendor-list contains product-vendor %}
+			    {% capture product-vendor-list %}{{ product-vendor-list }}, {{ product-vendor }}{% endcapture %}
+			{% endunless %}
+		{% endfor %}
+
+		{% assign product_vendor_list_split = product-vendor-list | split: ", " | sort %}
+
+		<div class="filter-container " id="vendor">
+			<label for="filter_by_vendor "> Vendor
+				<select class=" filter-by-vendor-select filter-select js-data-productType " name="">
+					<option value="Clear">Clear</option>
+
+					{%- for product_vendor in product_vendor_list_split -%}
+						{%- if product_vendor != "" -%}
+						<option class="tag-check" value="{{- product_vendor | replace: ' ', '' -}} ">
+							{{ product_vendor }}
+						</option>
+						{%- endif -%}
+					{%- endfor -%}
+
+				</select>
+			</label>
+			</div>
+
+      			<!-- End Vendor -->
+
+
+		<!-- Dynamically loop though products and make unique product option dropdowns -->
+		{% for product in collection.products %}
+		{% for product_option in product.options_with_values %}
+		<!-- Make a list of collection options -->
+			{% assign option_name = product_option.name %}
+			{% unless option_name_list contains option_name %}
+			    {% capture option_name_list %}{{ option_name_list }}, {{ option_name }}{% endcapture %}
+			{% endunless %}
+		<!-- Make a list of pais of options and values <Color: Blue, Size: S, etc etc> -->
+		    {% for value in product_option.values %}
+				{% capture collection_options %}{{ collection_options }}, {{ product_option.name }}: {{ value }}{% endcapture %}
+		   	{% endfor %}
+		{% endfor %}
+		{% endfor %}
+
+
+
+		{% assign option_name_list_split = option_name_list | split: ", " | sort %}
+
+		{% assign option_name_list_split = option_name_list | split: ", " %}
+		<!-- Makes a dropdown per each option -->
+		{% for option_name in option_name_list_split %}
+			{% if option_name != '' %}
+			<div class="filter-container" id='{{ option_name | downcase }}'>
+
+
+		    <label for="">{{ option_name }}
+		    <select class="filter-by-option-select filter-select js-data-variantsAvailable" >
+		     <!-- <option value="{{shop.url}}{{collection.url}}/#all" >All</option> -->
+		     <option for=""  value="Clear">Clear</option>
+		    {% assign collection_options_split = collection_options | split: ", " %}
+			{% assign value_name_list = "-" %}
+
+		    {% for value in collection_options_split %}
+		        {% assign value_option_name = value | split: ": " | first %}
+		        {% assign value_name = value | split: ": " | last %}
+
+		      <!--       Adds unique values to the related option dropdown -->
+		        {% if value_option_name == option_name %}
+		            {% assign value_name_compare = value_name | append: "-" | prepend: "-" %}
+		            {% unless value_name_list contains value_name_compare %}
+		                <!-- <option value="{{shop.url}}{{collection-url}}/#{{ value_name }}" >{{ value_name }}</option> -->
+		                <option class="tag-check" value="{{value_name}}" >{{ value_name }}</option>
+		                {% capture value_name_list %}-{{ value_name }}-{{ value_name_list }}{% endcapture %}
+		            {% endunless %}
+		        {% endif %}
+
+		    {% endfor %}
+		    </select>
+		    </label>
+
+			</div>
+		{%endif%}
+		{% endfor %}
+
+
+  </div>   <!-- gridclose -->
+
+<script>
+'use strict';
+
+$(document).ready(function () {
+
+	var prods = $('.product-collection-item');
+
+
+	/////////filters
+	$('.filter-select').on('change', function (e) {
+		console.log("CHANGING!");
+		e.preventDefault();
+		var $this = $(this);
+		var value = $this.val().trim();
+		var container = $this.parent().parent()
+		var container_id = $(container).attr('id')
+
+
+		if (value !== "Clear") {
+			$this.addClass('active-tag')
+			localStorage.setItem('filterToggle+' + container_id, value)
+			console.log(localStorage);
+		} else {
+			$this.removeClass('active-tag')
+			delete localStorage['filterToggle+' + container_id]
+			console.log(localStorage);
+		}
+
+		if ($('.active-tag').length) {
+			console.log("filtering");
+			filter(prods);
+		} else {
+			prods.each(function (i, el) {
+				$(el).removeClass('visually-hidden');
+			});
+		}
+	});
+
+
+
+
+	var filterKeys = Object.keys(localStorage)
+
+	filterKeys.forEach(function(el, i){
+		console.log(el);
+		if (el.indexOf('filterToggle') > -1) {
+			var id = el.split('+')[1]
+			var container = $(`#${id}`).find('select')
+			var value = localStorage[el]
+
+			container.val(value).trigger('change')
+			filter(prods)
+		}
+	})
+
+
+
+	function filter(prods) {
+		var values = $('.active-tag');
+		for (var i = 0; i < prods.length; i++) {
+			var prod = $(prods[i]);
+
+			var tags = prod.data('tags');
+			var variants = prod.data('variantsavailable').split(', ');
+			var type = prod.data('producttype');
+			var vendor = prod.data('productvendor');
+			var options = prod.data('productoption');
+
+			var flagArray = [];
+
+			for (var v = 0; v < values.length; v++) {
+				flagArray.push(false);
+			}
+
+			for (var t = 0; t < values.length; t++) {
+				var value = $(values[t]).val().trim().toLowerCase();
+
+				var filterTitle = $(values[t]).closest(".filter-container").attr('id').toLowerCase()
+				if (filterTitle.indexOf('type') > -1) {
+					console.log("TYPE");
+					if (type.indexOf(value) > -1) {
+						flagArray[t] = true;
+					}
+				} else if (filterTitle.indexOf('vendor') > -1) {
+					console.log("VENDOR");
+					if (vendor.indexOf(value) > -1) {
+						flagArray[t] = true;
+					}
+				} else if (filterTitle.indexOf('style') > -1) {
+					console.log('STYLE');
+					value = value.replace(' ', '');
+					if (variants.indexOf(value) > -1) {
+						flagArray[t] = true;
+					}
+				} else if (filterTitle.indexOf('color') > -1) {
+					console.log('COLOR');
+					if (options.indexOf(value) > -1) {
+						flagArray[t] = true;
+					}
+				} else if (filterTitle.indexOf('size') > -1) {
+					console.log('SIZE');
+					if (variants.indexOf(value) > -1) {
+						flagArray[t] = true;
+					}
+				}
+			}
+
+			if (flagArray.indexOf(false) == -1) {
+				console.log("match");
+				console.log(flagArray);
+				prod.addClass('visually-shown');
+
+			} else {
+				console.log(flagArray);
+				prod.removeClass('visually-shown');
+				prod.addClass('visually-hidden');
+			}
+
+			if ($('.product-collection-item.visually-shown').length < 4) {
+				$('.product-collection-item.visually-shown').addClass('prod-max-height');
+			}
+		}
+		return false
+	}
+
+
+
+	var filters = $('.filter-container');
+
+	filters.each(function (i, el) {
+		var $this = $(el);
+		if ($this.find('.tag-check').length <= 2) {
+			$this.remove();
+		}
+	});
+});
+
+
+// SNIPPET FOR API REQUEST TO GET ITEMS BEYOND PAGINATION //
+
+// var products_count = '{{ collection.products_count }}',
+//     pages_count = Math.ceil(products_count / 1000),
+//     base_url = location.pathname + "?page=",
+//     // generate the paginated URLs
+// i = 2;
+
+// if (pages_count > 1) {
+// 	$('.pagination').hide();
+// 	var getItems = function getItems(callback) {
+//
+// 		for (i = 2; i <= pages_count; i++) {
+// 			// loop through each paginated page
+// 			$.get(base_url + i, function (data) {
+// 				// get all the html
+// 				console.log("GETTING OTHER PAGES");
+// 				var items = $(data).find('.product-collection-item'); // find just the products
+//
+// 				callback(items);
+//
+// 				$('.product-collection-items').last().append(items); // append them to the page
+// 			});
+// 		}
+// 	};
+//
+// 	getItems(filter);
+// }
+
+
+</script>

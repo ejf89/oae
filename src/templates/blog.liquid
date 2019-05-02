@@ -1,0 +1,57 @@
+<!-- blog.liquid -->
+{% paginate blog.articles by 10 %}
+
+  {%- assign blog_title = blog.title -%}
+
+  {% if current_tags %}
+    {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
+  {% endif %}
+
+
+  {% if blog.all_tags.size > 0 %}
+    <h2>{{ 'blogs.general.categories' | t }}</h2>
+    <ul>
+      {% for tag in blog.all_tags %}
+        {% if current_tags contains tag %}
+          <li>{{ tag }}</li>
+        {% else %}
+          <li>{{ tag | link_to_tag: tag }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+{% comment %}
+Article Previews
+====================
+{% endcomment %}
+<div class="blog-flex-container grid-3">
+  {% for article in blog.articles %}
+  <!-- <div class="blog-preview image-fit"  style="width:{% cycle '100%', '50%', '50%', '25%', '25%', '25%', '25%'%};"> -->
+  <div class="blog-preview image-fit"  style="width:{% cycle '100%', '50%', '50%', '33.33%', '33.33%', '33.33%'%};">
+    <h3 class="center" ><a class="blog-preview-title" href="{{ article.url }}">{{ article.title }}</a></h3>
+    <!-- <p>{{ 'blogs.article.author_on_date_html' | t: author: article.author, date: date }}</p> -->
+
+    {% if article.image %}
+    	<a href="{{ article.url }}">{{ article | img_url: '1024x1024' | img_tag: article.title }}</a>
+    {% endif %}
+
+
+
+  </div>
+  {% endfor %}
+</div>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}
+
+
+
+{%- comment %}
+	This is a foo
+<div style="width:{% cycle '100%', '50%', '50%'%};">img</div>
+{% endcomment -%}

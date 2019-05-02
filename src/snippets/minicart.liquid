@@ -1,0 +1,104 @@
+<!-- minicart.liquid -->
+<section class="mini-cart-overlay"></section>
+
+<section class="mini-cart" data-cart-view="data-cart-view">
+
+    <div class="mini-cart-body">
+
+        <div class="mini-cart-item clearfix" rv-each-item="cart.items" >
+            <a rv-href="item.url">
+            <div class="mini-cart-item-image">
+                <img rv-src="item.image | product_image_size 'large'" rv-alt="item.title" class="img-fullwidth">
+            </div>
+            </a>
+            <div class="mini-cart-item-title">
+                <a rv-href="item.url" rv-text="item.product_title | lower"></a>
+            </div>
+
+            <ul class="mini-cart-item-options" rv-unless="item.variant_options | array_first | eq 'Default Title'">
+                <li rv-each-option="item.variant_options" rv-text="option"></li>
+            </ul>
+
+            <div class="mini-cart-item-properties-wrapper" rv-unless="item.propertyArray | empty">
+                <ul class="mini-cart-item-properties">
+                    <li rv-each-property="item.propertyArray">{property.name}: {property.value}</li>
+                </ul>
+            </div>
+
+            <div class="mini-cart-item-quantity-wrapper">
+                <a class="mini-cart-item-quantity-update" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1">&#150;</a>
+                <span class="mini-cart-item-quantity" rv-text="item.quantity"></span>
+                <a class="mini-cart-item-quantity-update" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1">&#43;</a>
+            </div>
+
+            <div class="mini-cart-line-price-wrapper">
+                <span class="mini-cart-line-price" rv-html="item.line_price | money_with_currency"></span>
+                <span rv-unless="item.propertyArray | empty">+ <span rv-text="item.quantity | times 1000 | money Currency.currentCurrency"></span></span>
+            </div>
+
+
+            <a rv-data-item-line-number="index | plus 1" class="mini-cart-item-remove" rv-data-item-quantity="item.quantity" rv-data-item-title="item.variant_title">Remove</a>
+
+        </div>
+    </div>
+
+    <div class="mini-cart-header ">
+        <div class="mini-cart-title">shopping bag</div>
+        <div class="mini-cart-close">close</div>
+    </div>
+
+    <div class="mini-cart-footer">
+
+        <div class="mini-cart-total">
+            Total: <span class="total-price" rv-html="cart.total_price | money Currency.currentCurrency"></span>
+        </div>
+
+        <div class="mini-cart-button-container">
+        <a class="btn mini-cart-footer-link " href="/cart">Cart</a>
+
+        <form action="/cart" method="post" id="mini-cart-form">
+
+            <input type="submit" disabled name="checkout" value="Currently Empty" class="mini-cart-checkout" rv-unless="cart.item_count | gt 0">
+
+            <input type="submit" name="checkout" value="Checkout" class="mini-cart-checkout mini-cart-checkout-enabled" rv-if="cart.item_count | gt 0">
+
+
+        </form>
+      </div>
+
+    </div>
+
+</section>
+
+<script type="text/javascript">
+
+    var cartJson = {{ cart | json }};
+
+    $(function() {
+
+        //Initialise Cart.js once the page has loaded
+        CartJS.init(cartJson, {
+            "dataAPI": true,
+            "requestBodyClass": "cartjs-loading"
+        });
+
+        $(document).on('click', '.mini-cart-item-remove', function(event){
+
+            //Get item line number in the cart
+            var miniCartItemLineNumber = $(this).data('item-line-number');
+
+
+            CartJS.removeItem(miniCartItemLineNumber, {
+                "success": function(data, textStatus, jqXHR) {
+                    // callback placeholder
+                },
+                "error": function(jqXHR, textStatus, errorThrown) {
+                    console.log('Error: ' + errorThrown);
+                }
+            });
+
+        });
+
+
+    });
+</script>

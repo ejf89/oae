@@ -1,0 +1,64 @@
+<header role="banner">
+  <div class="collection-header-container grid-2-1">
+
+    {% if collection.image %}
+    <div class="collection-image image-fit">
+      <img class="" src="{{ collection.image | img_url: '1200x' }}"/>
+    </div>
+    {% endif %}
+
+      <div class="collection-description-container">
+        <h1 class="collection-title">{{ collection.title }}</h1>
+
+      {%- if collection.description != blank -%}
+       <h1>{{ collection.description }}</h1>
+       {% else %}
+       <p>Collection Description Placeholder</p>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+<div class="collection-meta grid-3 grid-left visually-hidden">
+  {% if collection.all_tags.size > 0 %}
+      <ul class="collection-tags">
+         <h4>Collection Tags</h4>
+        <p>
+        {% for tag in collection.all_tags %}
+          {% if current_tags contains tag %}
+            <span class="active">{{ tag | link_to_remove_tag: tag }} </span> /
+          {% else %}
+            <span>{{ tag | link_to_tag: tag }} </span>/
+          {% endif %}
+        {% endfor %}
+        </p>
+      </ul>
+  {% endif %}
+
+  <ul>
+    <h4 class="products-count"> Number of products</h4>
+    <p>{{ collection.products_count }} Products</p>
+  </ul>
+
+
+  <ul>
+    <p>
+      <label for="sort-by-order"><h4>Sort By</h4></label>
+      <select id="sort-by-order">
+        <option value="manual">Featured</option>
+        <option value="price-ascending">Price: Low to High</option>
+        <option value="price-descending">Price: High to Low</option>
+        <option value="title-ascending">A-Z</option>
+        <option value="title-descending">Z-A</option>
+        <option value="created-ascending">Oldest to Newest</option>
+        <option value="created-descending">Newest to Oldest</option>
+        <option value="best-selling">Best Selling</option>
+      </select>
+    </p>
+  </ul>
+
+</div>
+<hr>
+
+<div class="collection-filters grid-left">{% include "collection-filter-options" %}</div>
+<hr>

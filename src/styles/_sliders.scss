@@ -1,0 +1,113 @@
+.grid-product-page{
+  justify-content: unset !important;
+  justify-items: unset !important;
+  margin-bottom: 2rem;
+}
+
+.product-slider li, .featured-product-slider li{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slideshow-slide{
+  width: 100%;
+}
+.hero-slider img {
+  width: 100%;
+}
+.hero-slider .flickity-page-dots{
+  position: unset;
+  bottom: unset;
+}
+
+.featured-product-slider img, .collection-slider img{
+  height: 100%;
+  margin: auto;
+  @include media-query($small){
+    object-fit: contain;
+  };
+}
+
+
+.product-collection-slider{
+  // padding-left: $gutter;
+}
+.product-collection-slider img {
+  margin: auto;
+}
+.product-collection-slide{
+  width: 50% !important;
+  margin-right: 10%;
+  min-height: 100%;
+}
+
+.featured-collection-slider .product-collection-slide , .product-collection-slider .product-collection-slide{
+
+  @include media-query($medium-up){
+    width: 25% !important;
+    margin-right: 5%;
+  };
+}
+
+.desktop-slider-padding{
+  @include media-query($medium-up){
+    padding-left: $desktop-gutter;
+    padding-right: $desktop-gutter;
+  };
+}
+
+.blog-slider img {
+  margin: auto;
+  height: 100%;
+}
+.slideshow-slide{position:relative}
+.slideshow-slide-image{z-index:8;}
+.slideshow-height-small{ height: 475px!important; max-height:100vh;}
+.slideshow-height-medium{ height: 650px!important; max-height:100vh;}
+.slideshow-height-large{
+  height: 775px!important;
+  max-height:100vh;
+  @include media-query($small){
+    max-height: 50vh;
+  };
+}
+.slideshow-slide-text {
+  padding: 30px;
+}
+.slideshow-slide-text.bottom-content{
+  position:absolute;
+  bottom:0;
+  z-index:10;
+  width: 100%;
+}
+
+.slideshow-slide-text.center-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  text-align:center;
+  transform: translateX(-50%) translateY(-50%);
+  z-index:10;
+  width: 100%;
+}
+
+
+.mobile-slider{
+  &:after{
+    content: '';
+    display: none;
+  }
+  @include media-query($small){
+    width: 100;
+    display: block !important;
+    &:after{
+      content: 'flickity';
+      display: none;
+    }
+
+    .collection-list-item{
+      width: 100%;
+    }
+  };
+}

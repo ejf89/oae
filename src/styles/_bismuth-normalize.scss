@@ -1,0 +1,328 @@
+// 3.0 NORMALIZE & RESETS
+// 	3.1 RESET
+// 	3.2 BISMUTH RESET
+// 			3.2.1 FONTS
+// 			3.2.1 COLORS
+// 			3.2.1 SPACES
+// 			3.2.1 IMAGE
+// 			3.2.1 FORMS
+// 			3.2.1 LINKS AND BUTTONS
+
+
+
+#preview-bar-iframe{
+  display: none !important;
+}
+
+
+/*============================================================================
+Form scaffolding
+- Selectors setup for you to style form elements how you want
+- Focus, error, and disabled states are set to be extended
+==============================================================================*/
+input,
+textarea,
+select {
+  // border: 1px solid $color-border;
+  border: 1px solid $color-border;
+  border-radius: 0;
+  max-width: 100%;
+
+  &:focus {
+    // You should add some focus styles
+  }
+
+  &[disabled] {
+    cursor: default;
+    background-color: $color-disabled;
+    border-color: $color-disabled-border;
+  }
+}
+textarea {min-height: 100px;}
+/* Create a custom checkbox */
+.container { display: block; position: relative; padding-left: 35px; margin-bottom: 12px; cursor: pointer; font-size: 22px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .container input { position: absolute; opacity: 0; cursor: pointer; } .checkmark { position: absolute; top: 0; left: 0; height: 25px; width: 25px; background-color: #eee; } .container:hover input ~ .checkmark { background-color: #ccc; } .container input:checked ~ .checkmark { background-color: #000; } .checkmark:after { content: ""; position: absolute; display: none; } .container input:checked ~ .checkmark:after { display: block; } .container .checkmark:after { left: 9px; top: 5px; width: 5px; height: 10px; border: solid white; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+/* Create a custom radio selector */
+.container { display: block; position: relative; padding-left: 35px; margin-bottom: 12px; cursor: pointer; font-size: 22px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .container input { position: absolute; opacity: 0; cursor: pointer; } .radio-select { position: absolute; top: 0; left: 0; height: 25px; width: 25px; background-color: #eee; border-radius: 50%; } .container:hover input ~ .radio-select { background-color: #ccc; } .container input:checked ~ .radio-select { background-color: var(--color-2); } .radio-select:after { content: ""; position: absolute; display: none; } .container input:checked ~ .radio-select:after { display: block; } .container .radio-select:after { top: 9px; left: 9px; width: 8px; height: 8px; border-radius: 50%; background: white; }
+
+/*================ Custom select style ================*/
+select {
+  @include prefix(appearance, none, webkit moz spec);
+  padding-right: 28px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  cursor: pointer;
+
+  /*================ Hide the svg arrow in IE9 ================*/
+  .ie9 & {
+    padding-right: 10px;
+    background-image: none;
+  }
+}
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  min-width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: 130px center;
+  background-color: var(--color-3);
+}
+
+/* CAUTION: IE hackery ahead */
+select::-ms-expand {
+  display: none; /* remove default arrow on ie10 and ie11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+  select {
+    background:none\9;
+    padding: 5px\9;
+  }
+}
+
+
+
+ //  _______       ____  _      ______
+ // |__   __|/\   |  _ \| |    |  ____|
+ //    | |  /  \  | |_) | |    | |__
+ //    | | / /\ \ |  _ <| |    |  __|
+ //    | |/ ____ \| |_) | |____| |____
+ //    |_/_/    \_\____/|______|______|
+ //
+
+/*============================================================================
+Tables & Responsive tables, defined with .responsive-table on table element.
+==============================================================================*/
+table {
+  // border:1pt solid black;
+}
+/* responsive tables for desktop */
+@include media-query($medium-up) {
+  table.responsive-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  tr{
+    height: 2.5em;
+  }
+  tbody tr{
+    border-top:1pt solid black;
+  }
+}
+/* responsive tables for mobile */
+@include media-query($small) {
+  .responsive-table {
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+    }
+
+    // IE9 table layout fixes
+    tr,
+    td {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
+
+    th,
+    td {
+      display: block;
+      text-align: right;
+      padding: $gutter / 2;
+      margin: 0;
+    }
+
+    td::before {
+      // content: attr(data-label);
+      // float: left;
+      // text-align: center;
+      // padding-right: 10px;
+    }
+  }
+  // Add a keyline between rows
+  .responsive-table-row + .responsive-table-row,
+  tfoot > .responsive-table-row:first-child {
+    position: relative;
+    margin-top: 10px;
+    padding-top: $gutter / 2;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: $gutter / 2;
+      right: $gutter / 2;
+      border-bottom: 1px solid $color-border;
+    }
+  }
+}
+
+
+/*================ Rich Text Editor ================*/
+.rte {
+  img {
+    height: auto;
+  }
+  table {
+    table-layout: fixed;
+  }
+  ul,
+  ol {
+    margin: 0 0 ($gutter / 2) $gutter;
+  }
+  // Match the styles from RTE nested lists
+  ul {
+    list-style: disc outside;
+
+    ul {
+      list-style: circle outside;
+
+      ul {
+        list-style: square outside;
+      }
+    }
+  }
+}
+.text-center.rte,
+.text-center .rte {
+  ul,
+  ol {
+    margin-left: 0;
+    list-style-position: inside;
+  }
+}
+
+// allow table to scroll for tables in the RTE since we don't know
+// how many columns they will contain. Class added by JS.
+// sass-lint:disable no-misspelled-properties
+.rte-table {
+  max-width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// This class is wrapped around YouTube/Vimeo embeds in the RTE
+// to make them responsive and prevent layout breaking
+.rte__video-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  height: auto;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // height: 100%;
+  }
+}
+
+// This class is wrapped around tables in the RTE
+// to prevent layout breaking with a scrollable parent
+.rte__table-wrapper {
+  max-width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/*================ Giftcard Template ================*/
+.giftcard-qr {
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.apple-wallet-image {
+  display: block;
+  margin: 0 auto;
+}
+/*================ Print Giftcard Styles ================*/
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  html,
+  body {
+    // sass-lint:disable no-color-literals
+    background-color: blue !important;
+    color: #000;
+    overflow: hidden;
+    width: 100vw;
+  }
+
+  .print-giftcard,
+  .apple-wallet {
+    display: none;
+  }
+}
+
+
+/*================ Error styles ================*/
+input,
+select,
+textarea {
+  &.input-error {
+    border-color: $color-error;
+    background-color: $color-error-bg;
+    color: $color-error;
+  }
+}
+
+$color-blankstate: rgba($color-body, 0.35);
+$color-blankstate-border: rgba($color-body, 0.2);
+$color-blankstate-background: rgba($color-body, 0.1);
+
+.placeholder-svg {
+  display: block;
+  fill: $color-blankstate;
+  background-color: $color-blankstate-background;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid $color-blankstate-border;
+}
+
+.placeholder-svg--small {width: 480px;}
+.placeholder-noblocks {
+  padding: 40px;
+  text-align: center;
+}
+// Mimic a background image by wrapping the placeholder svg with this class
+.placeholder-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .icon {
+    border: 0;
+  }
+}

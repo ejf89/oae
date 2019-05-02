@@ -1,0 +1,150 @@
+<!-- related-products.liquid -->
+
+
+{% assign number_of_products = section.settings.products_to_fetch %}
+{% assign number_of_products_to_fetch = number_of_products | plus: 1 %}
+
+  {%- if section.settings.relation_source == "collection" -%}
+
+      {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+        {% assign found_a_collection = false %}
+        {% for c in product.collections %}
+          {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+            {% assign found_a_collection = true %}
+            {% assign collection = c %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+{% assign related_source = collection %}
+
+      {% if related_source.products_count > 1 %}
+      <div id="related-products">
+        <div class="section-header section-header--medium">
+          <h1 class="h4 text-center italic section-header__title" >Related</h1>
+        </div>
+        <div class="">
+          {% assign current_product = product %}
+          {% assign current_product_found = false %}
+
+          <div class="related-product-slider product-collection-items  ">
+        {% for product in related_source.products limit: number_of_products_to_fetch %}
+
+          {%- comment %}
+            for swatches
+          {% endcomment -%}
+        {% capture availableVariant %}{%endcapture%}
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              {% capture availableVariant %} {{availableVariant}} {{ variant.title | replace: ' ', '' }} + {{ variant.image | img_url: '700x'}} + {{ variant.url }}, {%endcapture%}
+            {% endif %}
+          {% endfor %}
+
+            {% if product.handle == current_product.handle %}
+              {% assign current_product_found = true %}
+            {% else %}
+              {% unless current_product_found == false and forloop.last %}
+              {% include 'collection-item',  availableVariant: availableVariant, slider_child: true %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+            </div>
+
+        </div>
+      </div>
+      {% endif %}
+
+
+{%- comment %}
+	MAIN ELSE ( collection vs type )
+{% endcomment -%}
+{%- else  -%}
+
+
+{% assign product_type = product.type %}
+{% assign by_type_check = true  %}
+{% assign related_source = collections.all  %}
+
+{%- for product in related_source.products -%}
+  {%- if product.type == product_type -%}
+  {% capture type_matches %}{{ type_matches }},{{ product.handle }}{% endcapture %}
+  {%- endif -%}
+{%- endfor -%}
+
+
+{% assign type_matches_split = type_matches | split: ',' %}
+
+
+{% if related_source.products_count > 1 %}
+<div id="related-products">
+  <div class="section-header section-header--medium">
+    <h1 class="h4 text-center italic section-header__title" >Related</h1>
+  </div>
+  <div class="">
+    {% assign current_product = product %}
+    {% assign current_product_found = false %}
+
+    <div class="related-product-slider product-collection-items">
+  {% for handle in type_matches_split limit: number_of_products_to_fetch offset: 1 %}
+
+    {% assign product = all_products[handle]  %}
+
+      {% if product.handle == current_product.handle %}
+        {% assign current_product_found = true %}
+      {% else %}
+        {% unless current_product_found == false and forloop.last %}
+        {% include 'collection-item',  availableVariant: availableVariant, slider_child: true %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+      </div>
+
+  </div>
+</div>
+{% endif %}
+
+
+
+{%- endif -%}
+
+
+
+
+<div class="space-m"></div>
+
+{% schema %}
+  {
+    "name": "Related Products",
+    "settings": [
+      {
+        "type": "range",
+        "id": "products_to_fetch",
+        "min": 3,
+        "max": 24,
+        "step": 1,
+        "label": "Products To Fetch",
+        "default": 3
+      },
+      {
+        "type": "select",
+        "id": "relation_source",
+        "label": "Pull From",
+        "default": "collection",
+        "options": [
+          {
+            "label": "Collection",
+            "value": "collection"
+          },
+          {
+            "label": "Type",
+            "value": "type"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      }
+    ]
+  }
+{% endschema %}

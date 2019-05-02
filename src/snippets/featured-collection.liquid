@@ -1,0 +1,57 @@
+<!-- featured-collection.liquid -->
+
+{% assign related_source = collections[settings.featured_collection] %}
+
+      {% if related_source.products_count > 1 %}
+      <div id="product-collection-container">
+        <div class="section-header section-header--medium">
+          <h1 class="h4 text-left section-header__title gutter" >{{related_source.title}}</h1>
+        </div>
+        <div class="">
+          {% assign current_product = product %}
+          {% assign current_product_found = false %}
+
+          <div class="product-collection-slider product-collection-items  ">
+            {% for product in related_source.products  %}
+
+
+                {%- for pair in handle_gradients_split -%}
+                  {%- if pair contains product.handle -%}
+                    {% assign gradient_tag = pair | split: '+' | last %}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                  {% if product.handle == current_product.handle %}
+                    {% assign current_product_found = true %}
+                  {% else %}
+                    {% unless current_product_found == false and forloop.last %}
+                    {% include 'collection-item',  availableVariant: availableVariant, slider_child: true, gradient_tag: gradient_tag %}
+                    {% endunless %}
+                  {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+      </div>
+
+      <div class="space-m">
+
+      </div>
+
+      <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('.product-collection-slider').flickity({
+          contain: false,
+          wrapAround: true,
+          imagesLoaded: true,
+          variableWidth: true,
+          prevNextButtons: false,
+          cellAlign: 'left'
+        })
+      })
+
+      </script>
+
+      {% endif %}

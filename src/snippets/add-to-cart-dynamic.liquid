@@ -1,0 +1,320 @@
+<!-- add-to-cart-dynamic.liquid -->
+
+<!-- <div class="">
+  <h1>available</h1>
+  <div class="available-variants ">
+    {%- for variant in product.variants -%}
+    {%- if variant.available -%}
+    <p class="available-variant">{{ variant.title | replace: ' ', '' }}  </p>
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div> -->
+
+<form class="dynamic-add-to-cart-form " action="/cart/add" method="post" enctype="multipart/form-data">
+  {% unless product.has_only_default_variant %}
+    {% for option in product.options_with_values %}
+      <div class=" js master-select ">
+        <label for="SingleOptionSelector-{{ forloop.index0 }}">
+          {{ option.name }}
+        </label>
+
+        <select
+          class="product-option-value  variant--{{current_variant.id}}"
+          id="SingleOptionSelector-{{ forloop.index0 }}"
+          data-variant-option-index="{{ forloop.index0 }}"
+          data-single-option-selector
+          data-index="option-{{ option.position }}">
+          {% for value in option.values %}
+            <option
+              data-value="{{ value | escape }}"
+              value="{{ value | escape }}"
+              {% if option.selected_value == value %}selected="selected"{% endif %}>
+                {{ value }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+    {% endfor %}
+  {% endunless %}
+
+   <select name="id" class="no-js slate-master-select" data-product-select>
+    {% for variant in product.variants %}
+      <option class="product-variant"
+        {% if variant == current_variant %}selected="selected"{% endif %}
+        {% unless variant.available %}disabled="disabled"{% endunless %}
+        value="{{ variant.id }}"  data-variant-image-id="{{ variant.image.id }}">
+          {{ variant.title }}
+      </option>
+    {% endfor %}
+  </select>
+  <div
+    id="AddToCart"
+    class="Add-To-Cart-Button cta cta-purple"
+    type="submit"
+    name="add"
+    data-myvariantId='{{ current_variant.id }}'
+    data-add-to-cart
+    {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+      <span data-add-to-cart-text>
+        {% if current_variant.available %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+  </div>
+
+ <!-- hide quantity on featured product -->
+{%- if template != 'index' -%}
+  <!-- <label for="Quantity">{{ 'products.product.quantity' | t }}</label> -->
+  <input class="hide" type="number" id="Quantity" name="quantity" value="1" min="1"></input>
+  {%- endif -%}
+
+
+  <!-- <div data-price-wrapper>
+    <span data-product-price>
+      From {{ current_variant.price | money }}
+    </span>
+
+    {% if product.compare_at_price_max > product.price %}
+      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+      <s data-compare-price>
+        {% if current_variant.compare_at_price > current_variant.price %}
+          {{ current_variant.compare_at_price | money }}
+        {% endif %}
+      </s>
+    {% endif %}
+  </div> -->
+</form>
+
+
+<script type="text/javascript">
+$('.product-section-block').on('click', function(e){
+  e.stopImmediatePropagation()
+
+  var $productBlock = $(this)
+  var productIndex = $('.product-section-block').index(this)
+  var sections = new slate.Sections();
+  sections.register('product', theme.Product);
+
+
+function generateProductOptions(product){
+      var option0ValuesArray = [];
+      var option1ValuesArray = [];
+      var option2ValuesArray = [];
+      var optionValuesArray = [option0ValuesArray, option1ValuesArray ,option2ValuesArray];
+      var optionsArray = [];
+      $.each( product.variants, function( index, variant ) {
+          if ( variant.option1 && $.inArray(variant.option1, option0ValuesArray) === -1 )
+              option0ValuesArray.push(variant.option1);
+          if ( variant.option2 && $.inArray(variant.option2, option1ValuesArray) === -1 )
+              option1ValuesArray.push(variant.option2);
+          if ( variant.option3 && $.inArray(variant.option3, option2ValuesArray) === -1 )
+              option2ValuesArray.push(variant.option3);
+      });
+      $.each( product.options, function( index, optionName ) {
+          var option = {
+              name:optionName,
+              index: index,
+              values: optionValuesArray[index],
+          }
+          optionsArray.push(option);
+      });
+      if(optionsArray[0].name == 'Title' && optionsArray[0].values[0] == 'Default Title' && optionsArray[0].values.length == 1){
+          return {
+              options :optionsArray,
+              isDefault: true
+          }
+      }
+      else{
+          return {
+              options :optionsArray,
+              isDefault: false
+          }
+      }
+  }
+
+  function getVariantQuantityInCart(variantID, cart){
+    var variantQuantityInCart = 0;
+    $.each( cart.items, function( index, item ) {
+        if(item.variant_id == variantID){
+            variantQuantityInCart+=item.quantity;
+        }
+    });
+    return variantQuantityInCart
+}
+
+var productJson = sections.instances[productIndex].productSingleObject
+var productOptionsSize = productJson.options.length;
+var productCurrentVariant = {{ current_variant | json }};
+var productCurrentVariantID = productCurrentVariant.id;
+var productCurrentVariantOptions = productCurrentVariant.options;
+var productCurrentVariantQuantityInCart = getVariantQuantityInCart(productCurrentVariantID, cartJson);
+var productID = productJson.id
+var $variantIdInput = $('.product-form-variant-id');
+var $addToCartButton = $(`.Add-To-Cart-Button[data-myvariantId='${productCurrentVariantID}']`);
+var $optionSelectAddToCart = $productBlock.find('.option-select-confirm')
+var $miniCartClose = $('.mini-cart-close')
+
+    //after option clicked
+    $productBlock.find('.product-option-value').on('change', function(e){
+      e.stopImmediatePropagation()
+        // Select Update
+        var $self = $(this)
+        var optionValue = $(this).val()
+        var optionIndex = $(this).data('variant-option-index');
+
+        productCurrentVariantOptions[optionIndex] = optionValue;
+
+        //Variant id Update
+        if( productCurrentVariantOptions.length = productOptionsSize){
+            $.each( productJson.variants, function( index, variant ) {
+
+                if($(productCurrentVariantOptions).not(variant.options).length === 0 && $(variant.options).not(productCurrentVariantOptions).length === 0){
+
+                    productCurrentVariant = variant;
+                    productCurrentVariantID = productCurrentVariant.id;
+
+
+                    var btn = $self.parent().parent().find('.Add-To-Cart-Button')
+                    btn.data('myvariantid', productCurrentVariantID )
+
+                    productCurrentVariantQuantityInCart = getVariantQuantityInCart(productCurrentVariantID, cartJson);
+
+                    if ( productCurrentVariant.compare_at_price > productCurrentVariant.price ) {
+                      $('.product-price-wrapper').html('<s class="product-compare-at-price">'+window.slate.Currency.formatMoney(productCurrentVariant.compare_at_price,'')+'</s>&nbsp;<span class="product-variant-sale-price" itemprop="price">'+window.slate.Currency.formatMoney(productCurrentVariant.price,'')+'</span>');
+                    } else {
+                      $('.product-price-wrapper').html('<span class="product-variant-price" itemprop="price">'+window.slate.Currency.formatMoney(productCurrentVariant.price,'')+'</span>');
+                    }
+
+                    if (variant.available) {
+                      $addToCartButton.removeAttr('disabled').text('Add To Cart') // FORCES AVAILABILITY
+                    } else {
+                      $addToCartButton.prop('disabled', true).text('Sold Out')
+                    }
+
+                    //URL Updated
+                    window.history.replaceState({}, document.title, "?variant=" + productCurrentVariantID);
+                }
+            });
+        }
+    });
+
+    // $addToCartButton.click(function(e){
+    //   e.preventDefault()
+    //   e.stopImmediatePropagation()
+    //   var $parent = $(this).closest('.product-section-block')
+    //   var quantity = $(this).parents().find('> #Quantity').val()
+    //   var variantID = $(this).data('myvariantid')
+    //   var additionalProperties = {};
+    //
+    //   CartJS.addItem(variantID, quantity, additionalProperties, {
+    //     "success": function(data, textStatus, jqXHR) {
+    //
+    //       setTimeout(function(){
+    //         // $('body').addClass('mini-cart-open');
+    //
+    //         setTimeout(function(){
+    //           $parent.find('.option-select-reset').click()
+    //         }, 2000);
+    //
+    //       }, 200);
+    //
+    //     },
+    //     "error": function(jqXHR, textStatus, errorThrown) {
+    //       console.log(textStatus);
+    //       console.log(errorThrown);
+    //       if ( $('body').hasClass('mini-cart-open') ) {
+    //         alert('all in your bag')
+    //       }
+    //     }
+    //   });
+    // })
+
+
+    $(document).on('cart.requestComplete', function(event, data) {
+        event.stopPropagation()
+        cartJson = data;
+        productCurrentVariantQuantityInCart = getVariantQuantityInCart(productCurrentVariantID, data);
+
+        if(productCurrentVariant.inventory_quantity <= 0){
+            $addToCartButton.removeAttr('disabled').text('pre-order');
+            $optionSelectAddToCart.removeAttr('disabled').text('pre-order');
+        }
+        else if(productCurrentVariantQuantityInCart == productCurrentVariant.inventory_quantity){
+
+            $addToCartButton.attr('disabled', 'disabled').fadeOut('fast', function(){
+              $(this).text('all in your bag!').fadeIn()
+            });
+            $optionSelectAddToCart.attr('disabled', 'disabled').fadeOut('fast', function(){
+              $(this).text('all in your bag!').fadeIn()
+            })
+
+            setTimeout(function(){
+              $addToCartButton.removeAttr('disabled').fadeOut('fast', function(){
+                $(this).text('Add to Cart').fadeIn()
+              });
+              $optionSelectAddToCart.removeAttr('disabled').fadeOut('fast', function(){
+                $(this).text('Add to Cart').fadeIn()
+              });
+
+            }, 2000)
+        }
+        else{
+           $addToCartButton.removeAttr('disabled').text('add to bag');
+           $optionSelectAddToCart.removeAttr('disabled').text('add to bag');
+        }
+
+    });
+    // $('.mini-cart-overlay').on('click', function(e){
+    //   $('body').removeClass('mini-cart-open')
+    // })
+})
+
+// Slider Variant Logic
+
+  var $firstOption = $('.variant--{{current_variant.id}}')
+  var $imgId;
+
+  $firstOption.on('change', function(){
+    var $parent = $(this).parents().closest('.product-section-block')
+    var $variants = $parent.find('.product-variant')
+    var $productDot = $parent.find('.dot')
+
+    if ($variants) {
+      var val = $(this).val()
+      var $slider = $parent.find('.flickity-slider')
+      $variants.each(function(i, el){
+        var $variant = $(el)
+        var variantArray = $variant.text().split('/')
+        variantArray.forEach(function(el, i) {
+          variantArray[i] = variantArray[i].trim()
+        })
+
+        var variantMatch = function (loopIndex, container) {
+          if (variantArray[loopIndex] == val) {
+            var imgId = $(container).data('variant-image-id')
+
+            if ( $('.featured-product-slider').length ) {
+              var slider_type = '.featured-product-slider'
+            } else {
+              var slider_type = '.product-slider'
+            }
+            var $slide =  $(container).closest('.product-section-block').find(slider_type).find(`[data-product-image-id='${imgId}']`).parent()
+            var $slider = $(container).closest('.product-section-block').find(slider_type)
+            var index = $slider.find('.slide-parent').index($slide)
+
+            $slider.flickity('select', index)
+          }
+        }
+        variantMatch(0, this) // Set to only watch first option select, loop for iteration
+      })
+    }
+  })
+
+
+
+
+
+</script>

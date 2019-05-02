@@ -1,0 +1,48 @@
+
+{%- if section.settings.slider_thumbs == true -%}
+<ul class="product-thumbnail-slider" id="thumbnail-slider-{{ product.id }}" >
+  {%- for image in product.images -%}
+    <li class="thumbnail-dot">
+      <img class="" src="{{ image.src | img_url: '50x50' }}" alt="{{ image.alt | escape }}">
+    </li>
+  {%- endfor -%}
+</ul>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    console.log("over here");
+    $('#thumbnail-slider-{{ product.id }}').flickity({
+      asNavFor: '.feature-id--{{ product.id }}',
+      pageDots: false,
+      prevNextButtons: false,
+      contain: true
+    })
+  })
+</script>
+{%- endif -%}
+
+
+{%- if section.settings.dot_override == false -%}
+  <span id="dot-override-hook" class="hide" ></span>
+{%- endif -%}
+
+
+{% schema %}
+  {
+    "name": "Product Thumbs Slider",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "slider_thumbs",
+        "label": "Toggle Thumbnail Dots",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "dot_override",
+        "label": "Master Dot Toggle",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,69 @@
+<!-- hero-static.liquid -->
+<div class="hero-static gutter">
+
+
+  {%- if section.settings.hero_image != blank -%}
+    <img src="{{section.settings.hero_image | img_url : '800x' }}" alt="">
+  {%- endif -%}
+
+  {%- if sections.settings.hero_heading != blank -%}
+    <h1>{{section.settings.hero_heading}}</h1>
+  {%- endif -%}
+
+{%- if section.settings.hero_copy != blank -%}
+  <h2 class="hero-static-text">{{section.settings.hero_copy}}</h2>
+{%- endif -%}
+
+
+  {%- if section.settings.hero_cta_link != blank -%}
+
+  <div class="cta cta-blue cta-half ">
+    <a class="cta-link" href="{{section.settings.hero_cta_link}}"> {{section.settings.hero_cta_text}} </a>
+  </div>
+  {%- endif -%}
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Hero Static",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_heading",
+        "label": "Heading",
+        "default": "Static Hero"
+      },
+      {
+        "type": "textarea",
+        "id": "hero_copy",
+        "label": "Copy",
+        "default": "Copy"
+      },
+      {
+        "type": "text",
+        "id": "hero_cta_text",
+        "label": "CTA Text",
+        "default": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "hero_cta_link",
+        "label": "CTA Link",
+        "default": "/"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Static",
+        "category": "Homepage"
+      }
+    ]
+  }
+{% endschema %}

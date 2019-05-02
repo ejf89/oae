@@ -1,0 +1,143 @@
+<!-- featured-products.liquid -->
+
+
+<div class="gradient-section-container">
+
+
+  <div id="gradient-0" data-animation-target-class="opacity-shown" class="gradient gradient-purple">
+  </div>
+  <div id="gradient-1" data-animation-target-class="opacity-shown" class="gradient gradient-green opacity-hidden">
+  </div>
+
+  <div id="gradient-2" data-animation-target-class="opacity-shown" class="gradient gradient-orange opacity-hidden">
+
+  </div>
+
+
+  <div class="featured-products-container grid-3">
+
+    {%- for block in section.blocks -%}
+    {%- assign product = all_products[block.settings.product] -%}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+    {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+  {%- if forloop.index0 == 0 -%}
+    {% assign animation_trigger_state = 'true' %}
+    {% else %}
+    {% assign animation_trigger_state = 'false' %}
+
+  {%- endif -%}
+
+    <div id="fpb-{{forloop.index0}}" data-section-id="{{ section.id }}" data-section-type="product" data-animation-triggered="{{animation_trigger_state}}" data-animation-target="gradient-{{forloop.index0}}" class="product-section-block grid-product-pag featured-product-block">
+
+      {% if product.images.size > 1 %}
+        <ul class="featured-product-slider">
+          {% for image in product.images %}
+            <li class="slide-parent slideshow-height-{{ section.settings.slideshow_height }}">
+              <a href="{{ product.url }}" class="product-slide-image" data-product-image-id="{{ image.id }}">
+                <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '800x800' }}" alt="{{ image.alt | escape }}">
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% else %}
+        {% for image in product.images %}
+          {% capture wrapper_class %}
+            {%- unless featured_image == image -%}
+              hide
+            {%- endunless -%}
+          {% endcapture %}
+
+          {% include 'responsive-image' with
+            image: image,
+            max_width: 700,
+            max_height: 800,
+            image_attributes: "data-product-featured-image",
+            wrapper_class: wrapper_class,
+            wrapper_attributes: "data-product-image-wrapper",
+          %}
+        {% endfor %}
+
+      {% endif %}
+    <div class="product-content-block" id="product-content-block">
+
+      <h1>{{ product.title | default: onboarding_title }}</h1>
+      {% if product.vendor != blank %}
+        <p>{{ product.vendor }}</p>
+      {% endif %}
+
+      <div data-price-wrapper class="product-price-wrapper">
+        <span data-product-price>
+          From {{ current_variant.price | money }}
+        </span>
+
+        {% if product.compare_at_price_max > product.price %}
+          <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+          <s data-compare-price>
+            {% if current_variant.compare_at_price > current_variant.price %}
+              {{ current_variant.compare_at_price | money }}
+            {% endif %}
+          </s>
+        {% endif %}
+      </div>
+
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+        {% include "add-to-cart-dynamic" %}
+      </div>
+
+      <div class="rte">
+        {{ product.description }}
+      </div>
+
+      {% if section.settings.show_share_buttons %}
+        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+      {% endif %}
+    </div>
+
+
+      {% unless product == empty %}
+        <script type="application/json" data-product-json>
+          {{ product | json }}
+        </script>
+      {% endunless %}
+    </div>
+
+    {%- endfor -%}
+
+
+
+  </div>
+
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Featured products",
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "name": "Product",
+        "type": "selected_product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured products",
+        "category": "Product"
+      }
+    ]
+  }
+{% endschema %}

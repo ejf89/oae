@@ -1,0 +1,252 @@
+// 4.0 HELPER CLASSES
+// 	4.1 CLEAR
+// 	4.2 HIDE SHOW
+// 	4.3 ICONS
+// 	4.4 RTE
+// 	4.5 TABLES
+// 	4.6 FORMS
+// 	4.7 SELECTS
+// 	4.8 ERRORS
+// 	4.9 GIFT CARDS
+// 	4.10 BISMUTH HELPERS
+
+/*================ Clear ================*/
+.clear:after { content:""; display:block; height:0; clear:both;}
+.clearfix{
+  @include clearfix;
+}
+
+/*================ Hide Show ================*/
+.hide, .hidden {display: none;}
+.display-none{ display: none;}
+
+.visually-hidden {@include visually-hidden();}
+.js-focus-hidden:focus {outline: none;}
+.label-hidden {
+  @include visually-hidden();
+  // No placeholders, so force show labels
+  .no-placeholder & {
+    @include visually-shown();
+  }
+}
+.visually-shown {@include visually-shown();}
+// Only show when JS is not supported
+.no-js:not(html) {
+  display: none;
+  .no-js & {
+    display: block;
+  }
+}
+// Only show when JS is supported
+.js {
+  .no-js & {
+    display: none;
+  }
+}
+// Only show when browser cookies are not supported
+.supports-no-cookies:not(html) {
+  display: none;
+  html.supports-no-cookies & {
+    display: block;
+  }
+}
+// Only show when browser cookies are supported
+.supports-cookies {
+  html.supports-no-cookies & {
+    display: none;
+  }
+}
+
+.opacity-shown{
+  opacity: 1 !important;
+}
+.opacity-hidden{
+  opacity: 0;
+}
+
+.fade-out{
+  opacity: 0;
+  visibility: hidden;
+  @include transition(opacity 400ms);
+}
+
+.fade-in{
+  opacity: 1 !important;
+  visibility : 'visible';
+  @include transition(opacity 400ms);
+}
+
+
+/*================ Bismuth Helpers Below ================*/
+
+
+/*================ Position ================*/
+
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+
+/*================ body-lock ================*/
+
+.body-lock{
+  overflow: hidden;
+}
+/*================ Image Fit Classes ================*/
+.image-fit, {
+  overflow:hidden;
+}
+.image-fit > img{
+  position:relative;
+  width:103%;
+  height:103% !important;
+  max-width:none;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  -webkit-backface-visibility:hidden
+}
+
+.image-fit-target{
+  position:relative;
+  width:103%;
+  height:103% !important;
+  max-width:none;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  -webkit-backface-visibility:hidden
+}
+.image-contain > img{
+  position:relative;
+  width:100%;
+  height:100% !important;
+  max-width:none;
+  top:50%;
+  left:50%;
+  // -webkit-transform:translate(-50%,-50%);
+  // transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,0%);
+  transform:translate(-50%,0%);
+  object-fit:contain
+}
+.box{
+  max-width:500px;
+  height:500px;
+  display:inline-block;
+  position:relative;
+}
+
+
+/*================ Links & Buttons ================*/
+button, .btn, .button {
+  @include prefix('user-select', 'none', moz ms webkit spec);
+  @include prefix(appearance, none, webkit moz spec);
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 0;
+  background-color: var(--color-1);
+  color: #FFFFFF;
+  padding: 1em;
+  &:hover{
+    // background-color: var(--color-2);
+  }
+}
+
+.call-to-action{
+  width: auto;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 0;
+  background-color: var(--color-2);
+  padding: 1em;
+
+  &:hover{
+    background-color: var(--color-1);
+  }
+  a{
+    color: #FFFFFF;
+  }
+}
+.underline{
+  text-decoration:underline;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.font-first{
+  font-family: var(--font-first)
+}
+.font-second{
+  font-family: var(--font-second)
+}
+.font-third{
+  font-family: var(--font-third)
+}
+/*================ Borders  ================*/
+.no-border{ border:$color-border solid 0px;}
+.border{ border:$color-border solid 1px;}
+
+/*================ Spacers  ================*/
+
+.gutter{
+  @include gutter;
+  @include media-query($medium-up){
+    padding-left: $desktop-gutter;
+    padding-right: $desktop-gutter;
+  };
+}
+
+.mobile-gutter{
+  @include media-query($medium-down){
+    @include gutter;
+  };
+}
+
+.desktop-gutter{
+  @include media-query($medium-up){
+    padding-left: $desktop-gutter;
+    padding-right: $desktop-gutter;
+  };
+}
+
+.section-bottom-padding{
+  padding-bottom: $section-gutter;
+}
+
+.max-width{
+  max-width: $max-width;
+  margin: auto;
+}

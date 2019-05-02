@@ -1,0 +1,101 @@
+<!-- video-hero.liquid -->
+
+<div class="video-hero-container " style="height:{{ section.settings.section_height_range }}vh;">
+
+<div class="video-background">
+    <div class="video-foreground">
+      <iframe src="https://www.youtube.com/embed/{{section.settings.video_id}}?controls={{ section.settings.video_control }}&showinfo=0&rel=0&autoplay={{ section.settings.video_autoplay }}&loop={{ section.settings.video_loop }}&playlist={{section.settings.video_id}}" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+
+<div id="vidtop-content">
+<div class="vid-info" style="color:{{section.settings.text_color}}!important;">
+	  <h1>{{ section.settings.header }}</h1>
+	  <p>{{ section.settings.copy }}</p>
+
+  </div>
+</div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Video Hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "video_id",
+        "label": "Video Id (Youtube)"
+      },
+      {
+       "type":      "radio",
+       "id":        "video_control",
+       "label":     "Video Controls",
+       "options": [
+         { "value": "0", "label": "Off" },
+         { "value": "1", "label": "On" }
+       ],
+       "default":   "0"
+    },
+      {
+       "type":      "radio",
+       "id":        "video_autoplay",
+       "label":     "Autoplay",
+       "options": [
+         { "value": "0", "label": "Off" },
+         { "value": "1", "label": "On" }
+       ],
+       "default":   "1"
+    },
+      {
+       "type":      "radio",
+       "id":        "video_loop",
+       "label":     "Loop",
+       "options": [
+         { "value": "0", "label": "Off" },
+         { "value": "1", "label": "On" }
+       ],
+       "default":   "1"
+    },
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+    },
+      {
+        "type": "range",
+        "id": "section_height_range",
+        "label": "Section height",
+        "default": 80,
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "vh"
+
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video Hero",
+        "category": "HomePage"
+      }
+    ]
+  }
+{% endschema %}
