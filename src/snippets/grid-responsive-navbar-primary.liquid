@@ -3,8 +3,8 @@
 
   <ul class="topnav desktop-nav small--hide" id="myTopnav-desktop--left">
 
-    <li>
-      <a href="/" class="home-link big-font">
+    <li class="nav-link__wrapper home-link">
+      <a href="/" class=" big-font ">
         One<span>,</span> All<span>,</span> Every<span>,</span>
       </a>
 
@@ -46,7 +46,7 @@
     </li>
     {% else %}
     <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
-      <a href="{{ link.url }}" class="site-nav__link big-font"> {{ link.title }}</a><span class="big-font">,</span>
+      <a href="{{ link.url }}" class="nav-link big-font"> {{ link.title }}</a><span class="nav-link__punctuation big-font">,</span>
     </li>
     {% endif %}
     {% endfor %}

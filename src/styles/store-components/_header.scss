@@ -93,17 +93,58 @@ $mobile-header-height: 66px;
 }
 
 .topnav{
-  display: flex;
+  // display: flex;
   height: $double-gutter;
   margin-top: $gutter;
+  max-width: 60%;
+  // border: 2px solid blue;
+
 }
 
 .home-link{
   white-space: nowrap;
 }
 
-.nav-link__wrapper{
-  border: 2px solid red;
+
+.home-link{
+  float: left;
+  a{
+    color: $color-green;
+    @include transition(all 400ms  ease-in-out);
+  }
+  span{
+    @include transition(all 400ms  ease-in-out);
+    color: $color-black;
+  }
+  &:hover{
+    a{
+      color: $color-black;
+    }
+    span{
+      color: $color-green;
+    }
+  }
+}
+.nav-link__wrapper:not(.home-link){
+  float: left;
+  padding-right: $half-gutter;
+  .nav-link{
+    color: $color-black;
+    @include transition(all 400ms  ease-in-out);
+  }
+  .nav-link__punctuation{
+    color: $color-green;
+    @include transition(all 400ms ease-in-out);
+
+  }
+  &:hover{
+    .nav-link{
+      color: $color-green;
+    }
+    .nav-link__punctuation{
+      color: $color-black;
+    }
+  }
 }
 //
 //

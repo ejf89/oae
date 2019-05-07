@@ -180,15 +180,25 @@ Gutter
 //    | |  | | \ \  / ____ \| |\  |____) |_| |_   | |   _| || |__| | |\  |
 //    |_|  |_|  \_\/_/    \_\_| \_|_____/|_____|  |_|  |_____\____/|_| \_|
 
-@mixin transition($transitions...) {
-  $unfoldedTransitions: ();
-  @each $transition in $transitions {
-    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
-  }
 
-  -webkit-transition: $unfoldedTransitions;
-  transition: $unfoldedTransitions;
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
 }
+
+
+// @mixin transition($transitions...) {
+//   $unfoldedTransitions: ();
+//   @each $transition in $transitions {
+//     $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+//   }
+//
+//   -webkit-transition: $unfoldedTransitions;
+//   transition: $unfoldedTransitions;
+// }
 
 @function unfoldTransition ($transition) {
   // Default values
