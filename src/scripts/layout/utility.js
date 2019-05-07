@@ -6,7 +6,9 @@ tools.barbaInit = function () {
     onEnter: function() {
       console.log("barba homepage init");
       $('.hero-static').addClass('load')
-
+      $(document).on('click touchstart', function(){
+        $('.grid-responsive-navbar').addClass('show')
+      })
 
       // The new Container is ready and attached to the DOM.
     },

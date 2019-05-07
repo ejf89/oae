@@ -2,6 +2,8 @@
   min-height: 20vh;
   padding: 3rem $gutter;
   opacity: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
   @include transition(opacity 350ms);
   @include media-query($medium-up){
     text-align: center;
@@ -10,6 +12,7 @@
     align-items: center;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
   };
@@ -18,6 +21,8 @@
     opacity: 1;
   }
 }
+
+
 
 // .hero-static-text{
 //   @include media-query($medium-up){

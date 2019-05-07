@@ -53,6 +53,9 @@ $color-border: gray;
 $color-link: gray;
 $color-red:#B83724;
 $color-background: #E8E5DF;
+$color-black: #000;
+$color-white: #fff;
+$color-green: #00da68;
 
 // Helper colors for form error states
 $color-disabled: #000;
@@ -78,6 +81,12 @@ $gradient-anchor:#000;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 $font-size-base: 20px;
+$big-font:56px;
+
+
+.big-font{
+  font-size: $big-font;
+}
 
 
 .text-left{text-align: left !important;}

@@ -8,7 +8,7 @@ body{
 }
 
 h1{
-  font-size: 30px;
+  font-size: 56px;
 }
 h2{
   font-size: 24px;
@@ -17,52 +17,27 @@ h2{
 p{
   font-size: 18px;
 }
+
+
+
+
+
+
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .main-container{
   padding-top: 1px;
   height: 100vh;
 }
 
 .shopify-section{
-  max-width: $section-max-width;
+  // max-width: $section-max-width;
   margin: auto;
 }
 
 .shopify-section:not(#shopify-section-header):not(#shopify-section-footer):not(:first-of-type){
   // padding-top: 1rem;
   // padding-bottom: 2rem;
-}
-
-.cta{
-  cursor: pointer;
-  border-radius: 0;
-  margin-top: 1rem;
-  padding: 1rem;
-  text-align: center;
-  // box-shadow: 3px 3px 0px #FFFFFF;
-  width: 100%;
-  background-color: black;
-  .cta-link{
-    color: white !important;
-  }
-}
-
-.cta-link{
-  white-space: nowrap;
-  overflow: hidden;
-}
-.cta-half{
-  width: 50%;
-}
-
-.cta-third{
-  width: 75%;
-}
-
-.cta-full{
-  width: 100%;
-}
-
-
-.cta-purple{
-  background-color: #A64599;
 }

@@ -1,13 +1,6 @@
 <!-- header.liquid -->
 
-<style>
-  {% if section.settings.logo != blank %}
-    .site-header__logo-image {
-      max-width: {{ section.settings.logo_max_width }}px;
-      /* margin: auto; */
-    }
-  {% endif %}
-</style>
+
 {%- comment %}
 	This is a foo
 {% include 'minicart' %}
@@ -15,33 +8,52 @@
 {% include 'announcement-bar' %}
 {% include "mobile-nav" %}
 
-  <nav class="grid-responsive-navbar wrapper" role="navigation" style="background: {{section.settings.header_color}};">
 
+<div class="logo-wrapper big-font">
+
+  <span class="color-black word">
+    One
+  </span>
+  <span>
+    <h1 class="color-white anim-typewriter word word-grow ">
+      Planet
+    </h1>
+  </span>
+  <span class="color-green word">
+    ,
+  </span>
+
+  <span class="color-black word">
+    All
+  </span>
+  <span class="color-white anim-typewriter word word-grow ">
+    Beings
+  </span>
+
+  <span class="color-green word">
+    ,
+  </span>
+  <span class="color-black">
+    Every
+  </span>
+  <span class="color-white anim-typewriter word word-grow ">
+    Choice
+  </span>
+  <span class="color-green word">
+    .
+  </span>
+
+</div>
+
+
+  <nav class="grid-responsive-navbar wrapper" role="navigation" style="background: {{section.settings.header_color}};">
 
     {%- comment %}
     	This is a foo
+      {% endcomment -%}
     {%- if section.settings.main_linklist-primary -%}
       {% include "grid-responsive-navbar-primary"%}
     {%- endif -%}
-    {% endcomment -%}
-
-    <div class="logo small--hide">
-      <h1 class="h1" itemscope itemtype="http://schema.org/Organization">
-        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-          {% if section.settings.logo != blank %}
-          {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-          <img src="{{ section.settings.logo | img_url: image_size }}"
-          srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-          alt="{{ section.settings.logo.alt | default: shop.name }}"
-          itemprop="logo">
-          {% else %}
-          {{ shop.name }}
-          {% endif %}
-        </a>
-      </h1>
-    </div>
-
-
 
   <div class="logo mobile-logo small--show medium-up--hide">
     <h1 class="h1 gutter" itemscope itemtype="http://schema.org/Organization">
@@ -66,7 +78,10 @@
     <span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span>
   </a>
 
+  {%- comment %}
+  	This is a foo
   {% include "grid-responsive-navbar-secondary"%}
+  {% endcomment -%}
 
 {%- comment %}
 	Header Control Panel Snippet (Account, Login, Cart)
@@ -132,14 +147,8 @@
       },
       {
         "type": "link_list",
-        "id": "main_linklist-secondary",
-        "label": "Menu (right)",
-        "default": "main-menu"
-      },
-      {
-        "type": "link_list",
         "id": "main_linklist-primary",
-        "label": "Secondary Menu (left)",
+        "label": "Primary Menu (left)",
         "default": "main-menu"
       },
       {

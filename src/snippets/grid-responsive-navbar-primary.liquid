@@ -1,17 +1,20 @@
 <!-- grid-responsive-navbar-primary.liquid -->
 
 
-
-  <h1>YO</h1>
-  <h1>YO</h1>
-  <h1>YO</h1>
-
   <ul class="topnav desktop-nav small--hide" id="myTopnav-desktop--left">
-    {% for link in linklists[section.settings.main_linklist-secondary].links %}
+
+    <li>
+      <a href="/" class="home-link big-font">
+        One<span>,</span> All<span>,</span> Every<span>,</span>
+      </a>
+
+    </li>
+
+    {% for link in linklists[section.settings.main_linklist-primary].links %}
     {%- assign child_list_handle = link.title | handleize -%}
     {% if menus[child_list_handle].links != blank %}
     <li  class="dropdown site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
-      <a href="{{ link.url }}" class="site-nav__link dropbtn">
+      <a href="{{ link.url }}" class="site-nav__link big-font dropbtn">
         {{ link.title }}
         {% include 'icon-arrow-down' %}
       </a>
@@ -21,7 +24,7 @@
           {%- if menus[sub_child_handle].links != blank -%}
 
                 <li class=" site-nav--has-submenu child-with-sub {% if childlink.active %}site-nav--active{% endif %}">
-                  <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}  {% include 'icon-arrow-down' %}</a>
+                  <a href="{{ childlink.url }}" class="site-nav__link big-font">{{ childlink.title | escape }}  {% include 'icon-arrow-down' %}</a>
                   <ul class="sub-child-menu">
                     {%- for link in menus[sub_child_handle].links-%}
                       <li class ="dropdown">
@@ -33,7 +36,7 @@
             {%- else  -%}
 
             <li {% if childlink.active %}class="site-nav--active"{% endif %}>
-              <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+              <a href="{{ childlink.url }}" class="site-nav__link big-font">{{ childlink.title | escape }}</a>
             </li>
 
           {%- endif -%}
@@ -42,8 +45,8 @@
       </ul>
     </li>
     {% else %}
-    <li {% if link.active %}class="site-nav--active"{% endif %}>
-      <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+    <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
+      <a href="{{ link.url }}" class="site-nav__link big-font"> {{ link.title }}</a><span class="big-font">,</span>
     </li>
     {% endif %}
     {% endfor %}
