@@ -11,6 +11,10 @@
 /*================ Navigation Layout Grids ================*/
 
 
+#shopify-section-header{
+  position: absolute;
+}
+
 $mobile-header-height: 66px;
 
 .grid-responsive-navbar {
@@ -78,7 +82,7 @@ $mobile-header-height: 66px;
   }
   .header-cart-link{
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     a{
       // color: $gradient-anchor;
     }

@@ -1,18 +1,28 @@
 .hero-static{
   min-height: 20vh;
   padding: 3rem $gutter;
+  opacity: 0;
+  @include transition(opacity 350ms);
   @include media-query($medium-up){
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
   };
+
+  &.load{
+    opacity: 1;
+  }
 }
 
-.hero-static-text{
-  @include media-query($medium-up){
-    max-width: 50%;
-    line-height: inherit;
-    margin: $large-gutter auto;
-  };
-}
+// .hero-static-text{
+//   @include media-query($medium-up){
+//     max-width: 50%;
+//     line-height: inherit;
+//     margin: $large-gutter auto;
+//   };
+// }

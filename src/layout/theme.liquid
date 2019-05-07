@@ -57,16 +57,37 @@
   {%- endif -%}
 
 
+  {%- if template == 'index' -%}
+    {% assign barba_namespace = 'homepage'  %}
+  {% elsif template == 'product' %}
+    {% assign barba_namespace = 'product'  %}
+  {% elsif template == 'page' %}
+    {% assign barba_namespace = 'page'  %}
+  {% elsif template contains 'customers' %}
+    {% assign barba_namespace = 'page'  %}
+  {% elsif template == 'cart' %}
+    {% assign barba_namespace = 'cart'  %}
+  {% elsif template contains 'collection' %}
+    {% assign barba_namespace = 'collection'  %}
+  {% elsif template contains 'search' %}
+    {% assign barba_namespace = 'collection'  %}
+  {%- endif -%}
+
+
+
   {% section 'header' %}
 
   <div id="barba-wrapper" class="">
-    <div class="barba-container">
+    <div class="barba-container" data-namespace="{{barba_namespace}}">
 
       <div class="main-container {{index_style}} ">
         {{ content_for_layout }}
       </div>
 
+      {%- comment %}
+      	This is a foo
       {% section 'footer' %}
+      {% endcomment -%}
     </div>
   </div>
 
