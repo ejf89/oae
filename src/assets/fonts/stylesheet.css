@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Minion Pro';
+    src: url('/fonts/MinionPro-Regular.woff2') format('woff2'),
+        url('/fonts/MinionPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OAE';
+    src: url('/fonts/OAE-Italic.woff2') format('woff2'),
+        url('/fontsOAE-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OAE';
+    src: url('/fonts/OAE-Regular.woff2') format('woff2'),
+        url('/fonts/OAE-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
