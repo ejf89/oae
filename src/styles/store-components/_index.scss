@@ -17,8 +17,8 @@
 
  @font-face {
      font-family: 'OAE';
-     src: url('./fonts/OAE-Regular.woff2') format('woff2'),
-         url('./fonts/OAE-Regular.woff') format('woff');
+     src: url('OAE-Regular.woff2') format('woff2'),
+         url('OAE-Regular.woff') format('woff');
      font-weight: normal;
      font-style: normal;
  }
@@ -27,9 +27,7 @@
 
 body{
   line-height: normal;
- font-family:  "OAE" !important;
- border: 2px solid red;
-
+  font-family:  "OAE";
 }
 
 h1{
@@ -43,7 +41,13 @@ p{
   font-size: 18px;
 }
 
+.font-oae{
+  font-family: "OAE";
+}
 
+.font-oae-italic{
+  font-family: "OAE italic";  
+}
 
 
 

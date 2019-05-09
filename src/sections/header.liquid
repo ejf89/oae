@@ -10,47 +10,14 @@
 
 
 <div class="logo-wrapper big-font">
-
-  <span class="color-black word">
-    One
-  </span>
-  <span>
-    <h1 class="color-white anim-typewriter word word-grow ">
-      Planet
-    </h1>
-  </span>
-  <span class="color-green word">
-    ,
-  </span>
-
-  <span class="color-black word">
-    All
-  </span>
-  <span class="color-white anim-typewriter word word-grow ">
-    Beings
-  </span>
-
-  <span class="color-green word">
-    ,
-  </span>
-  <span class="color-black">
-    Every
-  </span>
-  <span class="color-white anim-typewriter word word-grow ">
-    Choice
-  </span>
-  <span class="color-green word">
-    .
-  </span>
-
+{% include "logo-words" %}
 </div>
 
 
   <nav class="grid-responsive-navbar wrapper" role="navigation" style="background: {{section.settings.header_color}};">
 
-    {%- comment %}
-    	This is a foo
-      {% endcomment -%}
+
+
     {%- if section.settings.main_linklist-primary -%}
       {% include "grid-responsive-navbar-primary"%}
     {%- endif -%}
@@ -87,6 +54,13 @@
 	Header Control Panel Snippet (Account, Login, Cart)
   <div class="">{% include "header-cp-nav" %}  </div>
   {% endcomment -%}
+
+
+  <div class="nav-close big-font cursor-pointer">
+    {% include "green-x" %}
+  </div>
+
+
 
 </nav>
 

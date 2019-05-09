@@ -81,6 +81,12 @@
 
       <div class="main-container {{index_style}} ">
         {{ content_for_layout }}
+
+        {%- if template != 'index' -%}
+          <div class="nav-open-word big-font cursor-pointer">
+            MENU
+          </div>
+        {%- endif -%}
       </div>
 
       {%- comment %}
