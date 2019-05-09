@@ -1,5 +1,7 @@
-.collection-container{
+.collection-container.grid-4{
   padding-top: $mobile-header-height;
+  grid-column-gap: $gutter;
+  grid-row-gap: $gutter;
 }
 
 
@@ -29,8 +31,8 @@
 
 .product-card-canvas{
  position: relative;
- padding-top: 125%;
- min-height: 20vh;
+ // padding-top: 125%;
+ // min-height: 20vh;
 }
 
 .product-card-image{
@@ -60,29 +62,8 @@
   };
 }
 
-// LIST // LIST // LIST //
-// LIST // LIST // LIST //
-// LIST // LIST // LIST //
-// LIST // LIST // LIST //
-
-// .product-collection-items.list{
-//   .product-collection-item{
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-//     .product-image-container{
-//       width: 25%;
-//     }
-//   }
-// }
-
-
-// COLLAGE // COLLAGE // COLLAGE //
-// COLLAGE // COLLAGE // COLLAGE //
-// COLLAGE // COLLAGE // COLLAGE //
-// COLLAGE // COLLAGE // COLLAGE //
-//
-// .collage-item{
-//   grid-column: span 2;
-//   grid-row: span 2;
-// }
+.product-info{
+  p{
+    font-size: $med-font;
+  }
+}

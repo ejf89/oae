@@ -46,10 +46,18 @@ p{
 }
 
 .font-oae-italic{
-  font-family: "OAE italic";  
+  font-family: "OAE italic";
 }
 
 
+.dark-shadow{
+  -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.top-space{
+  margin-top: $quad-gutter;
+}
 
 
 .overflow-hidden{

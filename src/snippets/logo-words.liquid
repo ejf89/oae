@@ -1,6 +1,5 @@
-
-
 {%- if template == 'index' -%}
+
   <span class="color-black word">
     One
   </span>
@@ -32,25 +31,39 @@
   <span class="color-green word">
     .
   </span>
+
+
+
+
 {%- else -%}
-  <span class="color-black word">
+
+{%- if template == 'collection' or template == "product"-%}
+  {% assign template_handle = 'Store'  %}
+{%- endif -%}
+
+
+  <span class="color-green word">
     One
   </span>
-  <span class="color-green word">
+  <span class="color-black word">
     ,
   </span>
-  <span class="color-black word">
+  <span class="color-green word">
     All
   </span>
-  <span class="color-green word">
+  <span class="color-black word">
     ,
   </span>
-  <span class="color-black">
+  <span class="color-green">
     Every
   </span>
   <span class="color-green word">
-    .
+    ,
   </span>
-
-
-{%- endif -%}
+  <span class="color-black word">
+    {{template_handle}}
+  </span>
+  <span class="color-green word">
+    :
+  </span>
+  {%- endif -%}

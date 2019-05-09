@@ -81,13 +81,17 @@ $gradient-anchor:#000;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 $font-size-base: 20px;
+
+$med-font:1.8rem;
 $big-font:3rem;
 
 
 .big-font{
   font-size: $big-font;
 }
-
+.med-font{
+  font-size: $med-font;
+}
 
 .text-left{text-align: left !important;}
 .text-right{text-align: right !important;}
@@ -129,6 +133,7 @@ $space-l: 120px;
 $half-gutter: 15px;
 $gutter: 30px;
 $double-gutter: 60px;
+$quad-gutter: 120px;
 $large-gutter: 160px;
 $grid-gap: 10px;
 $section-gutter: 16px;

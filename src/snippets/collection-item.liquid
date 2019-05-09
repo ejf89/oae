@@ -42,14 +42,25 @@
                 {%- endcapture -%}
                 {% endif %}
 
-                <div class="product-card-canvas">
+                <div class="product-card-canvas dark-shadow">
                   {% if images_length > 1 %}
+                  {%- comment %}
+                  	This is a foo
                   <div class="product-card-image product-card-image__back" style="background-image: url({{ image_src_1 }});"></div>
+
+                  <img src="{{ image_src_1 }}" alt="">
+                  {% endcomment -%}
+
                   {% assign no_hover = false %}
                   {% else %}
                   {% assign no_hover = true %}
                   {% endif %}
+                  {%- comment %}
                   <div class="product-card-image product-card-front {% if no_hover == true %} no-hover {% endif %} " style="background-image: url({{ image_src_0 }});"></div>
+                  	This is a foo
+                  {% endcomment -%}
+
+                  <img src="{{ image_src_0 }}" alt="">
 
                 </div>
 
@@ -65,8 +76,8 @@
         {% endif %}
 
         <div class="product-info" >
-          <p class="product-title">{{ product.title }}</p>
-          <p class="product-price visually-hidden">
+          <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span> </p>
+          <p class="product-price">
 
             {% if product.compare_at_price > product.price %}
               {% if product.price_varies %}
@@ -81,9 +92,9 @@
 
               {% if product.price_varies %}
                 {%- assign price = product.price | money -%}
-                {{ 'products.product.from_text_html' | t: price: price }}
+                {{ product.price | money }}
               {% else %}
-                {{ product.price | money | remove: '.00' }}
+                {{ product.price | money }}
               {% endif %}
 
             {% endif %}
