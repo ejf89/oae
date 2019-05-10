@@ -9,7 +9,7 @@ tools.closeMenu = function(){
       $('.nav-open-word').removeClass('visually-hidden')
     }
   })
-  $('.grid-responsive-navbar').on('click touch', function(){
+  $('.grid-responsive-navbar').not('.topnav').on('click touch', function(){
     $('.grid-responsive-navbar').removeClass('show')
     if ($('.nav-open-word')) {
       $('.nav-open-word').removeClass('visually-hidden')
@@ -25,6 +25,7 @@ tools.openMenu = function(){
     console.log("HERE");
     if (!$('.grid-responsive-navbar').hasClass('show')) {
       $('.grid-responsive-navbar').addClass('show')
+      $('.nav-close').removeClass('hide')
     }
     if ($('.nav-open-word')) {
       console.log("");
@@ -43,5 +44,51 @@ tools.menuWordLogic = function(){
 tools.pdpLightBox = function(){
   $('#product-image-block').on('click', function(){
     console.log('PDP CLICK');
+    $('.zoom-modal-container').removeClass('opacity-hidden no-pointer z-minus-10')
+    $('.product-description').addClass('z-minus-10')
+    $('.nav-open-word').addClass('hide')
+    $('.topnav').addClass('pointer-none')
+
+    $(".zoom-modal-container").on('mousemove', function(e) {
+    var mouseSide;
+    if ((e.pageX - this.offsetLeft) < $(this).width() / 2) {
+        mouseSide = 'L';
+        $('.zoom-modal-container').unbind('click')
+
+        $('body').removeClass('arrow-right')
+        $('body').addClass('arrow-left')
+        console.log("LEFT SIDE");
+        $('.zoom-modal-container').on('click', function(){
+          console.log("clicked LEFT");
+          $('.zoom-slider').flickity('previous')
+        })
+
+    } else {
+          $('.zoom-modal-container').unbind('click')
+        mouseSide = 'R';
+        console.log("RIGHT SIDE");
+        $('body').removeClass('arrow-left')
+        $('body').addClass('arrow-right')
+        $('.zoom-modal-container').on('click', function(){
+          console.log("clicked RIGHT");
+          $('.zoom-slider').flickity('next')
+
+        })
+
+
+    }
+});
+
+  })
+
+  $('.zoom-close').on('click touch', function(){
+    $('.zoom-modal-container').addClass('opacity-hidden no-pointer z-minus-10')
+    $('.product-description').removeClass('z-minus-10')
+    $('.nav-open-word').removeClass('hide')
+    $('.topnav').removeClass('pointer-none')
+    $('*').removeClass('arrow-right')
+    $('*').removeClass('arrow-left')
+
+
   })
 }

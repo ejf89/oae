@@ -86,21 +86,23 @@
 
   </div>
 
-  <div id="product-image-block"  >
+  <div id="product-image-block" class="dark-shadow"  >
     {% if product.images.size > 0 %}
      <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
        contain: false,
        wrapAround: true,
        imagesLoaded: true,
        variableWidth:false,
-       prevNextButtons: true,
+       prevNextButtons: false,
        pageDots: false,
-       autoPlay: false,
+       autoPlay: true,
        imagesLoaded: true
      }">
        {% for image in product.images %}
-         <li class="slide-parent dark-shadow ">
-           <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" >
+       {% assign slide_ = img.src | img_url : '1500x'  %}
+
+         <li class="slide-parent  ">
+           <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
              <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
            </a>
          </li>
@@ -109,6 +111,53 @@
 
    {% endif %}
   </div>
+
+
+  <div class="zoom-modal-container opacity-hidden no-pointer z-minus-10">
+
+    <div class="zoom-close x-close z-plus-10">
+      {% include "green-x" %}
+    </div>
+    {% if product.images.size > 0 %}
+     <ul class="zoom-slider   feature-id--{{ product.id }} " data-slider="zoom-slider">
+       {% for image in product.images %}
+       {% assign slide_ = img.src | img_url : '1500x'  %}
+
+         <li class="slide-parent  ">
+           <div  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+             <img class="dark-shadow" src="{{ image.src | img_url: '800x' }}" alt="{{ image.alt | escape }}">
+           </div>
+         </li>
+       {% endfor %}
+     </ul>
+
+   {% endif %}
+
+
+   <style media="screen">
+   .zoom-modal-container{
+      /* cursor: url({{ 'arrow-right.svg' | asset_url }}) 100 30, auto !important; */
+   }
+   </style>
+
+  </div>
+
+  <script type="text/javascript">
+
+  $('.zoom-slider').flickity({
+    contain: true,
+    draggable: false,
+    wrapAround: true,
+    imagesLoaded: true,
+    variableWidth:false,
+    prevNextButtons: true,
+    pageDots: false,
+    autoPlay: false,
+    imagesLoaded: true,
+    fade: true
+  })
+
+  </script>
 
 
 

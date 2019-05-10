@@ -14,7 +14,8 @@
 #shopify-section-header{
   position: absolute;
   z-index: 10;
-  width: 100%;
+  width: 80%;
+  margin-left: 0;
 }
 
 .logo-wrapper{
@@ -86,7 +87,7 @@ $mobile-header-height: 66px;
   height: 0%;
   opacity: 0;
 
-  
+
   // margin: 0 auto !important;
   @include transition(opacity 300ms);
   &.show{
@@ -104,7 +105,7 @@ $mobile-header-height: 66px;
   // border: 2px solid blue;
 }
 
-.nav-close{
+.x-close{
   color: $color-green;
   position: absolute;
   right: $half-gutter;
