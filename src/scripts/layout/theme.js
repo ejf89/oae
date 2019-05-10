@@ -11,10 +11,14 @@ import "../sections/featured-products.js"
 
 $(document).ready(function(){
   // $('.product-section-block').trigger('click'); <-- needed for dynamic cart
-
+  console.log("FIRING");
   tools.main = function () {
     var init = function(){
-      tools.barbaInit()
+      // tools.barbaInit()
+      $('.hero-static').addClass('load')
+      tools.openMenu()
+      tools.closeMenu()
+      tools.sliderInit()
 
       // bismuth.collectionSelect()
     }

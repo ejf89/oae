@@ -226,8 +226,10 @@ button, .btn, .button {
 .gutter{
   @include gutter;
   @include media-query($medium-up){
-    padding-left: $desktop-gutter;
-    padding-right: $desktop-gutter;
+    // padding-left: $desktop-gutter;
+    // padding-right: $desktop-gutter;
+    padding-left: $gutter;
+    padding-right: $gutter;
   };
 }
 

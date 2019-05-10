@@ -1,81 +1,43 @@
-$(document).ready(function(){
+tools.sliderInit = function(){
+  if ( $('.js-slider-hook').length ) {
+    $('.js-slider-hook').each(function(i, el){
+      var $this = $(el)
+      var sliderHandle = $this.data('slider')
+      var options = $this.data('options')
 
+      if (options.length) {
+        eval('var options_obj = ' + options);
 
-  $('.featured-product-slider').flickity({
-    contain: false,
-    wrapAround: true,
-    imagesLoaded: true,
-    variableWidth:true,
-    on: {
-      change: function( index ){
+        var slider =  $('.' + sliderHandle)
+        if (slider.hasClass('hero-slider')) {
+          slider.on('ready.flickity', function(){
+            $(this).find('.slideshow-slide').removeClass('visually-hidden')
+          })
+        }
 
+        if (slider.hasClass('featured-collection-slider')) {
+          slider.on('ready.flickity', function(){
+            $(this).find('.slideshow-slide').toggleClass('opacity-hidden opacity-shown')
+          })
+        }
 
-        $this = $(this)
-        var $parent = $('html').find(this.element).closest('.product-section-block')
-        var $variants = $parent.find('.product-variant')
-        var $imgId = $parent.find('.slide-parent.is-selected').children().first().data('product-image-id')
+        if (slider.hasClass('product-collection-slider')) {
+          slider.on('ready.flickity', function(){
+            $(this).find('.product-collection-slide').removeClass('opacity-hidden').addClass('opacity-shown')
+          })
+        }
 
-        $variants.each(function(i, el){
-          if ($(el).data('variant-image-id') == $imgId) {
-            var optionValue = $(this).text().trim().split(' / ')[0]
-            $parent.find('.master-select').find(`[data-value='${optionValue}']`).parent().val(optionValue).change()
-            return
-          }
+        $('.' + sliderHandle).flickity(options_obj)
+
+        slider.on('dragStart.flickity', function(){
+          slider.find('.product-collection-slide').css('pointer-events', 'none')
+        })
+
+        slider.on('dragEnd.flickity', function(){
+          slider.find('.product-collection-slide').css('pointer-events', 'all')
         })
 
       }
-    }
-  })
-
-
-  // $('.featured-product-slider').flickity({
-  //   contain: false,
-  //   wrapAround: true,
-  //   imagesLoaded: true,
-  //   variableWidth:true
-  // })
-
-  $('.hero-slider').flickity({
-    contain: true,
-    wrapAround: true,
-    imagesLoaded: true,
-    variableWidth:true
-  })
-
-  $('.blog-slider').flickity({
-    contain: false,
-    wrapAround: true,
-    imagesLoaded: true,
-    variableWidth: true
-  })
-
-  $('.collection-slider').flickity({
-    contain: false,
-    wrapAround: true,
-    imagesLoaded: true,
-    variableWidth: true
-  })
-
-  // if ( $('html').find('.product-collection-slider').length > 0 ) {
-  //   console.log("GOT ONE");
-  //   $('.product-collection-slider').flickity({
-  //     contain: false,
-  //     wrapAround: true,
-  //     imagesLoaded: true,
-  //     variableWidth: true
-  //   })
-  // }
-
-  if ( $('html').find('.mobile-slider').length > 0 ) {
-    $('.mobile-slider').flickity({
-      contain: false,
-      wrapAround: true,
-      imagesLoaded: true,
-      variableWidth: true,
-      watchCSS: true
     })
-
   }
-
-
-})
+}

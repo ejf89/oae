@@ -12,6 +12,9 @@
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/flickity-fade@1/flickity-fade.css">
+
+
 
 
 
@@ -43,6 +46,8 @@
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/rivets-cart.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://unpkg.com/flickity-fade@1/flickity-fade.js"></script>
+
   <!-- {% include 'style-tags', layout: 'theme' %} -->
   {% include 'script-tags', layout: 'theme' %}
 
@@ -74,10 +79,11 @@
   {%- endif -%}
 
 
-  {% section 'header' %}
-
   <div id="barba-wrapper" class="">
     <div class="barba-container" data-namespace="{{barba_namespace}}">
+
+  {% section 'header' %}
+
 
       <div class="main-container {{index_style}} ">
         {{ content_for_layout }}

@@ -68,38 +68,7 @@
 
 </div>
 
-<script type="text/javascript">
-  //INCLUDED FOR CART ITEM COUNT
-    var cartJson = {{ cart | json }};
 
-    $(function() {
-
-        //Initialise Cart.js once the page has loaded
-        CartJS.init(cartJson, {
-            "dataAPI": true,
-            "requestBodyClass": "cartjs-loading"
-        });
-
-        $(document).on('click', '.mini-cart-item-remove', function(event){
-
-            //Get item line number in the cart
-            var miniCartItemLineNumber = $(this).data('item-line-number');
-
-
-            CartJS.removeItem(miniCartItemLineNumber, {
-                "success": function(data, textStatus, jqXHR) {
-                    // callback placeholder
-                },
-                "error": function(jqXHR, textStatus, errorThrown) {
-                    console.log('Error: ' + errorThrown);
-                }
-            });
-
-        });
-
-
-    });
-</script>
 
 {% schema %}
   {

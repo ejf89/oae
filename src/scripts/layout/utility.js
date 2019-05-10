@@ -4,23 +4,37 @@ console.log("TOOOLS");
 tools.closeMenu = function(){
   $('.nav-close').find('*').addBack().on('click', function(){
     $('.grid-responsive-navbar').removeClass('show')
-    $('.nav-open-word').removeClass('hide')
+
+    if ($('.nav-open-word')) {
+      $('.nav-open-word').removeClass('visually-hidden')
+    }
   })
   $('.grid-responsive-navbar').on('click touch', function(){
     $('.grid-responsive-navbar').removeClass('show')
+    if ($('.nav-open-word')) {
+      $('.nav-open-word').removeClass('visually-hidden')
+    }
     // $('.grid-responsive-navbar').fadeOut()
   })
 }
 
 tools.openMenu = function(){
-  $('.hero-static').on('click touchstart', function(e){
+  $('.hero-static, .nav-open-word').on('click touchstart', function(e){
     console.log("OPEN");
     e.stopPropagation()
     console.log("HERE");
     if (!$('.grid-responsive-navbar').hasClass('show')) {
       $('.grid-responsive-navbar').addClass('show')
-    } 
+    }
+    if ($('.nav-open-word')) {
+      console.log("");
+      $('.nav-open-word').addClass('visually-hidden')
+    }
+
   })
+
+
+
 }
 
 tools.menuWordLogic = function(){

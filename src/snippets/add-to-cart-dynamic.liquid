@@ -48,6 +48,21 @@
       </option>
     {% endfor %}
   </select>
+
+  <div data-price-wrapper>
+    <span data-product-price class="big-font">
+     {{ current_variant.price | money }}
+    </span>
+
+    {% if product.compare_at_price_max > product.price %}
+      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+      <s data-compare-price>
+        {% if current_variant.compare_at_price > current_variant.price %}
+          {{ current_variant.compare_at_price | money }}
+        {% endif %}
+      </s>
+    {% endif %}
+  </div>
   <div
     id="AddToCart"
     class="Add-To-Cart-Button cta cta-purple"
@@ -56,7 +71,7 @@
     data-myvariantId='{{ current_variant.id }}'
     data-add-to-cart
     {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-      <span data-add-to-cart-text>
+      <span data-add-to-cart-text class="big-font color-green">
         {% if current_variant.available %}
           {{ 'products.product.add_to_cart' | t }}
         {% else %}
@@ -72,20 +87,7 @@
   {%- endif -%}
 
 
-  <!-- <div data-price-wrapper>
-    <span data-product-price>
-      From {{ current_variant.price | money }}
-    </span>
 
-    {% if product.compare_at_price_max > product.price %}
-      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-      <s data-compare-price>
-        {% if current_variant.compare_at_price > current_variant.price %}
-          {{ current_variant.compare_at_price | money }}
-        {% endif %}
-      </s>
-    {% endif %}
-  </div> -->
 </form>
 
 

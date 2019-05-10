@@ -1,14 +1,7 @@
 <!-- product.liquid -->
 
 
-  {%- if block.settings.gradient_tag -%}
-    {% capture tag_gradient_style  %}
-      background-image: linear-gradient(to bottom, {{block.settings.gradient_tag}}, {{settings.gradient_anchor}})
-    {% endcapture %}
-  {%- endif -%}
-
-
-<div id="product-block" class="product-section-block desktop-gutter" data-section-id="{{ section.id }}" data-section-type="product" {% if template == 'product' %}data-enable-history-state="true" {% endif %} itemscope itemtype="http://schema.org/Product"
+<div id="product-block" class="product-section-block gutter" data-section-id="{{ section.id }}" data-section-type="product" {% if template == 'product' %}data-enable-history-state="true" {% endif %} itemscope itemtype="http://schema.org/Product"
   {%- if tag_gradient_style -%}  style="{{tag_gradient_style }};"   {%- endif -%}>
 
 {%- comment %}
@@ -39,16 +32,18 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page grid-2-break product-block mobile-gutter">
-  <div id="product-image-block" >
+<div class="grid-product-page product-block mobile-gutter">
+  <div id="product-image-block"  >
     {% if product.images.size > 0 %}
-     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }}" data-slider="product-slider" data-options="{
+     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} dark-shadow" data-slider="product-slider" data-options="{
        contain: false,
        wrapAround: true,
        imagesLoaded: true,
        variableWidth:true,
        prevNextButtons: true,
-       pageDots: true
+       pageDots: false,
+       autoPlay: false,
+       imagesLoaded: true
      }">
        {% for image in product.images %}
          <li class="slide-parent">
@@ -59,31 +54,12 @@
        {% endfor %}
      </ul>
 
-     <script type="text/javascript">
-
-     // $(document).ready(function(){
-     //
-     //
-     //
-     //  $('.feature-id--{{ product.id }}').flickity({
-     //    contain: false,
-     //    wrapAround: true,
-     //    imagesLoaded: true,
-     //    variableWidth:true,
-     //    prevNextButtons: true,
-     //    pageDots: true
-     //  })
-     // })
-     // </script>
-
-
-
    {% endif %}
   </div>
 
 
     <div id="product-content-block" class="product-content-block">
-      <h1>{{ product.title }}</h1>
+      <h1 class="big-font">{{ product.title }}</h1>
 
       <div data-price-wrapper class="visually-hidden">
         <span data-product-price>
@@ -101,8 +77,10 @@
       </div>
 
 
-      <div class="rte">
-        {{ product.description }}
+      <div class="rte font-oae product-description">
+        <p class="font-oae med-font">
+          {{ product.description }}
+        </p>
       </div>
 
 
@@ -112,8 +90,8 @@
       <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
 
-      <div class="add-container grid-2-break">
-        {% include "add-to-cart-standard" %}
+      <div class="add-container">
+        {% include "add-to-cart-dynamic" %}
       </div>
     </div>
 
@@ -156,7 +134,5 @@
     {%- include 'product-collection-slider', collection: block.settings.collection -%}
 
 
-    {%- if settings.featured_collection -%}
-    {%- include 'featured-collection' -%}
-    {%- endif -%}
+
   </div>

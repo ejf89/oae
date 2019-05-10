@@ -1,7 +1,8 @@
 
 
 
-
+{%- comment %}
+	This is a foo
   {%- for block in section.blocks -%}
 
     {%- if block.settings.selected_product == product.handle -%}
@@ -12,6 +13,11 @@
 
     {%- endif -%}
   {%- endfor -%}
+  {% endcomment -%}
+
+
+  {%- include 'product', product: product, vendor_link: block.settings.vendor_link -%}
+
 
 
 
@@ -19,7 +25,7 @@
 {% schema %}
 {
   "name": "Product",
-  "class": "product-page-container",
+  "class": "product-page-container top-space",
   "blocks": [
     {
       "name": "Product",
