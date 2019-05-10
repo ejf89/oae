@@ -30,16 +30,18 @@ tools.openMenu = function(){
       console.log("");
       $('.nav-open-word').addClass('visually-hidden')
     }
-
   })
-
-
-
 }
 
 tools.menuWordLogic = function(){
   $('.nav-open-word').on('click', function(){
     $('.grid-responsive-navbar').addClass('show')
     $('.nav-open-word').addClass('hide')
+  })
+}
+
+tools.pdpLightBox = function(){
+  $('#product-image-block').on('click', function(){
+    console.log('PDP CLICK');
   })
 }

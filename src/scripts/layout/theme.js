@@ -19,6 +19,7 @@ $(document).ready(function(){
       tools.openMenu()
       tools.closeMenu()
       tools.sliderInit()
+      tools.pdpLightBox()
 
       // bismuth.collectionSelect()
     }

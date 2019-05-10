@@ -33,29 +33,6 @@
 {% endunless %}
 
 <div class="grid-product-page product-block mobile-gutter">
-  <div id="product-image-block"  >
-    {% if product.images.size > 0 %}
-     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} dark-shadow" data-slider="product-slider" data-options="{
-       contain: false,
-       wrapAround: true,
-       imagesLoaded: true,
-       variableWidth:true,
-       prevNextButtons: true,
-       pageDots: false,
-       autoPlay: false,
-       imagesLoaded: true
-     }">
-       {% for image in product.images %}
-         <li class="slide-parent">
-           <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" >
-             <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
-           </a>
-         </li>
-       {% endfor %}
-     </ul>
-
-   {% endif %}
-  </div>
 
 
     <div id="product-content-block" class="product-content-block">
@@ -107,11 +84,32 @@
     </div>
     {% endcomment -%}
 
-
-
-
-
   </div>
+
+  <div id="product-image-block"  >
+    {% if product.images.size > 0 %}
+     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
+       contain: false,
+       wrapAround: true,
+       imagesLoaded: true,
+       variableWidth:false,
+       prevNextButtons: true,
+       pageDots: false,
+       autoPlay: false,
+       imagesLoaded: true
+     }">
+       {% for image in product.images %}
+         <li class="slide-parent dark-shadow ">
+           <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" >
+             <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
+           </a>
+         </li>
+       {% endfor %}
+     </ul>
+
+   {% endif %}
+  </div>
+
 
 
 
