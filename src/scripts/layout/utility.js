@@ -6,19 +6,20 @@ tools.closeMenu = function(){
     $('.grid-responsive-navbar').removeClass('show')
     $('.nav-open-word').removeClass('hide')
   })
+  $('.grid-responsive-navbar').on('click touch', function(){
+    $('.grid-responsive-navbar').removeClass('show')
+    // $('.grid-responsive-navbar').fadeOut()
+  })
 }
 
 tools.openMenu = function(){
-  $('.grid-responsive-navbar, .nav-close').on('click touchstart', function(e){
+  $('.hero-static').on('click touchstart', function(e){
     console.log("OPEN");
     e.stopPropagation()
+    console.log("HERE");
     if (!$('.grid-responsive-navbar').hasClass('show')) {
       $('.grid-responsive-navbar').addClass('show')
-    } else {
-      $('.grid-responsive-navbar').removeClass('show')
-      $('.nav-open-word').removeClass('hide')
-
-    }
+    } 
   })
 }
 
