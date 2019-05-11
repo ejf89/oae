@@ -48,6 +48,7 @@ tools.pdpLightBox = function(){
     $('.product-description').addClass('z-minus-10')
     $('.nav-open-word').addClass('hide')
     $('.topnav').addClass('pointer-none')
+    $('.zoom-modal-container').addClass('arrow-right')
 
     $(".zoom-modal-container").on('mousemove', function(e) {
     var mouseSide;
@@ -74,10 +75,8 @@ tools.pdpLightBox = function(){
           $('.zoom-slider').flickity('next')
 
         })
-
-
-    }
-});
+      }
+    });
 
   })
 
@@ -88,7 +87,23 @@ tools.pdpLightBox = function(){
     $('.topnav').removeClass('pointer-none')
     $('*').removeClass('arrow-right')
     $('*').removeClass('arrow-left')
+  })
+}
+
+tools.currencyFormat = function(num){
+  return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+
+}
 
 
+tools.variantRadioLogic = function(){
+
+if ($('.variant-radio-wrapper').length > 0) {
+  $('.variant-radio-wrapper input').first().click()
+}
+
+  $('.variant-radio-button').on('change', function(){
+    var value = $(this).val()
+    $('.master-select select').val(value).trigger('change')
   })
 }

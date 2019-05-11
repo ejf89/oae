@@ -75,6 +75,7 @@
     var cartJson = {{ cart | json }};
 
     $(function() {
+      console.log("CART INIT1");
 
         //Initialise Cart.js once the page has loaded
         CartJS.init(cartJson, {

@@ -177,7 +177,7 @@ body.mini-cart-open{
 }
 
 .cart-title{
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   margin: 0 $gutter;
   padding-bottom: 15px;
   margin-top: 2rem;
@@ -187,7 +187,7 @@ body.mini-cart-open{
   display: flex !important;
   color: white;
   a{
-    color: white;
+    color: black;
   }
 
   .content{

@@ -14,7 +14,7 @@
 <form class="dynamic-add-to-cart-form " action="/cart/add" method="post" enctype="multipart/form-data">
   {% unless product.has_only_default_variant %}
     {% for option in product.options_with_values %}
-      <div class=" js master-select ">
+      <div class=" js master-select hide">
         <label for="SingleOptionSelector-{{ forloop.index0 }}">
           {{ option.name }}
         </label>
@@ -38,6 +38,26 @@
     {% endfor %}
   {% endunless %}
 
+
+
+
+
+  <div class="variant-radio-wrapper">
+     <fieldset>
+
+       {%- for option in product.options_with_values -%}
+       {%- for value in option.values -%}
+         <label for="{{ value | escape }}">
+           <input class="variant-radio-button" type="radio" value="{{value | escape }}" name="quality" id="{{value | escape }}"> <span>{{value | escape }}</span>
+         </label>
+         {%- endfor -%}
+       {%- endfor -%}
+
+    </fieldset>
+
+  </div>
+
+
    <select name="id" class="no-js slate-master-select" data-product-select>
     {% for variant in product.variants %}
       <option class="product-variant"
@@ -50,12 +70,12 @@
   </select>
 
   <div data-price-wrapper>
-    <span data-product-price class="big-font">
+    <span data-product-price class="big-font add-to-cart-price">
      {{ current_variant.price | money }}
     </span>
 
     {% if product.compare_at_price_max > product.price %}
-      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+      <span class="" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
       <s data-compare-price>
         {% if current_variant.compare_at_price > current_variant.price %}
           {{ current_variant.compare_at_price | money }}
@@ -68,13 +88,14 @@
     class="add-to-cart-button cta cta-purple"
     type="submit"
     name="add"
-    data-myvariantId='{{ current_variant.id }}'
+    data-myvariantid='{{ current_variant.id }}'
     data-add-to-cart
     {% unless current_variant.available %}disabled="disabled"{% endunless %}>
       <span data-add-to-cart-text class="big-font color-green">
         {% if current_variant.available %}
           {{ 'products.product.add_to_cart' | t }}
         {% else %}
+        <h1>YO</h1>
           {{ 'products.product.sold_out' | t }}
         {% endif %}
       </span>
@@ -155,9 +176,11 @@ var productCurrentVariantOptions = productCurrentVariant.options;
 var productCurrentVariantQuantityInCart = getVariantQuantityInCart(productCurrentVariantID, cartJson);
 var productID = productJson.id
 var $variantIdInput = $('.product-form-variant-id');
-var $addToCartButton = $(`.Add-To-Cart-Button[data-myvariantId='${productCurrentVariantID}']`);
+var $addToCartButton = $(`.add-to-cart-button[data-myvariantid='${productCurrentVariantID}']`);
 var $optionSelectAddToCart = $productBlock.find('.option-select-confirm')
 var $miniCartClose = $('.mini-cart-close')
+
+
 
     //after option clicked
     $productBlock.find('.product-option-value').on('change', function(e){
@@ -191,84 +214,93 @@ var $miniCartClose = $('.mini-cart-close')
                     }
 
                     if (variant.available) {
-                      $addToCartButton.removeAttr('disabled').text('Add To Cart') // FORCES AVAILABILITY
+                      $addToCartButton.find('span').removeAttr('disabled').text('Add to Cart') // FORCES AVAILABILITY
                     } else {
                       $addToCartButton.prop('disabled', true).text('Sold Out')
                     }
 
                     //URL Updated
                     window.history.replaceState({}, document.title, "?variant=" + productCurrentVariantID);
+
+
+
+                    $addToCartButton.data('myvariantid', productCurrentVariantID)
+                    console.log(productCurrentVariantID);
+                    console.log(  $addToCartButton.data('myvariantid') );
+                    $('.add-to-cart-price').text(tools.currencyFormat(variant.price / 100))
+
+
                 }
             });
         }
     });
 
-    // $addToCartButton.click(function(e){
-    //   e.preventDefault()
-    //   e.stopImmediatePropagation()
-    //   var $parent = $(this).closest('.product-section-block')
-    //   var quantity = $(this).parents().find('> #Quantity').val()
-    //   var variantID = $(this).data('myvariantid')
-    //   var additionalProperties = {};
+    $addToCartButton.click(function(e){
+      console.log("ADD CLICKED");
+      e.preventDefault()
+      e.stopImmediatePropagation()
+      var $parent = $(this).closest('.product-section-block')
+      var quantity = $(this).parents().find('> #Quantity').val()
+      var variantID = $(this).data('myvariantid')
+      var additionalProperties = {};
+
+      CartJS.addItem(variantID, quantity, additionalProperties, {
+        "success": function(data, textStatus, jqXHR) {
+          console.log(
+            "SUCCESS!"
+          );
+          setTimeout(function(){
+            // $('body').addClass('mini-cart-open');
+          $(`.add-to-cart-button span`).text('Added to Cart!');
+          $('.cart-link-container').removeClass('opacity-hidden')
+          }, 200);
+
+        },
+        "error": function(jqXHR, textStatus, errorThrown) {
+          console.log(textStatus);
+          console.log(errorThrown);
+          if ( $('body').hasClass('mini-cart-open') ) {
+            alert('all in your bag')
+          }
+        }
+      });
+    })
+
     //
-    //   CartJS.addItem(variantID, quantity, additionalProperties, {
-    //     "success": function(data, textStatus, jqXHR) {
+    // $(document).on('cart.requestComplete', function(event, data) {
+    //     event.stopPropagation()
+    //     cartJson = data;
+    //     productCurrentVariantQuantityInCart = getVariantQuantityInCart(productCurrentVariantID, data);
     //
-    //       setTimeout(function(){
-    //         // $('body').addClass('mini-cart-open');
+    //     if(productCurrentVariant.inventory_quantity <= 0){
+    //         $addToCartButton.removeAttr('disabled').text('pre-order');
+    //         $optionSelectAddToCart.removeAttr('disabled').text('pre-order');
+    //     }
+    //     else if(productCurrentVariantQuantityInCart == productCurrentVariant.inventory_quantity){
+    //
+    //         $addToCartButton.attr('disabled', 'disabled').fadeOut('fast', function(){
+    //           $(this).text('all in your bag!').fadeIn()
+    //         });
+    //         $optionSelectAddToCart.attr('disabled', 'disabled').fadeOut('fast', function(){
+    //           $(this).text('all in your bag!').fadeIn()
+    //         })
     //
     //         setTimeout(function(){
-    //           $parent.find('.option-select-reset').click()
-    //         }, 2000);
+    //           $addToCartButton.removeAttr('disabled').fadeOut('fast', function(){
+    //             $(this).text('Add to Cartasdf').fadeIn()
+    //           });
+    //           $optionSelectAddToCart.removeAttr('disabled').fadeOut('fast', function(){
+    //             $(this).text('Add to Cartasdf').fadeIn()
+    //           });
     //
-    //       }, 200);
-    //
-    //     },
-    //     "error": function(jqXHR, textStatus, errorThrown) {
-    //       console.log(textStatus);
-    //       console.log(errorThrown);
-    //       if ( $('body').hasClass('mini-cart-open') ) {
-    //         alert('all in your bag')
-    //       }
+    //         }, 2000)
     //     }
-    //   });
-    // })
-
-
-    $(document).on('cart.requestComplete', function(event, data) {
-        event.stopPropagation()
-        cartJson = data;
-        productCurrentVariantQuantityInCart = getVariantQuantityInCart(productCurrentVariantID, data);
-
-        if(productCurrentVariant.inventory_quantity <= 0){
-            $addToCartButton.removeAttr('disabled').text('pre-order');
-            $optionSelectAddToCart.removeAttr('disabled').text('pre-order');
-        }
-        else if(productCurrentVariantQuantityInCart == productCurrentVariant.inventory_quantity){
-
-            $addToCartButton.attr('disabled', 'disabled').fadeOut('fast', function(){
-              $(this).text('all in your bag!').fadeIn()
-            });
-            $optionSelectAddToCart.attr('disabled', 'disabled').fadeOut('fast', function(){
-              $(this).text('all in your bag!').fadeIn()
-            })
-
-            setTimeout(function(){
-              $addToCartButton.removeAttr('disabled').fadeOut('fast', function(){
-                $(this).text('Add to Cart').fadeIn()
-              });
-              $optionSelectAddToCart.removeAttr('disabled').fadeOut('fast', function(){
-                $(this).text('Add to Cart').fadeIn()
-              });
-
-            }, 2000)
-        }
-        else{
-           $addToCartButton.removeAttr('disabled').text('add to bag');
-           $optionSelectAddToCart.removeAttr('disabled').text('add to bag');
-        }
-
-    });
+    //     else{
+    //        $addToCartButton.removeAttr('disabled').text('add to bag');
+    //        $optionSelectAddToCart.removeAttr('disabled').text('add to bag');
+    //     }
+    //
+    // });
     // $('.mini-cart-overlay').on('click', function(e){
     //   $('body').removeClass('mini-cart-open')
     // })

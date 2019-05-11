@@ -16,10 +16,13 @@ $(document).ready(function(){
     var init = function(){
       // tools.barbaInit()
       $('.hero-static').addClass('load')
+      $('.product-section-block').trigger('click');
+
       tools.openMenu()
       tools.closeMenu()
       tools.sliderInit()
       tools.pdpLightBox()
+      tools.variantRadioLogic()
 
       // bismuth.collectionSelect()
     }

@@ -743,7 +743,7 @@ theme.Product = (function() {
    * `section:load` events.
    * @param {string} container - selector for the section container DOM element
    */
-  function Product(container) {
+  function Product(container) {;
     this.$container = $(container);
 
     // Stop parsing if we don't have the product json script tag when loading

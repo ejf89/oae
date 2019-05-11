@@ -1,17 +1,24 @@
 <!-- cart.liquid -->
 {% if cart.item_count > 0 %}
 
+
+
+
+
+
+<div class="cart-container">
+
   <h1 class="cart-title ">Your Cart</h1>
 
 
   <form action="/cart" method="post" novalidate>
     <table class="responsive-table cart-table">
-      <thead class="small--hide">
+      <thead class="small--hide medium-up--hide">
         <tr>
           <th colspan="2">{{ 'cart.label.product' | t }}</th>
-          <th>{{ 'cart.label.price' | t }}</th>
+          <!-- <th>{{ 'cart.label.price' | t }}</th>
           <th>{{ 'cart.label.quantity' | t }}</th>
-          <th>{{ 'cart.label.total' | t }}</th>
+          <th>{{ 'cart.label.total' | t }}</th> -->
         </tr>
       </thead>
       <tbody>
@@ -26,62 +33,69 @@
         helpers used for responsive-table labels
         {% endcomment %}
 
-          <tr class="responsive-table-row">
+          <tr class="responsive-table-row ">
 
             <td class="cart-item" data-label="{{ 'customer.order.product' | t }}">
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '200x200' | img_tag: item.title }}
+                  {{ item | img_url: '300x300' | img_tag: item.title }}
                 </a>
               {% endif %}
 
-              <div class="content">
+             </td>
+              <td>
+                <a class="text-left cart-item-title" href="{{ item.url }}">{{ item.product.title }}, {{ item.variant.title }}</a> 
+              </td>
 
-                <a class="text-left cart-item-title" href="{{ item.url }}">{{ item.product.title }}</a>
+                <td data-label="{{ 'cart.label.quantity' | t }}">
+                  <input type="number" name="updates[{{item.variant.id}}]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+                </td>
 
-                <p>x {{item.quantity}}</p>
 
-                {% if item.original_line_price != item.line_price %}
+                <td>
+                  {% if item.original_line_price != item.line_price %}
                   <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                   {{ item.price | money }}
                   <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
                   <s>{{ item.original_price | money }}</s>
-                {% else %}
-                  {{ item.price | money }}
-                {% endif %}
-              </div>
-            </td>
-            <td>
-              <!-- <a class="text-center" href="{{ item.url }}">{{ item.product.title }}</a> -->
-
-              {% unless item.product.has_only_default_variant %}
-                <p class="text-center">{{ item.variant.title}}</p>
-              {% endunless %}
-
-              <!-- <p class="text-center">{{ item.vendor }}</p> -->
-
-              {%- assign property_size = item.properties | size -%}
-
-              {% if property_size > 0 %}
-                {% for p in item.properties %}
-                  {% unless p.last == blank %}
-                  {{ p.first }}:
-
-                  {% if p.last contains '/uploads/' %}
-                    <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
                   {% else %}
-                    {{ p.last }}
+                  {{ item.price | money }}
                   {% endif %}
 
-                  {% endunless %}
-                {% endfor %}
-              {% endif %}
 
-              <!-- <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
-                <small>{{ 'cart.general.remove' | t }}</small>
-              </a> -->
-            </td>
+                  {%- comment %}
+                  	This is a foo
+                    {% endcomment -%}
+                  <!-- <a class="cart-remove-link btn cta cta-blue" href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{item.id}}">
+                    {{ 'cart.general.remove' | t }}
+                  </a> -->
+                  <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  blue">Remove</a>
+                  <script>
+                    function removeThis(ev) {
+                          var id = ev.target.dataset.value
+
+                            $.ajax({
+                              type: "POST",
+                              url: '/cart/change.js',
+                              data: 'quantity=0' + '&line=' + id,
+                              dataType: 'JSON',
+                              success: function(res){
+                                console.log("SUCCESS");
+                                console.log(res);
+                                window.location.reload(true);
+
+                              },
+                              error: function(res){
+                                console.log("ERROR");
+                                console.log(res);
+                              }
+                            })
+                          }
+                  </script>
+
+
+                </td>
 
 
           </tr>
@@ -111,11 +125,19 @@
       {% endif %}
       <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
       <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}">
+
+      <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a>
+
       <input type="submit" name="checkout" class="btn cta cta-blue" value="{{ 'cart.general.checkout' | t }}">
     </div>
 
   </form>
+</div>
+
 {% else %}
+<div class="cart-empty-container">
+
+
   <h1>{{ 'cart.general.title' | t }}</h1>
 
   {% comment %}
@@ -124,6 +146,8 @@
   <div class="supports-cookies">
     <p>{{ 'cart.general.empty' | t }}</p>
     <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+  </div>
+
   </div>
 
   {% comment %}

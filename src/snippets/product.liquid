@@ -36,7 +36,11 @@
 
 
     <div id="product-content-block" class="product-content-block">
-      <h1 class="big-font">{{ product.title }}</h1>
+
+      {% if product.vendor != blank %}
+      {% assign vendor = product.vendor %}
+      {% endif %}
+      <h1 class="big-font product-title z-plus-10">{{vendor}}<span class="color-green">,</span> {{ product.title }}<span class="color-green">,</span></h1>
 
       <div data-price-wrapper class="visually-hidden">
         <span data-product-price>
@@ -86,7 +90,7 @@
 
   </div>
 
-  <div id="product-image-block" class="dark-shadow"  >
+  <div id="product-image-block" class=""  >
     {% if product.images.size > 0 %}
      <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
        contain: false,
@@ -123,29 +127,25 @@
        {% for image in product.images %}
        {% assign slide_ = img.src | img_url : '1500x'  %}
 
-         <li class="slide-parent  ">
-           <div  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+         <!-- <li class="slide-parent  ">
+           <div  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" > -->
              <img class="dark-shadow" src="{{ image.src | img_url: '800x' }}" alt="{{ image.alt | escape }}">
-           </div>
-         </li>
+           <!-- </div>
+         </li> -->
        {% endfor %}
      </ul>
 
    {% endif %}
 
 
-   <style media="screen">
-   .zoom-modal-container{
-      /* cursor: url({{ 'arrow-right.svg' | asset_url }}) 100 30, auto !important; */
-   }
-   </style>
+
 
   </div>
 
   <script type="text/javascript">
 
   $('.zoom-slider').flickity({
-    contain: true,
+
     draggable: false,
     wrapAround: true,
     imagesLoaded: true,
@@ -165,7 +165,7 @@
   {% unless template == 'product' %}
 </div>
 </div>
-<h1>HERE</h1>
+
 {% endunless %}
 
   {% unless product == empty %}
@@ -176,10 +176,14 @@
   {% endunless %}
   </div>
 
-  <div class="pdp-collection-sliders">
 
-    {%- include 'product-collection-slider', collection: block.settings.collection -%}
+  {%- if cart.item_count < 1 -%}
+{% assign cart_link_hide_class =  'opacity-hidden' %}
+  {%- endif -%}
 
-
-
-  </div>
+    <div class="cart-link-container {{cart_link_hide_class}}">
+      <a href="/cart" class="product-cart-link big-font color-green" >
+        CART
+        <span class="color-black">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-black">)</span>
+      </a>
+    </div>
