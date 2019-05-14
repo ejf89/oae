@@ -27,9 +27,26 @@
 {%- endif -%}
 {%- endfor -%}
 
-{{ related_product_string }}
 {% assign related_product_string_split = related_product_string | split: '|'   %}
+{% assign artist_check = article.handle | remove: 'artists/' }%}
 
+{% for link in linklists.blogs.links %}
+  {% assign blog = link.object %}
+  {%- if blog.handle == "projects" -%}
+
+    {% for article in blog.articles %}
+    {%- for tag in article.tags -%}
+    {%- if tag contains 'artist' and tag contains artist_check -%}
+    <a href="{{article.url}}">
+      <img src="{{ article.image.src | img_url: '500x' }}" alt="">
+      {{article.title}}
+    </a>
+
+    {%- endif -%}
+    {%- endfor -%}
+    {% endfor %}
+  {%- endif -%}
+{% endfor %}
 
 
 
@@ -42,6 +59,37 @@
 
     {%- endif -%}
     {%- endfor -%}
+
+    {% for link in linklists.blogs.links %}
+      {% assign blog = link.object %}
+      {%- if blog.handle == "projects" -%}
+
+        {% for article in blog.articles %}
+        {%- for tag in article.tags -%}
+        {%- if tag contains 'artist' and tag contains artist_check -%}
+        <div  class="product-collection-item project-item">
+          <div class="product-image-container">
+
+                  <div class="product-card-canvas dark-shadow">
+
+                    <a href="{{article.url}}">
+                    <img src="{{ article.image.src | img_url: '500x' }}" alt="">
+                  </a>
+
+                  </div>
+
+          </div>
+          <a href='{{article.url}}' class='product-info med-font'>
+            {{article.title}}
+          </a>
+        </div>
+
+        {%- endif -%}
+        {%- endfor -%}
+        {% endfor %}
+      {%- endif -%}
+    {% endfor %}
+
 
   </div>
 {%- comment %}
