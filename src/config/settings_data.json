@@ -1,6 +1,91 @@
 {
-  "current": "Default",
+  "current": {
+    "logo": "",
+    "font-first": "'OAE italic'",
+    "font-first-size": 30,
+    "font-second": "'OAE'",
+    "font-second-size": 30,
+    "font-third": "'OAE'",
+    "font-third-size": 30,
+    "color-1": "#000",
+    "color-2": "#000",
+    "color-3": "#ffdfdf",
+    "color-body": "#000",
+    "gradient_anchor": "#000",
+    "show_announcement": false,
+    "home_page_only": true,
+    "text": "Announce something here",
+    "link": "",
+    "color_bg": "#1c1d1d",
+    "color_text": "#fff",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "instagram_title": "Instagram",
+    "instagram_limit": "4",
+    "instagram_id": "2283731392",
+    "instagram_token": "2283731392.255aa37.1c3ba3ab9c92443185894183e0758df6",
+    "cart_notes_enable": true,
+    "favicon": "",
+    "featured_collection": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "",
+          "logo_max_width": 30,
+          "main_linklist-primary": "main-menu",
+          "mobile_linklist": "",
+          "header_color": "#ffffff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist": "footer",
+          "show_payment_icons": false,
+          "section_title": "Subscribe to our newsletter",
+          "subheading": "A short sentence describing what someone will receive by subscribing",
+          "newsletter_placeholder": "Email Address",
+          "newsletter_submit": "Submit"
+        }
+      },
+      "1557255765987": {
+        "type": "hero-static",
+        "settings": {
+          "hero_image": "shopify:\/\/shop_images\/web_Parakeets_2011_72x108__Press.jpg"
+        }
+      }
+    },
+    "content_for_index": [
+      "1557255765987"
+    ]
+  },
   "presets": {
-    "Default": {}
+    "Default": {
+    }
   }
 }

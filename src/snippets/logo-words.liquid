@@ -39,6 +39,10 @@
 
 {%- if template == 'collection' or template == "product"-%}
   {% assign template_handle = 'Store'  %}
+
+  {%- else if template == "blog" or template == "article" -%}
+  {% assign template_handle = 'Artists'  %}
+
 {%- endif -%}
 
 

@@ -77,7 +77,7 @@ button{
 /*================ About Page  ================*/
 .about-page-container, .page-container{
   background-color: --color-2;
-  padding: 4% 10%;
+  padding: $gutter;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -85,6 +85,7 @@ button{
   // align-items: center;
   margin: auto;
   max-width: 1250px;
+  margin-top: $quad-gutter;
 
   .image-contain>img, .image-fit{
     transform: translate(-50%, 0%);

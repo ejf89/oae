@@ -46,11 +46,15 @@
      <fieldset>
 
        {%- for option in product.options_with_values -%}
+
+       {%- if option.name == "Frame" -%}
        {%- for value in option.values -%}
-         <label for="{{ value | escape }}">
-           <input class="variant-radio-button" type="radio" value="{{value | escape }}" name="quality" id="{{value | escape }}"> <span>{{value | escape }}</span>
-         </label>
-         {%- endfor -%}
+       <label for="{{ value | escape }}">
+         <input class="variant-radio-button" type="radio" value="{{value | escape }}" name="quality" id="{{value | escape }}"> <span>{{value | escape }}</span>
+       </label>
+       {%- endfor -%}
+
+       {%- endif -%}
        {%- endfor -%}
 
     </fieldset>

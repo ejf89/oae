@@ -1,11 +1,14 @@
 <!-- article.liquid -->
 
-<div id="generated-article-liquid">
+<div id="generated-article-liquid" class="page-container">
 
 <!-- Article -->
 <div class="article">
-  <h2 class="article-title">{{ article.title }}</h2>
-  <p class="article-details">posted <span class="article-time">{{ article.created_at | date: "%Y %h" }}</span> by <span class="article-author">{{ article.author }}</span></p>
+    <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2>
+
+  <img class="dark-shadow article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
+
+
 
   <div class="article-body textile">
     {{ article.content }}
@@ -14,69 +17,34 @@
 </div>
 <!-- END Article -->
 
-<!-- Comments -->
-{% if blog.comments_enabled? %}
-<div id="comments">
-  <h3>Comments</h3>
 
-  <!-- List all comments -->
-  <ul id="comment-list">
-  {% for comment in article.comments %}
-    <li>
-      <div class="comment">
-        {{ comment.content }}
-      </div>
+{%- for tag in article.tags -%}
+{%- if tag contains 'product' -%}
+  {% assign tag_clean = tag | remove: 'product_' | strip %}
 
-  	  <div class="comment-details">
-  		  Posted by <span class="comment-author">{{ comment.author }}</span> on <span class="comment-date">{{ comment.created_at | date: "%B %d, %Y" }}</span>
-      </div>
-  	</li>
-  {% endfor %}
-  </ul>
+  {% capture related_product_string %}{{related_product_string}}|{{ tag_clean }}{% endcapture %}
 
-  <!-- Comment Form -->
-  <div id="comment-form">
-  {% form article %}
-    <h3>Leave a comment</h3>
+{%- endif -%}
+{%- endfor -%}
 
-    <!-- Check if a comment has been submitted in the last request, and if yes display an appropriate message -->
-    {% if form.posted_successfully? %}
-      {% if blog.moderated? %}
-        <div class="notice">
-          Successfully posted your comment.<br />
-          It will have to be approved by the blog owner first before showing up.
-        </div>
-      {% else %}
-        <div class="notice">Successfully posted your comment.</div>
-      {% endif %}
-    {% endif %}
+{{ related_product_string }}
+{% assign related_product_string_split = related_product_string | split: '|'   %}
 
-    {% if form.errors %}
-      <div class="notice error">Not all the fields have been filled out correctly!</div>
-    {% endif %}
 
-    <dl>
-      <dt class="{% if form.errors contains 'author' %}error{% endif %}"><label for="comment_author">Your name</label></dt>
-      <dd><input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" class="{% if form.errors contains 'author' %}input-error{% endif %}" /></dd>
 
-      <dt class="{% if form.errors contains 'email' %}error{% endif %}"><label for="comment_email">Your email</label></dt>
-      <dd><input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" class="{% if form.errors contains 'email' %}input-error{% endif %}" /></dd>
 
-      <dt class="{% if form.errors contains 'body' %}error{% endif %}"><label for="comment_body">Your comment</label></dt>
-      <dd><textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="{% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea></dd>
-    </dl>
 
-    {% if blog.moderated? %}
-      <p class="hint">comments have to be approved before showing up</p>
-    {% endif %}
+  <div class="article-related-container grid-4">
+    {%- for product in related_product_string_split -%}
+    {%- if all_products[product] != blank-%}
 
-    <input type="submit" value="Post comment" id="comment-submit" />
-  {% endform %}
+    {%include "collection-item", product: all_products[product] %}
+
+    {%- endif -%}
+    {%- endfor -%}
+
   </div>
-  <!-- END Comment Form -->
-
-</div>
-{% endif %}
-<!-- END Comments -->
-
-</div>
+{%- comment %}
+	This is a foo
+{{ all_products["see-a-clean-future-air"].title }}
+{% endcomment -%}
