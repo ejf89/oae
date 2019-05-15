@@ -81,11 +81,12 @@ button{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 95%;
   // align-items: center;
   margin: auto;
   // max-width: 1250px;
-  margin-top: $quad-gutter;
+  // margin-top: $quad-gutter;
+  margin-left: 0;
 
   .image-contain>img, .image-fit{
     transform: translate(-50%, 0%);

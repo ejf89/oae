@@ -5,7 +5,7 @@
 
     <li class="nav-link__wrapper home-link">
       <a href="/" class=" big-font ">
-        One<span>,</span> All<span>,</span> Every<span>,</span>
+        One<span>,</span> All<span>,</span> Every<span>,</span>&nbsp
       </a>
 
     </li>
@@ -50,6 +50,9 @@
     </li>
     {% endif %}
     {% endfor %}
+    <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
+      <a href="/cart" class="nav-link big-font"> Cart</a><span class="nav-link__punctuation big-font">,</span>
+    </li>
 
 
 

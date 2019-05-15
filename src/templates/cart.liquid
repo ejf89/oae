@@ -1,15 +1,16 @@
+
+
+
+<div class="cart-container page-container">
 <!-- cart.liquid -->
 {% if cart.item_count > 0 %}
 
 
 
-
-
-
 <div class="cart-container">
 
-  <h1 class="cart-title ">Your Cart</h1>
 
+  {% section 'cart-copy' %}
 
   <form action="/cart" method="post" novalidate>
     <table class="responsive-table cart-table">
@@ -33,19 +34,19 @@
         helpers used for responsive-table labels
         {% endcomment %}
 
-          <tr class="responsive-table-row ">
+          <tr class="responsive-table-row cart-border">
 
             <td class="cart-item" data-label="{{ 'customer.order.product' | t }}">
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '300x300' | img_tag: item.title }}
+                  {{ item | img_url: '400x400' | img_tag: item.title }}
                 </a>
               {% endif %}
 
              </td>
-              <td>
-                <a class="text-left cart-item-title" href="{{ item.url }}">{{ item.product.title }}, {{ item.variant.title }}</a> 
+              <td class="title-wrapper">
+                <a class="text-left cart-item-title med-font color-black" href="{{ item.url }}">{{ item.product.title }}, {{ item.variant.title }}</a>
               </td>
 
                 <td data-label="{{ 'cart.label.quantity' | t }}">
@@ -138,7 +139,10 @@
 <div class="cart-empty-container">
 
 
-  <h1>{{ 'cart.general.title' | t }}</h1>
+  {% section 'cart-copy' %}
+
+
+  <h1 class='cart-border cart-message'>Your cart is empty!</h1>
 
   {% comment %}
   Cart empty state
@@ -160,3 +164,6 @@
     <p>{{ 'cart.general.cookies_required' | t }}</p>
   </div>
 {% endif %}
+
+
+</div>

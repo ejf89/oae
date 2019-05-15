@@ -167,12 +167,19 @@ body.mini-cart-open{
     // margin: 2rem auto;
   }
   td{
-    text-align: center;
+    text-align: left;
     vertical-align: center;
   }
   input{
-    text-align: center;
+    text-align: left;
     padding: 6px;
+  }
+}
+
+.cart-container{
+  td{
+    padding: 15px 0;
+
   }
 }
 
@@ -188,15 +195,38 @@ body.mini-cart-open{
   color: white;
   a{
     color: black;
+    width: 100%;
+    // max-width: 400px;
   }
 
   .content{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 1rem 0;
+    // padding: 1rem 0;
     text-align: left;
   }
+}
+
+.title-wrapper{
+  // max-width: 200px;
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // max-height: 100%;
+}
+.cart-item-title{
+  // @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);
+}
+
+.cart-border{
+  border: 2px solid $color-green;
+  border-left: none;
+  border-right: none;
+}
+
+.cart-message{
+  padding: $half-gutter 0;
 }
 
 

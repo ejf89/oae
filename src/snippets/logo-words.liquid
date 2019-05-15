@@ -1,5 +1,4 @@
 {%- if template == 'index' -%}
-
   <span class="color-black word">
     One
   </span>
@@ -33,40 +32,50 @@
   </span>
 
 
-
-
 {%- else -%}
 
-{%- if template == 'collection' or template == "product"-%}
+  {% assign template_handle = ''  %}
+  {%- if template == 'collection' or template == "product"-%}
   {% assign template_handle = 'Store'  %}
-
-  {%- else if template == "blog" or template == "article" -%}
+  {%- else if template == "cart"  -%}
+  {% assign template_handle = 'Cart'  %}
+  {%- else if template.suffix != "blank" and template.suffix == 'project' -%}
+  {% assign template_handle = 'Projects'  %}
+  {%- else if template == "blog" -%}
+  {% assign template_handle = 'Artists'  %}
+  {%- else if template == "article" -%}
   {% assign template_handle = 'Artists'  %}
 
+
 {%- endif -%}
+
 
 
   <span class="color-green word link-home">
     One
   </span>
   <span class="color-black word link-home">
-    ,
+    ,&nbsp
   </span>
   <span class="color-green word link-home">
     All
   </span>
   <span class="color-black word link-home">
-    ,
+    ,&nbsp
   </span>
   <span class="color-green">
     Every
   </span>
   <span class="color-green word link-home">
-    ,
+    ,&nbsp
   </span>
-  <span class="color-black word">
-    {{template_handle}}
-  </span>
+  <span class="color-black word dynamic-word">
+      {{ template_handle }}
+      {%- if template == 'cart' -%}
+        {%- if cart.item_count > 0 -%}
+        <span class="color-green ">(</span><span class="cart-item-count  "  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green  ">)</span>
+        {% endif %}
+      {%- endif -%}
   <span class="color-green word">
     :
   </span>
