@@ -7,7 +7,7 @@
     </li>
   {%- for block in section.blocks -%}
   <li>
-    <a href="{{blocks.settings.link_url}}" target="_blank">{{block.settings.link_copy}}</a>
+    <a class="color-black" href="{{blocks.settings.link_url}}" target="_blank">{{block.settings.link_copy}}</a>
   </li>
 
   {%- endfor -%}
@@ -23,7 +23,13 @@
   {
     "name": "Mission Section",
     "class": "index-section",
-
+    "settings": [
+      {
+        "type": "text",
+        "label": "Header Copy",
+        "id": "header_copy"
+      }
+    ],
     "blocks": [
       {
         "type": "link_block",

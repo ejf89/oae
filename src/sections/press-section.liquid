@@ -1,0 +1,60 @@
+<!-- about-section.liquid -->
+
+
+<div class="press-grid grid-4">
+
+  {%- for block in section.blocks -%}
+  <div class="press-block">
+    <a href="{{block.settings.link_url}}" target="_blank">
+      <img class="press-image max-width-100 dark-shadow" src="{{ block.settings.press_image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}">
+      <p class='color-green'>{{block.settings.press_title}}</p>
+      <p class='color-black'>{{block.settings.press_description}}</p>
+    </a>
+
+  </div>
+
+
+  {%- endfor -%}
+</div>
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Press Section",
+    "class": "index-section",
+    "blocks": [
+      {
+        "type": "press_block",
+        "name": "Press Block",
+        "settings": [
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Press URL"
+          },
+          {
+            "type": "image_picker",
+            "id": "press_image",
+            "label": "Press Image"
+          },
+          {
+            "type": "text",
+            "id": "press_title",
+            "label": "Press Title"
+          },
+          {
+            "type": "text",
+            "id": "press_description",
+            "label": "Press Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

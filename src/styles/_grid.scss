@@ -16,8 +16,8 @@
 @mixin grid{
   display: grid;
   grid-auto-rows: auto 1fr;
-  grid-column-gap: $grid-gap;
-  grid-row-gap: $grid-gap;
+  grid-column-gap: $half-gutter;
+  grid-row-gap: $half-gutter;
   grid-auto-rows: 1fr;
   justify-content: center;
   align-content: center;
