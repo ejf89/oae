@@ -139,6 +139,9 @@
 
 
 
+     <div class="zoom-slide-count big-font rotate-90">
+
+     </div>
 
   </div>
 
@@ -154,7 +157,16 @@
     pageDots: false,
     autoPlay: false,
     imagesLoaded: true,
-    fade: true
+    fade: true,
+    on: {
+      ready: function(){
+        console.log("READYU");
+        $('.zoom-slide-count').text('1/' + this.cells.length)
+      },
+    change: function( index ) {
+           $('.zoom-slide-count').text(index + '/' + this.cells.length)
+      }
+    }
   })
 
   </script>

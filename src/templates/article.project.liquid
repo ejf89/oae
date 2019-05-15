@@ -1,6 +1,6 @@
 <!-- article.liquid -->
 
-<div id="generated-article-liquid" class="page-container">
+<div id="generated-article-liquid" class="page-container project-container">
 
 
 
@@ -8,8 +8,9 @@
 <div class="article" data-handle="{{ article.title | handleize }}">
     <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2>
 
-    <img class="dark-shadow article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
-    <div class="project-airtable-container project-slider">
+    <div class="project-airtable-container project-slider dark-shadow">
+
+        <img class=" article-image project-slider-slide" src="{{ article.image.src | img_url: '800x' }}" alt="">
 
     </div>
 
@@ -20,7 +21,7 @@
 
 </div>
 
-<div class="zoom-modal-container opacity-hidden no-pointer ">
+<div class="zoom-modal-container opacity-hidden no-pointer z-minus-10">
   <div class="zoom-close x-close z-plus-10">
     {% include "green-x" %}
   </div>
@@ -28,75 +29,14 @@
 
   </div>
 
+  <div class="zoom-slide-count big-font rotate-90">
+
+  </div>
+
 </div>
 <!-- END Article -->
 
 
-{%- for tag in article.tags -%}
-{%- if tag contains 'product' -%}
-  {% assign tag_clean = tag | remove: 'product_' | strip %}
-
-  {% capture related_product_string %}{{related_product_string}}|{{ tag_clean }}{% endcapture %}
-
-{%- endif -%}
-{%- endfor -%}
-
-{% assign related_product_string_split = related_product_string | split: '|'   %}
-{% assign artist_check = article.handle | remove: 'artists/' }%}
-
-
-
-
-  <div class="article-related-container grid-4">
-    {%- for product in related_product_string_split -%}
-    {%- if all_products[product] != blank-%}
-
-    {%include "related-collection-item", product: all_products[product] %}
-
-    {%- endif -%}
-    {%- endfor -%}
-
-    {% for link in linklists.blogs.links %}
-      {% assign blog = link.object %}
-      {%- if blog.handle == "projects" -%}
-
-        {% for article in blog.articles %}
-        {%- for tag in article.tags -%}
-        {%- if tag contains 'artist' and tag contains artist_check -%}
-
-        {% assign background_image_url = article.image.src | img_url: '500x'  %}
-
-        <div  class="product-collection-item project-item">
-
-        <a href="{{article.url}}">
-          <div class="product-image-container">
-
-            <div class="product-card-canvas dark-shadow"  style="background-image: url({{background_image_url}})">
-
-              {%- comment %}
-              This is a foo
-              <a href="{{article.url}}">
-              <img src="{{ article.image.src | img_url: '500x' }}" alt="">
-            </a>
-            {% endcomment -%}
-
-          </div>
-
-        </div>
-        </a>
-          <a href='{{article.url}}' class='product-info med-font'>
-            {{article.title}}
-          </a>
-        </div>
-
-        {%- endif -%}
-        {%- endfor -%}
-        {% endfor %}
-      {%- endif -%}
-    {% endfor %}
-
-
-  </div>
 {%- comment %}
 	This is a foo
 {{ all_products["see-a-clean-future-air"].title }}

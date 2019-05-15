@@ -113,6 +113,11 @@
 .body-lock{
   overflow: hidden;
 }
+
+.rotate-90{
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+}
 /*================ Image Fit Classes ================*/
 .image-fit, {
   overflow:hidden;
