@@ -1,0 +1,115 @@
+<!-- collection-item.liquid -->
+
+{% capture variantImages %}  {% endcapture %}
+
+{% assign title_string = product.selected_or_first_available_variant.title | split: '/' %}
+
+{%- for word in title_string -%}
+{%- if forloop.index == 2 -%}
+{% assign colorTitle = word | strip | replace: ' ', ''  %}
+{%- endif -%}
+{%- endfor -%}
+
+      <div class="product-collection-item{% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
+      data-tags="{{product.tags | downcase}}"
+      data-handle="{{product.handle}}"
+      data-variantsAvailable="{{filterVariants | downcase}}"
+      data-productType="{{product.type | downcase }}"
+      data-productvendor='{{ product.vendor | downcase }}'
+      data-productId="product-{{ product.id }}"
+      data-productoption="{{optionData | downcase}}"
+      id="product-{{ product.id }}"
+      style="background:{{gradient_tag}};">
+        {% if product.featured_image != blank %}
+
+          <div class="product-image-container" >
+
+            {%- if slider_child == true -%}
+            <a class="product-image featured-product-image {% if slider_child == true %} slide-opacity {% endif %} " href="{{ product.url | within: collection }}">
+              <img class="{% if template != "collection.v2" and template != "collection" %}slide-opacity{% endif %}  " src="{{ product.featured_image.src | img_url: '800x800' }}" alt="">
+            </a>
+            {% else %}
+            <a href="{{ product.url | within: collection }}"  class="product-card-link">
+
+              <div class="product-card-image-wrapper">
+                {% assign images_length = product.images | size %}
+                {%- capture image_src_0 -%}
+                  {{- product.images[0] | img_url: '700x' -}}
+                {%- endcapture -%}
+                {% if images_length > 1 %}
+                {%- capture image_src_1 -%}
+                  {{- product.images[1] | img_url: '700x' -}}
+                {%- endcapture -%}
+                {% endif %}
+
+                <div class="product-card-canvas dark-shadow">
+                  {% if images_length > 1 %}
+                  {%- comment %}
+                  	This is a foo
+                  <div class="product-card-image product-card-image__back" style="background-image: url({{ image_src_1 }});"></div>
+
+                  <img src="{{ image_src_1 }}" alt="">
+                  {% endcomment -%}
+
+                  {% assign no_hover = false %}
+                  {% else %}
+                  {% assign no_hover = true %}
+                  {% endif %}
+                  {%- comment %}
+                  <div class="product-card-image product-card-front {% if no_hover == true %} no-hover {% endif %} " style="background-image: url({{ image_src_0 }});"></div>
+                  	This is a foo
+                  {% endcomment -%}
+
+                  <img src="{{ image_src_0 }}" alt="">
+
+                </div>
+
+              </div>
+
+            </a>
+
+            {%- endif -%}
+
+
+
+          </div>
+        {% endif %}
+
+        <div class="product-info" >
+          <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span> </p>
+          <p class="product-price">
+
+            {% if product.compare_at_price > product.price %}
+              {% if product.price_varies %}
+                {%- assign sale_price = product.price | money -%}
+                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+              {% else %}
+                {{ 'products.product.on_sale' | t }}
+                {{ product.price | money }}
+              {% endif %}
+
+            {% else %}
+
+              {% if product.price_varies %}
+                {%- assign price = product.price | money -%}
+                {{ product.price | money }}
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
+
+            {% endif %}
+
+            {% if product.compare_at_price > product.price %}
+              <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+              <s>{{ product.compare_at_price | money }}</s>
+            {% endif %}
+
+            {% unless product.available %}
+              {{ 'products.product.sold_out' | t }}
+            {% endunless %}
+          </p>
+
+        </div>
+
+
+      </div>

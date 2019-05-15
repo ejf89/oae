@@ -1,0 +1,121 @@
+{
+  "records": [
+    {
+      "id": "recFAPpM1UyP8pvsB",
+      "fields": {
+        "assets": [
+          {
+            "id": "attRXl9a9KZoDRYNZ",
+            "url": "https:\/\/dl.airtable.com\/.attachments\/47c076c09674a7d9bb5291de474f4cee\/09ad485d\/BOWERSINSTALLPEREZ.jpg",
+            "filename": "BOWERS INSTALL PEREZ.jpg",
+            "size": 3094378,
+            "type": "image\/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/f5f686f897d3699f6ec1ce248f277ff5\/de7d1cf9",
+                "width": 39,
+                "height": 36
+              },
+              "large": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/6717a972f60fbe432af0c50155aeaf7e\/b5307dfe",
+                "width": 552,
+                "height": 512
+              },
+              "full": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/54b7dbe2da8f951d377db9e494ee6c98\/97a0d650",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          },
+          {
+            "id": "attSD3iC5uFuK9tnH",
+            "url": "https:\/\/dl.airtable.com\/.attachments\/0d24013f107116085ca5138ec3066e7c\/ba7205b4\/SanchezDescubridordelagunas2007acryliconcanvas39x48inNON46940.jpg",
+            "filename": "Sanchez, Descubridor de lagunas, 2007, acrylic on canvas, 39x48in NON46940.jpg",
+            "size": 1075319,
+            "type": "image\/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/b8de0420e8e4b7f64836ce628b9714d7\/ba08135b",
+                "width": 44,
+                "height": 36
+              },
+              "large": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/91357942cabd9196c3fc0d23b4502c42\/6259384a",
+                "width": 626,
+                "height": 512
+              },
+              "full": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/0754c1b5898f143aa19bf83a2dff043e\/b98faee8",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          },
+          {
+            "id": "attJKgNvkTYfzb6PT",
+            "url": "https:\/\/dl.airtable.com\/.attachments\/54c87208fa72cec7b378d943492d0626\/62b6160f\/h0591-Grey.jpg",
+            "filename": "h0591-Grey.jpg",
+            "size": 142161,
+            "type": "image\/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/e74c9728f60ceac30fe71bdadf238a98\/4c9efd6e",
+                "width": 50,
+                "height": 36
+              },
+              "large": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/8743bca19987a6cf0ff1d3eb18425cd9\/70c8a32b",
+                "width": 717,
+                "height": 512
+              },
+              "full": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/50324b85bcd1ae8c9aae1aef6ff4084e\/52d8162f",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          },
+          {
+            "id": "attdwH52vt7P55Mmr",
+            "url": "https:\/\/dl.airtable.com\/.attachments\/c3edf064e7e0280e7f744a10408de72d\/7de76123\/ScreenShot2019-03-09at17.53.31.png",
+            "filename": "Screen Shot 2019-03-09 at 17.53.31.png",
+            "size": 973513,
+            "type": "image\/png",
+            "thumbnails": {
+              "small": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/adade92f355b5dbe11edeedef7c0f11a\/73e1444c",
+                "width": 41,
+                "height": 36
+              },
+              "large": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/c3399fe1533c9938951634ed2c8f992d\/d7bc71ec",
+                "width": 583,
+                "height": 512
+              },
+              "full": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/3eec8fe7017fff9ca28afd52d34138f8\/d48faa27",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          }
+        ],
+        "Name": "andrea-bowers-tomas-sanchez-perez-museum-2017"
+      },
+      "createdTime": "2019-05-10T20:08:57.000Z"
+    },
+    {
+      "id": "recm0uX0Ivb36Y3eo",
+      "fields": {
+      },
+      "createdTime": "2019-05-10T20:08:57.000Z"
+    },
+    {
+      "id": "recwlJKcclB0WlO1j",
+      "fields": {
+      },
+      "createdTime": "2019-05-10T20:08:57.000Z"
+    }
+  ]
+}

@@ -2,16 +2,30 @@
 
 <div id="generated-article-liquid" class="page-container">
 
+
+
 <!-- Article -->
-<div class="article">
+<div class="article" data-handle="{{ article.title | handleize }}">
     <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2>
 
-  <img class="dark-shadow article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
+    <img class="dark-shadow article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
+    <div class="project-airtable-container project-slider">
 
+    </div>
 
 
   <div class="article-body textile">
     {{ article.content }}
+  </div>
+
+</div>
+
+<div class="zoom-modal-container opacity-hidden no-pointer ">
+  <div class="zoom-close x-close z-plus-10">
+    {% include "green-x" %}
+  </div>
+  <div class="zoom-slider">
+
   </div>
 
 </div>

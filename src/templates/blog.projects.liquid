@@ -1,0 +1,64 @@
+<!-- blog.liquid -->
+
+{% paginate blog.articles by 10 %}
+
+  {%- assign blog_title = blog.title -%}
+
+  {% if current_tags %}
+    {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
+  {% endif %}
+
+  {%- comment %}
+  	This is a foo
+  {% if blog.all_tags.size > 0 %}
+    <h2>{{ 'blogs.general.categories' | t }}</h2>
+    <ul>
+      {% for tag in blog.all_tags %}
+        {% if current_tags contains tag %}
+          <li>{{ tag }}</li>
+        {% else %}
+          <li>{{ tag | link_to_tag: tag }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% endcomment -%}
+
+{% comment %}
+Article Previews
+====================
+{% endcomment %}
+<div class="blog-flex-container article-wrapper gutter grid-2">
+
+
+    {% for article in blog.articles %}
+
+    <div class="article-preview-container">
+      <a href="{{article.url}}">
+        <img class="dark-shadow" src="{{ article.image.src | img_url: '500x' }}" alt="">
+
+        <p class="big-font color-black">{{article.title}}</p>
+
+      </a>
+
+    </div>
+
+
+
+    {% endfor %}
+
+
+</div>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}
+
+
+
+{%- comment %}
+	This is a foo
+<div style="width:{% cycle '100%', '50%', '50%'%};">img</div>
+{% endcomment -%}

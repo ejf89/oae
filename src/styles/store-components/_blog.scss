@@ -56,3 +56,17 @@
   margin: auto;
   margin-bottom: $gutter;
 }
+
+.article-related-container{
+  .product-image-container{
+    height: 100%;
+    max-height: 38vh;
+  }
+  .product-card-canvas{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

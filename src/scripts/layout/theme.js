@@ -23,6 +23,7 @@ $(document).ready(function(){
       tools.sliderInit()
       tools.pdpLightBox()
       tools.variantRadioLogic()
+      tools.projectAirtableQuery()
 
       // bismuth.collectionSelect()
     }

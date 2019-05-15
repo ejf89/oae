@@ -92,7 +92,10 @@ tools.pdpLightBox = function(){
 
 tools.currencyFormat = function(num){
   return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
 
+tools.randomFixedInteger = function (length) {
+  return Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length) - Math.pow(10, length-1) - 1));
 }
 
 
@@ -106,4 +109,47 @@ if ($('.variant-radio-wrapper').length > 0) {
     var value = $(this).val()
     $('.master-select select').val(value).trigger('change')
   })
+}
+
+tools.projectAirtableQuery = function(){
+  console.log('AIRTABLEING');
+  var atContainer = $('.project-airtable-container')
+  var math = tools.randomFixedInteger(18)
+  // debugger
+  var handle = $('.article').data('handle')
+  console.log('HANDLE');
+  console.log(handle);
+
+  function sliderInit(){
+    console.log('SLIDERINIT!!!!');
+  }
+
+  if (atContainer.length > 0) {
+    var itemsProcessed = 0;
+
+    jQuery.getJSON("//cdn.shopify.com/s/files/1/0080/8992/7727/t/2/assets/airtable.json?" + math, function(data){
+      var records = data.records
+      for (var i = 0; i < records.length; i++) {
+       console.log(records[i]);
+       var name = records[i].fields.Name
+       if (name == handle) {
+         var assets = records[i].fields.assets
+         assets.forEach(function(el, i, array){
+
+           var imageSrc = el.url
+           itemsProcessed++;
+           $('.project-airtable-container').append(`<img src='${imageSrc}' />`)
+           $('.zoom-slider').append(`<img src='${imageSrc}' />`)
+           console.log(itemsProcessed);
+           console.log(array.length);
+           if (itemsProcessed == array.length) {
+             sliderInit()
+           }
+         })
+       }
+       console.log(name);
+      }
+    });
+  }
+  console.log();
 }
