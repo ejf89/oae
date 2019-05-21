@@ -119,8 +119,7 @@
 }
 
 .rotate-90{
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
+  writing-mode: vertical-rl;
 }
 /*================ Image Fit Classes ================*/
 .image-fit, {

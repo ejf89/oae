@@ -123,15 +123,15 @@
       {% include "green-x" %}
     </div>
     {% if product.images.size > 0 %}
-     <ul class="zoom-slider   feature-id--{{ product.id }} " data-slider="zoom-slider">
+     <ul class="zoom-slider dark-shadow  feature-id--{{ product.id }} " data-slider="zoom-slider">
        {% for image in product.images %}
-       {% assign slide_ = img.src | img_url : '1500x'  %}
+       {% assign slide_url = image.src | img_url : '2000x'  %}
 
-         <!-- <li class="slide-parent  ">
-           <div  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" > -->
-             <img class="dark-shadow" src="{{ image.src | img_url: '800x' }}" alt="{{ image.alt | escape }}">
-           <!-- </div>
-         </li> -->
+       <div class="zoom-slide-{{forloop.index}} zoom-slide " style=" background-image: url('https:{{ slide_url }}')">
+
+       </div>
+
+
        {% endfor %}
      </ul>
 
@@ -153,7 +153,7 @@
     wrapAround: true,
     imagesLoaded: true,
     variableWidth:false,
-    prevNextButtons: true,
+    prevNextButtons: false,
     pageDots: false,
     autoPlay: false,
     imagesLoaded: true,
