@@ -24,6 +24,7 @@ $(document).ready(function(){
       tools.pdpLightBox()
       tools.variantRadioLogic()
       tools.projectAirtableQuery()
+      tools.categoryTagLogic()
 
       // bismuth.collectionSelect()
     }

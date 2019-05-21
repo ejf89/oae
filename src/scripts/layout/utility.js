@@ -1,6 +1,3 @@
-
-console.log("TOOOLS");
-
 tools.closeMenu = function(){
   $('.nav-close').find('*').addBack().on('click', function(){
     $('.grid-responsive-navbar').removeClass('show')
@@ -246,3 +243,31 @@ tools.articleLightboxLogic = function(){
 // updateStatus();
 // $gallery.on( 'select.flickity', updateStatus );
 // }
+
+tools.categoryTagLogic = function(){
+console.log('CATEGORY');
+  if ($('.category-tag').length > 0) {
+    $('.category-tag').on('mouseover', function(e){
+      var $this = $(this)
+      var tag = $this.data('tag')
+      $this.addClass('active')
+
+      var shown = $(`.product-collection-item[data-tag="${tag}"]`)
+      var hidden = $(`.product-collection-item[data-tag!="${tag}"]`)
+
+      shown.addClass('opacity-shown')
+      hidden.addClass('opacity-hidden').removeClass('opacity-shown')
+
+
+      console.log('MOUSEOVER');
+    })
+    .on('mouseleave', function(e){
+      $('.product-collection-item').removeClass('opacity-hidden').removeClass('opacity-shown')
+
+
+    })
+
+
+  }
+
+}

@@ -8,9 +8,14 @@
 {% include 'announcement-bar' %}
 {% include "mobile-nav" %}
 
+<div class="logo-wrapper-container">
+  <div class="logo-wrapper big-font">
+    {% include "logo-words" %}
+  </div>
+  {%- if template == 'collection' -%}
+  {% include 'collection-header' %}
+  {%- endif -%}
 
-<div class="logo-wrapper big-font">
-{% include "logo-words" %}
 </div>
 
 

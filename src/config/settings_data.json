@@ -78,6 +78,113 @@
         "settings": {
           "hero_image": "shopify:\/\/shop_images\/web_Parakeets_2011_72x108__Press.jpg"
         }
+      },
+      "cart-copy": {
+        "type": "cart-copy",
+        "settings": {
+          "cart_copy": "Any One, All, Every purchase supports the critical environmental work of our philanthropic partners. For each project a minimum of 25% of net profits are donated to the relative cause."
+        }
+      },
+      "mission-section": {
+        "type": "mission-section",
+        "blocks": {
+          "1557957013126": {
+            "type": "link_block",
+            "settings": {
+              "link_copy": "Jane Goodall Institute",
+              "link_url": "http:\/\/www.janegoodall.org"
+            }
+          },
+          "1557957028199": {
+            "type": "link_block",
+            "settings": {
+              "link_copy": "Mission Blue",
+              "link_url": "https:\/\/mission-blue.org\/"
+            }
+          },
+          "1557957045507": {
+            "type": "link_block",
+            "settings": {
+              "link_copy": "Edward O. Wilson Biodiversity Foundation",
+              "link_url": "https:\/\/eowilsonfoundation.org\/"
+            }
+          },
+          "1557957067666": {
+            "type": "link_block",
+            "settings": {
+              "link_copy": "Green Belt Movement",
+              "link_url": "https:\/\/www.greenbeltmovement.org\/"
+            }
+          }
+        },
+        "block_order": [
+          "1557957013126",
+          "1557957028199",
+          "1557957045507",
+          "1557957067666"
+        ],
+        "settings": {
+          "header_copy": "is an art & environment initiative born out of the belief that art can and will move mountains."
+        }
+      },
+      "press-section": {
+        "type": "press-section",
+        "blocks": {
+          "1557958670694": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_18.10.35.png",
+              "press_title": "Lady Click, June 2018",
+              "press_description": "When the love don’t last at Art Basel and more gossip"
+            }
+          },
+          "1557958888873": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31.png",
+              "press_title": "Leading Architecture and Design, June 2018",
+              "press_description": "Porky Hefer’s Endangered to Benefit Leonardo Dicaprio Foundation"
+            }
+          },
+          "1557958931158": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.54.28.png",
+              "press_title": "Bizz Community, June 2018",
+              "press_description": "Porky Hefer presents endangered species project at Design Miami\/Basil"
+            }
+          },
+          "1557959002156": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31.png",
+              "press_title": "Financial Times, June, 2018",
+              "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
+            }
+          },
+          "1557959005882": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31_a5abe07c-ae54-4ec6-84fa-75986622736c.png",
+              "press_title": "lorem ipsum",
+              "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
+            }
+          }
+        },
+        "block_order": [
+          "1557958670694",
+          "1557958888873",
+          "1557958931158",
+          "1557959002156",
+          "1557959005882"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [

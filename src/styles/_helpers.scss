@@ -20,9 +20,9 @@
 .hide, .hidden {display: none !important;}
 .display-none{ display: none;}
 
-.show{
-  display: block;
-}
+// .show{
+//   display: block;
+// }
 
 .visually-hidden {@include visually-hidden();}
 .js-focus-hidden:focus {outline: none;}
