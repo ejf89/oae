@@ -57,12 +57,15 @@ tools.pdpLightBox = function(){
     $('.nav-open-word').addClass('hide')
     $('.cart-link-container').addClass('hide')
     $('.topnav').addClass('pointer-none')
-    $('.zoom-modal-container').addClass('arrow-right').addClass('z-plus-10')
+    $('.zoom-modal-container').addClass('arrow-right')
+    $('.zoom-modal-container').addClass('z-plus-10')
     $('body').addClass('body-lock')
     $(".zoom-modal-container").on('mousemove', function(e) {
     var mouseSide;
     if ((e.pageX - this.offsetLeft) < $(this).width() / 2) {
         mouseSide = 'L';
+          console.log("LEFT");
+        $('.zoom-modal-container').removeClass('arrow-right')
         $('.zoom-modal-container').unbind('click')
 
         $('body').removeClass('arrow-right')
@@ -72,6 +75,7 @@ tools.pdpLightBox = function(){
         })
 
     } else {
+      console.log("RIGHT");
           $('.zoom-modal-container').unbind('click')
         mouseSide = 'R';
         $('body').removeClass('arrow-left')
