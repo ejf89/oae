@@ -11,6 +11,22 @@
 /*================ Navigation Layout Grids ================*/
 
 
+.index-link{
+  text-transform: uppercase;
+  color: $color-green;
+  @include transition(color $transition-time ease-in-out);
+  &:hover{
+    color: $color-black;
+    span{
+      color: $color-green;
+    }
+  }
+  span{
+    color: $color-black;
+    @include transition(color $transition-time ease-in-out);
+  }
+}
+
 #shopify-section-header{
   // position: absolute;
   z-index: 10;
@@ -22,6 +38,7 @@
   margin-top: $gutter;
   padding-left: $gutter;
   position: fixed;
+  max-width: 91%;
   @include transition(transform 0.2s ease-in-out);
   z-index: 10;
   &.toggle-up{
@@ -65,6 +82,7 @@
 }
 .word{
   font-size: $big-font;
+  text-transform: uppercase;
 }
 
 .word-grow{
@@ -73,12 +91,14 @@
 
 
 .anim-typewriter{
-  animation: typingr 3s steps(32) 0.5s 1 normal both;
+  animation: typing 3s steps(32) 0.5s 1 normal both;
   -webkit-animation: typing 3s steps(32) 0.5s 1 normal both;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
 }
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 12rem;}
+  to{width: 14rem;}
 }
 
 @-webkit-keyframes typing {
@@ -97,7 +117,7 @@
   }
 
   to {
-    max-width: 12rem;
+    max-width: 14rem;
   }
 }
 
@@ -120,10 +140,11 @@ $mobile-header-height: 66px;
   // margin: 0 auto !important;
   @include transition(opacity 300ms);
   &.show{
-    opacity: 1;
+    opacity: 1 !important;
     height: 100%;
     z-index: 10;
   }
+
 }
 
 .topnav{
@@ -138,29 +159,30 @@ $mobile-header-height: 66px;
 .x-close{
   color: $color-green;
   position: absolute;
-  right: $half-gutter;
-  top: $half-gutter;
+  right: $gutter;
+  top: $gutter;
   svg{
-    height: $gutter;
-    width: $gutter;
+    height: $big-font;
+    width: $big-font;
   }
 }
 
 .nav-open-word{
   color: $color-green;
   position: fixed;
-  // right: $half-gutter;
-  // top: $half-gutter;
-  right: -15px;
-  top: 82px;
+  right: $gutter;
+  top: $gutter;
+  // right: -31px;
+  // top: 82px;
   z-index: 10;
-
-  @include transform(rotate(90deg));
+  writing-mode: vertical-rl;
+  // @include transform(rotate(90deg));
 
 }
 
 .home-link{
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .home-link{
@@ -185,6 +207,7 @@ $mobile-header-height: 66px;
 .nav-link__wrapper:not(.home-link){
   float: left;
   padding-right: $half-gutter;
+  text-transform: uppercase;
   .nav-link{
     color: $color-black;
     @include transition(all 400ms  ease-in-out);

@@ -1,6 +1,6 @@
 {%- if template == 'index' -%}
   <span class="color-black word">
-    One
+    One&nbsp
   </span>
   <span>
     <h1 class="color-white anim-typewriter word word-grow ">
@@ -8,21 +8,20 @@
     </h1>
   </span>
   <span class="color-green word">
-    ,
+    ,&nbsp
   </span>
-   
+
   <span class="color-black word">
-    All
+    All&nbsp
   </span>
   <span class="color-white anim-typewriter word word-grow ">
     Beings
   </span>
-
   <span class="color-green word">
-    ,
+    ,&nbsp
   </span>
-  <span class="color-black">
-    Every
+  <span class="color-black word">
+    Every&nbsp
   </span>
   <span class="color-white anim-typewriter word word-grow ">
     Choice
@@ -32,27 +31,13 @@
   </span>
 
 
-{%- else if template == "page.mission" -%}
+{%- elsif template == 'page.mission' -%}
 
-<span class="color-green word link-home">
-  One
-</span>
-<span class="color-black word link-home">
-  ,&nbsp
-</span>
-<span class="color-green word link-home">
-  All
-</span>
-<span class="color-black word link-home">
-  ,&nbsp
-</span>
-<span class="color-green">
-  Every
-</span>
-<span class="color-green word link-home">
-  ,&nbsp
-</span>
-  <p class="big-font">{{ settings.mission_copy }}</p>
+<a href="/" class="index-link big-font ">
+  One<span>,</span> All<span>,</span> Every<span>,</span>&nbsp
+</a>
+  <p class="big-font display-inline">{{ settings.mission_copy }}</p>
+
 
  {%- else  -%}
 
@@ -73,24 +58,9 @@
   {% assign template_handle = 'Artists'  %}
   {% endif %}
 
-  <span class="color-green word link-home">
-    One
-  </span>
-  <span class="color-black word link-home">
-    ,&nbsp
-  </span>
-  <span class="color-green word link-home">
-    All
-  </span>
-  <span class="color-black word link-home">
-    ,&nbsp
-  </span>
-  <span class="color-green">
-    Every
-  </span>
-  <span class="color-green word link-home">
-    ,&nbsp
-  </span>
+  <a href="/" class="index-link big-font ">
+    One<span>,</span> All<span>,</span> Every<span>,</span>&nbsp
+  </a>
   <span class="color-black word dynamic-word">
       {{ template_handle }}
       {%- if template == 'cart' -%}

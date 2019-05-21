@@ -14,7 +14,11 @@ tools.closeMenu = function(){
     var $target = $(e.target)
 
     if (!$target.hasClass('nav-link')) {
-      $('.grid-responsive-navbar').removeClass('show')
+      $('.grid-responsive-navbar').css('opacity', 0)
+      setTimeout(function(){
+        $('.grid-responsive-navbar').removeClass('show')
+
+      }, 300)
       if ($('.nav-open-word')) {
         $('.nav-open-word').removeClass('visually-hidden')
       }
@@ -51,8 +55,9 @@ tools.pdpLightBox = function(){
     $('.zoom-modal-container').removeClass('opacity-hidden no-pointer z-minus-10')
     $('.product-description').addClass('z-minus-10')
     $('.nav-open-word').addClass('hide')
+    $('.cart-link-container').addClass('hide')
     $('.topnav').addClass('pointer-none')
-    $('.zoom-modal-container').addClass('arrow-right')
+    $('.zoom-modal-container').addClass('arrow-right').addClass('z-plus-10')
     $('body').addClass('body-lock')
     $(".zoom-modal-container").on('mousemove', function(e) {
     var mouseSide;
@@ -83,10 +88,14 @@ tools.pdpLightBox = function(){
     $('.zoom-modal-container').addClass('opacity-hidden no-pointer z-minus-10')
     $('.product-description').removeClass('z-minus-10')
     $('.nav-open-word').removeClass('hide')
+    $('.cart-link-container').removeClass('hide')
+    $('.cart-link-container').removeClass('hide')
     $('.topnav').removeClass('pointer-none')
     $('*').removeClass('arrow-right')
     $('*').removeClass('arrow-left')
     $('body').removeClass('body-locky')
+    $('.zoom-modal-container').removeClass('z-plus-10')
+
 
   })
 }

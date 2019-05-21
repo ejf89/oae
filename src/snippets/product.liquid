@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block mobile-gutter">
+<div class="grid-product-page product-block mobile-gutter top-space">
 
 
     <div id="product-content-block" class="product-content-block">
@@ -40,7 +40,7 @@
       {% if product.vendor != blank %}
       {% assign vendor = product.vendor %}
       {% endif %}
-      <h1 class="big-font product-title z-plus-10">{{vendor}}<span class="color-green">,</span> {{ product.title }}<span class="color-green">,</span></h1>
+      <!-- <h1 class="big-font product-title z-plus-10">{{vendor}}<span class="color-green">,</span> {{ product.title }}<span class="color-green">,</span></h1> -->
 
       <div data-price-wrapper class="visually-hidden">
         <span data-product-price>
