@@ -303,5 +303,15 @@
         "type": "collection"
       }
     ]
+  },
+  {
+    "name": "Mission Copy",
+    "settings": [
+      {
+        "id": "mission_copy",
+        "type": "text",
+        "default": "MISION COPPY"
+      }
+    ]
   }
 ]

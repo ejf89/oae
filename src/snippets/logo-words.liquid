@@ -32,24 +32,46 @@
   </span>
 
 
-{%- else -%}
+{%- else if template == "page.mission" -%}
 
-  {% assign template_handle = ''  %}
+<span class="color-green word link-home">
+  One
+</span>
+<span class="color-black word link-home">
+  ,&nbsp
+</span>
+<span class="color-green word link-home">
+  All
+</span>
+<span class="color-black word link-home">
+  ,&nbsp
+</span>
+<span class="color-green">
+  Every
+</span>
+<span class="color-green word link-home">
+  ,&nbsp
+</span>
+  <p class="big-font">{{ settings.mission_copy }}</p>
+
+ {%- else  -%}
+
   {%- if template == 'collection' or template == "product"-%}
   {% assign template_handle = 'Store'  %}
-  {%- else if template == "cart"  -%}
+  {% endif %}
+  {%-  if template == "cart"  -%}
   {% assign template_handle = 'Cart'  %}
-  {%- else if template.suffix != "blank" and template.suffix == 'project' -%}
+  {% endif %}
+  {%-  if template == 'blog.projects' -%}
   {% assign template_handle = 'Projects'  %}
-  {%- else if template == "blog" -%}
+  {%- else  -%}
+    {%-  if template == "blog" -%}
+    {% assign template_handle = 'Artists'  %}
+    {% endif %}
+  {% endif %}
+  {%-  if template == "article" -%}
   {% assign template_handle = 'Artists'  %}
-  {%- else if template == "article" -%}
-  {% assign template_handle = 'Artists'  %}
-
-
-{%- endif -%}
-
-
+  {% endif %}
 
   <span class="color-green word link-home">
     One
@@ -79,4 +101,5 @@
   <span class="color-green word">
     :
   </span>
-  {%- endif -%}
+
+{%- endif -%}
