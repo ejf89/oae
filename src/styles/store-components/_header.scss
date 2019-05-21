@@ -21,6 +21,12 @@
   height: $double-gutter;
   margin-top: $gutter;
   padding-left: $gutter;
+  position: fixed;
+  @include transition(transform 0.2s ease-in-out);
+  z-index: 10;
+  &.toggle-up{
+    transform: translateY(-257%);
+  }
 }
 .logo-wrapper{
   display: flex;
@@ -142,7 +148,7 @@ $mobile-header-height: 66px;
 
 .nav-open-word{
   color: $color-green;
-  position: absolute;
+  position: fixed;
   // right: $half-gutter;
   // top: $half-gutter;
   right: -15px;

@@ -263,11 +263,21 @@ console.log('CATEGORY');
     })
     .on('mouseleave', function(e){
       $('.product-collection-item').removeClass('opacity-hidden').removeClass('opacity-shown')
-
-
     })
-
-
   }
+}
 
+tools.navPositionToggle = function(){
+  $(window).on('scroll', function() {
+    scrollPosition = $(this).scrollTop();
+    if (scrollPosition >= 100) {
+        // If the function is only supposed to fire once
+        $('.logo-wrapper-container').addClass('toggle-up')
+
+        // Other function stuff here...
+    } else {
+      $('.logo-wrapper-container').removeClass('toggle-up')
+
+    }
+});
 }

@@ -25,6 +25,7 @@ $(document).ready(function(){
       tools.variantRadioLogic()
       tools.projectAirtableQuery()
       tools.categoryTagLogic()
+      tools.navPositionToggle()
 
       // bismuth.collectionSelect()
     }
