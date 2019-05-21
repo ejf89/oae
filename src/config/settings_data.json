@@ -1,23 +1,21 @@
 {
   "current": {
-    "logo": "",
     "font-first": "'OAE italic'",
     "font-first-size": 30,
     "font-second": "'OAE'",
     "font-second-size": 30,
     "font-third": "'OAE'",
     "font-third-size": 30,
-    "color-1": "#000",
-    "color-2": "#000",
+    "color-1": "#000000",
+    "color-2": "#000000",
     "color-3": "#ffdfdf",
-    "color-body": "#000",
-    "gradient_anchor": "#000",
+    "color-body": "#000000",
+    "gradient_anchor": "#000000",
     "show_announcement": false,
     "home_page_only": true,
     "text": "Announce something here",
-    "link": "",
     "color_bg": "#1c1d1d",
-    "color_text": "#fff",
+    "color_text": "#ffffff",
     "social_sharing_blog": true,
     "share_facebook": true,
     "share_twitter": true,
@@ -35,16 +33,12 @@
     "instagram_id": "2283731392",
     "instagram_token": "2283731392.255aa37.1c3ba3ab9c92443185894183e0758df6",
     "cart_notes_enable": true,
-    "favicon": "",
     "featured_collection": "",
-    "checkout_header_image": "",
-    "checkout_logo_image": "",
+    "mission_copy": "is an art & environmentinitiative born out of the belief that art can and will move mountains.",
     "checkout_logo_position": "left",
     "checkout_logo_size": "medium",
-    "checkout_body_background_image": "",
-    "checkout_body_background_color": "#fff",
+    "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
-    "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
     "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
@@ -55,7 +49,6 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "",
           "logo_max_width": 30,
           "main_linklist-primary": "main-menu",
           "mobile_linklist": "",
@@ -124,7 +117,7 @@
           "1557957067666"
         ],
         "settings": {
-          "header_copy": "is an art & environment initiative born out of the belief that art can and will move mountains."
+          "header_copy": "is an art & environmentinitiative born out of the belief that art can and will move mountains."
         }
       },
       "press-section": {
