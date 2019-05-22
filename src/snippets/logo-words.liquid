@@ -3,7 +3,7 @@
     One&nbsp
   </span>
   <span>
-    <h1 class="color-white anim-typewriter word word-grow ">
+    <h1 class="color-white anim-typewriter word word-grow big-font ">
       Planet
     </h1>
   </span>
@@ -14,7 +14,7 @@
   <span class="color-black word">
     All&nbsp
   </span>
-  <span class="color-white anim-typewriter word word-grow ">
+  <span class="color-white anim-typewriter word word-grow big-font ">
     Beings
   </span>
   <span class="color-green word">
@@ -23,7 +23,7 @@
   <span class="color-black word">
     Every&nbsp
   </span>
-  <span class="color-white anim-typewriter word word-grow ">
+  <span class="color-white anim-typewriter word word-grow big-font ">
     Choice
   </span>
   <span class="color-green word">
@@ -52,11 +52,16 @@
   {%- else  -%}
     {%-  if template == "blog" -%}
     {% assign template_handle = 'Artists'  %}
+    {%- elsif template == 'article.project' -%}
+    {% assign template_handle = 'Projects'  %}
+
     {% endif %}
   {% endif %}
   {%-  if template == "article" -%}
   {% assign template_handle = 'Artists'  %}
   {% endif %}
+
+
 
   <a href="/" class="index-link big-font ">
     One<span>,</span> All<span>,</span> Every<span>,</span>&nbsp

@@ -140,7 +140,7 @@ $mobile-header-height: 66px;
   // margin: 0 auto !important;
   @include transition(opacity 300ms);
   &.show{
-    opacity: 1 !important;
+    opacity: 1;
     height: 100%;
     z-index: 10;
   }

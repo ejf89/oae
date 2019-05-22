@@ -1,6 +1,11 @@
 tools.closeMenu = function(){
   $('.nav-close').find('*').addBack().on('click', function(){
-    $('.grid-responsive-navbar').removeClass('show')
+    // $('.grid-responsive-navbar').removeClass('show')
+    $('.grid-responsive-navbar').addClass('opacity-hidden')
+    setTimeout(function(){
+      $('.grid-responsive-navbar').removeClass('show')
+      $('.grid-responsive-navbar').removeClass('opacity-hidden')
+    }, 300)
 
     if ($('.nav-open-word')) {
       $('.nav-open-word').removeClass('visually-hidden')
@@ -14,10 +19,12 @@ tools.closeMenu = function(){
     var $target = $(e.target)
 
     if (!$target.hasClass('nav-link')) {
-      $('.grid-responsive-navbar').css('opacity', 0)
+      // $('.grid-responsive-navbar').css('opacity', 0)
+      $('.grid-responsive-navbar').addClass('opacity-hidden')
+
       setTimeout(function(){
         $('.grid-responsive-navbar').removeClass('show')
-
+        $('.grid-responsive-navbar').removeClass('opacity-hidden')
       }, 300)
       if ($('.nav-open-word')) {
         $('.nav-open-word').removeClass('visually-hidden')
@@ -31,7 +38,6 @@ tools.openMenu = function(){
   $('.hero-static, .nav-open-word').on('click touchstart', function(e){
     console.log("OPEN");
     e.stopPropagation()
-    console.log("HERE");
     if (!$('.grid-responsive-navbar').hasClass('show')) {
       $('.grid-responsive-navbar').addClass('show')
       $('.nav-close').removeClass('hide')
@@ -144,8 +150,10 @@ tools.projectAirtableQuery = function(){
 
            var imageSrc = el.url
            itemsProcessed++;
+           console.log(imageSrc);
            $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
-           $('.zoom-slider').append(`<img class='zoom-slider-slide' src='${imageSrc}' />`)
+           // $('.zoom-slider').append(`<img class='zoom-slider-slide' src='${imageSrc}' />`)
+           $('.zoom-slider').append(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
            if (itemsProcessed == array.length) {
              sliderInit()
            }
@@ -188,7 +196,7 @@ tools.projectAirtableQuery = function(){
             $('.zoom-slide-count').text('1/' + this.cells.length)
           },
         change: function( index ) {
-               $('.zoom-slide-count').text(index + '/' + this.cells.length)
+               $('.zoom-slide-count').text(index + 1 + '/' + this.cells.length)
           }
         }
       })

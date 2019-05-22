@@ -19,7 +19,7 @@
   {%- if template == 'collection' -%}
   {% include 'collection-header' %}
   {%- endif -%}
-  {%- if template == 'article' -%}
+  {%- if template contains 'article'-%}
   {% include 'blog-header' %}
   {%- endif -%}
   {%- if template == 'product' -%}

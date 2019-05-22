@@ -35,7 +35,10 @@ Article Previews
 
     <div class="article-preview-container">
       <a href="{{article.url}}">
-        <img class="dark-shadow" src="{{ article.image.src | img_url: '500x' }}" alt="">
+
+        {% assign image_url = article.image.src | img_url : '1000x'  %}
+
+        <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
 
         <p class="big-font color-black">{{article.title}}</p>
 
