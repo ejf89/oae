@@ -23,6 +23,13 @@
 .collection-container .product-image-container{
   background: transparent !important;
   display: block;
+  &:hover{
+    .product-info{
+      p,a{
+        color: $color-green;
+      }
+    }
+  }
 }
 
 .product-collection-item{
@@ -66,5 +73,8 @@
 .product-info{
   p, a{
     font-size: $med-font;
+    color: $color-black;
+    @include transition(color $transition-time ease-in-out);
   }
+
 }

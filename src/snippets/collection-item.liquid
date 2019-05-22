@@ -31,11 +31,7 @@
 
           <div class="product-image-container" >
 
-            {%- if slider_child == true -%}
-            <a class="product-image featured-product-image {% if slider_child == true %} slide-opacity {% endif %} " href="{{ product.url | within: collection }}">
-              <img class="{% if template != "collection.v2" and template != "collection" %}slide-opacity{% endif %}  " src="{{ product.featured_image.src | img_url: '800x800' }}" alt="">
-            </a>
-            {% else %}
+
             <a href="{{ product.url | within: collection }}"  class="product-card-link">
 
               <div class="product-card-image-wrapper">
@@ -73,16 +69,48 @@
 
               </div>
 
-            </a>
+              <div class="product-info color-black" >
+                <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span> </p>
+                <p class="product-price">
 
-            {%- endif -%}
+                  {% if product.compare_at_price > product.price %}
+                    {% if product.price_varies %}
+                      {%- assign sale_price = product.price | money -%}
+                      {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                    {% else %}
+                      {{ 'products.product.on_sale' | t }}
+                      {{ product.price | money }}
+                    {% endif %}
+
+                  {% else %}
+
+                    {% if product.price_varies %}
+                      {%- assign price = product.price | money -%}
+                      {{ product.price | money }}
+                    {% else %}
+                      {{ product.price | money }}
+                    {% endif %}
+
+                  {% endif %}
+
+                  {% if product.compare_at_price > product.price %}
+                    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                    <s>{{ product.compare_at_price | money }}</s>
+                  {% endif %}
+
+                  {% unless product.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% endunless %}
+                </p>
+
+            </a>
 
 
 
           </div>
         {% endif %}
 
-        <div class="product-info" >
+        <!-- <div class="product-info" >
           <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span> </p>
           <p class="product-price">
 
@@ -114,7 +142,7 @@
             {% unless product.available %}
               {{ 'products.product.sold_out' | t }}
             {% endunless %}
-          </p>
+          </p> -->
 
         </div>
 
