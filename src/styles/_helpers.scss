@@ -20,9 +20,21 @@
 .hide, .hidden {display: none !important;}
 .display-none{ display: none;}
 
-
+.no-underline{
+  text-decoration: none !important;
+}
 .display-inline{
   display: inline !important;
+}
+
+.uppercase{
+  text-transform: uppercase ;
+}
+.padding-bottom{
+  padding-bottom: $gutter;
+}
+.padding-gutter{
+  padding: $gutter;
 }
 // .show{
 //   display: block;

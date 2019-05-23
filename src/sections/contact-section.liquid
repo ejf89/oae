@@ -1,0 +1,32 @@
+<div class="team-section">
+  <h2 class="med-font color-green">Team</h2>
+
+<ul class="med-font">
+
+  {%- for block in section.blocks -%}
+  <li>{{ block.settings.text }}</li>
+  {%- endfor -%}
+</ul>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Team",
+    "class": "text-left",
+    "blocks": [
+      {
+        "name": "Team Member",
+        "type": "selected_product",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Team Member"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

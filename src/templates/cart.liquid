@@ -46,22 +46,37 @@
 
              </td>
               <td class="title-wrapper">
-                <a class="text-left cart-item-title med-font color-black" href="{{ item.url }}">{{ item.product.title }}, {{ item.variant.title }}</a>
+
+                <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ item.variant.title }}</a>
+
+                <br></br>
+                <span class="big-font" for="updates_{{ item.key }}">Qauntity ({{item.quantity}})  </span>
+
+                <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline">X</a>
+
               </td>
 
-                <td data-label="{{ 'cart.label.quantity' | t }}">
+                <!-- <td data-label="{{ 'cart.label.quantity' | t }}">
                   <input type="number" name="updates[{{item.variant.id}}]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
-                </td>
+                </td> -->
+
+                <!-- <td data-label="{{ 'cart.label.quantity' | t }}">
+                  <label class="big-font" for="updates_{{ item.key }}">Qauntity ({{item.quantity}})  </label>
+                  <input class="visually-hidden" type="number" name="updates[{{item.variant.id}}]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+                </td> -->
 
 
-                <td>
+                <td class="item-price big-font">
                   {% if item.original_line_price != item.line_price %}
                   <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                   {{ item.price | money }}
                   <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
                   <s>{{ item.original_price | money }}</s>
                   {% else %}
-                  {{ item.price | money }}
+                  <span class="">
+                      {{ item.price | money }}
+                  </span>
+
                   {% endif %}
 
 
@@ -71,7 +86,7 @@
                   <!-- <a class="cart-remove-link btn cta cta-blue" href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{item.id}}">
                     {{ 'cart.general.remove' | t }}
                   </a> -->
-                  <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  blue">Remove</a>
+                  <!-- <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  blue">Remove</a> -->
                   <script>
                     function removeThis(ev) {
                           var id = ev.target.dataset.value
@@ -105,12 +120,8 @@
       </tbody>
     </table>
 
-    <div class="space-m">
-
-    </div>
 
     {% if settings.cart_notes_enable %}
-
     <div class="note-container">
       <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}:</label>
       <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
@@ -118,18 +129,24 @@
     {% endif %}
 
 
-  <div class="checkout-info-container">
-      <p>{{ 'cart.general.subtotal' | t }}</p>
-      <p>{{ cart.total_price | money }}</p>
+  <div class="checkout-info-container ">
+    <div class="subtotal-wrapper color-black big-font">
+      <p class="big-font uppercase">{{ 'cart.general.subtotal' | t }}</p>
+      <p  class="big-font">{{ cart.total_price | money }}</p>
+
+    </div>
       {% if cart.total_discounts > 0 %}
         <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
       {% endif %}
-      <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
-      <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}">
 
-      <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a>
+      <div class="checkout-wrapper">
+        <!-- <p class="big-font">{{ 'cart.general.shipping_at_checkout' | t }}</p> -->
+        <p class="big-font">Shipping & taxes calculated at...</p>
+        <input type="submit" name="checkout" class="big-font color-green uppercase" value="{{ 'cart.general.checkout' | t }}">
+      </div>
+      <!-- <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}"> -->
+      <!-- <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a> -->
 
-      <input type="submit" name="checkout" class="btn cta cta-blue" value="{{ 'cart.general.checkout' | t }}">
     </div>
 
   </form>

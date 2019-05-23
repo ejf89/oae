@@ -16,10 +16,17 @@
   h1{
     text-align: center;
   }
+  .form-wrapper{
+    width: 100%;
+    padding: $gutter;
+  }
+  .form-element{
+    width: 100%;
+  }
 
   .contact-form{
     margin: auto;
-    max-width: 500px;
+    // max-width: 500px;
     input, textarea{
       font-size: 20px;
       display: block;
@@ -41,6 +48,18 @@
     // width: 80%;
     margin: auto;
   };
+}
+
+.team-container{
+  width: 100%;
+}
+
+.policy-links{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 /*================ Customer Account Page  ================*/
