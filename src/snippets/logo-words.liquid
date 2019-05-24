@@ -53,6 +53,7 @@
   {%- else  -%}
     {%-  if template == "blog" -%}
     {% assign template_handle = 'Artists'  %}
+    {% assign template_link = '/blogs/artists'  %}
     {%- elsif template == 'article.project' -%}
     {% assign template_handle = 'Projects'  %}
 
@@ -60,6 +61,8 @@
   {% endif %}
   {%-  if template == "article" -%}
   {% assign template_handle = 'Artists'  %}
+  {% assign template_link = '/blogs/artists'  %}
+
   {% endif %}
 
   {%- if template == "page.contact" -%}

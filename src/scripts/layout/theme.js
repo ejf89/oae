@@ -18,6 +18,7 @@ $(document).ready(function(){
       $('.hero-static').addClass('load')
       $('.product-section-block').trigger('click');
 
+      tools.letterCLass()
       tools.openMenu()
       tools.closeMenu()
       tools.searchLogic()

@@ -1,3 +1,15 @@
+
+tools.letterCLass = function(){
+  $('.anim-typewriter').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+function(e) {
+  console.log("ENDED");
+
+// code to execute after animation ends
+$('.anim-typewriter').css('display', 'contents')
+
+});
+}
+
 tools.closeMenu = function(){
   $('.nav-close').find('*').addBack().on('click', function(){
     // $('.grid-responsive-navbar').removeClass('show')

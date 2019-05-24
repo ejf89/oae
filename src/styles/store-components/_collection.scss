@@ -25,8 +25,8 @@
   display: block;
   &:hover{
     .product-info{
-      p,a{
-        color: $color-green;
+      p,a, span{
+        color: $color-green !important;
       }
     }
   }
@@ -35,6 +35,21 @@
 .product-collection-item{
   width: 100%;
   @include transition(opacity $transition-time ease-in-out);
+  &:hover{
+    .color-black{
+      color: $color-green;
+    }
+    .product-info{
+      p,a, span{
+        color: $color-green !important;
+      }
+    }
+  }
+
+  // .product-card-canvas{
+  //   @include fluid-aspect(3 2);
+  //
+  // }
 }
 
 .product-card-canvas{
