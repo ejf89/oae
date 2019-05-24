@@ -39,6 +39,7 @@
   padding-left: $gutter;
   position: fixed;
   max-width: 91%;
+  top: 0;
   @include transition(transform 0.2s ease-in-out);
   z-index: 10;
   &.toggle-up{

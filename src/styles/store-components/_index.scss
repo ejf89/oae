@@ -67,7 +67,7 @@ p{
 }
 
 .main-container{
-  padding-top: 1px;
+  // padding-top: 1px;
   height: 100vh;
   @include media-query($medium-up){
     padding-right: $double-gutter;

@@ -6,7 +6,10 @@
   {% endcomment -%}
 {% include 'minicart' %}
 {% include 'announcement-bar' %}
+{%- comment %}
+	This is a foo
 {% include "mobile-nav" %}
+{% endcomment -%}
 
 {%- if template == 'page.mission' -%}
   {% assign index_inline = 'display-inline' %}
@@ -41,7 +44,8 @@
     {%- endif -%}
 
 
-
+{%- comment %}
+	This is a foo
   <div class="logo mobile-logo small--show medium-up--hide">
     <h1 class="h1 gutter" itemscope itemtype="http://schema.org/Organization">
       <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
@@ -57,6 +61,7 @@
       </a>
     </h1>
   </div>
+  {% endcomment -%}
 
 
 
@@ -64,6 +69,10 @@
     Cart
     <span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span>
   </a>
+
+  <div class="nav-close x-close big-font cursor-pointer hide">
+    {% include "green-x" %}
+  </div>
 
 
   {% include "nav-search" %}
@@ -79,10 +88,6 @@
   <div class="">{% include "header-cp-nav" %}  </div>
   {% endcomment -%}
 
-
-  <div class="nav-close x-close big-font cursor-pointer hide">
-    {% include "green-x" %}
-  </div>
 
 
 

@@ -18,6 +18,10 @@
     height: 100%;
     // border: 2px solid red;
   };
+  @include media-query($small){
+    min-height: 100vh;
+    background-position: center;
+  };
 
   &.load{
     opacity: 1;
