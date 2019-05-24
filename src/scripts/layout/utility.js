@@ -18,16 +18,20 @@ tools.closeMenu = function(){
 
     var $target = $(e.target)
 
-    if (!$target.hasClass('nav-link')) {
-      // $('.grid-responsive-navbar').css('opacity', 0)
-      $('.grid-responsive-navbar').addClass('opacity-hidden')
+    if ($target.hasClass('search-input')) {
+        $('.search-form').focus()
+    } else {
+      if (!$target.hasClass('nav-link')) {
+        // $('.grid-responsive-navbar').css('opacity', 0)
+        $('.grid-responsive-navbar').addClass('opacity-hidden')
 
-      setTimeout(function(){
-        $('.grid-responsive-navbar').removeClass('show')
-        $('.grid-responsive-navbar').removeClass('opacity-hidden')
-      }, 300)
-      if ($('.nav-open-word')) {
-        $('.nav-open-word').removeClass('visually-hidden')
+        setTimeout(function(){
+          $('.grid-responsive-navbar').removeClass('show')
+          $('.grid-responsive-navbar').removeClass('opacity-hidden')
+        }, 300)
+        if ($('.nav-open-word')) {
+          $('.nav-open-word').removeClass('visually-hidden')
+        }
       }
     }
     // $('.grid-responsive-navbar').fadeOut()
@@ -53,6 +57,35 @@ tools.menuWordLogic = function(){
     $('.grid-responsive-navbar').addClass('show')
     $('.nav-open-word').addClass('hide')
   })
+}
+
+tools.searchLogic = function(){
+  console.log("SEARCJONG");
+
+      //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 2000;  //time in ms (2 seconds)
+
+    //on keyup, start the countdown
+    $('#Search').keyup(function(){
+        clearTimeout(typingTimer);
+        if ($('#Search').val()) {
+            typingTimer = setTimeout(doneTyping, doneTypingInterval);
+        }
+    });
+
+    //user is "finished typing," do something
+    function doneTyping () {
+        $('#SearchSubmit').click()
+    }
+
+  $('.search-toggle').on('click touch', function(e){
+    e.preventDefault()
+    $('.search-toggle span').text(':')
+    $('.nav-search-wrapper').removeClass('opacity-hidden').addClass('opacity-shown')
+    $('#Search').get(0).focus()
+  })
+
 }
 
 tools.pdpLightBox = function(){

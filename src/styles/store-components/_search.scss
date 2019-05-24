@@ -1,0 +1,33 @@
+
+.search-template-wrapper{
+  border: 2px solid red !important;
+  .article-preview-container{
+    min-height: 20vh;
+    min-height: 60vh;
+  }
+  .article-preview-image{
+    width: 47vw;
+    // min-height: 40vh;
+    height: 31.3vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .nav-link{
+    color: $color-black;
+    @include transition(all 400ms  ease-in-out);
+  }
+  .nav-link__punctuation{
+    color: $color-green;
+    @include transition(all 400ms ease-in-out);
+
+  }
+}
+// &:hover{
+//   .nav-link{
+//     color: $color-green;
+//   }
+//   .nav-link__punctuation{
+//     color: $color-black;
+//   }
+// }

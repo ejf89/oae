@@ -1,8 +1,7 @@
-{% paginate search.results by 10 %}
+<div class="nav-search-wrapper opacity-hidden nav-link ">
 
-<div class="search-template-wrapper top-space page-container">
 
-  <h1 class="search-result-header">
+  <!-- <h1 class="search-result-header">
     {% if search.performed %}
       {% if search.results_count == 0 %}
         {{ 'general.search.no_results_html' | t: terms: search.terms }}
@@ -12,7 +11,7 @@
     {% else %}
       {{ 'general.search.title' | t }}
     {% endif %}
-  </h1>
+  </h1> -->
 
   <form action="/search" method="get" role="search" class="search-form big-font">
     <label for="Search" class="label-hidden">
@@ -39,7 +38,14 @@
       {% endif %}
       {% for item in search.results %}
         <li>
+          <!-- {% assign featured_image = item.image | default: item.featured_image %}
+          {% if featured_image != blank %}
+            <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+              {{ featured_image | img_url: '240x240' | img_tag: featured_image.alt }}
+            </a>
+          {% endif %} -->
 
+          <!-- <h5>{{ item.title | link_to: item.url }}</h5> -->
 
           {% if item.object_type == 'product' %}
 
@@ -48,32 +54,7 @@
 
 
           {% else %}
-
-
-
-          {% assign featured_image = item.image | default: item.featured_image %}
-
-          {% if featured_image != blank %}
-            <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-              {{ featured_image | img_url: '240x240' | img_tag: featured_image.alt }}
-            </a>
-          {% endif %}
-
-          <h5>{{ item.title | link_to: item.url }}</h5>
-
-
-          <div class="search-preview-container">
-            <a href="{{article.url}}">
-
-
-              <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
-
-              <p class="big-font color-black">{{article.title}}</p>
-
-            </a>
-
-          </div>
-
+            <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
           {% endif %}
 
         </li>
@@ -81,10 +62,10 @@
     </div>
     </ul>
 
+
+  </div>
+
     {% if paginate.pages > 1 %}
       {% include 'pagination' %}
     {% endif %}
   {% endif %}
-
-</div>
-{% endpaginate %}

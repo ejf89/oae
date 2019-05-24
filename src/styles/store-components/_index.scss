@@ -83,3 +83,28 @@ p{
   // padding-top: 1rem;
   // padding-bottom: 2rem;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+//Search
+.nav-search-wrapper{
+  display: inline-flex;
+  width: 100%;
+  padding: 0 $gutter
+}
+
+.search-form{
+
+  width: 100%;
+  [type=search]{
+    width: 100%;
+    height: $big-font;
+    border: none;
+    border-bottom: 2px solid $color-green;
+  }
+}

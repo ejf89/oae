@@ -40,6 +40,8 @@
       {% include "grid-responsive-navbar-primary"%}
     {%- endif -%}
 
+
+
   <div class="logo mobile-logo small--show medium-up--hide">
     <h1 class="h1 gutter" itemscope itemtype="http://schema.org/Organization">
       <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
@@ -62,6 +64,10 @@
     Cart
     <span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span>
   </a>
+
+
+  {% include "nav-search" %}
+
 
   {%- comment %}
   	This is a foo

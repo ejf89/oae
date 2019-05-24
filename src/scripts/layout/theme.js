@@ -20,6 +20,7 @@ $(document).ready(function(){
 
       tools.openMenu()
       tools.closeMenu()
+      tools.searchLogic()
       tools.sliderInit()
       tools.pdpLightBox()
       tools.variantRadioLogic()
