@@ -88,15 +88,10 @@ $font-size-base: 20px;
 $med-font:1.5rem;
 // $big-font:3.6rem;
 $big-font:3.8vw;
+$big-font-mobile:9vw;
 
 
-.big-font{
-  font-size: $big-font;
-  // font-size: 100%;
-}
-.med-font{
-  font-size: $med-font;
-}
+
 
 .text-left{text-align: left !important;}
 .text-right{text-align: right !important;}

@@ -41,6 +41,16 @@ p{
   font-size: 18px;
 }
 
+.big-font{
+  font-size: $big-font;
+  @include media-query($small){
+    font-size: $big-font-mobile;
+  };
+}
+.med-font{
+  font-size: $med-font;
+}
+
 .font-oae{
   font-family: "OAE";
 }

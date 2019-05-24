@@ -84,6 +84,9 @@
 .word{
   font-size: $big-font;
   text-transform: uppercase;
+  @include media-query($small){
+    font-size: $big-font-mobile;
+  };
 }
 
 .word-grow{
@@ -97,6 +100,9 @@
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
   // display: contents;
+  @include media-query($small){
+    display: none !important;
+  };
 }
 @keyframes typewriter{
   from{width: 0;}
@@ -166,6 +172,10 @@ $mobile-header-height: 66px;
   svg{
     height: $big-font;
     width: $big-font;
+    @include media-query($small){
+      height: $big-font-mobile;
+      width: $big-font-mobile;
+    };
   }
 }
 
@@ -183,13 +193,15 @@ $mobile-header-height: 66px;
 
 }
 
-.home-link{
-  white-space: nowrap;
-  text-transform: uppercase;
-}
+
 
 .home-link{
   float: left;
+  white-space: nowrap;
+  text-transform: uppercase;
+  @include media-query($small){
+    white-space: normal;
+  };
   a{
     color: $color-green;
     @include transition(all 400ms  ease-in-out);

@@ -51,9 +51,10 @@ tools.closeMenu = function(){
 }
 
 tools.openMenu = function(){
-  $('.hero-static, .nav-open-word').on('click touchstart', function(e){
+  $('.hero-static, .nav-open-word').on('click touch', function(e){
     console.log("OPEN");
     e.stopPropagation()
+    e.stopImmediatePropagation()
     if (!$('.grid-responsive-navbar').hasClass('show')) {
       $('.grid-responsive-navbar').addClass('show')
       $('.nav-close').removeClass('hide')
