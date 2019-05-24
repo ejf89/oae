@@ -31,7 +31,7 @@
 
 
 {% if search.performed %}
-    <ul>
+    <ul class="search-result-wrapper">
         {% if search.results_count == 2 %}
       <div class="product-collection-items grid-2">
       {% else %}
@@ -42,9 +42,19 @@
 
 
           {% if item.object_type == 'product' %}
-
+          {%- comment %}
+          	This is a foo
              {%include "collection-item", product: item %}
+             {% endcomment -%}
+             {% assign image_url =item.featured_image.src | img_url : '1000x'  %}
 
+                 <div class="search-preview-container">
+                   <a href="{{item.url}}">
+                     <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
+                   </a>
+
+                   <a class="med-font color-black article-info" href='{{item.url}}'>{{ item.title }}</a>
+                 </div>
 
 
           {% else %}
@@ -54,24 +64,21 @@
           {% assign featured_image = item.image | default: item.featured_image %}
 
           {% if featured_image != blank %}
-            <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+            <!-- <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
               {{ featured_image | img_url: '240x240' | img_tag: featured_image.alt }}
-            </a>
+            </a> -->
+            {% assign image_url = featured_image.src | img_url : '1000x'  %}
+
           {% endif %}
 
-          <h5>{{ item.title | link_to: item.url }}</h5>
 
 
           <div class="search-preview-container">
-            <a href="{{article.url}}">
-
-
+            <a href="{{item.url}}">
               <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
-
-              <p class="big-font color-black">{{article.title}}</p>
-
             </a>
 
+            <a class="med-font color-black article-info" href='{{item.url}}'>{{ item.title }}</a>
           </div>
 
           {% endif %}

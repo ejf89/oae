@@ -1,17 +1,33 @@
 
+
+
+
 .search-template-wrapper{
-  border: 2px solid red !important;
-  .article-preview-container{
-    min-height: 20vh;
-    min-height: 60vh;
+
+  .search-result-wrapper{
+
+    .product-collection-items{
+      margin-top: 60px;
+    }
+    li{
+      width: 100%;
+    }
+  }
+  .search-preview-container{
+    // min-height: 20vh;
+    // min-height: 60vh;
   }
   .article-preview-image{
-    width: 47vw;
-    // min-height: 40vh;
-    height: 31.3vw;
+    // width: 30vw;
+    // // min-height: 40vh;
+    // height: 20vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @include fluid-aspect(3 2);
+  }
+  .article-info{
+    padding-top: $half-gutter;
   }
   .nav-link{
     color: $color-black;
