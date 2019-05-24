@@ -51,7 +51,11 @@
     {% endif %}
     {% endfor %}
     <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
-      <a href="/cart" class="nav-link big-font"> Cart</a><span class="nav-link__punctuation big-font">.</span>
+      <a href="/cart" class="nav-link big-font">Cart</a><span class="nav-link__punctuation big-font">,</span>
+    </li>
+
+    <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
+      <a href="/search" class="nav-link big-font">Search</a><span class="nav-link__punctuation big-font">.</span>
     </li>
 
 
