@@ -14,7 +14,9 @@ tools.closeMenu = function(){
   $('.nav-close').find('*').addBack().on('click', function(){
     // $('.grid-responsive-navbar').removeClass('show')
     $('.grid-responsive-navbar').addClass('opacity-hidden')
+    $('.menu-icon').removeClass('hide')
     setTimeout(function(){
+
       $('.grid-responsive-navbar').removeClass('show')
       $('.grid-responsive-navbar').removeClass('opacity-hidden')
     }, 300)
@@ -51,13 +53,14 @@ tools.closeMenu = function(){
 }
 
 tools.openMenu = function(){
-  $('.hero-static, .nav-open-word').on('click touch', function(e){
+  $('.hero-static, .js-menu-toggle').on('click touch', function(e){
     console.log("OPEN");
     e.stopPropagation()
     e.stopImmediatePropagation()
     if (!$('.grid-responsive-navbar').hasClass('show')) {
       $('.grid-responsive-navbar').addClass('show')
       $('.nav-close').removeClass('hide')
+      $('.menu-icon').addClass('hide')
     }
     if ($('.nav-open-word')) {
       $('.nav-open-word').addClass('visually-hidden')
