@@ -44,6 +44,7 @@
     // max-width: 70%;
     position: relative;
     height: unset;
+    max-width: unset;
   };
   @include transition(transform 0.2s ease-in-out);
   z-index: 10;

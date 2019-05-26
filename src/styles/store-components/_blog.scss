@@ -6,10 +6,14 @@
 
 
  .article-wrapper{
-   margin-top: $quad-gutter;
+  margin-top: $quad-gutter;
   float: left;
   padding-right: $half-gutter;
 
+  @include media-query($small){
+    padding-right: $gutter;
+    margin-top: $double-gutter;
+  };
   .article-preview-container{
     min-height: 20vh;
     min-height: 60vh;
@@ -21,6 +25,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @include media-query($small){
+      width: 100%;
+      height: 32vh;
+    };
   }
   .nav-link{
     color: $color-black;
@@ -69,6 +77,9 @@
 }
 
 .article-related-container{
+  @include  media-query($small){
+    margin-top: $gutter;
+  };
   .product-image-container{
     height: 100%;
     max-height: 38vh;

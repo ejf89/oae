@@ -114,6 +114,9 @@
 .add-container{
   position: fixed;
   bottom: 0;
+  @include media-query($small){
+    position: relative;  
+  };
   .add-to-cart-button{
     cursor: pointer;
   }

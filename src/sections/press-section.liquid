@@ -1,13 +1,13 @@
 <!-- about-section.liquid -->
 
 
-<div class="press-grid grid-4">
+<div class="press-grid grid-4 auto-rows top-space">
 
   {%- for block in section.blocks -%}
   <div class="press-block">
     <a href="{{block.settings.link_url}}" target="_blank">
       <img class="press-image max-width-100 dark-shadow" src="{{ block.settings.press_image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}">
-      <p class='color-green'>{{block.settings.press_title}}</p>
+      <p class='press-title color-green'>{{block.settings.press_title}}</p>
       <p class='color-black'>{{block.settings.press_description}}</p>
     </a>
 

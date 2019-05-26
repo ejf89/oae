@@ -69,6 +69,10 @@
   {% assign template_handle = 'Contact'  %}
   {%- endif -%}
 
+  {%- if template == "page.press" -%}
+  {% assign template_handle = 'Press'  %}
+  {%- endif -%}
+
   {%- if template == "search" -%}
   {% assign template_handle = 'Search'  %}
   {%- endif -%}
