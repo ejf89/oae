@@ -50,8 +50,7 @@
                 <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ item.variant.title }}</a>
 
                 <br></br>
-                <span class="big-font" for="updates_{{ item.key }}">Qauntity ({{item.quantity}})  </span>
-
+                <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
                 <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline">X</a>
 
               </td>
@@ -141,8 +140,8 @@
 
       <div class="checkout-wrapper">
         <!-- <p class="big-font">{{ 'cart.general.shipping_at_checkout' | t }}</p> -->
-        <p class="big-font">Shipping & taxes calculated at...</p>
-        <input type="submit" name="checkout" class="big-font color-green uppercase" value="{{ 'cart.general.checkout' | t }}">
+        <p class="big-font">Shipping & Taxes calculated at...</p>
+        <input type="submit" name="checkout" class="big-font color-green uppercase" value="Checkout">
       </div>
       <!-- <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}"> -->
       <!-- <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a> -->
@@ -164,7 +163,7 @@
   {% comment %}
   Cart empty state
   {% endcomment %}
-  <div class="supports-cookies">
+  <div class="supports-cookies visually-hidden">
     <p>{{ 'cart.general.empty' | t }}</p>
     <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
   </div>

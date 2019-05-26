@@ -1,6 +1,18 @@
 
 {% assign category_string = ''  %}
 
+{%- for tag in collection.tags -%}
+    {%- if tag contains 'category' -%}
+      {% assign collection_show = true  %}
+    {%- endif -%}
+{%- endfor -%}
+
+
+{%- if collection_show == true -%}
+{%- comment %}
+	for show and hide
+{% endcomment -%}
+{%- endif -%}
 
 
 <div class="collection-header big-font small--hide">
@@ -16,7 +28,5 @@
     {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
-
-
 
 </div>
