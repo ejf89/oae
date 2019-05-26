@@ -2,6 +2,10 @@
   justify-content: unset !important;
   justify-items: unset !important;
   margin-bottom: 2rem;
+  @include media-query($small){
+    @include grid; grid-template-columns: repeat(1, 1fr) !important;
+    grid-auto-rows: auto;
+  };
 }
 
 .product-slider li, .featured-product-slider li{

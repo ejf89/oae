@@ -71,6 +71,9 @@ p{
 .top-space{
   // margin-top: $double-gutter !important;
   margin-top: 180px !important;
+  @include media-query($small){
+    margin-top: $gutter !important;
+  };
 }
 
 

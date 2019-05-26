@@ -41,7 +41,9 @@
   max-width: 91%;
   top: 0;
   @include media-query($small){
-    max-width: 70%;
+    // max-width: 70%;
+    position: relative;
+    height: unset;
   };
   @include transition(transform 0.2s ease-in-out);
   z-index: 10;
