@@ -3,15 +3,15 @@
 
 
 
-<div class="collection-header big-font">
-  <h1 class='color-black'>{{collection.title}}<span class='color-green'>,</span></h1>
+<div class="collection-header big-font small--hide">
+  <h1 class='color-black big-font'>{{collection.title}}<span class='color-green'>,</span></h1>
 
   {%- for tag in collection.tags  -%}
     {%- if tag contains 'category' -%}
     {%- if forloop.last != true -%}
-    <h1 class='color-grey category-tag' data-tag='{{tag}}' >{{tag | remove: 'category-' | capitalize}}<span class='color-green'>,</span></h1>
+    <h1 class='color-grey category-tag big-font' data-tag='{{tag}}' >{{tag | remove: 'category-' | capitalize}}<span class='color-green'>,</span></h1>
       {%- else  -%}
-      <h1 class='color-grey category-tag' data-tag='{{tag}}' >{{tag | remove: 'category-' | capitalize}}<span class='color-green'>.</span></h1>
+      <h1 class='color-grey category-tag big-font' data-tag='{{tag}}' >{{tag | remove: 'category-' | capitalize}}<span class='color-green'>.</span></h1>
 
     {%- endif -%}
     {%- endif -%}

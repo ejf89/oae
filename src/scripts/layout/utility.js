@@ -24,7 +24,7 @@ tools.closeMenu = function(){
     if ($('.nav-open-word')) {
       $('.nav-open-word').removeClass('visually-hidden')
     }
-  })
+  })  
 
   $('.grid-responsive-navbar').on('click touch', function(e){
     e.stopPropagation()

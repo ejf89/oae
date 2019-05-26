@@ -1,5 +1,6 @@
 {
   "current": {
+    "logo": "",
     "font-first": "'OAE italic'",
     "font-first-size": 30,
     "font-second": "'OAE'",
@@ -14,16 +15,17 @@
     "show_announcement": false,
     "home_page_only": true,
     "text": "Announce something here",
+    "link": "",
     "color_bg": "#1c1d1d",
     "color_text": "#ffffff",
     "social_sharing_blog": true,
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "social_twitter_link": "",
-    "social_facebook_link": "",
+    "social_twitter_link": "\/twitter",
+    "social_facebook_link": "\/facebook",
     "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_instagram_link": "\/insta",
     "social_snapchat_link": "",
     "social_tumblr_link": "",
     "social_youtube_link": "",
@@ -32,13 +34,18 @@
     "instagram_limit": "4",
     "instagram_id": "2283731392",
     "instagram_token": "2283731392.255aa37.1c3ba3ab9c92443185894183e0758df6",
-    "cart_notes_enable": true,
+    "cart_notes_enable": false,
+    "favicon": "",
     "featured_collection": "",
-    "mission_copy": "is an art & environmentinitiative born out of the belief that art can and will move mountains.",
+    "mission_copy": "is an art & environment initiative born out of the belief that art can and will move mountains",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
     "checkout_logo_position": "left",
     "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
     "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
     "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
@@ -49,9 +56,10 @@
       "header": {
         "type": "header",
         "settings": {
+          "logo": "",
           "logo_max_width": 30,
           "main_linklist-primary": "main-menu",
-          "mobile_linklist": "",
+          "mobile_linklist": "main-menu",
           "header_color": "#ffffff"
         }
       },
@@ -117,7 +125,6 @@
           "1557957067666"
         ],
         "settings": {
-          "header_copy": "is an art & environmentinitiative born out of the belief that art can and will move mountains."
         }
       },
       "press-section": {
@@ -175,6 +182,43 @@
           "1557958931158",
           "1557959002156",
           "1557959005882"
+        ],
+        "settings": {
+        }
+      },
+      "contact-section": {
+        "type": "contact-section",
+        "blocks": {
+          "1558575448237": {
+            "type": "selected_product",
+            "settings": {
+              "text": "Lisa Schiff, Founder"
+            }
+          },
+          "1558575457930": {
+            "type": "selected_product",
+            "settings": {
+              "text": "Candace Carmel Barasch, Executive Partner"
+            }
+          },
+          "1558575461509": {
+            "type": "selected_product",
+            "settings": {
+              "text": "Marika Kielland, Partner"
+            }
+          },
+          "1558575466355": {
+            "type": "selected_product",
+            "settings": {
+              "text": "Rebecca Ryba, Partner"
+            }
+          }
+        },
+        "block_order": [
+          "1558575448237",
+          "1558575457930",
+          "1558575461509",
+          "1558575466355"
         ],
         "settings": {
         }
