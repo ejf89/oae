@@ -43,6 +43,9 @@ p{
 
 .big-font{
   font-size: $big-font;
+  line-height: 0.8;
+  border: 2px solid blue !important;
+  // padding-bottom: 5px;
   @include media-query($small){
     font-size: $big-font-mobile;
   };

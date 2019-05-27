@@ -124,7 +124,7 @@
   }
 
   to {
-    max-width: 12rem;
+    max-width: 100%;
   }
 }
 
@@ -137,6 +137,26 @@
     max-width: 14rem;
   }
 }
+
+
+@-webkit-keyframes typing-og {
+        from {
+                max-width: 0;
+        }
+        to {
+                max-width: 100%;
+        }
+}
+
+@keyframes typing-og {
+        from {
+                max-width: 0;
+        }
+        to {
+                max-width: 100%;
+        }
+}
+
 
 
 

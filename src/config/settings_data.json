@@ -77,7 +77,7 @@
       "1557255765987": {
         "type": "hero-static",
         "settings": {
-          "hero_image": "shopify:\/\/shop_images\/web_Parakeets_2011_72x108__Press.jpg"
+          "hero_image": "shopify:\/\/shop_images\/RM_12_Parakeets_72x108_cropped.jpg"
         }
       },
       "cart-copy": {
@@ -130,29 +130,38 @@
       "press-section": {
         "type": "press-section",
         "blocks": {
-          "1557958670694": {
-            "type": "press_block",
-            "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_18.10.35.png",
-              "press_title": "Lady Click, June 2018",
-              "press_description": "When the love don’t last at Art Basel and more gossip"
-            }
-          },
           "1557958888873": {
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31.png",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_18.10.35.png",
               "press_title": "Leading Architecture and Design, June 2018",
               "press_description": "Porky Hefer’s Endangered to Benefit Leonardo Dicaprio Foundation"
+            }
+          },
+          "1558895517840": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "http:\/\/google.com",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.54.28.png",
+              "press_title": "",
+              "press_description": ""
+            }
+          },
+          "1557958670694": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31.png",
+              "press_title": "Lady Click, June 2018",
+              "press_description": "When the love don’t last at Art Basel and more gossip"
             }
           },
           "1557958931158": {
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.54.28.png",
+              "press_image": "shopify:\/\/shop_images\/IMG_2512_1024x1024_2x_1c2a906b-5b3d-4898-b867-66b3a84d5b4b.jpg",
               "press_title": "Bizz Community, June 2018",
               "press_description": "Porky Hefer presents endangered species project at Design Miami\/Basil"
             }
@@ -170,15 +179,16 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31_a5abe07c-ae54-4ec6-84fa-75986622736c.png",
+              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.54.28.png",
               "press_title": "lorem ipsum",
               "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
             }
           }
         },
         "block_order": [
-          "1557958670694",
           "1557958888873",
+          "1558895517840",
+          "1557958670694",
           "1557958931158",
           "1557959002156",
           "1557959005882"
@@ -212,13 +222,20 @@
             "settings": {
               "text": "Rebecca Ryba, Partner"
             }
+          },
+          "1558895575770": {
+            "type": "selected_product",
+            "settings": {
+              "text": "Olya Lastname, Designer"
+            }
           }
         },
         "block_order": [
           "1558575448237",
           "1558575457930",
           "1558575461509",
-          "1558575466355"
+          "1558575466355",
+          "1558895575770"
         ],
         "settings": {
         }

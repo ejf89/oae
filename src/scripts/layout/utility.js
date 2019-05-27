@@ -104,21 +104,21 @@ tools.searchLogic = function(){
 
 tools.pdpLightBox = function(){
   if ( $('html').hasClass('no-touchevents') ) {
-    console.log("NO TOUCH");
-    console.log("NO TOUCH");
-    console.log("NO TOUCH");
+
     $('#product-image-block').on('click', function(){
       console.log('PDP CLICK');
       console.log('PDP CLICK');
       console.log('PDP CLICK');
       console.log('PDP CLICK');
       console.log('PDP CLICK TEST');
+
       $('.zoom-modal-container').removeClass('opacity-hidden no-pointer z-minus-10')
       $('.product-description').addClass('z-minus-10')
       $('.nav-open-word').addClass('hide')
       $('.cart-link-container').addClass('hide')
       $('.topnav').addClass('pointer-none')
-      $('.zoom-modal-container').addClass('arrow-right')
+      tools.arrowFollow()
+      // $('.zoom-modal-container').addClass('arrow-right')
       $('.zoom-modal-container').addClass('z-plus-10')
       $('body').addClass('body-lock')
       $(".zoom-modal-container").on('mousemove', function(e) {
@@ -128,9 +128,9 @@ tools.pdpLightBox = function(){
             console.log("LEFT");
           $('.zoom-modal-container').removeClass('arrow-right')
           $('.zoom-modal-container').unbind('click')
-
-          $('body').removeClass('arrow-right')
-          $('body').addClass('arrow-left')
+          $('.mouse-follow').addClass('left')
+          // $('body').removeClass('arrow-right')
+          // $('body').addClass('arrow-left')
           $('.zoom-modal-container').on('click', function(){
             $('.zoom-slider').flickity('previous')
           })
@@ -139,8 +139,10 @@ tools.pdpLightBox = function(){
         console.log("RIGHT");
             $('.zoom-modal-container').unbind('click')
           mouseSide = 'R';
-          $('body').removeClass('arrow-left')
-          $('body').addClass('arrow-right')
+          $('.mouse-follow').removeClass('left')
+
+          // $('body').removeClass('arrow-left')
+          // $('body').addClass('arrow-right')
           $('.zoom-modal-container').on('click', function(){
             $('.zoom-slider').flickity('next')
 
@@ -168,6 +170,16 @@ tools.pdpLightBox = function(){
 
 
   })
+}
+
+
+tools.arrowFollow = function(){
+  $(document).on('mousemove', function(e){
+    $('.mouse-follow').css({
+       left:  e.pageX,
+       top:   e.pageY
+    });
+});
 }
 
 tools.currencyFormat = function(num){

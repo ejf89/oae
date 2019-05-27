@@ -36,7 +36,9 @@
 .padding-gutter{
   padding: $gutter;
 }
-
+.vw-padding-bottom{
+  padding-bottom: 1vw !important;
+}
 .auto-rows{
   grid-auto-rows: auto !important;
 }

@@ -136,6 +136,7 @@
   right: 0;
   bottom: 0;
   display: flex;
+  cursor: none;
   // .zoom-slider{
   //   width: 95%;
   //   margin: auto;
@@ -179,11 +180,29 @@
   }
 }
 
-.arrow-right{
-  cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-right.svg?3104') 100 30, auto !important;
-}
-.arrow-left{
-  cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-left.svg?3104') 100 30, auto !important;
+// .arrow-right{
+//   cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-right.svg?3104') 100 30, auto !important;
+//   // cursor: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow-right.png?2688') 100 30, auto !important;
+// }
+// .arrow-left{
+//   cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-left.svg?3104') 100 30, auto !important;
+// }
+
+.mouse-follow{
+  position: absolute;
+  // height: $big-font;
+  height: 3.6vw;
+  width: 100px;
+  transform: translate(-79%,-50%);
+  z-index: 10;
+  // background: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow-right.png?2688');
+  background: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow.svg?2854');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &.left{
+    transform: rotate(180deg);
+  }
 }
 
 .cart-link-container{
