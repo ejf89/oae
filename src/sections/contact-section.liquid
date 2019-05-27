@@ -4,7 +4,10 @@
 <ul class="med-font">
 
   {%- for block in section.blocks -%}
-  <li>{{ block.settings.text }}</li>
+
+  <li>
+    <a class="color-black" href="{{block.settings.url}}">{{ block.settings.text }}</a>  
+  </li>
   {%- endfor -%}
 </ul>
 
@@ -24,6 +27,11 @@
             "type": "text",
             "id": "text",
             "label": "Team Member"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Member Link"
           }
         ]
       }

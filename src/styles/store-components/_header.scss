@@ -34,10 +34,10 @@
   margin-left: 0;
 }
 .logo-wrapper-container{
-  height: $double-gutter;
+  // height: $double-gutter;
+  // position: fixed;
   margin-top: $gutter;
   padding-left: $gutter;
-  position: fixed;
   max-width: 91%;
   top: 0;
   @include media-query($small){
@@ -104,8 +104,8 @@
 
 
 .anim-typewriter{
-  animation: typing 3s steps(32) 0.5s 1 normal both;
-  -webkit-animation: typing 3s steps(32) 0.5s 1 normal both;
+  animation: typing 3s steps(32, end) 0.5s 1 normal both;
+  -webkit-animation: typing 3s steps(32, end) 0.5s 1 normal both;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
   // display: contents;
@@ -252,6 +252,7 @@ $mobile-header-height: 66px;
 .nav-link__wrapper:not(.home-link){
   float: left;
   padding-right: $half-gutter;
+  padding-bottom: 1vw;
   text-transform: uppercase;
   .nav-link{
     color: $color-black;

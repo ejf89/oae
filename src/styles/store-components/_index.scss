@@ -44,7 +44,6 @@ p{
 .big-font{
   font-size: $big-font;
   line-height: 0.8;
-  border: 2px solid blue !important;
   // padding-bottom: 5px;
   @include media-query($small){
     font-size: $big-font-mobile;
@@ -76,7 +75,8 @@ p{
 
 .top-space{
   // margin-top: $double-gutter !important;
-  margin-top: 180px !important;
+  // margin-top: 180px !important;
+  margin-top: $big-font !important;
   @include media-query($small){
     margin-top: $gutter !important;
   };

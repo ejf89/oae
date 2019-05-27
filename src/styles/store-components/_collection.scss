@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   @include media-query($medium-up){
-    padding: 2rem 0;
+    // padding: 2rem 0;
   };
   .responsive-image__image{
     margin: auto;
