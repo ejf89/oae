@@ -4,6 +4,8 @@
   opacity: 0;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
   @include transition(opacity 350ms);
   @include media-query($medium-up){
     cursor: pointer;
@@ -16,11 +18,14 @@
     left: 0;
     width: 100%;
     height: 100%;
+
     // border: 2px solid red;
   };
   @include media-query($small){
     min-height: 100vh;
-    background-position: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
   };
 
   &.load{

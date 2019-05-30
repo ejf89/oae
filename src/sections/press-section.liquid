@@ -5,8 +5,18 @@
 
   {%- for block in section.blocks -%}
   <div class="press-block">
-    <a href="{{block.settings.link_url}}" target="_blank">
-      <img class="press-image max-width-100 dark-shadow" src="{{ block.settings.press_image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}">
+    <a class="" href="{{block.settings.link_url}}" target="_blank">
+      <div class="press-image-wrapper">
+
+        {% assign background_image_url =  block.settings.press_image.src | img_url: '800x'   %}
+
+        <div class="press-image max-width-100 dark-shadow" style="background-image: url({{background_image_url}})">
+
+        </div>
+
+        <!-- <img class="press-image max-width-100 dark-shadow" src="{{ block.settings.press_image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}"> -->
+
+      </div>
       <p class='press-title color-green'>{{block.settings.press_title}}</p>
       <p class='color-black'>{{block.settings.press_description}}</p>
     </a>

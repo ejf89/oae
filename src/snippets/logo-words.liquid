@@ -50,12 +50,16 @@
   {% endif %}
   {%-  if template == 'blog.projects' -%}
   {% assign template_handle = 'Projects'  %}
+  {% assign template_link = '/blogs/projects' %}
+
   {%- else  -%}
     {%-  if template == "blog" -%}
     {% assign template_handle = 'Artists'  %}
     {% assign template_link = '/blogs/artists'  %}
     {%- elsif template == 'article.project' -%}
     {% assign template_handle = 'Projects'  %}
+    {% assign template_link = '/blogs/projects' %}
+
 
     {% endif %}
   {% endif %}

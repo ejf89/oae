@@ -132,9 +132,12 @@ $space-l: 120px;
 .space-m{width:100%;height:$space-m;}
 .space-l{width:100%;height:$space-l;}
 
-$half-gutter: 15px;
-$gutter: 30px;
-$double-gutter: 60px;
+// $half-gutter: 15px;
+$half-gutter: 0.78125vw;
+// $gutter: 30px;
+$gutter: 1.5625vw;
+// $double-gutter: 60px;
+$double-gutter: 3.125vw;
 $quad-gutter: 120px;
 $large-gutter: 160px;
 $grid-gap: 10px;

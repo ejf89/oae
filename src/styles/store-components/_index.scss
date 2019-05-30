@@ -55,8 +55,11 @@ p{
 .med-plus-font{
   font-size: $med-plus-font !important;
 }
-*{
-  // border: 2px solid red;
+
+.main-container, #barba-wrapper{
+  max-width: 1600px;
+  margin: auto;
+  position: relative;
 }
 
 .font-oae{

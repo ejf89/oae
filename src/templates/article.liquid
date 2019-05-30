@@ -5,8 +5,10 @@
 <!-- Article -->
 <div class="article">
     <!-- <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2> -->
+<div class="article-image-wrapper">
 
   <img class="dark-shadow article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
+</div>
 
 
 
@@ -33,7 +35,7 @@
 
 
 
-  <div class="article-related-container grid-4">
+  <div class="article-related-container grid-4 top-space">
     {%- for product in related_product_string_split -%}
     {%- if all_products[product] != blank-%}
 

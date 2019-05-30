@@ -149,6 +149,13 @@ tools.pdpLightBox = function(){
           })
         }
       });
+
+      document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+      $('.zoom-close').trigger('click')
+          }
+      };
     })
   } else {
     $('#product-image-block').on('click touch', function(){
@@ -226,8 +233,12 @@ tools.projectAirtableQuery = function(){
            $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
            // $('.zoom-slider').append(`<img class='zoom-slider-slide' src='${imageSrc}' />`)
            $('.zoom-slider').append(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
-           if (itemsProcessed == array.length) {
+           if (itemsProcessed == array.length - 1) {
+             console.log("HERE");
              sliderInit()
+           } else {
+             sliderInit()
+
            }
          })
        }

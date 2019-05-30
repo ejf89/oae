@@ -190,8 +190,8 @@
 
 .mouse-follow{
   position: absolute;
-  // height: $big-font;
-  height: 3.6vw;
+  height: $big-font;
+  // height: 3.6vw;
   width: 100px;
   transform: translate(-79%,-50%);
   z-index: 10;
