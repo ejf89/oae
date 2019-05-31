@@ -237,8 +237,12 @@ body.mini-cart-open{
 
 .cart-remove-link{
   display: block;
-  padding-top: 2rem;
-  text-decoration: underline;
+  height: $big-font;
+  width: $big-font;
+  svg{
+    height: $big-font;
+    width: $big-font;
+  }
 }
 
 .note-container{

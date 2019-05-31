@@ -51,7 +51,9 @@
 
                 <br></br>
                 <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
-                <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline">X</a>
+                <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
+                  {% include "black-x" %}
+                </a>
 
               </td>
 

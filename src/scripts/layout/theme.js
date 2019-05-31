@@ -32,6 +32,7 @@ $(document).ready(function(){
       tools.projectAirtableQuery(atUrl)
       tools.categoryTagLogic()
       tools.navPositionToggle()
+      tools.policyHeaders()
 
       // bismuth.collectionSelect()
     }

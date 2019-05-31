@@ -308,11 +308,12 @@ tools.projectAirtableQuery = function(url){
 
 tools.articleLightboxLogic = function(){
   $('.project-airtable-container').on('click', function(){
-    console.log('PDP CLICK');
+    console.log('ARTICLE CLICK');
     $('.zoom-modal-container').removeClass('opacity-hidden no-pointer z-minus-10').addClass('z-plus-10')
     $('.nav-open-word').addClass('hide')
     $('.topnav').addClass('pointer-none')
     $('body').addClass('body-lock')
+    tools.arrowFollow()
 
 
     $(".zoom-modal-container").on('mousemove', function(e) {
@@ -320,9 +321,10 @@ tools.articleLightboxLogic = function(){
     if ((e.pageX - this.offsetLeft) < $(this).width() / 2) {
         mouseSide = 'L';
         $('.zoom-modal-container').unbind('click')
+        $('.zoom-modal-container').removeClass('arrow-right')
+        $('.mouse-follow').addClass('left')
 
-        $('body').removeClass('arrow-right')
-        $('body').addClass('arrow-left')
+
         $('.zoom-modal-container').on('click', function(){
           $('.zoom-slider').flickity('previous')
         })
@@ -331,8 +333,8 @@ tools.articleLightboxLogic = function(){
           $('.zoom-modal-container').unbind('click')
         mouseSide = 'R';
         console.log("RIGHT SIDE");
-        $('body').removeClass('arrow-left')
-        $('body').addClass('arrow-right')
+        $('.mouse-follow').removeClass('left')
+
         $('.zoom-modal-container').on('click', function(){
           $('.zoom-slider').flickity('next')
 
@@ -375,6 +377,7 @@ console.log('CATEGORY');
       var $this = $(this)
       var tag = $this.data('tag')
       $this.addClass('active')
+      $('.collection-title').addClass('color-grey')
 
       var shown = $(`.product-collection-item[data-tag="${tag}"]`)
       var hidden = $(`.product-collection-item[data-tag!="${tag}"]`)
@@ -386,6 +389,8 @@ console.log('CATEGORY');
       console.log('MOUSEOVER');
     })
     .on('mouseleave', function(e){
+      $('.collection-title').removeClass('color-grey')
+
       $('.product-collection-item').removeClass('opacity-hidden').removeClass('opacity-shown')
     })
   }
@@ -397,11 +402,19 @@ tools.navPositionToggle = function(){
     if (scrollPosition >= 100) {
         // If the function is only supposed to fire once
         $('.logo-wrapper-container').addClass('toggle-up')
-
+        // $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
         // Other function stuff here...
     } else {
       $('.logo-wrapper-container').removeClass('toggle-up')
+      // $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
 
     }
 });
+}
+
+tools.policyHeaders = function(){
+  if (location.href.indexOf('policies') > -1) {
+    $('.dynamic-word').remove()
+    $('.index-link span').last().text(":")
+  }
 }

@@ -6,7 +6,7 @@
 
 
  .article-wrapper{
-  margin-top: $quad-gutter;
+  // margin-top: $quad-gutter;
   float: left;
   padding-right: $gutter;
   grid-gap: $gutter;
@@ -87,7 +87,7 @@
 .article-image{
   margin: auto;
   margin-bottom: $gutter;
-  // max-width: 30vw;
+  max-height: 40vh;
 
 }
 

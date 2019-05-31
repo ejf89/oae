@@ -17,7 +17,7 @@
   }
   .form-wrapper{
     width: 100%;
-    padding: $gutter;
+    padding: 0 $gutter;
   }
   .form-element{
     width: 100%;
@@ -104,7 +104,7 @@ button{
 /*================ About Page  ================*/
 .about-page-container, .page-container{
   background-color: --color-2;
-  padding: $gutter;
+  padding: 0 $gutter;
   display: flex;
   justify-content: center;
   flex-direction: column;

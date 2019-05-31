@@ -8,6 +8,17 @@
 // |_| \_/_/    \_\/   |_____\_____/_/    \_\_|  |_____\____/|_| \_|
 
 
+
+.opacity-header{
+  width: 100%;
+  height: 50px;
+  // border: 2px solid red;
+  background-image: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/header_white.png?4520');
+  position: fixed;
+  top: -10px;
+  z-index: 1;
+  background-size: contain;
+}
 /*================ Navigation Layout Grids ================*/
 
 
