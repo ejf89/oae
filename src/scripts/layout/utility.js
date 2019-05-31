@@ -227,33 +227,38 @@ tools.projectAirtableQuery = function(url){
        if (name == handle) {
          var assets = records[i].fields.assets
          assets.forEach(function(el, i, array){
-
            var imageSrc = el.url
            itemsProcessed++;
            console.log(imageSrc);
-           $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
+           // $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
+           $('.project-airtable-container').append(`  <div class="article-image-wrapper project-slider-slide">
+               <div class=" article-image " style="background-image:url(${imageSrc})">
+               </div>
+             </div>`)
            // $('.zoom-slider').append(`<img class='zoom-slider-slide' src='${imageSrc}' />`)
-           $('.zoom-slider').append(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
+           // $('.zoom-slider').append(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
            if (itemsProcessed == array.length - 1) {
              console.log("HERE");
-             sliderInit()
+             // sliderInit()
            } else {
+             console.log("THERE");
              sliderInit()
 
            }
          })
        } else {
          //no airtable
-           $('.project-slider').flickity({
-             draggable: false,
-             wrapAround: true,
-             imagesLoaded: true,
-             variableWidth:false,
-             prevNextButtons: false,
-             pageDots: false,
-             autoPlay: false,
-             imagesLoaded: true
-           })
+           // $('.project-slider').flickity({
+           //   draggable: false,
+           //   wrapAround: true,
+           //   imagesLoaded: true,
+           //   variableWidth:false,
+           //   prevNextButtons: false,
+           //   pageDots: false,
+           //   autoPlay: false,
+           //   imagesLoaded: true
+           // })
+           // $('.project-slider-slide').addClass('is-selected')
        }
        console.log(name);
       }
@@ -270,9 +275,9 @@ tools.projectAirtableQuery = function(url){
           wrapAround: true,
           imagesLoaded: true,
           variableWidth:false,
-          prevNextButtons: false,
+          prevNextButtons: true,
           pageDots: false,
-          autoPlay: 3000,
+          // autoPlay: 3000,
           imagesLoaded: true
         })
 

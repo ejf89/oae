@@ -55,10 +55,12 @@
 
         <div  class="product-collection-item project-item">
 
-        <a href="{{article.url}}">
           <div class="product-image-container">
+        <a href="{{article.url}}" class="product-card-link">
 
-            <div class="product-card-canvas dark-shadow"  style="background-image: url({{background_image_url}})">
+            <div class="product-card-canvas dark-shadow"  >
+
+              <div class="related-item-image" style="background-image: url({{background_image_url}})">    </div>
 
               {%- comment %}
               This is a foo
@@ -68,12 +70,13 @@
             {% endcomment -%}
 
           </div>
-
-        </div>
-        </a>
-          <a href='{{article.url}}' class='product-info med-font color-black'>
+          <p class="product-info med-font color-black">
             {{article.title}}
-          </a>
+            </p>
+        </a>
+      </div>
+          <!-- <a href='{{article.url}}' class='product-info med-font color-black'>
+          </a> -->
         </div>
 
         {%- endif -%}

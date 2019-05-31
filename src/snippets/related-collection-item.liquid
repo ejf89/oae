@@ -10,7 +10,7 @@
 {%- endif -%}
 {%- endfor -%}
 
-      <div class="product-collection-item{% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
+      <div class="product-collection-item related-collection-item {% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
       data-tags="{{product.tags | downcase}}"
       data-handle="{{product.handle}}"
       data-variantsAvailable="{{filterVariants | downcase}}"
@@ -60,7 +60,10 @@
                   	This is a foo
                   {% endcomment -%}
 
-                  <img src="{{ image_src_0 }}" alt="">
+                  <!-- <img src="{{ image_src_0 }}" alt=""> -->
+                    <div class="related-item-image" style="background-image: url({{image_src_0}})">    </div>
+
+
 
                 </div>
 
