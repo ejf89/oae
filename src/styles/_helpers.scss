@@ -34,7 +34,13 @@
   padding-bottom: $gutter;
 }
 .padding-gutter{
-  padding: $gutter;
+  padding: 0 $gutter;
+}
+.vw-padding-bottom{
+  padding-bottom: 1vw !important;
+}
+.auto-rows{
+  grid-auto-rows: auto !important;
 }
 // .show{
 //   display: block;

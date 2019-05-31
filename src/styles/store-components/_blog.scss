@@ -6,10 +6,15 @@
 
 
  .article-wrapper{
-   margin-top: $quad-gutter;
+  margin-top: $quad-gutter;
   float: left;
   padding-right: $half-gutter;
+  grid-gap: $gutter;
 
+  @include media-query($small){
+    padding-right: $gutter;
+    margin-top: $double-gutter;
+  };
   .article-preview-container{
     min-height: 20vh;
     min-height: 60vh;
@@ -21,6 +26,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @include media-query($small){
+      width: 100%;
+      height: 32vh;
+    };
   }
   .nav-link{
     color: $color-black;
@@ -42,6 +51,7 @@
 }
  .article-link{
   float: left;
+  text-transform: capitalize !important;
   a{
     color: $color-green;
     @include transition(all 400ms  ease-in-out);
@@ -66,9 +76,14 @@
 .article-image{
   margin: auto;
   margin-bottom: $gutter;
+  max-width: 30vw;
+
 }
 
 .article-related-container{
+  @include  media-query($small){
+    margin-top: $gutter;
+  };
   .product-image-container{
     height: 100%;
     max-height: 38vh;
@@ -80,6 +95,19 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  }
+}
+
+.article-body{
+  p, .p1{
+    font-size: $med-plus-font;
+  }
+  a{
+    color: $color-green;
+    @include transition(color $transition-time ease-in-out);
+    &:hover{
+      color: $color-black;
+    }
   }
 }
 
@@ -115,13 +143,14 @@ z-index: 0
     right: 0;
     bottom: 0;
     display: flex;
+    background: rgba(255,255,255,0.7);
     height: auto !important;
     .zoom-slider{
       width: 80%;
       margin: auto;
       overflow-y: hidden;
       align-items: center;
-      background: white;
+      background: rgba(255,255,255,0);
       min-height: 60vh;
       .flickity-slider{
           transform: none !important;
@@ -150,6 +179,6 @@ z-index: 0
 
 .zoom-slide-count{
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 9px;
 }

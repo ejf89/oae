@@ -29,38 +29,6 @@
   </form>
 
 
-{% if search.performed %}
-    <ul>
-        {% if search.results_count == 2 %}
-      <div class="product-collection-items grid-2">
-      {% else %}
-      <div class="product-collection-items grid-3">
-      {% endif %}
-      {% for item in search.results %}
-        <li>
-          <!-- {% assign featured_image = item.image | default: item.featured_image %}
-          {% if featured_image != blank %}
-            <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-              {{ featured_image | img_url: '240x240' | img_tag: featured_image.alt }}
-            </a>
-          {% endif %} -->
-
-          <!-- <h5>{{ item.title | link_to: item.url }}</h5> -->
-
-          {% if item.object_type == 'product' %}
-
-             {%include "collection-item", product: item %}
-
-
-
-          {% else %}
-            <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
-          {% endif %}
-
-        </li>
-      {% endfor %}
-    </div>
-    </ul>
 
 
   </div>

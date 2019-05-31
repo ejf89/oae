@@ -41,6 +41,27 @@ p{
   font-size: 18px;
 }
 
+.big-font{
+  font-size: $big-font;
+  line-height: 0.8;
+  // padding-bottom: 5px;
+  @include media-query($small){
+    font-size: $big-font-mobile;
+  };
+}
+.med-font{
+  font-size: $med-font !important;
+}
+.med-plus-font{
+  font-size: $med-plus-font !important;
+}
+
+.main-container, #barba-wrapper{
+  max-width: 1600px;
+  margin: auto;
+  position: relative;
+}
+
 .font-oae{
   font-family: "OAE";
 }
@@ -57,7 +78,11 @@ p{
 
 .top-space{
   // margin-top: $double-gutter !important;
-  margin-top: 180px !important;
+  // margin-top: 180px !important;
+  margin-top: $big-font !important;
+  @include media-query($small){
+    margin-top: $gutter !important;
+  };
 }
 
 
@@ -67,11 +92,16 @@ p{
 }
 
 .main-container{
-  padding-top: 1px;
-  height: 100vh;
+  // padding-top: 1px;
+  @include media-query($small){
+    height: 100vh;
+
+  };
   @include media-query($medium-up){
     padding-right: $double-gutter;
   };
+  // min-height: 70vh;
+
 }
 
 .shopify-section{

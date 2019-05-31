@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block mobile-gutter top-space">
+<div class="grid-product-page product-block top-space">
 
 
     <div id="product-content-block" class="product-content-block">
@@ -92,7 +92,7 @@
 
   <div id="product-image-block" class=""  >
     {% if product.images.size > 0 %}
-     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
+     <ul class="product-slider js-slider-hook dark-shadow  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
        contain: false,
        wrapAround: true,
        imagesLoaded: true,
@@ -118,6 +118,10 @@
 
 
   <div class="zoom-modal-container opacity-hidden no-pointer z-minus-10">
+
+    <div class="mouse-follow">
+
+    </div>
 
     <div class="zoom-close x-close z-plus-10">
       {% include "green-x" %}
@@ -195,7 +199,7 @@
 
     <div class="cart-link-container {{cart_link_hide_class}}">
       <a href="/cart" class="product-cart-link big-font color-green" >
-        CART
+        Cart
         <span class="color-black">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-black">)</span>
       </a>
     </div>

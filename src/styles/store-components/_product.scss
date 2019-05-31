@@ -23,13 +23,15 @@
   };
 }
 #product-content-block{
-
+  @include media-query($small){
+    order: 1;
+  };
 }
 
 
 #product-image-block{
   position: fixed;
-  top: 50%;
+  top: 58%;
   left: 50%;
   width: 60%;
   margin: auto;
@@ -41,6 +43,20 @@
   -o-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   // z-index: -2;
+  @include media-query($medium-up){
+    max-width: 620px;
+  };
+  @include media-query($small){
+    order: 0;
+    position: relative;
+    top: unset;
+    left: unset;
+    width: unset;
+    margin: unset;
+    max-width: 800px;
+    -webkit-transform: none;
+     transform: none;
+  };
 
 
   .flickity-slider{ transform: none !important; }
@@ -71,6 +87,7 @@
 
 .product-title{
   z-index: 1;
+  @include transition(color $transition-time ease-in-out);
 }
 
 .product-section-block .product-content-block{
@@ -78,6 +95,9 @@
   flex-direction: column;
   justify-content: center;
   position: absolute;
+  @include media-query($small){
+    position: relative;
+  }
 
 
   .product-description{
@@ -85,13 +105,19 @@
     pointer-events: none;
     z-index: 1;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+    @include media-query($small){
+      max-width: unset;
+    };
   }
 
 }
 
 .add-container{
   position: fixed;
-  bottom: 0;
+  bottom: $half-gutter;
+  @include media-query($small){
+    position: relative;
+  };
   .add-to-cart-button{
     cursor: pointer;
   }
@@ -110,6 +136,7 @@
   right: 0;
   bottom: 0;
   display: flex;
+  cursor: none;
   // .zoom-slider{
   //   width: 95%;
   //   margin: auto;
@@ -134,8 +161,8 @@
   // }
 
   .zoom-slider{
-    height: 80%;
-    width: 80%;
+    height: 70%;
+    width: 70%;
     margin: auto;
     background: white;
     .zoom-slide{
@@ -153,15 +180,33 @@
   }
 }
 
-.arrow-right{
-  cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-right.svg?3104') 100 30, auto !important;
-}
-.arrow-left{
-  cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-left.svg?3104') 100 30, auto !important;
+// .arrow-right{
+//   cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-right.svg?3104') 100 30, auto !important;
+//   // cursor: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow-right.png?2688') 100 30, auto !important;
+// }
+// .arrow-left{
+//   cursor: url('https://cdn.shopify.com/s/files/1/0080/8992/7727/files/arrow-left.svg?3104') 100 30, auto !important;
+// }
+
+.mouse-follow{
+  position: absolute;
+  height: $big-font;
+  // height: 3.6vw;
+  width: 100px;
+  transform: translate(-79%,-50%);
+  z-index: 10;
+  // background: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow-right.png?2688');
+  background: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow.svg?2854');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &.left{
+    transform: rotate(180deg);
+  }
 }
 
 .cart-link-container{
-  position: absolute;
+  position: fixed;
   top: auto;
   // bottom: 94px;
   // right: -62px;
@@ -180,7 +225,9 @@
 }
 
 .variant-radio-wrapper{
-
+  fieldset{
+    padding: 0;
+  }
 
 /* HTML5 Boilerplate accessible hidden styles */
 [type="radio"] {
@@ -197,7 +244,7 @@
 label {
   display: block;
   cursor: pointer;
-  line-height: 2.5;
+  // line-height: 2.5;
   font-size: 1.5em;
 }
 
@@ -220,7 +267,7 @@ label {
 }
 
 /* the checked style using the :checked pseudo class */
-[type="radio"]:checked + span:before {
+[type="radio"]:checked + span:before, [type="radio"]:hover + span:before  {
   background: $color-green;
   // box-shadow: 0 0 0 0.25em #000;
 }

@@ -10,6 +10,7 @@
 
 .contact-page-container{
   margin: auto;
+  margin-top: 0;
   width: 100%;
   h1{
     text-align: center;
@@ -33,7 +34,7 @@
       margin-bottom: 10px;
       resize: none;
       border: none;
-      border-bottom: 1px solid $color-green;
+      border-bottom: 2px solid $color-green;
     }
   }
 
@@ -62,7 +63,7 @@
 }
 
 .policy-links{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   margin-bottom: 30px;
   display: flex;
@@ -146,3 +147,30 @@ button{
 
 
 /*================ Mission Page  ================*/
+
+
+/*================ Press Page  ================*/
+
+.press-title{
+  padding-top: $half-gutter;
+}
+.press-image-wrapper{
+    @include fluid-aspect(3 2);
+}
+.press-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/*================ Policies  ================*/
+.shopify-policy__container{
+  margin-top: $big-font !important;
+  @include media-query($small){
+    margin-top: $gutter !important;
+  };
+  h1{
+    padding-bottom: 1vw;
+  }
+}

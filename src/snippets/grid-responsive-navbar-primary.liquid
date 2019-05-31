@@ -1,7 +1,7 @@
 <!-- grid-responsive-navbar-primary.liquid -->
 
 
-  <ul class="topnav desktop-nav small--hide" id="myTopnav-desktop--left">
+  <ul class="topnav desktop-nav " id="myTopnav-desktop--left">
 
     <li class="nav-link__wrapper home-link">
       <a href="/" class=" big-font ">
@@ -9,6 +9,7 @@
       </a>
 
     </li>
+
 
     {% for link in linklists[section.settings.main_linklist-primary].links %}
     {%- assign child_list_handle = link.title | handleize -%}
@@ -51,7 +52,9 @@
     {% endif %}
     {% endfor %}
     <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
-      <a href="/cart" class="nav-link big-font">Cart</a><span class="nav-link__punctuation big-font">,</span>
+      <a href="/cart" class="nav-link big-font">Cart</a>      {%- if cart.item_count > 0 -%}
+            <span class="color-green big-font">(</span><span class="cart-item-count big-font "  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green big-font ">)</span>
+            {% endif %}<span class="nav-link__punctuation big-font">,</span>
     </li>
 
     <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %} search-toggle">

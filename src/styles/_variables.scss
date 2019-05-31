@@ -85,18 +85,15 @@ $font-weight-normal: 400;
 $font-weight-bold: 700;
 $font-size-base: 20px;
 
-$med-font:1.5rem;
+// $med-font:1.52rem;
+$med-font:1.52vw;
+$med-plus-font: 1.9vw;
 // $big-font:3.6rem;
 $big-font:3.8vw;
+$big-font-mobile:9vw;
 
 
-.big-font{
-  font-size: $big-font;
-  // font-size: 100%;
-}
-.med-font{
-  font-size: $med-font;
-}
+
 
 .text-left{text-align: left !important;}
 .text-right{text-align: right !important;}
@@ -135,9 +132,12 @@ $space-l: 120px;
 .space-m{width:100%;height:$space-m;}
 .space-l{width:100%;height:$space-l;}
 
-$half-gutter: 15px;
-$gutter: 30px;
-$double-gutter: 60px;
+// $half-gutter: 15px;
+$half-gutter: 0.78125vw;
+// $gutter: 30px;
+$gutter: 1.5625vw;
+// $double-gutter: 60px;
+$double-gutter: 3.125vw;
 $quad-gutter: 120px;
 $large-gutter: 160px;
 $grid-gap: 10px;

@@ -1,5 +1,5 @@
 {%- if template == 'index' -%}
-  <span class="color-black word">
+  <span class="color-black word big-font">
     One&nbsp
   </span>
   <span>
@@ -7,26 +7,26 @@
       Planet
     </h1>
   </span>
-  <span class="color-green word">
+  <span class="color-green word big-font">
     ,&nbsp
   </span>
 
-  <span class="color-black word">
+  <span class="color-black word big-font">
     All&nbsp
   </span>
   <span class="color-white anim-typewriter word word-grow big-font ">
     Beings
   </span>
-  <span class="color-green word">
+  <span class="color-green word big-font">
     ,&nbsp
   </span>
-  <span class="color-black word">
+  <span class="color-black word big-font">
     Every&nbsp
   </span>
   <span class="color-white anim-typewriter word word-grow big-font ">
     Choice
   </span>
-  <span class="color-green word">
+  <span class="color-green word big-font">
     .
   </span>
 
@@ -50,12 +50,16 @@
   {% endif %}
   {%-  if template == 'blog.projects' -%}
   {% assign template_handle = 'Projects'  %}
+  {% assign template_link = '/blogs/projects' %}
+
   {%- else  -%}
     {%-  if template == "blog" -%}
     {% assign template_handle = 'Artists'  %}
     {% assign template_link = '/blogs/artists'  %}
     {%- elsif template == 'article.project' -%}
     {% assign template_handle = 'Projects'  %}
+    {% assign template_link = '/blogs/projects' %}
+
 
     {% endif %}
   {% endif %}
@@ -69,6 +73,10 @@
   {% assign template_handle = 'Contact'  %}
   {%- endif -%}
 
+  {%- if template == "page.press" -%}
+  {% assign template_handle = 'Press'  %}
+  {%- endif -%}
+
   {%- if template == "search" -%}
   {% assign template_handle = 'Search'  %}
   {%- endif -%}
@@ -78,15 +86,13 @@
   <a href="/" class="index-link big-font ">
     One<span>,</span> All<span>,</span> Every<span>,</span>&nbsp
   </a>
-  <span class="color-black word dynamic-word">
-    <a class="color-black word dynamic-word" href="{{template_link}}">{{ template_handle }}</a>
+  <span class="color-black word dynamic-word big-font">
+    <a class="color-black word dynamic-word big-font" href="{{template_link}}">{{ template_handle }}</a>
       {%- if template == 'cart' -%}
         {%- if cart.item_count > 0 -%}
         <span class="color-green ">(</span><span class="cart-item-count  "  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green  ">)</span>
         {% endif %}
       {%- endif -%}
-  <span class="color-green word">
-    :
-  </span>
+  <span class="color-green word">:</span>
 
 {%- endif -%}

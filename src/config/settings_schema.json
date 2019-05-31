@@ -3,9 +3,10 @@
     "name": "theme_info",
     "theme_name": "Skeletor",
     "theme_version": "0.11.0",
-    "theme_author": "Bismuth",
+    "theme_author": "EricFarber",
     "theme_documentation_url": "https:\/\/shopify.github.io\/slate\/",
-    "theme_support_url": "https:\/\/github.com\/Shopify\/slate"
+    "theme_support_url": "https:\/\/github.com\/Shopify\/slate",
+    "theme_packaged_with": "@shopify\/slate-tools@1.0.0-beta.12"
   },
   {
     "name": "logo",
