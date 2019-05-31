@@ -181,12 +181,12 @@ tools.pdpLightBox = function(){
 
 
 tools.arrowFollow = function(){
-  $(document).on('mousemove', function(e){
-    $('.mouse-follow').css({
-       left:  e.pageX,
-       top:   e.pageY
-    });
-});
+    $(document).on('mousemove', function(e){
+      $('.mouse-follow').css({
+         left:  e.pageX,
+         top:   e.pageY
+      });
+  });
 }
 
 tools.currencyFormat = function(num){
