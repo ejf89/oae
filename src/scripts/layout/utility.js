@@ -210,7 +210,7 @@ if ($('.variant-radio-wrapper').length > 0) {
   })
 }
 
-tools.projectAirtableQuery = function(){
+tools.projectAirtableQuery = function(url){
   console.log('AIRTABLEING');
   var atContainer = $('.project-airtable-container')
   var math = tools.randomFixedInteger(18)
@@ -218,7 +218,8 @@ tools.projectAirtableQuery = function(){
   if (atContainer.length > 0) {
     var itemsProcessed = 0;
 
-    jQuery.getJSON("//cdn.shopify.com/s/files/1/0080/8992/7727/t/2/assets/airtable.json?" + math, function(data){
+    // jQuery.getJSON("//cdn.shopify.com/s/files/1/0080/8992/7727/t/2/assets/airtable.json?" + math, function(data){
+    jQuery.getJSON(url + math, function(data){
       var records = data.records
       for (var i = 0; i < records.length; i++) {
        console.log(records[i]);
@@ -241,6 +242,18 @@ tools.projectAirtableQuery = function(){
 
            }
          })
+       } else {
+         //no airtable
+           $('.project-slider').flickity({
+             draggable: false,
+             wrapAround: true,
+             imagesLoaded: true,
+             variableWidth:false,
+             prevNextButtons: false,
+             pageDots: false,
+             autoPlay: false,
+             imagesLoaded: true
+           })
        }
        console.log(name);
       }

@@ -12,8 +12,12 @@ import "../sections/featured-products.js"
 $(document).ready(function(){
   // $('.product-section-block').trigger('click'); <-- needed for dynamic cart
   console.log("FIRING");
+
+
   tools.main = function () {
     var init = function(){
+      var atUrl = localStorage.getItem('atUrl')
+
       // tools.barbaInit()
       $('.hero-static').addClass('load')
       $('.product-section-block').trigger('click');
@@ -25,7 +29,7 @@ $(document).ready(function(){
       tools.sliderInit()
       tools.pdpLightBox()
       tools.variantRadioLogic()
-      tools.projectAirtableQuery()
+      tools.projectAirtableQuery(atUrl)
       tools.categoryTagLogic()
       tools.navPositionToggle()
 

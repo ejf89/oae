@@ -8,7 +8,7 @@
  .article-wrapper{
   margin-top: $quad-gutter;
   float: left;
-  padding-right: $half-gutter;
+  padding-right: $gutter;
   grid-gap: $gutter;
 
   @include media-query($small){
@@ -18,17 +18,28 @@
   .article-preview-container{
     min-height: 20vh;
     min-height: 60vh;
+    width: 100%;
+    &:hover{
+      .color-black{
+        color: $color-green !important;
+      }
+    }
+  }
+
+  .article-preview-image__wrapper{
+    @include fluid-aspect(3 2);
+    min-height: 20vh;
   }
   .article-preview-image{
-    width: 47vw;
+    // width: 47vw;
     // min-height: 40vh;
-    height: 31.3vw;
+    // height: 31.3vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     @include media-query($small){
       width: 100%;
-      height: 32vh;
+      // height: 32vh;
     };
   }
   .nav-link{

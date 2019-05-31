@@ -77,6 +77,12 @@
     {% assign barba_namespace = 'collection'  %}
   {%- endif -%}
 
+  <script type="text/javascript">
+  var atUrl =  "{{ 'airtable.json' | asset_url }}"
+  localStorage.setItem('atUrl', atUrl)
+</script>
+
+
 
   <div id="barba-wrapper" class="">
     <div class="barba-container" data-namespace="{{barba_namespace}}">
@@ -100,6 +106,10 @@
           </a>
         {%- endif -%}
       </div>
+
+      <!-- <div class="right-spacer">   
+
+      </div> -->
 
 
       {%- comment %}

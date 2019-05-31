@@ -212,7 +212,8 @@ $mobile-header-height: 66px;
 .nav-open-word{
   color: $color-green;
   position: fixed;
-  right: $gutter;
+  // right: $gutter;
+  right: 1.1625vw;
   // top: $gutter;
   top: 1.39vw;
   // right: -31px;

@@ -98,7 +98,8 @@ p{
 
   };
   @include media-query($medium-up){
-    padding-right: $double-gutter;
+    // padding-right: $double-gutter;
+    padding-right: 4.625vw;
   };
   // min-height: 70vh;
 
@@ -137,4 +138,12 @@ button:focus {
     border: none;
     border-bottom: 2px solid $color-green;
   }
+}
+
+.right-spacer{
+  border: 2px solid red;
+  width: 120px;
+  height: 100%;
+  position: relative;
+  display: inline;
 }

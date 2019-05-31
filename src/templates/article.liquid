@@ -51,7 +51,6 @@
         {% for article in blog.articles %}
         {%- for tag in article.tags -%}
         {%- if tag contains 'artist' and tag contains artist_check -%}
-
         {% assign background_image_url = article.image.src | img_url: '500x'  %}
 
         <div  class="product-collection-item project-item">

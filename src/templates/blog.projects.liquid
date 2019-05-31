@@ -28,7 +28,7 @@
 Article Previews
 ====================
 {% endcomment %}
-<div class="blog-flex-container article-wrapper gutter grid-2-break">
+<div class="blog-flex-container article-wrapper gutter grid-2-break top-space">
 
 
     {% for article in blog.articles %}
@@ -37,9 +37,11 @@ Article Previews
       <a href="{{article.url}}">
         {% assign image_url = article.image.src | img_url : '1000x'  %}
 
+        <div class="article-preview-image__wrapper">
         <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
+      </div>
 
-        <p class="big-font color-black">{{article.title}}</p>
+        <p class="big-font color-black vw-padding-top">{{article.title}}</p>
 
       </a>
 
