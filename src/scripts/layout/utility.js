@@ -420,8 +420,5 @@ tools.policyHeaders = function(){
     $('.dynamic-word').remove()
     $('.index-link span').last().text(":")
   }
-  if (location.href.indexOf('pages/mission') > -1) {
-    // $('.dynamic-word').remove()
-    $('.index-link span').last().remove()
-  }
+
 }

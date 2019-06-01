@@ -166,7 +166,8 @@
   // }
 
   .zoom-slider{
-    height: 70%;
+    // height: 70%;
+    height: 87vh;
     width: 70%;
     margin: auto;
     background: white;
@@ -175,7 +176,7 @@
       width: 100%;
       background-size: contain;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center center;
     }
   }
@@ -195,11 +196,11 @@
 
 .mouse-follow{
   position: absolute;
-  height: $big-font;
+  height: 3.3vw;
   // height: 3.6vw;
   width: 100px;
   transform: translate(-79%,-50%);
-  z-index: 10;
+  z-index: 100;
   // background: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow-right.png?2688');
   background: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/arrow.svg?2854');
   background-position: center;

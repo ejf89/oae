@@ -8,12 +8,13 @@
  }
 
  @font-face {
-     font-family: 'OAE italic';
-     src: url('/fonts/OAE-Italic.woff2') format('woff2'),
-         url('/fontsOAE-Italic.woff') format('woff');
+     font-family: 'OAE-Italic';
+     src: url('OAE-Italic.woff2') format('woff2'),
+         url('OAE-Italic.woff') format('woff');
      font-weight: normal;
      font-style: italic;
  }
+
 
  @font-face {
      font-family: 'OAE';
@@ -68,7 +69,7 @@ p{
 }
 
 .font-oae-italic{
-  font-family: "OAE italic";
+  font-family: "OAE-Italic" !important;
 }
 
 

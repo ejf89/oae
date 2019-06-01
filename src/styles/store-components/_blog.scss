@@ -138,6 +138,9 @@
   .color-green:hover{
     color: $color-green;
   }
+  i{
+    font-family: "OAE-Italic" !important;
+  }
 }
 
 .project-airtable-container{
@@ -234,5 +237,6 @@ z-index: 0
 .zoom-slide-count{
   position: absolute;
   bottom: 10px;
-  right: 9px;
+  // right: 9px;
+  right: $gutter;
 }
