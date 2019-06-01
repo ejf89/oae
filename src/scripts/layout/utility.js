@@ -38,6 +38,7 @@ tools.closeMenu = function(){
       if (!$target.hasClass('nav-link')) {
         // $('.grid-responsive-navbar').css('opacity', 0)
         $('.grid-responsive-navbar').addClass('opacity-hidden')
+        $('body').removeClass('body-lock')
 
         setTimeout(function(){
           $('.grid-responsive-navbar').removeClass('show')
@@ -61,6 +62,7 @@ tools.openMenu = function(){
       $('.grid-responsive-navbar').addClass('show')
       $('.nav-close').removeClass('hide')
       $('.menu-icon').addClass('hide')
+      $('body').addClass('body-lock')
     }
     if ($('.nav-open-word')) {
       $('.nav-open-word').addClass('visually-hidden')
@@ -402,11 +404,11 @@ tools.navPositionToggle = function(){
     if (scrollPosition >= 100) {
         // If the function is only supposed to fire once
         $('.logo-wrapper-container').addClass('toggle-up')
-        // $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
+        $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
         // Other function stuff here...
     } else {
       $('.logo-wrapper-container').removeClass('toggle-up')
-      // $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
+      $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
 
     }
 });

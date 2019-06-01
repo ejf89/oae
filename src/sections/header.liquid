@@ -1,9 +1,11 @@
 <!-- header.liquid -->
 
-
-<div class="opacity-header">
+{% unless template == "index" %}
+<div class="opacity-header opacity-hidden">
 
 </div>
+
+{% endunless %}
 {%- comment %}
 	This is a foo
   {% endcomment -%}

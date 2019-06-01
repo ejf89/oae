@@ -12,12 +12,12 @@
 .opacity-header{
   width: 100%;
   height: 50px;
-  // border: 2px solid red;
   background-image: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/header_white.png?4520');
   position: fixed;
   top: -10px;
   z-index: 1;
   background-size: contain;
+  // border: 2px solid red;
 }
 /*================ Navigation Layout Grids ================*/
 
@@ -218,6 +218,9 @@ $mobile-header-height: 66px;
       width: $big-font-mobile;
     };
   }
+  .st0{
+    fill: $color-green !important;
+  }
 }
 
 .nav-open-word{
@@ -227,13 +230,14 @@ $mobile-header-height: 66px;
   right: 1.1625vw;
   // top: $gutter;
   top: 1.39vw;
-  // right: -31px;
-  // top: 82px;
   z-index: 10;
   writing-mode: vertical-rl;
   line-height: 2.8rem;
   text-transform: capitalize !important;
-  // @include transform(rotate(90deg));
+  @include transition(color $transition-time ease-in-out);
+  &:hover{
+    color: $color-black;
+  }
 
 }
 

@@ -40,16 +40,26 @@
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '400x400' | img_tag: item.title }}
+                  <div class="cart-image-wrapper">
+                    <div class="cart-image" style="background-image:url()">
+
+                      {{ item.image.src | img_url: '300x' | img_tag: item.title }}
+                    </div>
+
+                  </div>
                 </a>
+
               {% endif %}
 
              </td>
               <td class="title-wrapper">
+                {% unless item.variant.title contains 'Default' %}
+                  {% assign variant_title = item.variant.title %}
+                {% endunless %}
 
-                <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ item.variant.title }}</a>
+                <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ variant_title }}</a>
 
-                <br></br>
+
                 <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
                 <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
                   {% include "black-x" %}

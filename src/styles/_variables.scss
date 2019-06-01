@@ -90,6 +90,11 @@ $med-font:1.52vw;
 $med-plus-font: 1.9vw;
 // $big-font:3.6rem;
 $big-font:3.8vw;
+
+$big-font:3.8vw;
+$big-font-double:7.6vw;
+$big-font-tripple:11.4vw;
+
 $big-font-mobile:9vw;
 
 
@@ -122,9 +127,13 @@ $big-font-mobile:9vw;
 //  ____) | |  / ____ | |____ _| |_| |\  | |__| |
 // |_____/|_| /_/    \_\_____|_____|_| \_|\_____|
 
-$space-s: 20px;
-$space-m: 60px;
-$space-l: 120px;
+// $space-s: 20px;
+// $space-m: 60px;
+// $space-l: 120px;
+
+$space-s: $big-font;
+$space-m: $big-font-double;
+$space-l: $big-font-tripple;
 
 /*================ Spaces Classes ================*/
 .space-xs{width:100%;height:$space-s - 18;}
