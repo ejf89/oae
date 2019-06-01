@@ -11,6 +11,10 @@
   padding-right: $gutter;
   grid-gap: $gutter;
 
+  .big-font{
+    line-height: 4vw;
+  }
+
   @include media-query($small){
     padding-right: $gutter;
     margin-top: $double-gutter;
@@ -87,7 +91,7 @@
 .article-image{
   margin: auto;
   margin-bottom: $gutter;
-  max-height: 40vh;
+  max-height: 65vh;
 
 }
 
@@ -128,21 +132,25 @@
     color: $color-green;
     @include transition(color $transition-time ease-in-out);
     &:hover{
-      color: $color-black;
+      // color: $color-black;
     }
+  }
+  .color-green:hover{
+    color: $color-green;
   }
 }
 
 .project-airtable-container{
-  width: 60%;
+  // width: 60%;
   margin: auto;
   cursor: pointer;
 }
 
 .project-slider {
-  height: 40vh !important;
+  max-height: 65vh !important;
   .flickity-viewport{
-    min-height: 40vh;
+    min-height: 65vh;
+    max-height: 65vh;
     height: 100%;
     // border: 2px solid red;
     .article-image-wrapper{

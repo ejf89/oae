@@ -16,8 +16,10 @@
 @mixin grid{
   display: grid;
   grid-auto-rows: auto 1fr;
-  grid-column-gap: $gutter;
-  grid-row-gap: $gutter;
+  // grid-column-gap: $gutter;
+  // grid-row-gap: $gutter;
+  grid-column-gap: $big-font;
+  grid-row-gap: $big-font;
   grid-auto-rows: 1fr;
   justify-content: center;
   align-content: center;

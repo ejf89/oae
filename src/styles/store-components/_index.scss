@@ -43,7 +43,8 @@ p{
 
 .big-font{
   font-size: $big-font;
-  line-height: 0.8;
+  // line-height: 0.8;
+  line-height: 4vw;
   // padding-bottom: 5px;
   @include media-query($small){
     font-size: $big-font-mobile;

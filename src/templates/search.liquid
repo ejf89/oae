@@ -2,7 +2,7 @@
 
 <div class="search-template-wrapper top-space page-container">
 
-  <h1 class="search-result-header">
+  <h1 class="search-result-header big-font">
     {% if search.performed %}
       {% if search.results_count == 0 %}
         {{ 'general.search.no_results_html' | t: terms: search.terms }}
@@ -33,9 +33,9 @@
 {% if search.performed %}
     <ul class="search-result-wrapper">
         {% if search.results_count == 2 %}
-      <div class="product-collection-items grid-2">
+      <div class="product-collection-items grid-4">
       {% else %}
-      <div class="product-collection-items grid-3">
+      <div class="product-collection-items grid-4">
       {% endif %}
       {% for item in search.results %}
         <li>
@@ -51,9 +51,11 @@
                  <div class="search-preview-container">
                    <a href="{{item.url}}">
                      <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
-                   </a>
+                     <div class="med-font color-black article-info" href='{{item.url}}'>{{ item.title }}</div>
 
-                   <a class="med-font color-black article-info" href='{{item.url}}'>{{ item.title }}</a>
+                    </a>
+
+                   <!-- <a class="med-font color-black article-info" href='{{item.url}}'>{{ item.title }}</a> -->
                  </div>
 
 

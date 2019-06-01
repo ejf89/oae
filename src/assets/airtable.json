@@ -189,6 +189,33 @@
     {
       "id": "recwlJKcclB0WlO1j",
       "fields": {
+        "Name": "billboards-san-francisco",
+        "assets": [
+          {
+            "id": "attmSK5zIXiILNZr8",
+            "url": "https:\/\/dl.airtable.com\/.attachments\/eba9fc11f7e11b8339b77472d95625a5\/f518e234\/the_091218_005_web_v1_current_800x.jpg",
+            "filename": "the_091218_005_web_v1_current_800x.jpg",
+            "size": 98090,
+            "type": "image\/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/804d32360e8537d49814bc8504acc92b\/5c9c6138",
+                "width": 54,
+                "height": 36
+              },
+              "large": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/0bef8253fe6f0520f19e0ed92ff93042\/612462ae",
+                "width": 767,
+                "height": 512
+              },
+              "full": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/905bb3da31407230ec3af20e76e70219\/de353e9c",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          }
+        ]
       },
       "createdTime": "2019-05-10T20:08:57.000Z"
     }

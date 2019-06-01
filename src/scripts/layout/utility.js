@@ -238,7 +238,7 @@ tools.projectAirtableQuery = function(url){
                </div>
              </div>`)
            $('.zoom-slider').append(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
-           if (itemsProcessed == array.length - 1) {
+           if (itemsProcessed == array.length ) {
              console.log("HERE");
              sliderInit()
            } else {
@@ -295,6 +295,7 @@ tools.projectAirtableQuery = function(url){
         autoPlay: false,
         imagesLoaded: true,
         fade: true,
+        accessibility: true,
         on: {
           ready: function(){
             console.log("READYU");
@@ -418,5 +419,9 @@ tools.policyHeaders = function(){
   if (location.href.indexOf('policies') > -1) {
     $('.dynamic-word').remove()
     $('.index-link span').last().text(":")
+  }
+  if (location.href.indexOf('pages/mission') > -1) {
+    // $('.dynamic-word').remove()
+    $('.index-link span').last().remove()
   }
 }

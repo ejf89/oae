@@ -99,17 +99,26 @@
        variableWidth:false,
        prevNextButtons: false,
        pageDots: false,
-       autoPlay: true,
+       autoPlay: 3000,
        imagesLoaded: true
      }">
        {% for image in product.images %}
        {% assign slide_ = img.src | img_url : '1500x'  %}
+
+       {%- if forloop.index == 1 -%}
+       <li class="slide-parent is-selected ">
+         <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+           <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
+         </a>
+       </li>
+         {%- else  -%}
 
          <li class="slide-parent  ">
            <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
              <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
            </a>
          </li>
+       {%- endif -%}
        {% endfor %}
      </ul>
 

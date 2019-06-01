@@ -177,7 +177,6 @@ body.mini-cart-open{
 }
 
 .cart-container{
-  margin-top: $double-gutter;
   td{
     padding: 15px 0;
   }
@@ -187,7 +186,7 @@ body.mini-cart-open{
     height: auto;
     padding-bottom: 1vw;
     .big-font{
-      line-height: 4.5vw;
+      line-height: 4vw;
     }
 
     .item-price{
