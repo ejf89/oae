@@ -1,3 +1,13 @@
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 .hero-static{
   min-height: 20vh;
   padding: 3rem $gutter;
@@ -6,7 +16,13 @@
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
-  @include transition(opacity 1340ms ease-in-out);
+
+  -webkit-animation-name: fade-in;
+      -webkit-animation-duration: 1.8s;
+      -webkit-animation-timing-function: ease-in;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-delay: 0.1s;
+  @include transition(opacity 1800ms ease-in);
   @include media-query($medium-up){
     cursor: pointer;
     text-align: center;

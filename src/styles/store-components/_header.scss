@@ -47,6 +47,7 @@
 .logo-wrapper-container{
   // height: $double-gutter;
   // position: fixed;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-top: $gutter;
   padding-left: $gutter;
   // max-width: 91%;
@@ -111,23 +112,26 @@
 
 .word-grow{
   overflow: hidden;
+  max-width: 0%;
 }
 
 
 .anim-typewriter{
-  animation: typing 3s steps(32, end) 0.5s 1 normal both;
-  -webkit-animation: typing 3s steps(32, end) 0.5s 1 normal both;
-  animation-timing-function: ease;
-  -webkit-animation-timing-function: ease;
+  animation: typing 3s steps(32) 0.5s 1 normal both;
+  -webkit-animation: typing 3s steps(32) 0.5s 1 normal both;
+    white-space: nowrap;
+
+  // animation-timing-function: ease;
+  // -webkit-animation-timing-function: ease;
   // display: contents;
   @include media-query($small){
     display: none !important;
   };
 }
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 14rem;}
-}
+// @keyframes typewriter{
+//   from{width: 0;}
+//   to{width: 14rem;}
+// }
 
 @-webkit-keyframes typing {
   from {
@@ -145,29 +149,49 @@
   }
 
   to {
-    max-width: 14rem;
+    max-width: 100%;
   }
 }
 
+// @-webkit-keyframes typing {
+//   from {
+//     max-width: 0;
+//   }
+//   to {
+//     max-width: 100%;
+//   }
+// }
+//
+//
+//
+// @keyframes typing {
+//   from {
+//     max-width: 0;
+//   }
+//   to {
+//     max-width: 100%;
+//   }
+// }
 
-@-webkit-keyframes typing-og {
-        from {
-                max-width: 0;
-        }
-        to {
-                max-width: 100%;
-        }
-}
-
-@keyframes typing-og {
-        from {
-                max-width: 0;
-        }
-        to {
-                max-width: 100%;
-        }
-}
-
+//
+// @-webkit-keyframes typing-og {
+//         from {
+//                 max-width: 0;
+//         }
+//         to {
+//                 max-width: 100%;
+//         }
+// }
+//
+// @keyframes typing-og {
+//         from {
+//                 max-width: 0;
+//         }
+//         to {
+//                 max-width: 100%;
+//         }
+// }
+//
 
 
 

@@ -5,7 +5,7 @@ function(e) {
   console.log("ENDED");
 
 // code to execute after animation ends
-$('.anim-typewriter').css('display', 'contents')
+// $('.anim-typewriter').css('display', 'contents')
 
 });
 }
