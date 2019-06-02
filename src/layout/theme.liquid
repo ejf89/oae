@@ -111,6 +111,18 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
           </a>
+
+
+          {%- if cart.item_count < 1 -%}
+        {% assign cart_link_hide_class =  'opacity-hidden' %}
+          {%- endif -%}
+
+            <div class="cart-link-container {{cart_link_hide_class}}">
+              <a href="/cart" class="product-cart-link big-font color-black" >
+                Cart
+                <span class="color-green no-hover">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green no-hover">)</span>
+              </a>
+            </div>
         {%- endif -%}
 
       </div>

@@ -1,8 +1,9 @@
 
 {% assign category_string = ''  %}
-
+{% assign counter = 0 %}
 {%- for tag in collection.tags -%}
     {%- if tag contains 'category' -%}
+    {% assign counter = counter | plus: 1 %}
       {% assign collection_show = true  %}
     {%- endif -%}
 {%- endfor -%}
@@ -13,6 +14,8 @@
 	for show and hide
 {% endcomment -%}
 {%- endif -%}
+
+
 
 
 <div class="collection-header big-font small--hide">

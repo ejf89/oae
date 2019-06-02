@@ -201,7 +201,8 @@
   {% endunless %}
   </div>
 
-
+{%- comment %}
+	This is a foo
   {%- if cart.item_count < 1 -%}
 {% assign cart_link_hide_class =  'opacity-hidden' %}
   {%- endif -%}
@@ -212,3 +213,5 @@
         <span class="color-green">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green">)</span>
       </a>
     </div>
+
+    {% endcomment -%}

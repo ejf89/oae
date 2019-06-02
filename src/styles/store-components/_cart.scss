@@ -212,7 +212,7 @@ body.mini-cart-open{
 .cart-item{
   display: flex !important;
   color: white;
-  // width: 24vw;
+  max-width: 17vw;
   a{
     color: black;
     width: 100%;
@@ -229,7 +229,7 @@ body.mini-cart-open{
 }
 
 .title-wrapper{
-  // max-width: 400px;
+  max-width: 53vw;
   padding-left: $gutter !important;
 }
 .cart-item-title{
@@ -257,8 +257,8 @@ body.mini-cart-open{
   height: $big-font;
   width: $big-font;
   svg{
-    height: $big-font;
-    width: $big-font;
+    height: 3.4vw;
+    width: 3.4vw;
   }
 }
 

@@ -141,9 +141,9 @@
 
 
   <div class="checkout-info-container ">
-    <div class="subtotal-wrapper color-black big-font">
-      <p class="big-font uppercase">{{ 'cart.general.subtotal' | t }}</p>
-      <p  class="big-font">{{ cart.total_price | money }}</p>
+    <div class="subtotal-wrapper color-black big-font no-hover">
+      <p class="big-font uppercase no-hover">{{ 'cart.general.subtotal' | t }}</p>
+      <p  class="big-font ">{{ cart.total_price | money }}</p>
 
     </div>
       {% if cart.total_discounts > 0 %}

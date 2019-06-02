@@ -194,7 +194,7 @@
   top: auto;
   // bottom: 94px;
   // right: -62px;
-  bottom: $gutter;
+  bottom: $half-gutter;
   right: $gutter;
   left: auto;
   writing-mode: vertical-rl;
@@ -205,9 +205,9 @@
     .color-black{
       color: $color-green;
     }
-    .color-green{
-      color: $color-black;
-    }
+    // .color-green{
+    //   color: $color-black;
+    // }
   }
 }
 

@@ -291,8 +291,9 @@ tools.projectAirtableQuery = function(url){
           variableWidth:false,
           prevNextButtons: false,
           pageDots: false,
-          autoPlay: 3000,
-          imagesLoaded: true
+          autoPlay: 2000,
+          imagesLoaded: true,
+          accesible: false
         })
 
       $('.zoom-slider').flickity({
