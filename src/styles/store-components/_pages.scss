@@ -114,7 +114,7 @@ button{
   // max-width: 1250px;
   // margin-top: $quad-gutter;
   margin-left: 0;
-  margin-bottom: $big-font-tripple;
+  margin-bottom: $big-font-double;
 
   .image-contain>img, .image-fit{
     transform: translate(-50%, 0%);
@@ -172,6 +172,7 @@ button{
   font-size: $med-font;
   margin-left: 0 !important;
   a{
+    font-size: $med-font;
     color: $color-grey;
     @include transition(color $transition-time ease-in-out);
     &:hover{
@@ -185,5 +186,6 @@ button{
     padding-bottom: 1vw;
     margin-left: 0 !important;
     text-align: left;
+    font-size: $big-font;
   }
 }

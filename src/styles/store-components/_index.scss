@@ -82,6 +82,14 @@ p{
   // margin-top: $double-gutter !important;
   // margin-top: 180px !important;
   margin-top: $big-font !important;
+  // margin-top: 12.8vw !important;
+  @include media-query($small){
+    margin-top: $gutter !important;
+  };
+}
+
+.top-space__header{
+  margin-top: 12.8vw !important;
   @include media-query($small){
     margin-top: $gutter !important;
   };
