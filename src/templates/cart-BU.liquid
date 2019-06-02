@@ -1,16 +1,25 @@
+
+
+
+<div class="cart-container page-container">
 <!-- cart.liquid -->
 {% if cart.item_count > 0 %}
-  <h1>{{ 'cart.general.title' | t }}</h1>
 
+
+
+<div class="cart-container">
+
+
+  {% section 'cart-copy' %}
 
   <form action="/cart" method="post" novalidate>
     <table class="responsive-table cart-table">
-      <thead class="small--hide">
+      <thead class="small--hide medium-up--hide">
         <tr>
           <th colspan="2">{{ 'cart.label.product' | t }}</th>
-          <th>{{ 'cart.label.price' | t }}</th>
+          <!-- <th>{{ 'cart.label.price' | t }}</th>
           <th>{{ 'cart.label.quantity' | t }}</th>
-          <th>{{ 'cart.label.total' | t }}</th>
+          <th>{{ 'cart.label.total' | t }}</th> -->
         </tr>
       </thead>
       <tbody>
@@ -25,99 +34,95 @@
         helpers used for responsive-table labels
         {% endcomment %}
 
-          <tr class="responsive-table-row">
+          <tr class="responsive-table-row cart-border">
 
             <td class="cart-item" data-label="{{ 'customer.order.product' | t }}">
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '200x200' | img_tag: item.title }}
+                  {{ item | img_url: '400x400' | img_tag: item.title }}
                 </a>
               {% endif %}
 
-              <div class="content">
+             </td>
+              <td class="title-wrapper">
 
-                <a class="text-center cart-item-title" href="{{ item.url }}">{{ item.product.title }}</a>
+                <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ item.variant.title }}</a>
 
-                <h1>{{item.quantity}}</h1>
+                <br></br>
+                <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
+                <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
+                  {% include "black-x" %}
+                </a>
 
-                {% if item.original_line_price != item.line_price %}
+              </td>
+
+                <!-- <td data-label="{{ 'cart.label.quantity' | t }}">
+                  <input type="number" name="updates[{{item.variant.id}}]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+                </td> -->
+
+                <!-- <td data-label="{{ 'cart.label.quantity' | t }}">
+                  <label class="big-font" for="updates_{{ item.key }}">Qauntity ({{item.quantity}})  </label>
+                  <input class="visually-hidden" type="number" name="updates[{{item.variant.id}}]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+                </td> -->
+
+
+                <td class="item-price big-font">
+                  {% if item.original_line_price != item.line_price %}
                   <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                   {{ item.price | money }}
                   <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
                   <s>{{ item.original_price | money }}</s>
-                {% else %}
-                  {{ item.price | money }}
-                {% endif %}
-              </div>
-            </td>
-            <td>
-              <!-- <a class="text-center" href="{{ item.url }}">{{ item.product.title }}</a> -->
-
-              {% unless item.product.has_only_default_variant %}
-                <p class="text-center">{{ item.variant.title}}</p>
-              {% endunless %}
-
-              <!-- <p class="text-center">{{ item.vendor }}</p> -->
-
-              {%- assign property_size = item.properties | size -%}
-
-              {% if property_size > 0 %}
-                {% for p in item.properties %}
-                  {% unless p.last == blank %}
-                  {{ p.first }}:
-
-                  {% if p.last contains '/uploads/' %}
-                    <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
                   {% else %}
-                    {{ p.last }}
+                  <span class="">
+                      {{ item.price | money }}
+                  </span>
+
                   {% endif %}
 
-                  {% endunless %}
-                {% endfor %}
-              {% endif %}
 
-              <!-- <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
-                <small>{{ 'cart.general.remove' | t }}</small>
-              </a> -->
-            </td>
-            <td data-label="{{ 'cart.label.price' | t }}">
-              {% if item.original_line_price != item.line_price %}
-                <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ item.price | money }}
-                <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                <s>{{ item.original_price | money }}</s>
-              {% else %}
-                {{ item.price | money }}
-              {% endif %}
-            </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number"
-                     name="updates[]"
-                     id="updates_{{ item.key }}"
-                     value="{{ item.quantity }}"
-                     min="0"
-                     aria-label="{{ 'cart.general.item_quantity' | t }}">
+                  {%- comment %}
+                  	This is a foo
+                    {% endcomment -%}
+                  <!-- <a class="cart-remove-link btn cta cta-blue" href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{item.id}}">
+                    {{ 'cart.general.remove' | t }}
+                  </a> -->
+                  <!-- <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  blue">Remove</a> -->
+                  <script>
+                    function removeThis(ev) {
+                          var id = ev.target.dataset.value
 
-                     <a class="cart-remove-link" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
-                       <small>{{ 'cart.general.remove' | t }}</small>
-                     </a>
-            </td>
-            <td data-label="{{ 'cart.label.total' | t }}">
-              {{ item.line_price | money }}
-            </td>
+                            $.ajax({
+                              type: "POST",
+                              url: '/cart/change.js',
+                              data: 'quantity=0' + '&line=' + id,
+                              dataType: 'JSON',
+                              success: function(res){
+                                console.log("SUCCESS");
+                                console.log(res);
+                                window.location.reload(true);
+
+                              },
+                              error: function(res){
+                                console.log("ERROR");
+                                console.log(res);
+                              }
+                            })
+                          }
+                  </script>
+
+
+                </td>
+
+
           </tr>
 
         {% endfor %}
       </tbody>
     </table>
 
-    <div class="space-m">
-
-    </div>
 
     {% if settings.cart_notes_enable %}
-
     <div class="note-container">
       <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}:</label>
       <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
@@ -125,27 +130,46 @@
     {% endif %}
 
 
-  <div class="checkout-info-container">
-      <p>{{ 'cart.general.subtotal' | t }}</p>
-      <p>{{ cart.total_price | money }}</p>
+  <div class="checkout-info-container ">
+    <div class="subtotal-wrapper color-black big-font">
+      <p class="big-font uppercase">{{ 'cart.general.subtotal' | t }}</p>
+      <p  class="big-font">{{ cart.total_price | money }}</p>
+
+    </div>
       {% if cart.total_discounts > 0 %}
         <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
       {% endif %}
-      <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
-      <input class="btn" type="submit" name="update" value="{{ 'cart.general.update' | t }}">
-      <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
+
+      <div class="checkout-wrapper">
+        <!-- <p class="big-font">{{ 'cart.general.shipping_at_checkout' | t }}</p> -->
+        <p class="big-font">Shipping & Taxes calculated at...</p>
+        <input type="submit" name="checkout" class="big-font color-green uppercase" value="Checkout">
+      </div>
+      <!-- <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}"> -->
+      <!-- <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a> -->
+
     </div>
 
   </form>
+</div>
+
 {% else %}
-  <h1>{{ 'cart.general.title' | t }}</h1>
+<div class="cart-empty-container">
+
+
+  {% section 'cart-copy' %}
+
+
+  <h1 class='cart-border cart-message'>Your cart is empty!</h1>
 
   {% comment %}
   Cart empty state
   {% endcomment %}
-  <div class="supports-cookies">
+  <div class="supports-cookies visually-hidden">
     <p>{{ 'cart.general.empty' | t }}</p>
     <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+  </div>
+
   </div>
 
   {% comment %}
@@ -158,3 +182,6 @@
     <p>{{ 'cart.general.cookies_required' | t }}</p>
   </div>
 {% endif %}
+
+
+</div>

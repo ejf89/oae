@@ -1,6 +1,6 @@
 <!-- article.liquid -->
 
-<div id="generated-article-liquid" class="page-container top-space">
+<div id="generated-article-liquid" class="page-container top-space__header">
 
 <!-- Article -->
 <div class="article">
@@ -12,7 +12,7 @@
 
 
 
-  <div class="article-body textile med-plus-font">
+  <div class="article-body textile med-plus-font top-space">
     {{ article.content }}
   </div>
 
@@ -51,15 +51,16 @@
         {% for article in blog.articles %}
         {%- for tag in article.tags -%}
         {%- if tag contains 'artist' and tag contains artist_check -%}
-
         {% assign background_image_url = article.image.src | img_url: '500x'  %}
 
         <div  class="product-collection-item project-item">
 
-        <a href="{{article.url}}">
           <div class="product-image-container">
+        <a href="{{article.url}}" class="product-card-link">
 
-            <div class="product-card-canvas dark-shadow"  style="background-image: url({{background_image_url}})">
+            <div class="product-card-canvas dark-shadow"  >
+
+              <div class="related-item-image" style="background-image: url({{background_image_url}})">    </div>
 
               {%- comment %}
               This is a foo
@@ -69,12 +70,13 @@
             {% endcomment -%}
 
           </div>
-
-        </div>
-        </a>
-          <a href='{{article.url}}' class='product-info med-font color-black'>
+          <p class="product-info med-font color-black">
             {{article.title}}
-          </a>
+            </p>
+        </a>
+      </div>
+          <!-- <a href='{{article.url}}' class='product-info med-font color-black'>
+          </a> -->
         </div>
 
         {%- endif -%}

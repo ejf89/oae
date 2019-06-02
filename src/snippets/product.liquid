@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block top-space">
+<div class="grid-product-page product-block top-space__header">
 
 
     <div id="product-content-block" class="product-content-block">
@@ -92,24 +92,33 @@
 
   <div id="product-image-block" class=""  >
     {% if product.images.size > 0 %}
-     <ul class="product-slider js-slider-hook dark-shadow  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
+     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
        contain: false,
        wrapAround: true,
        imagesLoaded: true,
        variableWidth:false,
        prevNextButtons: false,
        pageDots: false,
-       autoPlay: true,
+       autoPlay: 2000,
        imagesLoaded: true
      }">
        {% for image in product.images %}
        {% assign slide_ = img.src | img_url : '1500x'  %}
+
+       {%- if forloop.index == 1 -%}
+       <li class="slide-parent is-selected  ">
+         <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+           <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
+         </a>
+       </li>
+         {%- else  -%}
 
          <li class="slide-parent  ">
            <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
              <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
            </a>
          </li>
+       {%- endif -%}
        {% endfor %}
      </ul>
 
@@ -192,14 +201,17 @@
   {% endunless %}
   </div>
 
-
+{%- comment %}
+	This is a foo
   {%- if cart.item_count < 1 -%}
 {% assign cart_link_hide_class =  'opacity-hidden' %}
   {%- endif -%}
 
     <div class="cart-link-container {{cart_link_hide_class}}">
-      <a href="/cart" class="product-cart-link big-font color-green" >
+      <a href="/cart" class="product-cart-link big-font color-black" >
         Cart
-        <span class="color-black">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-black">)</span>
+        <span class="color-green">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green">)</span>
       </a>
     </div>
+
+    {% endcomment -%}

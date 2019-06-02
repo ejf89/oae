@@ -134,7 +134,7 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_18.10.35.png",
+              "press_image": "",
               "press_title": "Leading Architecture and Design, June 2018",
               "press_description": "Porky Hefer’s Endangered to Benefit Leonardo Dicaprio Foundation"
             }
@@ -152,7 +152,7 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31.png",
+              "press_image": "",
               "press_title": "Lady Click, June 2018",
               "press_description": "When the love don’t last at Art Basel and more gossip"
             }
@@ -170,7 +170,7 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.53.31.png",
+              "press_image": "",
               "press_title": "Financial Times, June, 2018",
               "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
             }
@@ -222,20 +222,13 @@
             "settings": {
               "text": "Rebecca Ryba, Partner"
             }
-          },
-          "1558895575770": {
-            "type": "selected_product",
-            "settings": {
-              "text": "Olya Lastname, Designer"
-            }
           }
         },
         "block_order": [
           "1558575448237",
           "1558575457930",
           "1558575461509",
-          "1558575466355",
-          "1558895575770"
+          "1558575466355"
         ],
         "settings": {
         }

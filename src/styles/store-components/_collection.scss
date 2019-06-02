@@ -1,10 +1,12 @@
 .collection-container.grid-4{
   // padding-top: $mobile-header-height;
-  grid-column-gap: $gutter;
-  grid-row-gap: $gutter;
+  // grid-column-gap: $gutter;
+  // grid-row-gap: $gutter;
 }
 
-
+.category-tag{
+  cursor: pointer;
+}
 .product-image-container{
   width: 100%;
   max-width: 100vw;
@@ -56,6 +58,7 @@
  position: relative;
  // padding-top: 125%;
  // min-height: 20vh;
+ @include fluid-aspect(3 2);
 }
 
 .product-card-image{

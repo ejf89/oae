@@ -1,12 +1,12 @@
 <div class="team-section">
-  <h2 class="med-font color-green">Team</h2>
+  <h2 class="med-plus-font color-green no-hover">Team</h2>
 
-<ul class="med-font">
+<ul class="med-plus-font">
 
   {%- for block in section.blocks -%}
 
   <li>
-    <a class="color-black" href="{{block.settings.url}}">{{ block.settings.text }}</a>  
+    <a class="color-black" href="{{block.settings.url}}">{{ block.settings.text }}</a>
   </li>
   {%- endfor -%}
 </ul>

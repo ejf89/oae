@@ -8,12 +8,13 @@
  }
 
  @font-face {
-     font-family: 'OAE italic';
-     src: url('/fonts/OAE-Italic.woff2') format('woff2'),
-         url('/fontsOAE-Italic.woff') format('woff');
+     font-family: 'OAE-Italic';
+     src: url('OAE-Italic.woff2') format('woff2'),
+         url('OAE-Italic.woff') format('woff');
      font-weight: normal;
      font-style: italic;
  }
+
 
  @font-face {
      font-family: 'OAE';
@@ -43,7 +44,8 @@ p{
 
 .big-font{
   font-size: $big-font;
-  line-height: 0.8;
+  // line-height: 0.8;
+  line-height: 4vw;
   // padding-bottom: 5px;
   @include media-query($small){
     font-size: $big-font-mobile;
@@ -67,7 +69,7 @@ p{
 }
 
 .font-oae-italic{
-  font-family: "OAE italic";
+  font-family: "OAE-Italic" !important;
 }
 
 
@@ -80,6 +82,14 @@ p{
   // margin-top: $double-gutter !important;
   // margin-top: 180px !important;
   margin-top: $big-font !important;
+  // margin-top: 12.8vw !important;
+  @include media-query($small){
+    margin-top: $gutter !important;
+  };
+}
+
+.top-space__header{
+  margin-top: 12.8vw !important;
   @include media-query($small){
     margin-top: $gutter !important;
   };
@@ -98,7 +108,8 @@ p{
 
   };
   @include media-query($medium-up){
-    padding-right: $double-gutter;
+    // padding-right: $double-gutter;
+    padding-right: 4.625vw;
   };
   // min-height: 70vh;
 
@@ -137,4 +148,12 @@ button:focus {
     border: none;
     border-bottom: 2px solid $color-green;
   }
+}
+
+.right-spacer{
+  border: 2px solid red;
+  width: 120px;
+  height: 100%;
+  position: relative;
+  display: inline;
 }

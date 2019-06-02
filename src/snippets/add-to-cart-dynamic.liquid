@@ -73,9 +73,9 @@
     {% endfor %}
   </select>
 
-  <div data-price-wrapper class="vw-padding-bottom">
+  <div data-price-wrapper class="">
     <span data-product-price class="big-font add-to-cart-price">
-     {{ current_variant.price | money }}
+     {{ current_variant.price | money }}   
     </span>
 
     {% if product.compare_at_price_max > product.price %}

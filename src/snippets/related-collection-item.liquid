@@ -10,7 +10,7 @@
 {%- endif -%}
 {%- endfor -%}
 
-      <div class="product-collection-item{% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
+      <div class="product-collection-item related-collection-item {% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
       data-tags="{{product.tags | downcase}}"
       data-handle="{{product.handle}}"
       data-variantsAvailable="{{filterVariants | downcase}}"
@@ -60,7 +60,10 @@
                   	This is a foo
                   {% endcomment -%}
 
-                  <img src="{{ image_src_0 }}" alt="">
+                  <!-- <img src="{{ image_src_0 }}" alt=""> -->
+                    <div class="related-item-image" style="background-image: url({{image_src_0}})">    </div>
+
+
 
                 </div>
 
@@ -75,8 +78,20 @@
           </div>
         {% endif %}
 
+        {%- if product.available == false -%}
+            {% assign price = 'Sold Out'  %}
+            {%- else condition -%}
+            {% if product.price_varies %}
+            {%- assign price = product.price | money -%}
+            {% else %}
+            {%- assign price = product.price | money -%}
+            {% endif %}
+
+        {%- endif -%}
+
         <div class="product-info color-black" >
-          <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span> </p>
+          <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span>, {{price}} </p>
+ 	This is a foo
           <p class="product-price">
 
             {% if product.compare_at_price > product.price %}
@@ -108,6 +123,7 @@
               {{ 'products.product.sold_out' | t }}
             {% endunless %}
           </p>
+          {% endcomment -%}
 
         </div>
 

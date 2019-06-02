@@ -5,7 +5,7 @@ function(e) {
   console.log("ENDED");
 
 // code to execute after animation ends
-$('.anim-typewriter').css('display', 'contents')
+// $('.anim-typewriter').css('display', 'contents')
 
 });
 }
@@ -38,6 +38,7 @@ tools.closeMenu = function(){
       if (!$target.hasClass('nav-link')) {
         // $('.grid-responsive-navbar').css('opacity', 0)
         $('.grid-responsive-navbar').addClass('opacity-hidden')
+        $('body').removeClass('body-lock')
 
         setTimeout(function(){
           $('.grid-responsive-navbar').removeClass('show')
@@ -53,7 +54,7 @@ tools.closeMenu = function(){
 }
 
 tools.openMenu = function(){
-  $('.hero-static, .js-menu-toggle').on('click touch', function(e){
+  $('.hero-static, .js-menu-toggle, .logo-wrapper ').on('click touch', function(e){
     console.log("OPEN");
     e.stopPropagation()
     e.stopImmediatePropagation()
@@ -61,11 +62,14 @@ tools.openMenu = function(){
       $('.grid-responsive-navbar').addClass('show')
       $('.nav-close').removeClass('hide')
       $('.menu-icon').addClass('hide')
+      $('body').addClass('body-lock')
     }
     if ($('.nav-open-word')) {
       $('.nav-open-word').addClass('visually-hidden')
     }
   })
+
+
 }
 
 tools.menuWordLogic = function(){
@@ -112,6 +116,9 @@ tools.pdpLightBox = function(){
       console.log('PDP CLICK');
       console.log('PDP CLICK TEST');
 
+
+      tools.mouseFollowHide()
+
       $('.zoom-modal-container').removeClass('opacity-hidden no-pointer z-minus-10')
       $('.product-description').addClass('z-minus-10')
       $('.nav-open-word').addClass('hide')
@@ -145,16 +152,21 @@ tools.pdpLightBox = function(){
           // $('body').addClass('arrow-right')
           $('.zoom-modal-container').on('click', function(){
             $('.zoom-slider').flickity('next')
-
           })
         }
       });
 
       document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    if (evt.keyCode == 27) {
-      $('.zoom-close').trigger('click')
-          }
+      evt = evt || window.event;
+      if (evt.keyCode == 27) {
+        $('.zoom-close').trigger('click')
+        }
+      if (evt.keyCode == 37) {
+        $('.zoom-slider').flickity('previous')
+        }
+      if (evt.keyCode == 39) {
+        $('.zoom-slider').flickity('next')
+        }
       };
     })
   } else {
@@ -210,7 +222,7 @@ if ($('.variant-radio-wrapper').length > 0) {
   })
 }
 
-tools.projectAirtableQuery = function(){
+tools.projectAirtableQuery = function(url){
   console.log('AIRTABLEING');
   var atContainer = $('.project-airtable-container')
   var math = tools.randomFixedInteger(18)
@@ -218,7 +230,8 @@ tools.projectAirtableQuery = function(){
   if (atContainer.length > 0) {
     var itemsProcessed = 0;
 
-    jQuery.getJSON("//cdn.shopify.com/s/files/1/0080/8992/7727/t/2/assets/airtable.json?" + math, function(data){
+    // jQuery.getJSON("//cdn.shopify.com/s/files/1/0080/8992/7727/t/2/assets/airtable.json?" + math, function(data){
+    jQuery.getJSON(url + math, function(data){
       var records = data.records
       for (var i = 0; i < records.length; i++) {
        console.log(records[i]);
@@ -226,21 +239,40 @@ tools.projectAirtableQuery = function(){
        if (name == handle) {
          var assets = records[i].fields.assets
          assets.forEach(function(el, i, array){
-
            var imageSrc = el.url
            itemsProcessed++;
            console.log(imageSrc);
-           $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
-           // $('.zoom-slider').append(`<img class='zoom-slider-slide' src='${imageSrc}' />`)
+           // $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
+           $('.project-airtable-container').append(`  <div class="article-image-wrapper project-slider-slide">
+               <div class=" article-image " style="background-image:url(${imageSrc})">
+               </div>
+             </div>`)
            $('.zoom-slider').append(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
-           if (itemsProcessed == array.length - 1) {
+           if (itemsProcessed == array.length ) {
              console.log("HERE");
              sliderInit()
            } else {
-             sliderInit()
-
+             console.log("THERE");
+             // sliderInit()
            }
          })
+       } else {
+         //no airtable
+         if ($('.project-slider-slide').length == 1) {
+           $('.project-slider').flickity({
+             draggable: false,
+             wrapAround: true,
+             imagesLoaded: true,
+             variableWidth:false,
+             prevNextButtons: false,
+             pageDots: false,
+             autoPlay: false,
+             imagesLoaded: true
+           })
+           $('.project-slider-slide').addClass('is-selected')
+
+         }
+           console.log("DOWN LOW!!");
        }
        console.log(name);
       }
@@ -259,8 +291,9 @@ tools.projectAirtableQuery = function(){
           variableWidth:false,
           prevNextButtons: false,
           pageDots: false,
-          autoPlay: 3000,
-          imagesLoaded: true
+          autoPlay: 2000,
+          imagesLoaded: true,
+          accesible: false
         })
 
       $('.zoom-slider').flickity({
@@ -273,6 +306,7 @@ tools.projectAirtableQuery = function(){
         autoPlay: false,
         imagesLoaded: true,
         fade: true,
+        accessibility: true,
         on: {
           ready: function(){
             console.log("READYU");
@@ -288,11 +322,12 @@ tools.projectAirtableQuery = function(){
 
 tools.articleLightboxLogic = function(){
   $('.project-airtable-container').on('click', function(){
-    console.log('PDP CLICK');
+    console.log('ARTICLE CLICK');
     $('.zoom-modal-container').removeClass('opacity-hidden no-pointer z-minus-10').addClass('z-plus-10')
     $('.nav-open-word').addClass('hide')
     $('.topnav').addClass('pointer-none')
     $('body').addClass('body-lock')
+    tools.arrowFollow()
 
 
     $(".zoom-modal-container").on('mousemove', function(e) {
@@ -300,9 +335,10 @@ tools.articleLightboxLogic = function(){
     if ((e.pageX - this.offsetLeft) < $(this).width() / 2) {
         mouseSide = 'L';
         $('.zoom-modal-container').unbind('click')
+        $('.zoom-modal-container').removeClass('arrow-right')
+        $('.mouse-follow').addClass('left')
 
-        $('body').removeClass('arrow-right')
-        $('body').addClass('arrow-left')
+
         $('.zoom-modal-container').on('click', function(){
           $('.zoom-slider').flickity('previous')
         })
@@ -311,8 +347,8 @@ tools.articleLightboxLogic = function(){
           $('.zoom-modal-container').unbind('click')
         mouseSide = 'R';
         console.log("RIGHT SIDE");
-        $('body').removeClass('arrow-left')
-        $('body').addClass('arrow-right')
+        $('.mouse-follow').removeClass('left')
+
         $('.zoom-modal-container').on('click', function(){
           $('.zoom-slider').flickity('next')
 
@@ -332,6 +368,17 @@ tools.articleLightboxLogic = function(){
 
   })
 
+}
+
+tools.mouseFollowHide = function(){
+  $('.zoom-close').on('mouseover', function(){
+    $('.mouse-follow').addClass('opacity-hidden')
+  }).mouseleave(function(){
+    if ($('.mouse-follow').hasClass('opacity-hidden')) {
+      $('.mouse-follow').removeClass('opacity-hidden')
+
+    }
+  })
 }
 
 // tools.zoomSliderCounter = function(){
@@ -355,6 +402,7 @@ console.log('CATEGORY');
       var $this = $(this)
       var tag = $this.data('tag')
       $this.addClass('active')
+      $('.collection-title').addClass('color-grey')
 
       var shown = $(`.product-collection-item[data-tag="${tag}"]`)
       var hidden = $(`.product-collection-item[data-tag!="${tag}"]`)
@@ -366,6 +414,8 @@ console.log('CATEGORY');
       console.log('MOUSEOVER');
     })
     .on('mouseleave', function(e){
+      $('.collection-title').removeClass('color-grey')
+
       $('.product-collection-item').removeClass('opacity-hidden').removeClass('opacity-shown')
     })
   }
@@ -377,11 +427,20 @@ tools.navPositionToggle = function(){
     if (scrollPosition >= 100) {
         // If the function is only supposed to fire once
         $('.logo-wrapper-container').addClass('toggle-up')
-
+        $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
         // Other function stuff here...
     } else {
       $('.logo-wrapper-container').removeClass('toggle-up')
+      $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
 
     }
 });
+}
+
+tools.policyHeaders = function(){
+  if (location.href.indexOf('policies') > -1) {
+    $('.dynamic-word').remove()
+    $('.index-link span').last().text(":")
+  }
+
 }

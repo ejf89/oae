@@ -1,32 +1,30 @@
 {%- if template == 'index' -%}
-  <span class="color-black word big-font">
+  <span class="color-black word big-font no-hover ">
     One&nbsp
   </span>
-  <span>
-    <h1 class="color-white anim-typewriter word word-grow big-font ">
-      Planet
-    </h1>
+  <span class="color-white anim-typewriter word word-grow  big-font ">
+    Planet
   </span>
-  <span class="color-green word big-font">
+  <span class="color-green word big-font  no-hover ">
     ,&nbsp
   </span>
 
-  <span class="color-black word big-font">
+  <span class="color-black word big-font  no-hover">
     All&nbsp
   </span>
-  <span class="color-white anim-typewriter word word-grow big-font ">
+  <span class="color-white anim-typewriter word word-grow  big-font ">
     Beings
   </span>
-  <span class="color-green word big-font">
+  <span class="color-green word big-font  no-hover">
     ,&nbsp
   </span>
-  <span class="color-black word big-font">
+  <span class="color-black word big-font no-hover">
     Every&nbsp
   </span>
-  <span class="color-white anim-typewriter word word-grow big-font ">
+  <span class="color-white anim-typewriter word word-grow  big-font  no-hover ">
     Choice
   </span>
-  <span class="color-green word big-font">
+  <span class="color-green word big-font  no-hover">
     .
   </span>
 
@@ -34,7 +32,7 @@
 {%- elsif template == 'page.mission' -%}
 
 <a href="/" class="index-link big-font ">
-  One<span>,</span> All<span>,</span> Every<span>,</span>&nbsp
+  One<span>,</span> All<span>,</span> Every<span></span>
 </a>
   <p class="big-font display-inline">{{ settings.mission_copy }}</p>
 
@@ -89,9 +87,9 @@
   <span class="color-black word dynamic-word big-font">
     <a class="color-black word dynamic-word big-font" href="{{template_link}}">{{ template_handle }}</a>
       {%- if template == 'cart' -%}
-        {%- if cart.item_count > 0 -%}
-        <span class="color-green ">(</span><span class="cart-item-count  "  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green  ">)</span>
-        {% endif %}
+
+        <span class="color-green no-hover">(</span><span class="cart-item-count  "  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green no-hover ">)</span>
+
       {%- endif -%}
   <span class="color-green word">:</span>
 

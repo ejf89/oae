@@ -63,7 +63,7 @@
   .slide-parent{
     left: 0 !important;
      opacity: 0;
-     transition: opacity 0.6s ease-in-out;
+     transition: opacity 0.3s ease-in-out;
      min-height: 100%;
      .product-slide-image{
        margin: auto;
@@ -103,7 +103,12 @@
   .product-description{
     max-width: 40%;
     pointer-events: none;
+    font-size: $med-font;
     z-index: 1;
+    div, p{
+      font-size: $med-font;
+
+    }
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     @include media-query($small){
       max-width: unset;
@@ -137,40 +142,19 @@
   bottom: 0;
   display: flex;
   cursor: none;
-  // .zoom-slider{
-  //   width: 95%;
-  //   margin: auto;
-  //   overflow-y: hidden;
-  //   align-items: center;
-  //   background: white;
-  //   max-height: 80vh;
-  //   .flickity-viewport{
-  //     // min-height: 100%;
-  //   }
-  //   .slide-parent{
-  //     min-height: 100%;
-  //     width: 80%;
-  //
-  //
-  //     img{
-  //       max-height: 100%;
-  //       width: 100%;
-  //     }
-  //
-  //   }
-  // }
 
   .zoom-slider{
-    height: 70%;
+    // height: 70%;
+    height: 87vh;
     width: 70%;
     margin: auto;
-    background: white;
+    background: rgba(255,255,255,0);
     .zoom-slide{
       height: 100%;
       width: 100%;
       background-size: contain;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center center;
     }
   }
@@ -190,7 +174,7 @@
 
 .mouse-follow{
   position: absolute;
-  height: $big-font;
+  height: 3.3vw;
   // height: 3.6vw;
   width: 100px;
   transform: translate(-79%,-50%);
@@ -210,7 +194,7 @@
   top: auto;
   // bottom: 94px;
   // right: -62px;
-  bottom: $gutter;
+  bottom: $half-gutter;
   right: $gutter;
   left: auto;
   writing-mode: vertical-rl;
@@ -221,6 +205,9 @@
     .color-black{
       color: $color-green;
     }
+    // .color-green{
+    //   color: $color-black;
+    // }
   }
 }
 

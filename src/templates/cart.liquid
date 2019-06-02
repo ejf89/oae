@@ -1,7 +1,7 @@
 
 
 
-<div class="cart-container page-container">
+<div class="cart-container page-container top-space__header">
 <!-- cart.liquid -->
 {% if cart.item_count > 0 %}
 
@@ -40,18 +40,30 @@
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '400x400' | img_tag: item.title }}
+                  <div class="cart-image-wrapper">
+                    <div class="cart-image" style="background-image:url()">
+
+                      {{ item.image.src | img_url: '300x' | img_tag: item.title }}
+                    </div>
+
+                  </div>
                 </a>
+
               {% endif %}
 
              </td>
               <td class="title-wrapper">
+                {% unless item.variant.title contains 'Default' %}
+                  {% assign variant_title = item.variant.title %}
+                {% endunless %}
 
-                <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ item.variant.title }}</a>
+                <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ variant_title }}</a>
 
-                <br></br>
+
                 <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
-                <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline">X</a>
+                <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
+                  {% include "black-x" %}
+                </a>
 
               </td>
 
@@ -129,9 +141,9 @@
 
 
   <div class="checkout-info-container ">
-    <div class="subtotal-wrapper color-black big-font">
-      <p class="big-font uppercase">{{ 'cart.general.subtotal' | t }}</p>
-      <p  class="big-font">{{ cart.total_price | money }}</p>
+    <div class="subtotal-wrapper color-black big-font no-hover">
+      <p class="big-font uppercase no-hover">{{ 'cart.general.subtotal' | t }}</p>
+      <p  class="big-font ">{{ cart.total_price | money }}</p>
 
     </div>
       {% if cart.total_discounts > 0 %}
@@ -141,7 +153,7 @@
       <div class="checkout-wrapper">
         <!-- <p class="big-font">{{ 'cart.general.shipping_at_checkout' | t }}</p> -->
         <p class="big-font">Shipping & Taxes calculated at...</p>
-        <input type="submit" name="checkout" class="big-font color-green uppercase" value="Checkout">
+        <input type="submit" name="checkout" class="big-font color-green uppercase cursor-pointer" value="Checkout">
       </div>
       <!-- <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}"> -->
       <!-- <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a> -->

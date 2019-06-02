@@ -1,6 +1,11 @@
 <!-- header.liquid -->
 
+{% unless template == "index" %}
+<div class="opacity-header opacity-hidden">
 
+</div>
+
+{% endunless %}
 {%- comment %}
 	This is a foo
   {% endcomment -%}
@@ -16,7 +21,8 @@
 {%- endif -%}
 
 <div class="logo-wrapper-container ">
-  <div class="logo-wrapper big-font vw-padding-bottom {{index_inline}} ">
+  <!-- <div class="logo-wrapper big-font vw-padding-bottom {{index_inline}} "> -->
+  <div class="logo-wrapper big-font  {{index_inline}} ">
     {% include "logo-words" %}
   </div>
   {%- if template == 'collection' -%}

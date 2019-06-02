@@ -39,6 +39,12 @@
 .vw-padding-bottom{
   padding-bottom: 1vw !important;
 }
+.big-margin-bottom{
+  margin-bottom: $big-font-tripple !important;
+}
+.vw-padding-top{
+  padding-top: 1.5vw !important;
+}
 .auto-rows{
   grid-auto-rows: auto !important;
 }
@@ -46,6 +52,10 @@
 //   display: block;
 // }
 
+
+.no-hover{
+  pointer-events: none !important;
+}
 .visually-hidden {@include visually-hidden();}
 .js-focus-hidden:focus {outline: none;}
 .label-hidden {
@@ -232,7 +242,7 @@ button, .btn, .button {
 }
 
 .italic{
-  font-style: italic;
+  font-family: "OAE-Italic" !important;
 }
 
 .bold{
@@ -304,4 +314,8 @@ button, .btn, .button {
 
 .max-width-100{
   max-width: 100%;
+}
+
+.grid-left{
+  justify-items: left;
 }

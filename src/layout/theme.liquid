@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="https://unpkg.com/flickity-fade@1/flickity-fade.css">
 
 
+  <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" />
+
+
+
 
 
 
@@ -77,9 +81,18 @@
     {% assign barba_namespace = 'collection'  %}
   {%- endif -%}
 
+  <script type="text/javascript">
+  var atUrl =  "{{ 'airtable.json' | asset_url }}"
+  localStorage.setItem('atUrl', atUrl)
+</script>
+
+
+
 
   <div id="barba-wrapper" class="">
     <div class="barba-container" data-namespace="{{barba_namespace}}">
+
+
 
   {% section 'header' %}
 
@@ -98,7 +111,20 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
           </a>
+
+
+          {%- if cart.item_count < 1 -%}
+        {% assign cart_link_hide_class =  'opacity-hidden' %}
+          {%- endif -%}
+
+            <div class="cart-link-container {{cart_link_hide_class}}">
+              <a href="/cart" class="product-cart-link big-font color-black" >
+                Cart
+                <span class="color-green no-hover">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green no-hover">)</span>
+              </a>
+            </div>
         {%- endif -%}
+
       </div>
 
 

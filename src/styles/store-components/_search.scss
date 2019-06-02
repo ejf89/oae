@@ -16,6 +16,14 @@
   .search-preview-container{
     // min-height: 20vh;
     // min-height: 60vh;
+    a{
+      color: $color-black;
+    }
+    &:hover{
+      .color-black{
+        color: $color-green !important;
+      }
+    }
   }
   .article-preview-image{
     // width: 30vw;

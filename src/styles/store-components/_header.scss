@@ -8,6 +8,17 @@
 // |_| \_/_/    \_\/   |_____\_____/_/    \_\_|  |_____\____/|_| \_|
 
 
+
+.opacity-header{
+  width: 100%;
+  height: 50px;
+  background-image: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/header_white.png?4520');
+  position: fixed;
+  top: -10px;
+  z-index: 1;
+  background-size: contain;
+  // border: 2px solid red;
+}
 /*================ Navigation Layout Grids ================*/
 
 
@@ -30,15 +41,16 @@
 #shopify-section-header{
   // position: absolute;
   z-index: 10;
-  width: 80%;
+  width: 95%;
   margin-left: 0;
 }
 .logo-wrapper-container{
   // height: $double-gutter;
-  // position: fixed;
+  position: fixed;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-top: $gutter;
   padding-left: $gutter;
-  max-width: 91%;
+  // max-width: 91%;
   top: 0;
   @include media-query($small){
     // max-width: 70%;
@@ -100,23 +112,26 @@
 
 .word-grow{
   overflow: hidden;
+  max-width: 0%;
 }
 
 
 .anim-typewriter{
-  animation: typing 3s steps(32, end) 0.5s 1 normal both;
-  -webkit-animation: typing 3s steps(32, end) 0.5s 1 normal both;
-  animation-timing-function: ease;
-  -webkit-animation-timing-function: ease;
+  animation: typing 3s steps(32) 0.5s 1 normal both;
+  -webkit-animation: typing 3s steps(32) 0.5s 1 normal both;
+    white-space: nowrap;
+
+  // animation-timing-function: ease;
+  // -webkit-animation-timing-function: ease;
   // display: contents;
   @include media-query($small){
     display: none !important;
   };
 }
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 14rem;}
-}
+// @keyframes typewriter{
+//   from{width: 0;}
+//   to{width: 14rem;}
+// }
 
 @-webkit-keyframes typing {
   from {
@@ -134,29 +149,49 @@
   }
 
   to {
-    max-width: 14rem;
+    max-width: 100%;
   }
 }
 
+// @-webkit-keyframes typing {
+//   from {
+//     max-width: 0;
+//   }
+//   to {
+//     max-width: 100%;
+//   }
+// }
+//
+//
+//
+// @keyframes typing {
+//   from {
+//     max-width: 0;
+//   }
+//   to {
+//     max-width: 100%;
+//   }
+// }
 
-@-webkit-keyframes typing-og {
-        from {
-                max-width: 0;
-        }
-        to {
-                max-width: 100%;
-        }
-}
-
-@keyframes typing-og {
-        from {
-                max-width: 0;
-        }
-        to {
-                max-width: 100%;
-        }
-}
-
+//
+// @-webkit-keyframes typing-og {
+//         from {
+//                 max-width: 0;
+//         }
+//         to {
+//                 max-width: 100%;
+//         }
+// }
+//
+// @keyframes typing-og {
+//         from {
+//                 max-width: 0;
+//         }
+//         to {
+//                 max-width: 100%;
+//         }
+// }
+//
 
 
 
@@ -173,6 +208,9 @@ $mobile-header-height: 66px;
   height: 0%;
   opacity: 0;
   overflow: hidden;
+  .big-font{
+    // line-height: 0.8;
+  }
 
 
   // margin: 0 auto !important;
@@ -199,29 +237,37 @@ $mobile-header-height: 66px;
   position: absolute;
   right: $gutter;
   top: $gutter;
+
   svg{
-    height: $big-font;
-    width: $big-font;
+    // height: $big-font;
+    // width: $big-font;
+    height:3.4vw;
+    width:3.4vw;
     @include media-query($small){
       height: $big-font-mobile;
       width: $big-font-mobile;
     };
+  }
+  .st0{
+    fill: $color-green !important;
   }
 }
 
 .nav-open-word{
   color: $color-green;
   position: fixed;
-  right: $gutter;
+  // right: $gutter;
+  right: 1.1625vw;
   // top: $gutter;
   top: 1.39vw;
-  // right: -31px;
-  // top: 82px;
   z-index: 10;
   writing-mode: vertical-rl;
   line-height: 2.8rem;
   text-transform: capitalize !important;
-  // @include transform(rotate(90deg));
+  @include transition(color $transition-time ease-in-out);
+  &:hover{
+    color: $color-black;
+  }
 
 }
 
@@ -254,7 +300,7 @@ $mobile-header-height: 66px;
 .nav-link__wrapper:not(.home-link){
   float: left;
   padding-right: $half-gutter;
-  padding-bottom: 1vw;
+  // padding-bottom: 1vw;
   text-transform: uppercase;
   .nav-link{
     color: $color-black;
