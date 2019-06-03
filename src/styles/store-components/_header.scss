@@ -55,8 +55,8 @@
   @include media-query($small){
     // max-width: 70%;
     position: relative;
-    // height: unset;
-    // max-width: unset;
+    margin-top: $double-gutter;
+    padding-left: $double-gutter;
   };
   @include transition(transform 0.2s ease-in-out);
   z-index: 10;
@@ -345,8 +345,8 @@ $mobile-header-height: 66px;
   cursor: pointer;
   z-index: 10;
   justify-self: end;
-  right: $gutter;
-  top: $gutter;
+  right: $double-gutter;
+  top: $double-gutter;
   position: fixed;
 }
 

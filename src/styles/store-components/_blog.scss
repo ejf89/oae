@@ -130,8 +130,14 @@
 }
 
 .article-body{
-  p, .p1{
+  @include media-query($small){
+    padding-bottom: $mobile-x-space;
+  };
+  p, .p1, a, span{
     font-size: $med-plus-font;
+    @include media-query($small){
+        font-size:$med-font-mobile;
+    };
   }
   a{
     color: $color-green;

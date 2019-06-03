@@ -282,12 +282,16 @@ button, .btn, .button {
 /*================ Spacers  ================*/
 
 .gutter{
-  @include gutter;
+  // @include gutter;
   @include media-query($medium-up){
     // padding-left: $desktop-gutter;
     // padding-right: $desktop-gutter;
     padding-left: $gutter;
     padding-right: $gutter;
+  };
+  @include media-query($small){
+    padding-left: $double-gutter;
+    padding-right: $double-gutter;
   };
 }
 

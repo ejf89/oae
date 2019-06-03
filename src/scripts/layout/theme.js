@@ -33,6 +33,7 @@ $(document).ready(function(){
       tools.categoryTagLogic()
       tools.navPositionToggle()
       tools.policyHeaders()
+      tools.headerCleanUp()
 
       // bismuth.collectionSelect()
     }

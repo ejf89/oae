@@ -442,5 +442,16 @@ tools.policyHeaders = function(){
     $('.dynamic-word').remove()
     $('.index-link span').last().text(":")
   }
+}
 
+tools.headerCleanUp = function(){
+  console.log("CLEANUP");
+  if ($('html').hasClass('touchevents')) {
+
+
+    // $('.word').text().replace(/&nbsp;/gi,'');
+    $('.word').each(function(i, el){
+      $(el).text().replace('&nbsp', '')
+    })
+  }
 }

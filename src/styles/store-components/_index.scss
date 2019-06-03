@@ -101,14 +101,16 @@ p{
 .top-space__mobile{
   @include media-query($small){
     margin-top: $big-font-mobile !important;
+    // margin-top: $mobile-x-space !important;
+    // margin-bottom: $mobile-x-space !important;
 
   };
 }
 
 .top-space__header{
-  margin-top: 12.8vw !important;
+  margin-top: $mobile-x-space !important;
   @include media-query($small){
-    // margin-top: 35vw!important;
+    margin-top: $big-font-mobile !important;
   };
 }
 
