@@ -49,19 +49,29 @@ p{
   // padding-bottom: 5px;
   @include media-query($small){
     font-size: $big-font-mobile;
+    line-height: 9vw;
   };
 }
 .med-font{
   font-size: $med-font !important;
+  @include media-query($small){
+    font-size: $med-font-mobile !important;
+  };
 }
 .med-plus-font{
   font-size: $med-plus-font !important;
+  @include media-query($small){
+    font-size: $med-font-mobile !important;
+  };
 }
 
 .main-container, #barba-wrapper{
   max-width: 1600px;
   margin: auto;
   position: relative;
+  @include media-query($small){
+    max-width: 100vw;
+  };
 }
 
 .font-oae{
@@ -84,14 +94,21 @@ p{
   margin-top: $big-font !important;
   // margin-top: 12.8vw !important;
   @include media-query($small){
-    margin-top: $gutter !important;
+    margin-top: $big-font !important;
+  };
+}
+
+.top-space__mobile{
+  @include media-query($small){
+    margin-top: $big-font-mobile !important;
+
   };
 }
 
 .top-space__header{
   margin-top: 12.8vw !important;
   @include media-query($small){
-    margin-top: $gutter !important;
+    // margin-top: 35vw!important;
   };
 }
 

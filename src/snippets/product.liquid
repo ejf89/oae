@@ -71,7 +71,7 @@
       <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
 
-      <div class="add-container">
+      <div class="add-container top-space__mobile">
         {% include "add-to-cart-dynamic" %}
       </div>
     </div>
@@ -94,12 +94,13 @@
     {% if product.images.size > 0 %}
      <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
        contain: false,
+       draggable: true,
        wrapAround: true,
        imagesLoaded: true,
        variableWidth:false,
        prevNextButtons: false,
        pageDots: false,
-       autoPlay: 2000,
+       autoPlay: 2000,   
        imagesLoaded: true
      }">
        {% for image in product.images %}
@@ -126,7 +127,7 @@
   </div>
 
 
-  <div class="zoom-modal-container opacity-hidden no-pointer z-minus-10">
+  <div class="zoom-modal-container opacity-hidden no-pointer z-minus-10 small--hide">
 
     <div class="mouse-follow">
 

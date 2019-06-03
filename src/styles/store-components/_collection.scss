@@ -94,6 +94,9 @@
     font-size: $med-font;
     color: $color-black;
     @include transition(color $transition-time ease-in-out);
+    @include media-query($small){
+      font-size: $med-font-mobile;
+    };
   }
 
 }
