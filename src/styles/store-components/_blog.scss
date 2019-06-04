@@ -8,8 +8,14 @@
  .article-wrapper{
   // margin-top: $quad-gutter;
   float: left;
-  padding-right: $gutter;
-  grid-gap: $gutter;
+  @include media-query($medium-up){
+    grid-gap: $gutter;
+    padding-right: $gutter;
+  };
+  @include media-query($small){
+    // padding-right: $gutter;
+    margin-top: $double-gutter;
+  };
 
   .big-font{
     line-height: 4vw;
@@ -18,13 +24,9 @@
     };
   }
 
-  @include media-query($small){
-    padding-right: $gutter;
-    margin-top: $double-gutter;
-  };
   .article-preview-container{
     @include media-query($medium-up){
-      min-height: 60vh;
+      // min-height: 60vh;
     };
     width: 100%;
     &:hover{

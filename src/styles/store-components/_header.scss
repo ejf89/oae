@@ -233,6 +233,10 @@ $mobile-header-height: 66px;
   max-width: 80%;
   padding-left: $gutter;
   // border: 2px solid blue;
+  @include media-query($small){
+      padding-left: $double-gutter;
+      margin-top: $double-gutter
+  };
 }
 
 .x-close{

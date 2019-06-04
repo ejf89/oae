@@ -117,6 +117,7 @@ button{
   margin-bottom: $big-font-double;
   @include media-query($small){
     padding-bottom: $mobile-x-space;
+    padding: $double-gutter;
   };
 
   .image-contain>img, .image-fit{
