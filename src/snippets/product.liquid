@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block top-space__header">
+<div class="grid-product-page product-block top-space__header js-margin-top">
 
 
     <div id="product-content-block" class="product-content-block">
@@ -100,7 +100,7 @@
        variableWidth:false,
        prevNextButtons: false,
        pageDots: false,
-       autoPlay: 2000,   
+       autoPlay: 2000,
        imagesLoaded: true
      }">
        {% for image in product.images %}

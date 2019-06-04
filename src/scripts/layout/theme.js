@@ -34,6 +34,7 @@ $(document).ready(function(){
       tools.navPositionToggle()
       tools.policyHeaders()
       tools.headerCleanUp()
+      tools.topLogic()
 
       // bismuth.collectionSelect()
     }

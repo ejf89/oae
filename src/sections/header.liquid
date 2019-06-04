@@ -18,9 +18,10 @@
 
 {%- if template == 'page.mission' -%}
   {% assign index_inline = 'display-inline' %}
+  {% assign mission_width = 'mission-width'  %}
 {%- endif -%}
 
-<div class="logo-wrapper-container ">
+<div class="logo-wrapper-container {{mission_width }}">
   <!-- <div class="logo-wrapper big-font vw-padding-bottom {{index_inline}} "> -->
   <div class="logo-wrapper big-font  {{index_inline}} ">
     {% include "logo-words" %}

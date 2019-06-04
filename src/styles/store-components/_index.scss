@@ -91,7 +91,7 @@ p{
 .top-space{
   // margin-top: $double-gutter !important;
   // margin-top: 180px !important;
-  margin-top: $big-font !important;
+  margin-top: $big-font ;
   // margin-top: 12.8vw !important;
   @include media-query($small){
     margin-top: $big-font !important;
@@ -108,10 +108,13 @@ p{
 }
 
 .top-space__header{
-  margin-top: $mobile-x-space !important;
+  margin-top: $mobile-x-space ;
   @include media-query($small){
     margin-top: $big-font-mobile !important;
   };
+}
+.top-space__page{
+  margin-top: 8.8vw;
 }
 
 

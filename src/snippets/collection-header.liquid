@@ -1,13 +1,18 @@
 
 {% assign category_string = ''  %}
-{% assign counter = 0 %}
+{% assign counter = '' %}
 {%- for tag in collection.tags -%}
     {%- if tag contains 'category' -%}
-    {% assign counter = counter | plus: 1 %}
+    {%  capture count %} {{counter}} tick, {% endcapture %}
       {% assign collection_show = true  %}
     {%- endif -%}
 {%- endfor -%}
 
+{%- comment %}
+	HANDLE UNIQUENESS OF TAGS
+{% endcomment -%}
+
+{% assign total = count | split: ',' | size %}
 
 {%- if collection_show == true -%}
 {%- comment %}

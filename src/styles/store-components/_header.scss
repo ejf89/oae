@@ -63,6 +63,9 @@
   &.toggle-up{
     transform: translateY(-257%);
   }
+  &.mission-width{
+    max-width: 91%;
+  }
 }
 .logo-wrapper{
   display: flex;

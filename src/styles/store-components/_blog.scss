@@ -9,7 +9,8 @@
   // margin-top: $quad-gutter;
   float: left;
   @include media-query($medium-up){
-    grid-gap: $gutter;
+    grid-column-gap: $big-font;
+    grid-row-gap: $big-font;
     padding-right: $gutter;
   };
   @include media-query($small){
@@ -98,7 +99,7 @@
   margin: auto;
   margin-bottom: $gutter;
   max-height: 65vh;
-  height: 46vh;
+  // height: 46vh;
 
 }
 

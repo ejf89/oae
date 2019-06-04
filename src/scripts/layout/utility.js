@@ -447,11 +447,20 @@ tools.policyHeaders = function(){
 tools.headerCleanUp = function(){
   console.log("CLEANUP");
   if ($('html').hasClass('touchevents')) {
-
-
     // $('.word').text().replace(/&nbsp;/gi,'');
     $('.word').each(function(i, el){
       $(el).text().replace('&nbsp', '')
     })
+  }
+}
+
+tools.topLogic = function(){
+  if ($('html').hasClass('no-touchevents')) {
+    $(window).on('resize',function() {
+      var space = (window.innerWidth / 100) * 3.8;
+      var height = $('.logo-wrapper-container').position().top + $('.logo-wrapper-container').outerHeight(true) + space ;
+
+      $('.js-margin-top').css('margin-top', height + 'px')
+    }).trigger('resize');
   }
 }
