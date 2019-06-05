@@ -40,6 +40,7 @@ $(document).ready(function(){
       tools.headerCleanUp()
       tools.topLogic()
 
+      
       // bismuth.collectionSelect()
     }
     console.log("utilites init'd");

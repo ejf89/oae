@@ -102,7 +102,9 @@
   // height: 46vh;
 
 }
-
+.article-title{
+  max-width: 91%;
+}
 .article-related-container{
   @include  media-query($small){
     margin-top: $gutter;

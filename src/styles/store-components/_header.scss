@@ -58,7 +58,7 @@
     margin-top: $double-gutter;
     padding-left: $double-gutter;
   };
-  @include transition(transform 0.2s ease-in-out);
+  @include transition(transform 0.4s ease-in-out);
   z-index: 10;
   &.toggle-up{
     transform: translateY(-257%);
@@ -246,7 +246,7 @@ $mobile-header-height: 66px;
 .x-close{
   color: $color-green;
   position: absolute;
-  right: $double-gutter;
+  right: $gutter;
   top: $gutter;
   @include media-query($small){
     // top: $gutter;

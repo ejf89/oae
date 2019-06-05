@@ -259,6 +259,19 @@ body.mini-cart-open{
   svg{
     height: 3.4vw;
     width: 3.4vw;
+    color: $color-black;
+    .black-x-polygon{
+      fill: $color-black;
+      @include transition(all $transition-time ease-in-out);
+      &:hover{
+        fill: $color-green;
+      }
+    }
+    &:hover{
+      .black-x-polygon{
+        fill: $color-green;
+      }
+    }
   }
 }
 

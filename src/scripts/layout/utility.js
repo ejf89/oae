@@ -430,9 +430,20 @@ tools.navPositionToggle = function(){
         $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
         // Other function stuff here...
     } else {
-      $('.logo-wrapper-container').removeClass('toggle-up')
-      $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
-
+      // $('.logo-wrapper-container').removeClass('toggle-up')
+      // $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
+      var lastScrollTop = 0;
+      $(window).scroll(function(event){
+         var st = $(this).scrollTop();
+         if (st < lastScrollTop){
+           // console.log('scrolling up');
+           $('.logo-wrapper-container').removeClass('toggle-up')
+           $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
+         } else {
+            // upscroll down
+         }
+         lastScrollTop = st;
+      });
     }
 });
 }

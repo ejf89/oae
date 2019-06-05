@@ -60,6 +60,13 @@
 
 <body>
 
+
+{%- if template == 'index' -%}
+<script type="text/javascript">
+  $('body').addClass('body-lock')
+</script>
+
+{%- endif -%}
   {%- if template == 'index' or template == 'collection' or template == "list-collections" or template == "cart" -%}
     {% assign index_style = 'index-style' %}
   {%- endif -%}
