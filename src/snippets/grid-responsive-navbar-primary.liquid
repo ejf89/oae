@@ -52,7 +52,7 @@
     {% endif %}
     {% endfor %}
     <li class="nav-link__wrapper {% if link.active %}site-nav--active{% endif %}">
-      <a href="/cart" class="nav-link big-font">Cart</a>      {%- if cart.item_count > 0 -%}
+      <a href="/cart" class="nav-link big-font">Cart</a>      {%- if cart.item_count >= 0 -%}
             <span class="color-green big-font">(</span><span class="cart-item-count big-font "  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green big-font ">)</span>
             {% endif %}<span class="nav-link__punctuation big-font">,</span>
     </li>

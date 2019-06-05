@@ -18,8 +18,8 @@
   grid-auto-rows: auto 1fr;
   // grid-column-gap: $gutter;
   // grid-row-gap: $gutter;
-  grid-column-gap: $big-font;
-  grid-row-gap: $big-font-half;
+  grid-column-gap: $big-font-half;
+  grid-row-gap: $big-font;
   grid-auto-rows: 1fr;
   justify-content: center;
   align-content: center;
@@ -29,6 +29,7 @@
     grid-row-gap: $mobile-x-space;
   };
 }
+
 
 .grid-left{justify-content: left !important; align-content: left !important; justify-items: left !important;}
 .grid-right{justify-content: right !important;align-content: right !important;justify-items: right !important;}

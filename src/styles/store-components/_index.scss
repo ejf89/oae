@@ -115,6 +115,9 @@ p{
 }
 .top-space__page{
   margin-top: 8.8vw;
+  @include media-query($small){
+    margin-top: $big-font-mobile !important;
+  };
 }
 
 

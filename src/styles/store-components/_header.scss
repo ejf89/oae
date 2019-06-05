@@ -72,7 +72,7 @@
   align-items: center;
   @include media-query($small){
     max-width: 80%;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     position: relative;
   };
@@ -247,6 +247,11 @@ $mobile-header-height: 66px;
   position: absolute;
   right: $gutter;
   top: $gutter;
+  @include media-query($small){
+    // top: $gutter;
+    top: 2.925vw;
+
+  };
 
   svg{
     // height: $big-font;
@@ -355,6 +360,13 @@ $mobile-header-height: 66px;
   right: $double-gutter;
   top: $double-gutter;
   position: fixed;
+  height: $big-font-mobile;
+  width: $big-font-mobile;
+  svg{
+    height: 7vw;
+
+  }
+
 }
 
 .bar1, .bar2, .bar3 {
