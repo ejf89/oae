@@ -68,6 +68,7 @@
   margin-bottom: $half-gutter;
   display: flex;
   flex-direction: column;
+  background: white;
 }
 
 /*================ Customer Account Page  ================*/
@@ -104,17 +105,22 @@ button{
 /*================ About Page  ================*/
 .about-page-container, .page-container{
   background-color: --color-2;
-  padding: 0 $gutter;
+  padding: 0 $double-gutter;
   display: flex;
   justify-content: center;
   flex-direction: column;
   // width: 95%;
   // align-items: center;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   // max-width: 1250px;
   // margin-top: $quad-gutter;
   margin-left: 0;
   margin-bottom: $big-font-double;
+  @include media-query($small){
+    padding-bottom: $mobile-x-space;
+    padding: $double-gutter;
+  };
 
   .image-contain>img, .image-fit{
     transform: translate(-50%, 0%);
@@ -187,5 +193,10 @@ button{
     margin-left: 0 !important;
     text-align: left;
     font-size: $big-font;
+    line-height: 7vw;
+    @include media-query($small){
+      font-size: $big-font-mobile;
+    };
+
   }
 }

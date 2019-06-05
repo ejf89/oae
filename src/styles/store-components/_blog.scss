@@ -8,20 +8,27 @@
  .article-wrapper{
   // margin-top: $quad-gutter;
   float: left;
-  padding-right: $gutter;
-  grid-gap: $gutter;
+  @include media-query($medium-up){
+    grid-column-gap: $big-font;
+    grid-row-gap: $big-font;
+    padding-right: $gutter;
+  };
+  @include media-query($small){
+    // padding-right: $gutter;
+    margin-top: $double-gutter;
+  };
 
   .big-font{
     line-height: 4vw;
+    @include media-query($small){
+      line-height: 9vw;
+    };
   }
 
-  @include media-query($small){
-    padding-right: $gutter;
-    margin-top: $double-gutter;
-  };
   .article-preview-container{
-    min-height: 20vh;
-    min-height: 60vh;
+    @include media-query($medium-up){
+      // min-height: 60vh;
+    };
     width: 100%;
     &:hover{
       .color-black{
@@ -92,7 +99,7 @@
   margin: auto;
   margin-bottom: $gutter;
   max-height: 65vh;
-  height: 46vh;
+  // height: 46vh;
 
 }
 
@@ -103,6 +110,7 @@
   .product-image-container{
     height: 100%;
     max-height: 38vh;
+    align-items: start;
   }
   .product-card-canvas{
     height: 100%;
@@ -126,8 +134,14 @@
 }
 
 .article-body{
-  p, .p1{
+  @include media-query($small){
+    padding-bottom: $mobile-x-space;
+  };
+  p, .p1, a, span{
     font-size: $med-plus-font;
+    @include media-query($small){
+        font-size:$med-font-mobile;
+    };
   }
   a{
     color: $color-green;
@@ -156,6 +170,9 @@
     min-height: 55vh;
     max-height: 55vh;
     height: 100%;
+    @include media-query($small){
+      min-height: 30vh;
+    };
     // border: 2px solid red;
     .article-image-wrapper{
       width: 100%;

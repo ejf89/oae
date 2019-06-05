@@ -61,6 +61,9 @@
 
   .flickity-slider{ transform: none !important; }
   .slide-parent{
+    @include media-query($medium-up){
+
+    };
     left: 0 !important;
      opacity: 0;
      transition: opacity 0.3s ease-in-out;
@@ -107,6 +110,9 @@
     z-index: 1;
     div, p{
       font-size: $med-font;
+      @include media-query($small){
+        font-size: $med-font-mobile;
+      };
 
     }
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;

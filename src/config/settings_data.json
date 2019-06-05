@@ -22,10 +22,10 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "social_twitter_link": "\/twitter",
+    "social_twitter_link": "https:\/\/twitter.com\/one_all_every",
     "social_facebook_link": "\/facebook",
     "social_pinterest_link": "",
-    "social_instagram_link": "\/insta",
+    "social_instagram_link": "https:\/\/www.instagram.com\/one_all_every\/",
     "social_snapchat_link": "",
     "social_tumblr_link": "",
     "social_youtube_link": "",
@@ -202,25 +202,29 @@
           "1558575448237": {
             "type": "selected_product",
             "settings": {
-              "text": "Lisa Schiff, Founder"
+              "text": "Lisa Schiff, Founder",
+              "url": ""
             }
           },
           "1558575457930": {
             "type": "selected_product",
             "settings": {
-              "text": "Candace Carmel Barasch, Executive Partner"
+              "text": "Candace Carmel Barasch, Executive Partner",
+              "url": ""
             }
           },
           "1558575461509": {
             "type": "selected_product",
             "settings": {
-              "text": "Marika Kielland, Partner"
+              "text": "Marika Kielland, Partner",
+              "url": ""
             }
           },
           "1558575466355": {
             "type": "selected_product",
             "settings": {
-              "text": "Rebecca Ryba, Partner"
+              "text": "Rebecca Ryba, Partner",
+              "url": ""
             }
           }
         },

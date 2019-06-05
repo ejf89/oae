@@ -49,26 +49,32 @@
   position: fixed;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-top: $gutter;
-  padding-left: $gutter;
+  padding-left: $double-gutter;
   // max-width: 91%;
   top: 0;
   @include media-query($small){
     // max-width: 70%;
     position: relative;
-    height: unset;
-    max-width: unset;
+    margin-top: $double-gutter;
+    padding-left: $double-gutter;
   };
   @include transition(transform 0.2s ease-in-out);
   z-index: 10;
   &.toggle-up{
     transform: translateY(-257%);
   }
+  &.mission-width{
+    max-width: 91%;
+  }
 }
 .logo-wrapper{
   display: flex;
   align-items: center;
   @include media-query($small){
-    display: inline;
+    max-width: 80%;
+    display: block;
+    flex-wrap: wrap;
+    position: relative;
   };
 }
 
@@ -228,15 +234,25 @@ $mobile-header-height: 66px;
   height: $double-gutter;
   margin-top: $gutter;
   max-width: 80%;
-  padding-left: $gutter;
+  padding-left: $double-gutter;
+  // position: absolute;
   // border: 2px solid blue;
+  @include media-query($small){
+      padding-left: $double-gutter;
+      margin-top: $double-gutter
+  };
 }
 
 .x-close{
   color: $color-green;
   position: absolute;
-  right: $gutter;
+  right: $double-gutter;
   top: $gutter;
+  @include media-query($small){
+    // top: $gutter;
+    top: 2.925vw;
+
+  };
 
   svg{
     // height: $big-font;
@@ -319,6 +335,19 @@ $mobile-header-height: 66px;
       color: $color-black;
     }
   }
+  @include media-query($small){
+    width: 100%;
+    // padding-bottom: $mobile-bottom-padding;
+    padding-bottom: 1vw;
+  };
+}
+
+.home-link{
+  a{
+    @include media-query($small){
+      padding-bottom: 1vw;
+    };
+  }
 }
 
 
@@ -329,16 +358,24 @@ $mobile-header-height: 66px;
   cursor: pointer;
   z-index: 10;
   justify-self: end;
-  right: $gutter;
-  top: $gutter;
-  position: absolute;
+  right: $double-gutter;
+  top: $double-gutter;
+  position: fixed;
+  height: $big-font-mobile;
+  width: $big-font-mobile;
+  svg{
+    height: 9vw;
+
+  }
+
 }
 
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
   background-color: $color-green;
-  margin: 6px 0;
+  // margin: 6px 0;
+  margin-bottom: 6px;
   transition: 0.4s;
 }
 .change .bar1 {

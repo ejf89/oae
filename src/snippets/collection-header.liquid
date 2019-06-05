@@ -1,24 +1,18 @@
 
-{% assign category_string = ''  %}
-{% assign counter = 0 %}
+{% assign counter = '' %}
 {%- for tag in collection.tags -%}
     {%- if tag contains 'category' -%}
-    {% assign counter = counter | plus: 1 %}
-      {% assign collection_show = true  %}
+    {% capture tags %} {{tags}}+{{tag}} {% endcapture %}
     {%- endif -%}
 {%- endfor -%}
-
-
-{%- if collection_show == true -%}
-{%- comment %}
-	for show and hide
-{% endcomment -%}
+{% assign unique_tags = tags | split: '+' | uniq | size %}
+{%- if unique_tags >= 3 -%}
+{% assign collection_show = true  %}
 {%- endif -%}
 
 
-
-
-<div class="collection-header big-font small--hide">
+{%- if collection_show -%}
+<div class="collection-header big-font small--hide top-space__mobile">
   <h1 class='color-black cursor-pointer big-font collection-title'>{{collection.title}}<span class='color-green'>,</span>&nbsp</h1>
   {%- for tag in collection.tags  -%}
     {%- if tag contains 'category' -%}
@@ -29,5 +23,6 @@
     {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
-
 </div>
+
+{%- endif -%}
