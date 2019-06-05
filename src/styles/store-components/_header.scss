@@ -49,7 +49,7 @@
   position: fixed;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-top: $gutter;
-  padding-left: $gutter;
+  padding-left: $double-gutter;
   // max-width: 91%;
   top: 0;
   @include media-query($small){
@@ -234,7 +234,8 @@ $mobile-header-height: 66px;
   height: $double-gutter;
   margin-top: $gutter;
   max-width: 80%;
-  padding-left: $gutter;
+  padding-left: $double-gutter;
+  // position: absolute;
   // border: 2px solid blue;
   @include media-query($small){
       padding-left: $double-gutter;
@@ -245,7 +246,7 @@ $mobile-header-height: 66px;
 .x-close{
   color: $color-green;
   position: absolute;
-  right: $gutter;
+  right: $double-gutter;
   top: $gutter;
   @include media-query($small){
     // top: $gutter;
@@ -363,7 +364,7 @@ $mobile-header-height: 66px;
   height: $big-font-mobile;
   width: $big-font-mobile;
   svg{
-    height: 7vw;
+    height: 9vw;
 
   }
 

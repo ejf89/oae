@@ -105,7 +105,7 @@ button{
 /*================ About Page  ================*/
 .about-page-container, .page-container{
   background-color: --color-2;
-  padding: 0 $gutter;
+  padding: 0 $double-gutter;
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -20,6 +20,10 @@ $(document).ready(function(){
 
       // tools.barbaInit()
       $('.hero-static').addClass('load')
+      console.log('NO JS LOAD');
+      console.log('NO JS LOAD');
+      console.log('NO JS LOAD');
+      console.log('NO JS LOAD');
       $('.product-section-block').trigger('click');
 
       tools.letterCLass()

@@ -17,11 +17,16 @@
   background-position: center;
   z-index: -1;
 
-  -webkit-animation-name: fade-in;
-      -webkit-animation-duration: 1.8s;
-      -webkit-animation-timing-function: ease-in;
-      -webkit-animation-iteration-count: 1;
-      -webkit-animation-delay: 0.1s;
+     // -webkit-animation-name: fade-in;
+     //  -webkit-animation-duration: 1.8s;
+     //  -webkit-animation-timing-function: ease-in;
+     //  -webkit-animation-iteration-count: 1;
+     //  -webkit-animation-delay: 0.1s;
+     //  animation-name: fade-in;
+     //  animation-duration: 1.8s;
+     //  animation-timing-function: ease-in;
+     //  animation-iteration-count: 1;
+     //  animation-delay: 0.1s;
   @include transition(opacity 1800ms ease-in);
   @include media-query($medium-up){
     cursor: pointer;
@@ -45,7 +50,7 @@
   };
 
   &.load{
-    opacity: 1;
+    opacity: 1 !important;
   }
 }
 
