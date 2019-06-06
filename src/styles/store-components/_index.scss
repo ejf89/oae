@@ -172,11 +172,14 @@ button:focus {
     width: 100%;
     border: none;
     border-bottom: 2px solid $color-green;
+    -webkit-appearance: none;
+    border-radius: 0 !important;
     @include media-query($medium-up){
-      height: $big-font;  
+      height: $big-font;
     };
   }
 }
+
 
 .right-spacer{
   border: 2px solid red;
