@@ -39,8 +39,9 @@ $(document).ready(function(){
       tools.policyHeaders()
       tools.headerCleanUp()
       tools.topLogic()
+      tools.cartRemoveFix()
 
-      
+
       // bismuth.collectionSelect()
     }
     console.log("utilites init'd");

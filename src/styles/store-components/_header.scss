@@ -120,7 +120,11 @@
   overflow: hidden;
   max-width: 0%;
 }
-
+.dynamic-word{
+  @include media-query($small){
+    display: flex;
+  };
+}
 
 .anim-typewriter{
   animation: typing 3s steps(32) 0.5s 1 normal both;
@@ -342,6 +346,14 @@ $mobile-header-height: 66px;
   };
 }
 
+.site-nav--active{
+  .nav-link{
+    color: $color-green !important;
+  }
+  .nav-link__punctuation{
+    color: $color-black !important;
+  }
+}
 .home-link{
   a{
     @include media-query($small){

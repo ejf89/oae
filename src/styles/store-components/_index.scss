@@ -170,9 +170,11 @@ button:focus {
   width: 100%;
   [type=search]{
     width: 100%;
-    height: $big-font;
     border: none;
     border-bottom: 2px solid $color-green;
+    @include media-query($medium-up){
+      height: $big-font;  
+    };
   }
 }
 

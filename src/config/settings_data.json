@@ -96,13 +96,6 @@
               "link_url": "http:\/\/www.janegoodall.org"
             }
           },
-          "1557957028199": {
-            "type": "link_block",
-            "settings": {
-              "link_copy": "Mission Blue",
-              "link_url": "https:\/\/mission-blue.org\/"
-            }
-          },
           "1557957045507": {
             "type": "link_block",
             "settings": {
@@ -120,7 +113,6 @@
         },
         "block_order": [
           "1557957013126",
-          "1557957028199",
           "1557957045507",
           "1557957067666"
         ],
@@ -133,55 +125,73 @@
           "1557958888873": {
             "type": "press_block",
             "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "",
-              "press_title": "Leading Architecture and Design, June 2018",
-              "press_description": "Porky Hefer’s Endangered to Benefit Leonardo Dicaprio Foundation"
+              "link_url": "https:\/\/www.cnn.com\/style\/article\/luxury-wish-list-2018\/index.html",
+              "press_image": "shopify:\/\/shop_images\/1.jpg",
+              "press_title": "CNN Style",
+              "press_description": "Porky Hefer's over-sized cuddly lounge chairs"
             }
           },
           "1558895517840": {
             "type": "press_block",
             "settings": {
-              "link_url": "http:\/\/google.com",
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Financial_Times___June_14_2018.pdf?16656",
               "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.54.28.png",
-              "press_title": "",
-              "press_description": ""
+              "press_title": "Financial Times",
+              "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
             }
           },
           "1557958670694": {
             "type": "press_block",
             "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "",
-              "press_title": "Lady Click, June 2018",
-              "press_description": "When the love don’t last at Art Basel and more gossip"
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Bizcommunity___June_4_2018.pdf?16656",
+              "press_image": "shopify:\/\/shop_images\/001-1.jpg",
+              "press_title": "Bizz Community",
+              "press_description": "Porky Hefer presents endangered species project at Design Miami\/Basil"
             }
           },
           "1557958931158": {
             "type": "press_block",
             "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/IMG_2512_1024x1024_2x_1c2a906b-5b3d-4898-b867-66b3a84d5b4b.jpg",
-              "press_title": "Bizz Community, June 2018",
-              "press_description": "Porky Hefer presents endangered species project at Design Miami\/Basil"
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Leading_Architecture___June_14_2018.pdf?16656",
+              "press_image": "shopify:\/\/shop_images\/3-4.jpg",
+              "press_title": "Leading Architecture",
+              "press_description": "Porky Hefer’s Endangered to Benefit Leonardo Dicaprio Foundation"
             }
           },
           "1557959002156": {
             "type": "press_block",
             "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "",
-              "press_title": "Financial Times, June, 2018",
-              "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Lady_Click___June_14_2018.pdf?16656",
+              "press_image": "shopify:\/\/shop_images\/porky-hefer-endangered-design-miami-basel-designboom-01_horizontal.jpg",
+              "press_title": "Lady Click",
+              "press_description": "When the love don’t last at Art Basel and more gossip"
             }
           },
           "1557959005882": {
             "type": "press_block",
             "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0080\/8992\/7727\/files\/Leading_Architecture___June_14_2018.pdf?5558",
-              "press_image": "shopify:\/\/shop_images\/Screen_Shot_2019-03-09_at_17.54.28.png",
-              "press_title": "lorem ipsum",
-              "press_description": "Design Miami\/ Basel 2018 — cross-pollination and contemporary creations"
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Corriere___June_7_2018.pdf?16656",
+              "press_image": "shopify:\/\/shop_images\/001-1.jpg",
+              "press_title": "Corriere",
+              "press_description": "Design Miami\/ Basel 2018"
+            }
+          },
+          "1559761441437": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Wallpaper__June_13_2018.pdf?16656",
+              "press_image": "shopify:\/\/shop_images\/7.png",
+              "press_title": "Wallpaper",
+              "press_description": "Porky Hefer’s Endangered collection explores art, sustainability and wildlife conservation"
+            }
+          },
+          "1559761498843": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Trendhunter___June_8_2018.pdf?16656",
+              "press_image": "shopify:\/\/shop_images\/porky-hefer-endangered-design-miami-basel-designboom-01_horizontal.jpg",
+              "press_title": "Trend Hunter",
+              "press_description": "Oversized Endangered Animal Seating"
             }
           }
         },
@@ -191,7 +201,9 @@
           "1557958670694",
           "1557958931158",
           "1557959002156",
-          "1557959005882"
+          "1557959005882",
+          "1559761441437",
+          "1559761498843"
         ],
         "settings": {
         }

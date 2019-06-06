@@ -98,7 +98,7 @@
 .article-image{
   margin: auto;
   margin-bottom: $gutter;
-  max-height: 65vh;
+  max-height: 55vh;
   // height: 46vh;
 
 }
@@ -146,10 +146,10 @@
     };
   }
   a{
-    color: $color-green;
+    color: $color-grey;
     @include transition(color $transition-time ease-in-out);
     &:hover{
-      // color: $color-black;
+      color: $color-green;
     }
   }
   .color-green:hover{
