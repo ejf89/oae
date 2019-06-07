@@ -96,7 +96,10 @@
 
 
 .article-title-hook{
-  padding-top: $big-font !important;
+  padding-top: 1vw !important;
+  @include media-query($small){
+    padding-top: $big-font-half !important;
+  };
 }
 
 /////////////////article/////////////////

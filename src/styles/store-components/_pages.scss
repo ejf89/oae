@@ -121,6 +121,8 @@ button{
   @include media-query($small){
     padding-bottom: $mobile-x-space;
     padding: 0 $double-gutter;
+    margin-bottom: 14vw;
+
   };
 
   .image-contain>img, .image-fit{
@@ -155,6 +157,14 @@ button{
 
 
 /*================ Mission Page  ================*/
+
+.mission-link-container{
+  li{
+    @include media-query($small){
+      padding-bottom: 2vw;
+    };
+  }
+}
 
 
 /*================ Press Page  ================*/
