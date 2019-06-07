@@ -28,15 +28,9 @@
       id="product-{{ product.id }}"
       style="background:{{gradient_tag}};">
         {% if product.featured_image != blank %}
-        {%- capture image_src_0 -%}
-          {{- product.images[0] | img_url: '700x' -}}
-        {%- endcapture -%}
-        {%- else -%}
-        {%- capture image_src_0 -%}
-            https://cdn.shopify.com/s/files/1/0143/7630/4726/files/RM_12_Parakeets_72x108_cropped_500x.jpg?v=1558908122
-        {%- endcapture -%}
-          {% endif %}
+
           <div class="product-image-container" >
+
 
             <a href="{{ product.url | within: collection }}"  class="product-card-link">
 
@@ -52,7 +46,7 @@
                 {% endif %}
 
                 <div class="product-card-canvas dark-shadow">
-                  {% if images_length >= 0 %}
+                  {% if images_length > 1 %}
                   {%- comment %}
                   	This is a foo
                   <div class="product-card-image product-card-image__back" style="background-image: url({{ image_src_1 }});"></div>
@@ -166,6 +160,9 @@
           </p> -->
 
         </div>
+        {%- else  -%}
+          <a class="color-black product-info" href="{{product.url}}">{{product.vendor}}, <span class="product-title font-oae-italic">{{ product.title }}</span>, {{price}}</a>
+        {% endif %}
 
 
 

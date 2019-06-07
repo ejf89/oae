@@ -165,7 +165,7 @@ button:focus {
 .nav-search-wrapper{
   display: inline-flex;
   width: 100%;
-  padding: 0 $double-gutter;
+  padding: 0 $gutter;
 }
 
 .search-form{
@@ -177,6 +177,7 @@ button:focus {
     border-bottom: 2px solid $color-green;
     -webkit-appearance: none;
     border-radius: 0 !important;
+    background-color: rgba(255,255,255, 0);
     @include media-query($medium-up){
       height: $big-font;
     };

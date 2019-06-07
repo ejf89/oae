@@ -33,11 +33,13 @@
         {%- endcapture -%}
         {%- else -%}
         {%- capture image_src_0 -%}
-            https://cdn.shopify.com/s/files/1/0143/7630/4726/files/RM_12_Parakeets_72x108_cropped_500x.jpg?v=1558908122
+            "//cdn.shopify.com/s/files/1/0143/7630/4726/files/RM_12_Parakeets_72x108_cropped_2000x.jpg?v=1558908122"
         {%- endcapture -%}
           {% endif %}
+
           <div class="product-image-container" >
 
+              {{image_src_0}}
             <a href="{{ product.url | within: collection }}"  class="product-card-link">
 
               <div class="product-card-image-wrapper">

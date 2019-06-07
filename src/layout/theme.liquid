@@ -104,7 +104,7 @@
         {% section 'header' %}
 
 
-      <div class="main-container  {{index_style}} ">
+      <div class="main-containe big-margin-bottom  {{index_style}} ">
         {{ content_for_layout }}
 
         {%- if template != 'index' -%}
@@ -118,7 +118,7 @@
         {% assign cart_link_hide_class =  'opacity-hidden' %}
           {%- endif -%}
 
-            <div class="cart-link-container {{cart_link_hide_class}}">
+            <div class="cart-link-container small--hide {{cart_link_hide_class}}">
               <a href="/cart" class="product-cart-link big-font color-black" >
                 Cart
                 <span class="color-green no-hover">(</span><span class="cart-item-count"  data-cart-view="data-cart-view" rv-text="cart.item_count"> </span><span class="color-green no-hover">)</span>

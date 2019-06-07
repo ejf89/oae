@@ -5,7 +5,11 @@
   <h1 class="search-result-header big-font">
     {% if search.performed %}
       {% if search.results_count == 0 %}
+      {%- comment %}
+      	This is a foo
         {{ 'general.search.no_results_html' | t: terms: search.terms }}
+        {% endcomment -%}
+          Your search for '{{ search.terms }}' did not yield any results.
       {% else %}
         {{ 'general.search.results_for_html' | t: terms: search.terms }}
       {% endif %}
