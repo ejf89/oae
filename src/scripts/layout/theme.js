@@ -35,12 +35,14 @@ $(document).ready(function(){
       tools.variantRadioLogic()
       tools.projectAirtableQuery(atUrl)
       tools.categoryTagLogic()
-      tools.navPositionToggle()
       tools.policyHeaders()
       tools.headerCleanUp()
       tools.topLogic()
       tools.cartRemoveFix()
 
+      if ($('html').hasClass('no-touchevents')) {
+        tools.navPositionToggle()
+      }
 
       // bismuth.collectionSelect()
     }

@@ -35,7 +35,7 @@
 <div class="grid-product-page product-block top-space__header js-margin-top">
 
 
-    <div id="product-content-block" class="product-content-block">
+    <div id="product-content-block" class="product-content-block big-margin-bottom">
 
       {% if product.vendor != blank %}
       {% assign vendor = product.vendor %}
@@ -178,7 +178,7 @@
         $('.zoom-slide-count').text('1/' + this.cells.length)
       },
     change: function( index ) {
-           $('.zoom-slide-count').text(index + '/' + this.cells.length)
+           $('.zoom-slide-count').text(index + 1 + '/' + this.cells.length)
       }
     }
   })

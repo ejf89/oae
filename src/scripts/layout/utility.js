@@ -466,7 +466,7 @@ tools.navPositionToggle = function(){
     if (scrollPosition >= 100) {
         // If the function is only supposed to fire once
         $('.logo-wrapper-container').addClass('toggle-up')
-        $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
+        $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
         // Other function stuff here...
     } else {
       // $('.logo-wrapper-container').removeClass('toggle-up')
@@ -477,7 +477,7 @@ tools.navPositionToggle = function(){
          if (st < lastScrollTop){
            // console.log('scrolling up');
            $('.logo-wrapper-container').removeClass('toggle-up')
-           $('.opacity-header').addClass('opacity-hidden').removeClass('opacity-shown')
+           $('.opacity-header').removeClass('opacity-hidden').addClass('opacity-shown')
          } else {
             // upscroll down
          }

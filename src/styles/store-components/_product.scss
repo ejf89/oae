@@ -108,15 +108,21 @@
     pointer-events: none;
     font-size: $med-font;
     z-index: 1;
+    @include media-query($medium-up){
+      min-width: 400px;
+    };
     div, p, .p1{
       font-size: $med-font;
       color: $color-black !important;
       @include media-query($small){
         font-size: $med-font-mobile;
         color: $color-black !important;
-
       };
-
+    }
+    .p1{
+      @include media-query($small){
+        padding-bottom: 2vw !important;
+      };
     }
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     @include media-query($small){
