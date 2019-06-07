@@ -1,21 +1,10 @@
 <!-- page.contact.liquid -->
 
 <div class="contact-page top-space__page">
-<div class="contact-page-container grid-2-break auto-rows">
+<div class="contact-page-container grid-2-break auto-rows mobile-gutter">
 
 <!-- <h1>{{ page.title }}</h1> -->
 
-<div class="team-container padding-gutter text-left">
-  {% section 'contact-section' %}
-
-
-
-  <div class="policy-links">
-    <a class="med-plus-font color-green" href="/policies/terms-of-service">Terms and Conditions</a>
-    <a class="med-plus-font color-green" href="/policies/privacy-policy">Privacy Policy</a>
-
-  </div>
-</div>
 
 
 <div class="form-wrapper padding-gutter">
@@ -23,6 +12,14 @@
   <div class="form-element padding-bottom">
     <p class="med-plus-font color-green no-hover">Email</p>
     <a class="med-plus-font color-black" href="mailto:hello@oneallevery.com">hello@oneallevery.com</a>
+  </div>
+  <div class="form-element padding-bottom">
+    <p class="med-plus-font color-green no-hover">Address</p>
+    <a class="med-plus-font color-black" >45 White Street, New York, NY 10013</p>
+  </div>
+  <div class="form-element padding-bottom">
+    <p class="med-plus-font color-green no-hover">Phone</p>
+    <p class="med-plus-font color-black" ><span class="color-black">+1 646 478 8561</span></p>
   </div>
 
   <div class="form-element padding-bottom">
@@ -106,10 +103,28 @@
           <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button med-plus-font contact-submit"></div>
           </div>
       </form>
+
+
+            <div class="policy-links top-space small--hide">
+              <a class="med-plus-font color-green" href="/policies/terms-of-service">Terms and Conditions</a>
+              <a class="med-plus-font color-green" href="/policies/privacy-policy">Privacy Policy</a>
+            </div>
       </div>
 
       <!--End mc_embed_signup-->
     </div>
+
+
+    <div class="team-container padding-gutter text-left">
+      {% section 'contact-section' %}
+
+
+      <div class="policy-links top-space small--show medium-up--hide">
+        <a class="med-plus-font color-green" href="/policies/terms-of-service">Terms and Conditions</a>
+        <a class="med-plus-font color-green" href="/policies/privacy-policy">Privacy Policy</a>
+      </div>
+    </div>
+
 </div>
 
 
