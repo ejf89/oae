@@ -31,7 +31,7 @@
 
 #product-image-block{
   position: fixed;
-  top: 58%;
+  top: 55%;
   left: 50%;
   width: 60%;
   margin: auto;
@@ -108,10 +108,13 @@
     pointer-events: none;
     font-size: $med-font;
     z-index: 1;
-    div, p{
+    div, p, .p1{
       font-size: $med-font;
+      color: $color-black !important;
       @include media-query($small){
         font-size: $med-font-mobile;
+        color: $color-black !important;
+
       };
 
     }
@@ -148,6 +151,9 @@
   bottom: 0;
   display: flex;
   cursor: none;
+  .flickity-viewport{
+    // background: white;
+  }
 
   .zoom-slider{
     // height: 70%;
@@ -162,6 +168,7 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
+      transition: none !important;
     }
   }
   .zoom-close{

@@ -45,7 +45,10 @@
   };
 }
 .big-margin-bottom{
-  margin-bottom: $big-font-tripple !important;
+  margin-bottom: $big-font-double !important;
+  @include media-query($small){
+    margin-bottom: $big-font-double-mobile !important;
+  };
 }
 .vw-padding-top{
   padding-top: 1.5vw !important;
@@ -248,6 +251,7 @@ button, .btn, .button {
 
 .italic{
   font-family: "OAE-Italic", "OEA", "Arial", "Helvetica", San-Serif !important;
+  font-style: italic !important;
 }
 
 .bold{

@@ -90,6 +90,9 @@
 
 .product-info{
   padding-top: $half-gutter;
+  @include media-query($small){
+    padding-top: 2.5vw;
+  };
   p, a{
     font-size: $med-font;
     color: $color-black;

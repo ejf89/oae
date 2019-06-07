@@ -80,7 +80,8 @@ p{
 }
 
 .font-oae-italic{
-  font-family: "OAE-Italic" !important;
+  font-family: "OAE-Italic", 'Helvetica' !important;
+  font-style: italic;
 }
 
 
@@ -112,6 +113,7 @@ p{
   margin-top: $mobile-x-space ;
   @include media-query($small){
     margin-top: $big-font-mobile !important;
+    margin-top: 9vw !important;
   };
 }
 .top-space__page{
