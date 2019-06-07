@@ -49,7 +49,7 @@ p{
   // padding-bottom: 5px;
   @include media-query($small){
     font-size: $big-font-mobile;
-    line-height: 9vw;
+    line-height: 10vw;
   };
 }
 .med-font{

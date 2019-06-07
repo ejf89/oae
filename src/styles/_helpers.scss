@@ -247,7 +247,7 @@ button, .btn, .button {
 }
 
 .italic{
-  font-family: "OAE-Italic" !important;
+  font-family: "OAE-Italic", "OEA", "Arial", "Helvetica", San-Serif !important;
 }
 
 .bold{
@@ -286,8 +286,8 @@ button, .btn, .button {
   @include media-query($medium-up){
     // padding-left: $desktop-gutter;
     // padding-right: $desktop-gutter;
-    padding-left: $double-gutter;
-    padding-right: $double-gutter;
+    padding-left: $gutter;
+    padding-right: $gutter;
   };
   @include media-query($small){
     padding-left: $double-gutter;
