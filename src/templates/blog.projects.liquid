@@ -28,7 +28,7 @@
 Article Previews
 ====================
 {% endcomment %}
-<div class="blog-flex-container article-wrapper gutter grid-2-break top-space__page auto-rows ">
+<div class="blog-flex-container article-wrapper gutter grid-2-break top-space__page auto-rows big-margin-bottom ">
 
 
     {% for article in blog.articles %}
@@ -41,7 +41,7 @@ Article Previews
         <div class="article-preview-image dark-shadow" style=" background-image: url('https:{{ image_url }}')"></div>
       </div>
 
-        <p class="big-font color-black vw-padding-top">{{article.title}}</p>
+        <p class="big-font color-black  article-title-hook">{{article.title}}</p>
 
       </a>
 

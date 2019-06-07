@@ -54,16 +54,20 @@ tools.closeMenu = function(){
 
 tools.openMenu = function(){
   $('.hero-static, .js-menu-toggle, .logo-wrapper ').on('click touch', function(e){
+
     e.stopPropagation()
     e.stopImmediatePropagation()
-    if (!$('.grid-responsive-navbar').hasClass('show')) {
-      $('.grid-responsive-navbar').addClass('show')
-      $('.nav-close').removeClass('hide')
-      $('.menu-icon').addClass('hide')
-      $('body').addClass('body-lock')
-    }
-    if ($('.nav-open-word')) {
-      $('.nav-open-word').addClass('visually-hidden')
+
+    if (!$(e.target).hasClass('dynamic-word')) {
+      if (!$('.grid-responsive-navbar').hasClass('show')) {
+        $('.grid-responsive-navbar').addClass('show')
+        $('.nav-close').removeClass('hide')
+        $('.menu-icon').addClass('hide')
+        $('body').addClass('body-lock')
+      }
+      if ($('.nav-open-word')) {
+        $('.nav-open-word').addClass('visually-hidden')
+      }
     }
   })
 
@@ -228,6 +232,7 @@ tools.projectAirtableQuery = function(url){
        console.log(records[i]);
        var name = records[i].fields.Name
        if (name == handle) {
+         console.log("NAME FOUND");
          var assets = records[i].fields.assets
          assets.forEach(function(el, i, array){
            var imageSrc = el.url
@@ -265,6 +270,7 @@ tools.projectAirtableQuery = function(url){
            }
          })
        } else {
+         console.log('NO NAME FOUND');
          //no airtable
          // if ($('.project-slider-slide').length == 1) {
          //   console.log("JUST ONE INIT LOWWW");
@@ -356,6 +362,19 @@ tools.projectAirtableQuery = function(url){
         }
       })
     }
+
+    document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+      $('.zoom-close').trigger('click')
+      }
+    if (evt.keyCode == 37) {
+      $('.zoom-slider').flickity('previous')
+      }
+    if (evt.keyCode == 39) {
+      $('.zoom-slider').flickity('next')
+      }
+    };
 }
 
 tools.articleLightboxLogic = function(){

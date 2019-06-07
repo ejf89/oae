@@ -90,9 +90,9 @@
 
   </div>
 
-  <div id="product-image-block" class=""  >
+  <div id="product-image-block" class="dark-shadow"  >
     {% if product.images.size > 0 %}
-     <ul class="product-slider dark-shadow js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
+     <ul class="product-slider js-slider-hook  feature-id--{{ product.id }} " data-slider="product-slider" data-options="{
        contain: false,
        draggable: true,
        wrapAround: true,
@@ -107,7 +107,7 @@
        {% assign slide_ = img.src | img_url : '1500x'  %}
 
        {%- if forloop.index == 1 -%}
-       <li class="slide-parent is-selected  ">
+       <li class="slide-parent is-selected ">
          <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
            <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
          </a>
