@@ -52,6 +52,10 @@
     padding: 0;
     border-bottom: none !important;
     margin-top: 0.5vw;
+    @include transition(color $transition-time ease-in-out);
+    &:hover{
+      color: $color-green;
+    }
   }
 
   label {
@@ -187,6 +191,9 @@ button{
 
 .press-title{
   padding-top: $half-gutter;
+  @include media-query($small){
+    padding-top: 2.5vw;
+  };
 }
 .press-image-wrapper{
     @include fluid-aspect(3 2);
@@ -212,7 +219,7 @@ button{
     color: $color-grey;
     @include transition(color $transition-time ease-in-out);
     &:hover{
-      color: $color-black;
+      color: $color-green;
     }
   }
   @include media-query($small){

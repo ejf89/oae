@@ -151,8 +151,8 @@
 /*================ body-lock ================*/
 
 .body-lock{
-  overflow: hidden;
-  position: relative;
+  overflow: hidden !important;
+  position: relative !important;
 }
 
 .rotate-90{

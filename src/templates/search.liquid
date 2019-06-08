@@ -9,9 +9,14 @@
       	This is a foo
         {{ 'general.search.no_results_html' | t: terms: search.terms }}
         {% endcomment -%}
-          Your search for '{{ search.terms }}' did not yield any results.
+          Your search for “{{ search.terms }}” did not yield any results.
       {% else %}
+      Your search for “{{ search.terms }}” revealed to following.
+
+      {%- comment %}
+      	This is a foo
         {{ 'general.search.results_for_html' | t: terms: search.terms }}
+        {% endcomment -%}
       {% endif %}
     {% else %}
       {{ 'general.search.title' | t }}

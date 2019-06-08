@@ -351,12 +351,14 @@ $mobile-header-height: 66px;
 }
 
 .site-nav--active{
-  .nav-link{
-    color: $color-green !important;
-  }
-  .nav-link__punctuation{
-    color: $color-black !important;
-  }
+  @include media-query($small){
+    .nav-link{
+      color: $color-green !important;
+    }
+    .nav-link__punctuation{
+      color: $color-black !important;
+    }
+  };
 }
 .home-link{
   a{
