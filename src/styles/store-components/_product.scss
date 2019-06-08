@@ -64,19 +64,22 @@
   .flickity-slider{ transform: none !important; }
   .slide-parent{
 
-      left: 0 !important;
+    left: 0 !important;
      opacity: 0;
-     transition: opacity 0.3s ease-in-out;
+     // transition: opacity 0.3s ease-in-out;
      @include transition(opacity 0.3s ease-in-out) ;
+     @include transition(filter 0.3s ease-in-out) ;
      min-height: 100%;
      .product-slide-image{
        margin: auto;
        min-height: 100%;
-
+       overflow: visible;
      }
   }
   .slide-parent.is-selected{
       opacity: 1;
+      // -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+      // filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
   }
 
   .flickity-ready .slide-parent {
