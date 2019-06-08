@@ -191,6 +191,9 @@
       &.is-selected{
         .article-image{
           opacity: 1;
+          @include media-query($small){
+            background-size: cover;
+          };
         }
       }
       .article-image{

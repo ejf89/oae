@@ -40,7 +40,7 @@
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  <div class="cart-image-wrapper">
+                  <div class="cart-image-wrapper dark-shadow">
                     <div class="cart-image" style="background-image:url()">
 
                       {{ item.image.src | img_url: '300x' | img_tag: item.title }}
@@ -170,7 +170,7 @@
   {% section 'cart-copy' %}
 
 
-  <h1 class='cart-border cart-message'>Your cart is empty!</h1>
+  <h1 class='cart-border cart-message big-font'>Your cart is empty!</h1>
 
   {% comment %}
   Cart empty state
