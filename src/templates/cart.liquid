@@ -60,7 +60,7 @@
                 <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ variant_title }}</a>
 
 
-                <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
+                <span class="big-font item-quantity" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
                 <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
                   {% include "black-x" %}
                 </a>
@@ -153,7 +153,7 @@
       <div class="checkout-wrapper">
         <!-- <p class="big-font">{{ 'cart.general.shipping_at_checkout' | t }}</p> -->
         <p class="big-font">Shipping & Taxes calculated at...</p>
-        <input type="submit" name="checkout" class="big-font color-green uppercase cursor-pointer" value="Checkout">
+        <input type="submit" name="checkout" class="big-font color-green uppercase cursor-pointer checkout-button" value="Checkout">
       </div>
       <!-- <input class="btn cta cta-blue" type="submit" name="update" value="{{ 'cart.general.update' | t }}"> -->
       <!-- <a href="/cart/clear" class="btn cta cta-blue">Clear Cart</a> -->

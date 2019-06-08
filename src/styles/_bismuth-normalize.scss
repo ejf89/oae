@@ -144,6 +144,9 @@ table {
       text-align: right;
       padding: $gutter / 2;
       margin: 0;
+      @include media-query($small){
+        padding-left: 0;
+      };
     }
 
     td::before {
