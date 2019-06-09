@@ -147,7 +147,7 @@ p{
 }
 .top-space__page{
   // margin-top: 9vw;
-  margin-top: $big-font;
+  margin-top: $big-font-half;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;

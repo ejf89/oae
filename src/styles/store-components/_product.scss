@@ -31,7 +31,7 @@
 
 #product-image-block{
   position: fixed;
-  top: 55%;
+  top: 50%;
   left: 50%;
   width: 60%;
   margin: auto;
@@ -51,7 +51,7 @@
     position: relative;
     top: unset;
     left: unset;
-    width: unset;
+    width: unset;   
     margin: unset;
     max-width: 800px;
     -webkit-transform: none;
@@ -172,6 +172,9 @@
       padding-left: 1vw;
     };
   }
+}
+.add-container-hook{
+  display: flex;
 }
 
 .zoom-modal-container{
