@@ -99,6 +99,30 @@
                 "height": 3000
               }
             }
+          },
+          {
+            "id": "atthjzyGYwBBh1RbZ",
+            "url": "https:\/\/dl.airtable.com\/.attachments\/f2951be5c4656832e840558046c7e79b\/34e989de\/PEREZ.jpg",
+            "filename": "PEREZ.jpg",
+            "size": 198124,
+            "type": "image\/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/d75407d7334582b12680a557cbda7cf8\/ed300aa1",
+                "width": 54,
+                "height": 36
+              },
+              "large": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/7e3673063a667984896afe0e91932696\/6425dbd6",
+                "width": 768,
+                "height": 512
+              },
+              "full": {
+                "url": "https:\/\/dl.airtable.com\/.attachmentThumbnails\/c31d12ab72957a4f68e63d047a1ab5fc\/48d2b436",
+                "width": 3000,
+                "height": 3000
+              }
+            }
           }
         ],
         "Name": "andrea-bowers-tomas-sanchez-perez-museum"

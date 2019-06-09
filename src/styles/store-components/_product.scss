@@ -197,8 +197,18 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
-      transition: none !important;
-      -webkit-transition: none !important;
+      // @include transition(all 0ms) ;
+    }
+    .flickity-slider{
+      transform: none !important;
+      .zoom-slide{
+        left: 0 !important;
+        opacity: 0;
+        &.is-selected{
+          opacity: 1;
+          left: 0;
+        }
+      }
     }
   }
   .zoom-close{

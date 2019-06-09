@@ -231,6 +231,8 @@ tools.projectAirtableQuery = function(url){
       for (var i = 0; i < records.length; i++) {
        console.log(records[i]);
        var name = records[i].fields.Name
+       console.log('name = ' + name);
+       console.log('handle = ' + handle);
        if (name == handle) {
          console.log("NAME FOUND");
          var assets = records[i].fields.assets
