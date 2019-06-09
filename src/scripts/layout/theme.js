@@ -40,6 +40,8 @@ $(document).ready(function(){
         // tools.navPositionToggle()
       }
 
+
+
       // bismuth.collectionSelect()
     }
     console.log("utilites init'd");

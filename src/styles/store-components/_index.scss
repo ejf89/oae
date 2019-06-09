@@ -139,7 +139,7 @@ p{
 
 .top-space__header{
   // margin-top: $mobile-x-space ;
-  margin-top: $big-font ;
+  margin-top: $big-font-half;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;
