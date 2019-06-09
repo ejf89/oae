@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block top-space__header js-margin-top">
+<div class="grid-product-page product-block top-space__header ">
 
 
     <div id="product-content-block" class="product-content-block big-margin-bottom">
@@ -59,7 +59,7 @@
 
 
       <div class="rte font-oae product-description">
-        <p class="font-oae med-font color-black">
+        <p class="font-oae small-font color-black">
           {{ product.description }}
         </p>
       </div>
@@ -116,7 +116,7 @@
 
          <li class="slide-parent  ">
            <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
-             <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
+             <img class="" src="{{ image.src | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
            </a>
          </li>
        {%- endif -%}
@@ -171,7 +171,7 @@
     pageDots: false,
     autoPlay: false,
     imagesLoaded: true,
-    fade: true,
+    fade: 0,
     on: {
       ready: function(){
         console.log("READYU");

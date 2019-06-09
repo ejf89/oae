@@ -37,8 +37,10 @@ $(document).ready(function(){
       tools.cartRemoveFix()
 
       if ($('html').hasClass('no-touchevents')) {
-        tools.navPositionToggle()
+        // tools.navPositionToggle()
       }
+
+
 
       // bismuth.collectionSelect()
     }

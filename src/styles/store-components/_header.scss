@@ -10,6 +10,7 @@
 
 
 .opacity-header{
+  display: none;
   width: 100%;
   height: 14vh;
   background-image: url('https://cdn.shopify.com/s/files/1/0143/7630/4726/files/header_white.png?4520');
@@ -47,7 +48,7 @@
 }
 .logo-wrapper-container{
   // height: $double-gutter;
-  position: fixed;
+  position: relative;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-top: $gutter;
   padding-left: $gutter;
@@ -100,6 +101,10 @@
   &:hover{
     color: $color-black;
   }
+}
+
+.color-green-imp{
+  color: $color-green !important;
 }
 
 .color-grey{
@@ -351,12 +356,14 @@ $mobile-header-height: 66px;
 }
 
 .site-nav--active{
-  .nav-link{
-    color: $color-green !important;
-  }
-  .nav-link__punctuation{
-    color: $color-black !important;
-  }
+  @include media-query($small){
+    .nav-link{
+      color: $color-green !important;
+    }
+    .nav-link__punctuation{
+      color: $color-black !important;
+    }
+  };
 }
 .home-link{
   a{

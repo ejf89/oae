@@ -206,6 +206,11 @@
       },
       {
         "type": "text",
+        "id": "social_wechat_link",
+        "label": "Wechat link"
+      },
+      {
+        "type": "text",
         "id": "social_pinterest_link",
         "label": "Pinterest link"
       },

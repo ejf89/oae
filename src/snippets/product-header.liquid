@@ -4,5 +4,23 @@
         {% if product.vendor != blank %}
         {% assign vendor = product.vendor %}
         {% endif %}
-        <h1 class="big-font product-title z-plus-10 ">{{vendor}}<span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></h1>
+
+
+        {%- for tag in product.tags -%}
+          {%- if tag contains 'artist' -%}
+            {% assign artist = tag | replace: 'artist_', ''  %}
+          {%- elsif tag contains 'glasses' -%}
+          {% assign glasses = tag  %}
+          {% endif %}
+        {%- endfor -%}
+
+
+        {%- if artist != blank -%}
+          <h1 class="big-font product-title z-plus-10 "><a class="color-black" href="/blogs/artists/{{artist}}">{{vendor}}<span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></a></h1>
+          {%- elsif glasses != blank -%}
+          <h1 class="big-font product-title z-plus-10 "><a class="color-black" href="/blogs/projects/see-a-clean-future-design-miami-basel">{{vendor}}<span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></a></h1>
+          {%- else  -%}
+          <h1 class="big-font product-title z-plus-10 ">{{vendor}}<span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></h1>
+
+        {%- endif -%}
 </div>

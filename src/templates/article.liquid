@@ -5,7 +5,7 @@
 <!-- Article -->
 <div class="article">
     <!-- <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2> -->
-<div class="article-image-wrapper top-space">
+<div class="article-image-wrapper ">
 
   <img class="dark-shadow article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
 </div>
@@ -40,7 +40,6 @@
     {%- if all_products[product] != blank-%}
 
     {%include "related-collection-item", product: all_products[product] %}
-
     {%- endif -%}
     {%- endfor -%}
 
@@ -73,6 +72,7 @@
           <p class="product-info med-font color-black">
             {{article.title}}
             </p>
+            <p class="color-green-imp med-font">Project</p>
         </a>
       </div>
           <!-- <a href='{{article.url}}' class='product-info med-font color-black'>

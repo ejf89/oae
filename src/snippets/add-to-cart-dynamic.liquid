@@ -73,9 +73,11 @@
     {% endfor %}
   </select>
 
+
   <div data-price-wrapper class="">
     <span data-product-price class="big-font add-to-cart-price">
-     {{ current_variant.price | money }}   
+
+     {{ current_variant.price | money }}
     </span>
 
     {% if product.compare_at_price_max > product.price %}
@@ -87,6 +89,7 @@
       </s>
     {% endif %}
   </div>
+
   <div
     id="AddToCart"
     class="add-to-cart-button cta cta-purple"
@@ -95,14 +98,19 @@
     data-myvariantid='{{ current_variant.id }}'
     data-add-to-cart
     {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-      <span data-add-to-cart-text class="big-font color-green">
-        {% if current_variant.available %}
-          {{ 'products.product.add_to_cart' | t }}
-        {% else %}
-          {{ 'products.product.sold_out' | t }}
-        {% endif %}
-      </span>
+
+    {%- if current_variant.available -%}
+    <span data-add-to-cart-text class="big-font color-green">
+        {{ 'products.product.add_to_cart' | t }}
+    </span>
+    {%- else  -%}
+    <span data-add-to-cart-text class="big-font color-black no-hover">
+      {{ 'products.product.sold_out' | t }}
+    </span>
+    {%- endif -%}
+
   </div>
+
 
  <!-- hide quantity on featured product -->
 {%- if template != 'index' -%}
@@ -113,6 +121,9 @@
 
 
 </form>
+
+<a class="color-green big-font back-link" href="javascript:history.go(-1)">  <span class="color-black small--hide"> / </span>Back to Store</a>
+
 
 
 <script type="text/javascript">

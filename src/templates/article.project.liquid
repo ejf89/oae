@@ -1,11 +1,10 @@
 <!-- article.liquid -->
 
-<div id="generated-article-liquid" class="page-container project-container top-space__header js-margin-top">
-
+<div id="generated-article-liquid" class="page-container project-container top-space__header ">
 
 
 <!-- Article -->
-<div class="article" data-handle="{{ article.title | handleize }}">
+<div class="article" data-handle="{{article.handle | replace: "projects/", ""}}">
     <!-- <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2> -->
 
     <div class="project-airtable-container project-slider dark-shadow">

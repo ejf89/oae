@@ -118,15 +118,17 @@
 
 
   .product-description{
-    max-width: 40%;
     pointer-events: none;
-    font-size: $med-font;
+    font-size:$small-font;
+
     z-index: 1;
     @include media-query($medium-up){
-      min-width: 400px;
+      min-width: 350px;
+      max-width: 26vw;
+
     };
-    div, p, .p1{
-      font-size: $med-font;
+    div, p, .p1, .p1 div{
+      font-size: $small-font;
       color: $color-black !important;
       @include media-query($small){
         font-size: $med-font-mobile;
@@ -152,6 +154,10 @@
   @include media-query($small){
     position: relative;
   };
+  @include media-query($medium-up){
+    display: flex;
+    align-items: flex-end;
+  };
   .add-to-cart-button{
     cursor: pointer;
   }
@@ -160,6 +166,11 @@
     @include transition(color 300ms);
       color: $color-black
     }
+  }
+  .back-link{
+    @include media-query($medium-up){
+      padding-left: 1vw;
+    };
   }
 }
 
@@ -188,7 +199,18 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
-      transition: none !important;
+      // @include transition(all 0ms) ;
+    }
+    .flickity-slider{
+      transform: none !important;
+      .zoom-slide{
+        left: 0 !important;
+        opacity: 0;
+        &.is-selected{
+          opacity: 1;
+          left: 0;
+        }
+      }
     }
   }
   .zoom-close{

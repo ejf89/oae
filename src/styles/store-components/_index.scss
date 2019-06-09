@@ -24,11 +24,33 @@
      font-style: normal;
  }
 
+ a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
 
+.html-lock{
+  max-height: 100vh;
+  overflow: hidden;
+  position: fixed;
+}
 
+html{
+  @include media-query($small){
+    position: absolute;
+  };
+}
 body{
   line-height: normal;
   font-family:  "OAE";
+  @include media-query($small){
+    padding-bottom: $big-font-double;
+    margin-bottom: $big-font-double;
+  };
 }
 
 h1{
@@ -54,6 +76,12 @@ p{
 }
 .med-font{
   font-size: $med-font !important;
+  @include media-query($small){
+    font-size: $med-font-mobile !important;
+  };
+}
+.small-font{
+  font-size: $small-font !important;
   @include media-query($small){
     font-size: $med-font-mobile !important;
   };
@@ -110,14 +138,16 @@ p{
 }
 
 .top-space__header{
-  margin-top: $mobile-x-space ;
+  // margin-top: $mobile-x-space ;
+  margin-top: $big-font-half;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;
   };
 }
 .top-space__page{
-  margin-top: 9vw;
+  // margin-top: 9vw;
+  margin-top: $big-font;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;
@@ -134,6 +164,7 @@ p{
   // padding-top: 1px;
   @include media-query($small){
     height: 100vh;
+    padding-bottom: $big-font-double;
 
   };
   @include media-query($medium-up){
