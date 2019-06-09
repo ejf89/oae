@@ -120,13 +120,14 @@
   .product-description{
     max-width: 40%;
     pointer-events: none;
-    font-size: $med-font;
+    font-size:$small-font;
+
     z-index: 1;
     @include media-query($medium-up){
       min-width: 400px;
     };
-    div, p, .p1{
-      font-size: $med-font;
+    div, p, .p1, .p1 div{
+      font-size: $small-font;
       color: $color-black !important;
       @include media-query($small){
         font-size: $med-font-mobile;

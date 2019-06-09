@@ -111,7 +111,7 @@
   // height: 46vh;
   @include media-query($small){
     max-height: 55vh;
-    height: 55vh;
+    // height: 55vh;
   };
 
 }
@@ -151,6 +151,7 @@
 .article-body{
   @include media-query($small){
     padding-bottom: $mobile-x-space;
+    padding-bottom: $big-font-double;
   };
   p, .p1, a, span{
     font-size: $med-plus-font;
