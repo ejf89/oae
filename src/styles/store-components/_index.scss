@@ -24,6 +24,8 @@
      font-style: normal;
  }
 
+
+
  a[x-apple-data-detectors] {
   color: inherit !important;
   text-decoration: none !important;
@@ -139,7 +141,8 @@ p{
 
 .top-space__header{
   // margin-top: $mobile-x-space ;
-  margin-top: $big-font-half;
+  // margin-top: $big-font-half;
+  margin-top: $big-font;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;
