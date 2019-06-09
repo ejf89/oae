@@ -47,7 +47,7 @@
 }
 .logo-wrapper-container{
   // height: $double-gutter;
-  position: fixed;
+  position: relative;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-top: $gutter;
   padding-left: $gutter;

@@ -71,7 +71,7 @@
 
         {%- if product.available == false -%}
             {% assign price = 'Sold Out'  %}
-            {%- else condition -%}
+            {%- else  -%}
             {% if product.price_varies %}
             {%- assign price = product.price | money -%}
             {% else %}
@@ -80,41 +80,12 @@
 
         {%- endif -%}
 
+        {%- comment %}
+        	This is a foo
+          {% endcomment -%}
         <div class="product-info color-black" >
           <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span>, {{price}} </p>
- 	This is a foo
-          <p class="product-price">
-
-            {% if product.compare_at_price > product.price %}
-              {% if product.price_varies %}
-                {%- assign sale_price = product.price | money -%}
-                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-              {% else %}
-                {{ 'products.product.on_sale' | t }}
-                {{ product.price | money }}
-              {% endif %}
-
-            {% else %}
-
-              {% if product.price_varies %}
-                {%- assign price = product.price | money -%}
-                {{ product.price | money }}
-              {% else %}
-                {{ product.price | money }}
-              {% endif %}
-
-            {% endif %}
-
-            {% if product.compare_at_price > product.price %}
-              <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-              <s>{{ product.compare_at_price | money }}</s>
-            {% endif %}
-
-            {% unless product.available %}
-              {{ 'products.product.sold_out' | t }}
-            {% endunless %}
-          </p>
-
+          <p>(Store)</p>
         </div>
 
 

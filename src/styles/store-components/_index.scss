@@ -110,14 +110,16 @@ p{
 }
 
 .top-space__header{
-  margin-top: $mobile-x-space ;
+  // margin-top: $mobile-x-space ;
+  margin-top: $big-font ;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;
   };
 }
 .top-space__page{
-  margin-top: 9vw;
+  // margin-top: 9vw;
+  margin-top: $big-font;
   @include media-query($small){
     // margin-top: $big-font-mobile !important;
     margin-top: 9vw !important;
