@@ -30,6 +30,7 @@
             </a>
             {% else %}
             <a href="{{ product.url | within: collection }}"  class="product-card-link">
+              <p class="color-green-imp med-font">Store</p>
 
               <div class="product-card-image-wrapper">
                 {% assign images_length = product.images | size %}
@@ -85,7 +86,7 @@
           {% endcomment -%}
         <div class="product-info color-black" >
           <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span>, {{price}} </p>
-          <p class="color-green-imp med-font">Store</p>
+          <!-- <p class="color-green-imp med-font">Store</p> -->
         </div>
 
 
