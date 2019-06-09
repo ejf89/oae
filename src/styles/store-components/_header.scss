@@ -102,6 +102,10 @@
   }
 }
 
+.color-green-imp{
+  color: $color-green !important;
+}
+
 .color-grey{
   color: $color-grey;
   @include transition(color $transition-time ease-in-out);

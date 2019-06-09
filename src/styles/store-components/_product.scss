@@ -152,6 +152,10 @@
   @include media-query($small){
     position: relative;
   };
+  @include media-query($medium-up){
+    display: flex;
+    align-items: flex-end;
+  };
   .add-to-cart-button{
     cursor: pointer;
   }
@@ -160,6 +164,11 @@
     @include transition(color 300ms);
       color: $color-black
     }
+  }
+  .back-link{
+    @include media-query($medium-up){
+      padding-left: 1vw;
+    };
   }
 }
 

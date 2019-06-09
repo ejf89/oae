@@ -14,7 +14,7 @@
 
 
         {%- if artist != blank -%}
-          <h1 class="big-font product-title z-plus-10 "><a class="color-black" href="/blogs/artists/{{artist}}">{{vendor}}</a><span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></h1>
+          <h1 class="big-font product-title z-plus-10 "><a class="color-black" href="/blogs/artists/{{artist}}">{{vendor}}<span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></a></h1>
 
           {%- else  -%}
           <h1 class="big-font product-title z-plus-10 ">{{vendor}}<span class="color-green ">,</span> <span class="italic">{{ product.title }}</span><span class="color-green"></span></h1>
