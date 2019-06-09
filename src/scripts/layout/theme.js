@@ -41,7 +41,8 @@ $(document).ready(function(){
       }
 
 
-
+      $(window).trigger('resize')
+      console.log("TEST");
       // bismuth.collectionSelect()
     }
     console.log("utilites init'd");
