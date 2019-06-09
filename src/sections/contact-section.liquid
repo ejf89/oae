@@ -6,7 +6,8 @@
   {%- for block in section.blocks -%}
 
   <li>
-    <a class="color-black" href="{{block.settings.url}}">{{ block.settings.text }}</a>
+    <!-- <a class="color-black" href="{{block.settings.url}}">{{ block.settings.text }}</a> -->
+    <p class="color-black">{{ block.settings.text }}</p>
   </li>
   {%- endfor -%}
 </ul>

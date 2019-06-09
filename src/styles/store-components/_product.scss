@@ -51,7 +51,7 @@
     position: relative;
     top: unset;
     left: unset;
-    width: unset;   
+    width: unset;
     margin: unset;
     max-width: 800px;
     -webkit-transform: none;
@@ -175,6 +175,9 @@
 }
 .add-container-hook{
   display: flex;
+  @include media-query($small){
+    flex-direction: column;
+  };
 }
 
 .zoom-modal-container{

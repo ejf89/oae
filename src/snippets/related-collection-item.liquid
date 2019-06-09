@@ -4,6 +4,20 @@
 
 {% assign title_string = product.selected_or_first_available_variant.title | split: '/' %}
 
+
+
+{%- if product.available == false -%}
+    {% assign price = 'Sold Out'  %}
+    {%- else  -%}
+    {% if product.price_varies %}
+    {%- assign price = product.price | money -%}
+    {% else %}
+    {%- assign price = product.price | money -%}
+    {% endif %}
+
+{%- endif -%}
+
+
 {%- for word in title_string -%}
 {%- if forloop.index == 2 -%}
 {% assign colorTitle = word | strip | replace: ' ', ''  %}
@@ -61,6 +75,10 @@
 
               </div>
 
+              <div class="product-info color-black" >
+                <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span>, {{price}} </p>
+              </div>
+
             </a>
 
             {%- endif -%}
@@ -70,24 +88,13 @@
           </div>
         {% endif %}
 
-        {%- if product.available == false -%}
-            {% assign price = 'Sold Out'  %}
-            {%- else  -%}
-            {% if product.price_varies %}
-            {%- assign price = product.price | money -%}
-            {% else %}
-            {%- assign price = product.price | money -%}
-            {% endif %}
-
-        {%- endif -%}
 
         {%- comment %}
         	This is a foo
-          {% endcomment -%}
         <div class="product-info color-black" >
           <p>{{product.vendor}}, <span class="product-title italic">{{ product.title }}</span>, {{price}} </p>
-          <!-- <p class="color-green-imp med-font">Store</p> -->
         </div>
+        {% endcomment -%}
 
 
       </div>
