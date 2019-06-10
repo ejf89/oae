@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block top-space__header ">
+<div class="grid-product-page product-block top-space__product ">
 
 
     <div id="product-content-block" class="product-content-block big-margin-bottom">
@@ -108,16 +108,16 @@
 
        {%- if forloop.index == 1 -%}
        <li class="slide-parent is-selected ">
-         <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+         <p class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
            <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
-         </a>
+         </p>
        </li>
          {%- else  -%}
 
          <li class="slide-parent  ">
-           <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+           <p  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
              <img class="" src="{{ image.src | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
-           </a>
+           </p>
          </li>
        {%- endif -%}
        {% endfor %}

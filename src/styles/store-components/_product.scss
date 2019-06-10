@@ -124,7 +124,7 @@
     z-index: 1;
     @include media-query($medium-up){
       min-width: 350px;
-      max-width: 26vw;
+      max-width: 34vw;
 
     };
     div, p, .p1, .p1 div{
@@ -134,6 +134,9 @@
         font-size: $med-font-mobile;
         color: $color-black !important;
       };
+    }
+    i{
+      font-style: italic;
     }
     .p1{
       @include media-query($small){
