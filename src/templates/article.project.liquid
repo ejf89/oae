@@ -9,13 +9,18 @@
 
     <div class="project-airtable-container project-slider">
 
-        <!-- <img class=" article-image project-slider-slide" src="{{ article.image.src | img_url: '800x' }}" alt=""> -->
+      <!-- <div class="article-image-wrapper project-slider-slide">
 
+        <img class=" article-image" src="{{ article.image.src | img_url: '800x' }}" alt="">
+      </div> -->
+
+        {%- comment %}
+        	This is a foo
+          {% endcomment -%}
         <div class="article-image-wrapper project-slider-slide  dark-shadow">
-          <!-- <div class=" article-image " style="background-image:url({{ article.image.src | img_url: '800x' }})">
+          <div class=" article-image dark-shadow " style="background-image:url({{ article.image.src | img_url: '800x' }})">
 
-          </div> -->
-          <img class=" article-image project-slider-slide" src="{{ article.image.src | img_url: '800x' }}" alt="">
+          </div>
         </div>
 
     </div>
@@ -35,7 +40,7 @@
   <div class="zoom-close x-close z-plus-10">
     {% include "green-x" %}
   </div>
-  <div class="zoom-slider ">
+  <div class="zoom-slider  ">
 
   </div>
 

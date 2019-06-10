@@ -240,13 +240,17 @@ tools.projectAirtableQuery = function(url){
            var imageSrc = el.url
            itemsProcessed++;
            console.log(imageSrc);
-                      // $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
+                      $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
            $('.project-airtable-container').prepend(`  <div class="article-image-wrapper project-slider-slide">
-               <div class=" article-image " style="background-image:url(${imageSrc})">
+               <div class=" article-image dark-shadow " style="background-image:url(${imageSrc})">
                </div>
              </div>`)
+           // $('.project-airtable-container').prepend(`  <div class="article-image-wrapper project-slider-slide">
+           //      <img class="project-slider-slide" src='${imageSrc}' />
+           //   </div>`)
 
-           $('.zoom-slider').prepend(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
+           // $('.zoom-slider').prepend(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
+           $('.zoom-slider').prepend(`<img class="zoom-slide dark-shadow" src='${imageSrc}' />`)
            if (itemsProcessed == array.length ) {
              console.log("HERE");
              sliderInit()
@@ -349,13 +353,14 @@ tools.projectAirtableQuery = function(url){
         draggable: false,
         wrapAround: true,
         imagesLoaded: true,
-        variableWidth:false,
+        variableWidth:true,
         prevNextButtons:false,
         pageDots: false,
         autoPlay: false,
         imagesLoaded: true,
         fade: false,
         accessibility: true,
+        contain: false,
         on: {
           ready: function(){
             $('.zoom-slide-count').text('1/' + this.cells.length)

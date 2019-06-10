@@ -191,6 +191,7 @@
     min-height: 55vh;
     max-height: 55vh;
     height: 100%;
+
     @include media-query($small){
       min-height: 30vh;
     };
@@ -246,11 +247,18 @@ z-index: 0
     height: auto !important;
     .zoom-slider{
       width: 80%;
+      height: 87vh;
+
       margin: auto;
-      overflow-y: hidden;
+      // overflow-y: hidden;
       align-items: center;
       background: rgba(255,255,255,0);
       min-height: 60vh;
+
+      .flickity-viewport{
+        min-height: 100% !important;
+        overflow: visible;
+      }
       .flickity-slider{
           transform: none !important;
         }
@@ -260,11 +268,14 @@ z-index: 0
         opacity: 0;
         // transition: opacity 0.0s ease-in-out;
         z-index: -1;
+        width: 97%;
+        margin-left: 1vw;
         }
 
         .zoom-slide.is-selected {
         opacity: 1;
-        z-index: 0
+        z-index: 0;
+        // margin: 3vw;
         }
 
 
