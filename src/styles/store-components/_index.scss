@@ -139,6 +139,12 @@ p{
   };
 }
 
+.index-fix{
+  @include media-query($widescreen){
+    max-width: 1800px !important;
+  };
+}
+
 .top-space__header{
   // margin-top: $mobile-x-space ;
   // margin-top: $big-font-half;

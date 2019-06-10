@@ -107,16 +107,16 @@
        {% assign slide_ = img.src | img_url : '1500x'  %}
 
        {%- if forloop.index == 1 -%}
-       <li class="slide-parent is-selected ">
-         <p class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
-           <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
+       <li class="slide-parent is-selected">
+         <p class="product-slide-image  "  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+           <img class="opacity-hidden" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
          </p>
        </li>
          {%- else  -%}
 
-         <li class="slide-parent  ">
+         <li class="slide-parent ">
            <p  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
-             <img class="" src="{{ image.src | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
+             <img class=" opacity-hidden" src="{{ image.src | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
            </p>
          </li>
        {%- endif -%}

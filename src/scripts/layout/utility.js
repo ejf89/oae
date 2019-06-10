@@ -544,3 +544,20 @@ tools.cartRemoveFix = function(){
     $(this).parent().click()
   })
 }
+
+tools.imageSnifferFade = function(el){
+  console.log('SNIFFING');
+  var $el = $(el)
+  $el.waitForImages({
+      finished: function() {
+          console.log('FINISHED');
+          $(this).removeClass('opacity-hidden').addClass('opacity-shown')
+
+      },
+      each: function() {
+        console.log('IMAGE SBNIFFED');
+         $(this).removeClass('opacity-hidden').addClass('opacity-shown')
+      },
+      waitForAll: false
+  });
+}

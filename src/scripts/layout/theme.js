@@ -35,14 +35,20 @@ $(document).ready(function(){
       tools.headerCleanUp()
       tools.topLogic()
       tools.cartRemoveFix()
+      tools.imageSnifferFade('.product-slide-image img')
 
       if ($('html').hasClass('no-touchevents')) {
         // tools.navPositionToggle()
       }
 
+      // $(window).load(function(){
+      //   tools.imageSnifferFade('.product-slide-image img')
+      //
+      // })
+
 
       $(window).trigger('resize')
-      console.log("TEST");
+      console.log("TEST 2");
       // bismuth.collectionSelect()
     }
     console.log("utilites init'd");

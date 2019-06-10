@@ -50,7 +50,9 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/rivets-cart.min.js"></script>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js"></script>
+
   <script src="https://unpkg.com/flickity-fade@1/flickity-fade.js"></script>
 
   <!-- {% include 'style-tags', layout: 'theme' %} -->
@@ -99,7 +101,7 @@
 
 
 
-  <div id="barba-wrapper" class="">
+  <div id="barba-wrapper" class="{%- if template == 'index' -%}index-fix{%- endif -%}">
     <div class="barba-container" data-namespace="{{barba_namespace}}">
 
         {% section 'header' %}
