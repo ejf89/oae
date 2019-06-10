@@ -17,7 +17,6 @@
 {%- endfor -%}
 
       <div class="product-collection-item{% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
-      data-tags="{{product.tags | downcase}}"
       data-handle="{{product.handle}}"
       data-variantsAvailable="{{filterVariants | downcase}}"
       data-productType="{{product.type | downcase }}"
@@ -28,7 +27,7 @@
       id="product-{{ product.id }}"
       style="background:{{gradient_tag}};">
         {% if product.featured_image != blank %}
-        {%- capture image_src_0 -%}
+        {%- capture image_src_0 -%}   
           {{- product.images[0] | img_url: '700x' -}}
         {%- endcapture -%}
         {%- else -%}
@@ -83,7 +82,7 @@
 
                 </div>
 
-              
+
               </div>
 
 

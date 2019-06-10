@@ -137,11 +137,11 @@
       {% include "green-x" %}
     </div>
     {% if product.images.size > 0 %}
-     <ul class="zoom-slider dark-shadow  feature-id--{{ product.id }} " data-slider="zoom-slider">
+     <ul class="zoom-slider  feature-id--{{ product.id }} " data-slider="zoom-slider">
        {% for image in product.images %}
        {% assign slide_url = image.src | img_url : '2000x'  %}
 
-       <div class="zoom-slide-{{forloop.index}} zoom-slide " style=" background-image: url('https:{{ slide_url }}')">
+       <div class="zoom-slide-{{forloop.index}} dark-shadow  zoom-slide " style=" background-image: url('https:{{ slide_url }}')">
 
        </div>
 

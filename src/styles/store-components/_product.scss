@@ -68,11 +68,11 @@
      opacity: 0;
      // transition: opacity 0.3s ease-in-out;
      @include transition(opacity 0.3s ease-in-out) ;
-     @include transition(filter 0.3s ease-in-out) ;
+     // @include transition(filter 0.3s ease-in-out) ;
      min-height: 100%;
      .product-slide-image{
-       margin: auto;
-       min-height: 100%;
+       // margin: auto;
+       min-height: 100%;   
        overflow: visible;
      }
   }
