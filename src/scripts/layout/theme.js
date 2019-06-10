@@ -46,8 +46,11 @@ $(document).ready(function(){
       //
       // })
 
-
+    
       $(window).trigger('resize')
+      $(window).trigger('resize')
+      tools.topLogic()
+
       console.log("TEST 2");
       // bismuth.collectionSelect()
     }
