@@ -240,14 +240,14 @@ tools.projectAirtableQuery = function(url){
            var imageSrc = el.url
            itemsProcessed++;
            console.log(imageSrc);
-                      $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
-           $('.project-airtable-container').prepend(`  <div class="article-image-wrapper project-slider-slide">
-               <div class=" article-image dark-shadow " style="background-image:url(${imageSrc})">
-               </div>
-             </div>`)
+                      // $('.project-airtable-container').append(`<img class="project-slider-slide" src='${imageSrc}' />`)
            // $('.project-airtable-container').prepend(`  <div class="article-image-wrapper project-slider-slide">
-           //      <img class="project-slider-slide" src='${imageSrc}' />
+           //     <div class=" article-image dark-shadow " style="background-image:url(${imageSrc})">
+           //     </div>
            //   </div>`)
+           $('.project-airtable-container').prepend(`  <div class="article-image-wrapper project-slider-slide">
+                <img class="article-image dark-shadow" src='${imageSrc}' />
+             </div>`)
 
            // $('.zoom-slider').prepend(`<div class='zoom-slide' style="background-image:url(${imageSrc})" ></div>`)
            $('.zoom-slider').prepend(`<img class="zoom-slide dark-shadow" src='${imageSrc}' />`)
@@ -345,7 +345,7 @@ tools.projectAirtableQuery = function(url){
           imagesLoaded: true,
           accesible: false
         })
-        $('.project-slider').flickity('remove', $('.article-image-wrapper').last() )
+        // $('.project-slider').flickity('remove', $('.article-image-wrapper').last() )
 
 
 
@@ -360,6 +360,8 @@ tools.projectAirtableQuery = function(url){
         imagesLoaded: true,
         fade: false,
         accessibility: true,
+        contain: true,
+        cellAlign: "center",
         on: {
           ready: function(){
             $('.zoom-slide-count').text('1/' + this.cells.length)
