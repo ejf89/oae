@@ -141,6 +141,13 @@ p{
     // margin-bottom: $mobile-x-space !important;
   };
 }
+.top-space__mobile-project{
+  @include media-query($small){
+    // margin-top: $big-font-mobile !important;
+    margin-top: 18vw !important;
+    // margin-bottom: $mobile-x-space !important;
+  };
+}
 
 .index-fix{
   @include media-query($widescreen){

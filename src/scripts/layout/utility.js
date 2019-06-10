@@ -341,7 +341,7 @@ tools.projectAirtableQuery = function(url){
           variableWidth:false,
           prevNextButtons: false,
           pageDots: false,
-          autoPlay: false,
+          autoPlay: 2000,
           imagesLoaded: true,
           accesible: false
         })
