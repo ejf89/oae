@@ -46,7 +46,8 @@ $(document).ready(function(){
       //
       // })
 
-    
+      console.log("lAZY");
+
       $(window).trigger('resize')
       $(window).trigger('resize')
       tools.topLogic()

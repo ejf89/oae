@@ -68,11 +68,22 @@
                   <div class="product-card-image product-card-front {% if no_hover == true %} no-hover {% endif %} " style="background-image: url({{ image_src_0 }});"></div>
                   	This is a foo
                   {% endcomment -%}
-
-                  <img src="{{ image_src_0 }}" class="lazyloaded lazyload" alt="">
+                  {%- comment %}
+                  	This is a foo
+                  <img src="{{ image_src_0 }}" data-original="{{image_src_0}}" class="lazy lazyloaded lazyload" alt="">
+                  {% endcomment -%}
+                  <img class="lazyload"
+                      src="{{  product.images[0] | img_url: '500x' }}"
+                      data-src="{{ image_src_0  }}"
+                      data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                      data-aspectratio=""
+                      data-sizes="auto"
+                      data-parent-fit="cover"
+                      alt="{{ block.settings.image.alt | escape }}">
 
                 </div>
 
+              
               </div>
 
 

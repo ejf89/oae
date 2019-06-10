@@ -67,8 +67,15 @@
 
 
                   <!-- <img src="{{ image_src_0 }}" alt=""> -->
-                    <div class="related-item-image lazyloaded" style="background-image: url({{image_src_0}})">    </div>
-
+                    <!-- <div class="related-item-image lazyloaded" style="background-image: url({{image_src_0}})">    </div> -->
+                    <img class="related-item-image lazyload"
+                        src="{{  product.images[0] | img_url: '500x' }}"
+                        data-src="{{ image_src_0  }}"
+                        data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                        data-aspectratio=""
+                        data-sizes="auto"
+                        data-parent-fit="cover"
+                        alt="{{ block.settings.image.alt | escape }}">
 
 
                 </div>
