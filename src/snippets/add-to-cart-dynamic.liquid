@@ -73,10 +73,11 @@
     {% endfor %}
   </select>
 
+  {%- if current_variant.available -%}
+
 
   <div data-price-wrapper class="">
     <span data-product-price class="big-font add-to-cart-price">
-
      {{ current_variant.price | money }}
     </span>
 
@@ -89,6 +90,7 @@
       </s>
     {% endif %}
   </div>
+    {%- endif -%}
 
   <div class="add-container-hook">
 
