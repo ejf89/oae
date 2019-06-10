@@ -31,7 +31,7 @@
 
 #product-image-block{
   position: fixed;
-  top: 50%;
+  top: 53%;
   left: 50%;
   width: 60%;
   margin: auto;
@@ -124,7 +124,7 @@
     z-index: 1;
     @include media-query($medium-up){
       min-width: 350px;
-      max-width: 34vw;
+      max-width: 25vw;
 
     };
     div, p, .p1, .p1 div{

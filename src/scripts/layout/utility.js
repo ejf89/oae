@@ -389,6 +389,8 @@ tools.articleLightboxLogic = function(){
     $('.topnav').addClass('pointer-none')
     $('body').addClass('body-lock')
     $('.cart-link-container').addClass('hide')
+    $('.project-slider').blur()
+
 
     tools.arrowFollow()
     tools.mouseFollowHide()
