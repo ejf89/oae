@@ -353,14 +353,13 @@ tools.projectAirtableQuery = function(url){
         draggable: false,
         wrapAround: true,
         imagesLoaded: true,
-        variableWidth:true,
+        variableWidth:false,
         prevNextButtons:false,
         pageDots: false,
         autoPlay: false,
         imagesLoaded: true,
         fade: false,
         accessibility: true,
-        contain: false,
         on: {
           ready: function(){
             $('.zoom-slide-count').text('1/' + this.cells.length)
