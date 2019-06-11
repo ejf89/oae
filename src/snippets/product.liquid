@@ -32,7 +32,7 @@
   <div itemscope class=" " id="product-{{ product.id }}"  data-product-handle="{{product.handle}}">
 {% endunless %}
 
-<div class="grid-product-page product-block top-space__header ">
+<div class="grid-product-page product-block top-space__product ">
 
 
     <div id="product-content-block" class="product-content-block big-margin-bottom">
@@ -107,17 +107,17 @@
        {% assign slide_ = img.src | img_url : '1500x'  %}
 
        {%- if forloop.index == 1 -%}
-       <li class="slide-parent is-selected ">
-         <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
-           <img class="" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
-         </a>
+       <li class="slide-parent is-selected">
+         <p class="product-slide-image  "  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+           <img class="opacity-hidden" src="{{ image.src | img_url: '2000x' }}" alt="{{ image.alt | escape }}">
+         </p>
        </li>
          {%- else  -%}
 
-         <li class="slide-parent  ">
-           <a href="#" class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
-             <img class="" src="{{ image.src | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
-           </a>
+         <li class="slide-parent ">
+           <p  class="product-slide-image"  data-product-image-id="{{ image.id }}" style="background-image(erl({{slide_url}})" >
+             <img class=" opacity-hidden" src="{{ image.src | img_url: '1000x' }}" alt="{{ image.alt | escape }}">
+           </p>
          </li>
        {%- endif -%}
        {% endfor %}
@@ -137,13 +137,15 @@
       {% include "green-x" %}
     </div>
     {% if product.images.size > 0 %}
-     <ul class="zoom-slider dark-shadow  feature-id--{{ product.id }} " data-slider="zoom-slider">
+     <ul class="zoom-slider dark-shadow feature-id--{{ product.id }} " data-slider="zoom-slider">
        {% for image in product.images %}
-       {% assign slide_url = image.src | img_url : '2000x'  %}
+       {% assign slide_url = image.src | img_url : '1500x'  %}
 
-       <div class="zoom-slide-{{forloop.index}} zoom-slide " style=" background-image: url('https:{{ slide_url }}')">
+       <!-- <div class="zoom-slide-{{forloop.index}} dark-shadow  zoom-slide " style=" background-image: url('https:{{ slide_url }}')">
 
-       </div>
+       </div> -->
+
+       <img src=" {{slide_url}} " class="  zoom-slide-{{forloop.index}}   zoom-slide " alt="">
 
 
        {% endfor %}

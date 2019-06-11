@@ -17,7 +17,6 @@
 {%- endfor -%}
 
       <div class="product-collection-item{% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
-      data-tags="{{product.tags | downcase}}"
       data-handle="{{product.handle}}"
       data-variantsAvailable="{{filterVariants | downcase}}"
       data-productType="{{product.type | downcase }}"
@@ -28,7 +27,7 @@
       id="product-{{ product.id }}"
       style="background:{{gradient_tag}};">
         {% if product.featured_image != blank %}
-        {%- capture image_src_0 -%}
+        {%- capture image_src_0 -%}   
           {{- product.images[0] | img_url: '700x' -}}
         {%- endcapture -%}
         {%- else -%}
@@ -68,10 +67,21 @@
                   <div class="product-card-image product-card-front {% if no_hover == true %} no-hover {% endif %} " style="background-image: url({{ image_src_0 }});"></div>
                   	This is a foo
                   {% endcomment -%}
-
-                  <img src="{{ image_src_0 }}" alt="">
+                  {%- comment %}
+                  	This is a foo
+                  <img src="{{ image_src_0 }}" data-original="{{image_src_0}}" class="lazy lazyloaded lazyload" alt="">
+                  {% endcomment -%}
+                  <img class="lazyload"
+                      src="{{  product.images[0] | img_url: '500x' }}"
+                      data-src="{{ image_src_0  }}"
+                      data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                      data-aspectratio=""
+                      data-sizes="auto"
+                      data-parent-fit="cover"
+                      alt="{{ block.settings.image.alt | escape }}">
 
                 </div>
+
 
               </div>
 

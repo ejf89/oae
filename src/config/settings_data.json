@@ -23,7 +23,8 @@
     "share_twitter": true,
     "share_pinterest": true,
     "social_twitter_link": "https:\/\/twitter.com\/one_all_every",
-    "social_facebook_link": "\/facebook",
+    "social_facebook_link": "https:\/\/www.facebook.com\/One-All-Every-434532264035488\/?view_public_for=434532264035488",
+    "social_wechat_link": "",
     "social_pinterest_link": "",
     "social_instagram_link": "https:\/\/www.instagram.com\/one_all_every\/",
     "social_snapchat_link": "",
@@ -37,7 +38,7 @@
     "cart_notes_enable": false,
     "favicon": "",
     "featured_collection": "",
-    "mission_copy": "is an art & environment initiative born out of the belief that art can and will move mountains",
+    "mission_copy": "is an art and environment initiative born out of the belief that art can and will move mountains.",
     "checkout_header_image": "",
     "checkout_logo_image": "",
     "checkout_logo_position": "left",
@@ -83,7 +84,7 @@
       "cart-copy": {
         "type": "cart-copy",
         "settings": {
-          "cart_copy": "Any One, All, Every purchase supports the critical environmental work of our philanthropic partners. For each project a minimum of 25% of net profits are donated to the relative cause."
+          "cart_copy": "For each project a portion of net profits are donated to the corresponding philanthropic partner."
         }
       },
       "mission-section": {
@@ -126,7 +127,7 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/www.cnn.com\/style\/article\/luxury-wish-list-2018\/index.html",
-              "press_image": "shopify:\/\/shop_images\/1.jpg",
+              "press_image": "shopify:\/\/shop_images\/white-shark-2_copy.jpg",
               "press_title": "CNN Style",
               "press_description": "Porky Hefer's over-sized cuddly lounge chairs"
             }
@@ -144,7 +145,7 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Bizcommunity___June_4_2018.pdf?16656",
-              "press_image": "shopify:\/\/shop_images\/001-1.jpg",
+              "press_image": "shopify:\/\/shop_images\/3-4.jpg",
               "press_title": "Bizz Community",
               "press_description": "Porky Hefer presents endangered species project at Design Miami\/Basil"
             }
@@ -153,7 +154,7 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Leading_Architecture___June_14_2018.pdf?16656",
-              "press_image": "shopify:\/\/shop_images\/3-4.jpg",
+              "press_image": "shopify:\/\/shop_images\/bear.jpg",
               "press_title": "Leading Architecture",
               "press_description": "Porky Hefer’s Endangered to Benefit Leonardo Dicaprio Foundation"
             }
@@ -189,9 +190,45 @@
             "type": "press_block",
             "settings": {
               "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Trendhunter___June_8_2018.pdf?16656",
-              "press_image": "shopify:\/\/shop_images\/porky-hefer-endangered-design-miami-basel-designboom-01_horizontal.jpg",
+              "press_image": "shopify:\/\/shop_images\/Unknown-16.jpeg",
               "press_title": "Trend Hunter",
               "press_description": "Oversized Endangered Animal Seating"
+            }
+          },
+          "1560092373370": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/www.theartnewspaper.com\/feature\/as-waters-rise-artists-answer-a-call-to-action",
+              "press_image": "shopify:\/\/shop_images\/featured_neon.climate.bowers.3-3733.jpg",
+              "press_title": "The Art Newspaper",
+              "press_description": "Florida is on the frontline of global warming—a crisis that demands creative thinking"
+            }
+          },
+          "1560092487225": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/www.ft.com\/content\/2ef7cc5c-d10f-11e7-947e-f1ea5435bcc7?shareType=nongift",
+              "press_image": "shopify:\/\/shop_images\/PEREZ.jpg",
+              "press_title": "Financial Times",
+              "press_description": "Climate change art in Miami"
+            }
+          },
+          "1560136448902": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/soundcloud.com\/designmiami\/art-advocacy",
+              "press_image": "shopify:\/\/shop_images\/Design-Miami-Logo-1_92198537-5854-428b-a0c1-8365c4e117d6.jpg",
+              "press_title": "Design Miami\/",
+              "press_description": "Art & Advocacy"
+            }
+          },
+          "1560136653338": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/pammportraits.org\/2017\/12\/07\/andrea-bowers-climate-change-is-real\/",
+              "press_image": "shopify:\/\/shop_images\/bowers.jpg",
+              "press_title": "PAMM Portraits",
+              "press_description": "Andrea Bowers: \"Climate Change is Real\""
             }
           }
         },
@@ -203,7 +240,11 @@
           "1557959002156",
           "1557959005882",
           "1559761441437",
-          "1559761498843"
+          "1559761498843",
+          "1560092373370",
+          "1560092487225",
+          "1560136448902",
+          "1560136653338"
         ],
         "settings": {
         }

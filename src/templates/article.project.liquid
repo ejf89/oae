@@ -1,27 +1,32 @@
 <!-- article.liquid -->
 
-<div id="generated-article-liquid" class="page-container project-container top-space__header ">
+<div id="generated-article-liquid" class="page-container project-container top-space__project ">
 
 
 <!-- Article -->
 <div class="article" data-handle="{{article.handle | replace: "projects/", ""}}">
     <!-- <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2> -->
 
-    <div class="project-airtable-container project-slider dark-shadow">
+    <div class="project-airtable-container project-slider">
 
-        <!-- <img class=" article-image project-slider-slide" src="{{ article.image.src | img_url: '800x' }}" alt=""> -->
+      <div class="article-image-wrapper project-slider-slide">
 
-        <div class="article-image-wrapper project-slider-slide">
-          <div class=" article-image " style="background-image:url({{ article.image.src | img_url: '800x' }})">
+        <img class=" article-image dark-shadow" src="{{ article.image.src | img_url: '800x' }}" alt="">
+      </div>
+
+        {%- comment %}
+        	This is a foo
+        <div class="article-image-wrapper project-slider-slide  dark-shadow">
+          <div class=" article-image dark-shadow " style="background-image:url({{ article.image.src | img_url: '800x' }})">
 
           </div>
         </div>
-        <!-- <img class=" article-image project-slider-slide" src="{{ article.image.src | img_url: '800x' }}" alt=""> -->
+        {% endcomment -%}   
 
     </div>
 
 
-  <div class="article-body textile med-plus-font top-space top-space__mobile ">
+  <div class="article-body textile med-plus-font top-space top-space__mobile-project ">
     {{ article.content }}
   </div>
 
@@ -35,9 +40,9 @@
   <div class="zoom-close x-close z-plus-10">
     {% include "green-x" %}
   </div>
-  <div class="zoom-slider dark-shadow">
+  <ul class="zoom-slider  ">
 
-  </div>
+  </ul>
 
   <div class="zoom-slide-count big-font rotate-90">
 
