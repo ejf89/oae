@@ -54,7 +54,7 @@ tools.closeMenu = function(){
 
 tools.openMenu = function(){
   $('.hero-static, .js-menu-toggle, .logo-wrapper ').on('click touch', function(e){
-
+    console.log("TOUCHING ");
     e.stopPropagation()
     e.stopImmediatePropagation()
 
@@ -70,6 +70,14 @@ tools.openMenu = function(){
       }
     }
   })
+
+  if ($('html').hasClass('touchevents')) {
+    $('.main-container').on('click touch', function(e){
+      console.log('up in hYEar');
+      $('#menu-icon').trigger('click')
+    })
+
+  }
 
 
 }
