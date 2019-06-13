@@ -376,6 +376,7 @@ body.mini-cart-open{
   border: none;
 }
 .checkout-button{
+  background-color: white !important;
   @include media-query($small){
     text-align: left;
     padding-left: 0;
@@ -384,4 +385,12 @@ body.mini-cart-open{
     border-radius: 0 !important;
     -webkit-border-radius:0px;
   };
+}
+
+
+input[type="submit"],
+.input-checkbox {
+-webkit-appearance: none;
+border-radius: 0;
+background-color: white;
 }

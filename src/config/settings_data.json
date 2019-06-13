@@ -228,11 +228,93 @@
               "link_url": "https:\/\/pammportraits.org\/2017\/12\/07\/andrea-bowers-climate-change-is-real\/",
               "press_image": "shopify:\/\/shop_images\/bowers.jpg",
               "press_title": "PAMM Portraits",
-              "press_description": "Andrea Bowers: \"Climate Change is Real\""
+              "press_description": "Andrea Bowers: Climate Change is Real"
+            }
+          },
+          "1560261179571": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Jane_Goodall_Inspires_Sustainable_Sunglasses_Debuting_at_DesignMiami_WWD.pdf?49338",
+              "press_image": "shopify:\/\/shop_images\/press_01.jpg",
+              "press_title": "WWD",
+              "press_description": "Jane Goodall, Sylvia Earle, E.O. Wilson Sources of Inspiration for Sustainable Sunglasses"
+            }
+          },
+          "1560261773017": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/British_Vogue___12_9_17.pdf?49350",
+              "press_image": "shopify:\/\/shop_images\/Sanchez_3x2_443f4fcc-c3cb-491a-aeb2-e68c97c392ad.jpg",
+              "press_title": "British Vogue",
+              "press_description": "Listen to Lisa Schiff"
+            }
+          },
+          "1560262016608": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Business_Day___June_4_2018.pdf?49352",
+              "press_image": "shopify:\/\/shop_images\/porky-03.jpg",
+              "press_title": "Business Day",
+              "press_description": "Porky Hefer’s Endangered Beasts"
+            }
+          },
+          "1560262180038": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/El_Mundo___12_11_17.pdf?49353",
+              "press_image": "shopify:\/\/shop_images\/featured_neon.climate.bowers.3-3733.jpg",
+              "press_title": "El Mundo",
+              "press_description": "Miami: La ensalada caribeña de las ferias de arte"
+            }
+          },
+          "1560262421835": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Hospitality_Hedonist___June_2018.pdf?49359",
+              "press_image": "shopify:\/\/shop_images\/1.jpg",
+              "press_title": "Hospitality \/ Hedonist",
+              "press_description": "Porky Hefer × Leonardo DiCaprio Foundation | Endangered"
+            }
+          },
+          "1560262993328": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/LDF___12_2017.pdf?49361",
+              "press_image": "shopify:\/\/shop_images\/bowers-06.jpg",
+              "press_title": "LDF",
+              "press_description": "LDF hosts art exhibition in partnership with Pérez Art Museum Miami"
+            }
+          },
+          "1560263871993": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Twgy___June_4_2018.pdf?49363",
+              "press_image": "shopify:\/\/shop_images\/porky-07.jpg",
+              "press_title": "TWGY",
+              "press_description": "Designer Porky Hefer’s Endangered works invite a weep and a cuddle"
+            }
+          },
+          "1560263896251": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/visi___June_6_2018.pdf?49364",
+              "press_image": "shopify:\/\/shop_images\/3-4.jpg",
+              "press_title": "Visi",
+              "press_description": "Endangered by Porky Hefer"
+            }
+          },
+          "1560264012738": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Weekend_Special___June_5_2018.pdf?49366",
+              "press_image": "shopify:\/\/shop_images\/shark-2.jpg",
+              "press_title": "Weekend Special",
+              "press_description": "Porky Hefer: ‘Endangered’"
             }
           }
         },
         "block_order": [
+          "1560261179571",
           "1557958888873",
           "1558895517840",
           "1557958670694",
@@ -244,7 +326,15 @@
           "1560092373370",
           "1560092487225",
           "1560136448902",
-          "1560136653338"
+          "1560136653338",
+          "1560261773017",
+          "1560262016608",
+          "1560262180038",
+          "1560262421835",
+          "1560262993328",
+          "1560263871993",
+          "1560263896251",
+          "1560264012738"
         ],
         "settings": {
         }

@@ -137,7 +137,7 @@ button{
   // margin-top: $quad-gutter;
   margin-left: 0;
   // margin-top: 0;
-  margin-bottom: $big-font-double;
+  padding-bottom: $big-font-double;
   @include media-query($small){
     padding-bottom: $mobile-x-space;
     padding: 0 $double-gutter;
