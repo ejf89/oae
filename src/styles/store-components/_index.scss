@@ -247,7 +247,8 @@ button:focus {
     border-radius: 0 !important;
     background-color: rgba(255,255,255, 0);
     @include media-query($medium-up){
-      height: $big-font;
+      // height: $big-font;
+      height: 5vw;
     };
   }
 }

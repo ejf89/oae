@@ -1,5 +1,10 @@
 
-
+{%- if cart.item_count == 0 -%}
+<script type="text/javascript">
+  $('body').addClass('body-lock')
+  $('html').addClass('html-lock')
+</script>
+{%- endif -%}
 
 <div class="cart-container page-container top-space__page">
 <!-- cart.liquid -->
