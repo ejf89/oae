@@ -123,6 +123,15 @@
       "press-section": {
         "type": "press-section",
         "blocks": {
+          "1560261179571": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Jane_Goodall_Inspires_Sustainable_Sunglasses_Debuting_at_DesignMiami_WWD.pdf?49338",
+              "press_image": "shopify:\/\/shop_images\/press_01.jpg",
+              "press_title": "WWD",
+              "press_description": "Jane Goodall, Sylvia Earle, E.O. Wilson Sources of Inspiration for Sustainable Sunglasses"
+            }
+          },
           "1557958888873": {
             "type": "press_block",
             "settings": {
@@ -231,15 +240,6 @@
               "press_description": "Andrea Bowers: Climate Change is Real"
             }
           },
-          "1560261179571": {
-            "type": "press_block",
-            "settings": {
-              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Jane_Goodall_Inspires_Sustainable_Sunglasses_Debuting_at_DesignMiami_WWD.pdf?49338",
-              "press_image": "shopify:\/\/shop_images\/press_01.jpg",
-              "press_title": "WWD",
-              "press_description": "Jane Goodall, Sylvia Earle, E.O. Wilson Sources of Inspiration for Sustainable Sunglasses"
-            }
-          },
           "1560261773017": {
             "type": "press_block",
             "settings": {
@@ -311,9 +311,29 @@
               "press_title": "Weekend Special",
               "press_description": "Porky Hefer: ‘Endangered’"
             }
+          },
+          "1560826451030": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Forbes_June2019.pdf?54084",
+              "press_image": "shopify:\/\/shop_images\/forbes.jpg",
+              "press_title": "Forbes",
+              "press_description": "Art with Purpose: Highlights from Art Basel and Design Miami 2019"
+            }
+          },
+          "1560826509079": {
+            "type": "press_block",
+            "settings": {
+              "link_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0143\/7630\/4726\/files\/Financial-Times_June-2019.pdf?54084",
+              "press_image": "shopify:\/\/shop_images\/Financial-Times.jpg",
+              "press_title": "Financial Times",
+              "press_description": "What to see at Design Miami’s 2019 Basel fair"
+            }
           }
         },
         "block_order": [
+          "1560826509079",
+          "1560826451030",
           "1560261179571",
           "1557958888873",
           "1558895517840",

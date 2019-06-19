@@ -71,9 +71,9 @@ tools.openMenu = function(){
     }
   })
 
-  if ($('html').hasClass('touchevents')) {
+  if ($('html').hasClass('touchevents') && location.pathname == "/") {
     $('.main-container').on('click touch', function(e){
-      console.log('up in hYEar');
+      console.log('up in hYEaRRRRr');
       $('#menu-icon').trigger('click')
     })
 

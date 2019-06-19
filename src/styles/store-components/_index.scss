@@ -133,6 +133,16 @@ p{
     margin-top: 0 !important;
   };
 }
+.top-space__artist{
+  // margin-top: $double-gutter !important;
+  // margin-top: 180px !important;
+  margin-top: $big-font-half ;
+  // margin-top: 12.8vw !important;
+  @include media-query($small){
+    // margin-top: $big-font !important;
+    margin-top: 0 !important;
+  };
+}
 
 .top-space__mobile{
   @include media-query($small){

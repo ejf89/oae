@@ -34,13 +34,14 @@
   padding-bottom: $gutter;
 }
 .padding-gutter{
-  padding: 0 $gutter;
+  padding: 0 $gutter;  
 }
 .vw-padding-bottom{
   padding-bottom: 1vw !important;
 }
 .vw-padding-bottom-half{
-  padding-bottom: 0.5vw !important;
+  // padding-bottom: 0.5vw !important;
+  padding-bottom: $half-gutter !important;
   @include media-query($small){
     padding-bottom: 2vw !important;
 
