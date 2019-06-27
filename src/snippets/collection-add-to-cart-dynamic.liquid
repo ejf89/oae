@@ -13,7 +13,7 @@
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 
 
-<form class="dynamic-add-to-cart-form collection-add-form" action="/cart/add" method="post" enctype="multipart/form-data">
+<form class="dynamic-add-to-cart-form collection-add-form glasses-info-link-collection" action="/cart/add" method="post" enctype="multipart/form-data">
   {% unless product.has_only_default_variant %}
     {% for option in product.options_with_values %}
       <div class=" js master-select hide">
