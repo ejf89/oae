@@ -47,6 +47,9 @@
       }
     }
   }
+  &:focus{
+    outline: none !important;
+  }
 
   // .product-card-canvas{
   //   @include fluid-aspect(3 2);

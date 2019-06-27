@@ -124,7 +124,7 @@
     z-index: 1;
     @include media-query($medium-up){
       min-width: 350px;
-      max-width: 25vw;
+      max-width: 30vw;
 
     };
     div, p, .p1, .p1 div{
@@ -336,4 +336,8 @@ label {
   vertical-align: -0.125em;
 }
 
+}
+
+.glasses-info-link{
+  padding-top: $half-gutter;
 }

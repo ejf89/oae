@@ -25,7 +25,12 @@
  }
 
 
-
+ *{
+ 	outline: none;
+ }
+ *:focus{
+ 	outline: none;
+ }
  a[x-apple-data-detectors] {
   color: inherit !important;
   text-decoration: none !important;
