@@ -21,7 +21,7 @@
 
           </div>
         </div>
-        {% endcomment -%}   
+        {% endcomment -%}
 
     </div>
 
@@ -50,6 +50,77 @@
 
 </div>
 <!-- END Article -->
+
+
+{%- for tag in article.tags -%}
+{%- if tag contains 'product' -%}
+  {% assign tag_clean = tag | remove: 'product_' | strip %}
+
+  {% capture related_product_string %}{{related_product_string}}|{{ tag_clean }}{% endcapture %}
+
+{%- endif -%}
+{%- endfor -%}
+
+{% assign related_product_string_split = related_product_string | split: '|'   %}
+{% assign artist_check = article.handle | remove: 'artists/' }%}
+
+
+
+
+  <div class="article-related-container grid-4 top-space__artist">
+    {%- for product in related_product_string_split -%}
+    {%- if all_products[product] != blank-%}
+
+    {%include "related-collection-item", product: all_products[product] %}
+    {%- endif -%}
+    {%- endfor -%}
+
+    {% for link in linklists.blogs.links %}
+      {% assign blog = link.object %}
+      {%- if blog.handle == "projects" -%}
+
+        {% for article in blog.articles %}
+        {%- for tag in article.tags -%}
+        {%- if tag contains 'artist' and tag contains artist_check -%}
+        {% assign background_image_url = article.image.src | img_url: '500x'  %}
+
+        <div  class="product-collection-item project-item">
+
+          <div class="product-image-container">
+        <a href="{{article.url}}" class="product-card-link">
+          <p class="color-green-imp med-font vw-padding-bottom-half">Project</p>
+
+            <div class="product-card-canvas dark-shadow"  >
+
+              <div class="related-item-image" style="background-image: url({{background_image_url}})">    </div>
+
+              {%- comment %}
+              This is a foo
+              <a href="{{article.url}}">
+              <img src="{{ article.image.src | img_url: '500x' }}" alt="">
+            </a>
+            {% endcomment -%}
+
+          </div>
+          <p class="product-info med-font color-black">
+            {{article.title}}
+            </p>
+            <!-- <p class="color-green-imp med-font">Project</p> -->
+        </a>
+      </div>
+          <!-- <a href='{{article.url}}' class='product-info med-font color-black'>
+          </a> -->
+        </div>
+
+        {%- endif -%}
+        {%- endfor -%}
+        {% endfor %}
+      {%- endif -%}
+    {% endfor %}
+
+
+  </div>
+
 
 
 {%- comment %}
