@@ -21,6 +21,7 @@ $(document).ready(function(){
       // tools.barbaInit()
       $('.hero-static').addClass('load')
       $('.product-section-block').trigger('click');
+      $('.product-collection-item').trigger('click');
 
       tools.letterCLass()
       tools.openMenu()

@@ -1,4 +1,4 @@
-{%- if template == 'index' -%}
+{%- if template == 'notIndex' -%}
   <span class="color-black word big-font no-hover vw-mobile-bottom small--hide ">
     One&nbsp
   </span>
@@ -52,7 +52,7 @@
 
  {%- else  -%}
 
-  {%- if template == 'collection' or template == "product"-%}
+  {%- if template == 'collection' or template == "product" or template == "index"-%}
   {% assign template_handle = 'Store'  %}
   {% assign template_link = '/collections/all' %}
   {% endif %}

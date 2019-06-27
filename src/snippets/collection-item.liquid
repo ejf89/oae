@@ -15,19 +15,20 @@
   {% assign category_tag = tag  %}
 {%- endif -%}
 {%- endfor -%}
-
+  {{s}}
       <div class="product-collection-item{% unless product.available %} sold-out{% endunless %} {% if forloop.last and isOdd %}small--hide{%endif%} {{ collage_item }}  {% if slider_child == true %} product-collection-slide {% endif %}"  tabindex="0"
       data-handle="{{product.handle}}"
       data-variantsAvailable="{{filterVariants | downcase}}"
       data-productType="{{product.type | downcase }}"
       data-productvendor='{{ product.vendor | downcase }}'
-      data-productId="product-{{ product.id }}"
+      data-productId="{{ product.id }}"
       data-productoption="{{optionData | downcase}}"
+      data-variantId="{{{{product.selected_or_first_available_variant.id}}}}"
       data-tag='{{category_tag}}'
       id="product-{{ product.id }}"
       style="background:{{gradient_tag}};">
         {% if product.featured_image != blank %}
-        {%- capture image_src_0 -%}   
+        {%- capture image_src_0 -%}
           {{- product.images[0] | img_url: '700x' -}}
         {%- endcapture -%}
         {%- else -%}
@@ -176,6 +177,8 @@
           </p> -->
 
         </div>
+
+        {% include "collection-add-to-cart-dynamic" %}
 
 
 
