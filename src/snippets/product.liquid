@@ -59,11 +59,23 @@
 
 
       <div class="rte font-oae product-description">
-        <p class="font-oae small-font color-black">
+        <p class="font-oae med-font color-black cursor-poi">
           {{ product.description }}
         </p>
+
+
       </div>
 
+      {%- for tag in product.tags -%}
+      {%- if tag contains 'glasses' -%}
+      <!-- <div class="glasses-links"> -->
+        <a class="med-font color-green cursor-pointer" href="https://www.oneallevery.com/blogs/projects/see-a-clean-future-design-miami-basel">More Info</a>
+        <a class="med-font color-green cursor-pointer" href="mailto:youremail@example.com?&cc=secondemail@example.com">Request Perscription</a>
+
+      <!-- </div> -->
+
+      {%- endif -%}
+      {%- endfor -%}
 
     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
       <meta itemprop="priceCurrency" content="{{ shop.currency }}">

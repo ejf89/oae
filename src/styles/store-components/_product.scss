@@ -119,7 +119,7 @@
 
   .product-description{
     pointer-events: none;
-    font-size:$small-font;
+    font-size:$med-font;
 
     z-index: 1;
     @include media-query($medium-up){
@@ -128,7 +128,7 @@
 
     };
     div, p, .p1, .p1 div{
-      font-size: $small-font;
+      font-size: $med-font;
       color: $color-black !important;
       @include media-query($small){
         font-size: $med-font-mobile;
