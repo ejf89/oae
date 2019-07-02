@@ -7,7 +7,17 @@
 <div class="article" data-handle="{{article.handle | replace: "projects/", ""}}">
     <!-- <h2 class="article-title big-font">{{ article.title }} <span class="color-green">.</span> </h2> -->
 
-    <div class="project-airtable-container project-slider">
+    <div class="project-airtable-container project-slider" data-slider="project-slider" data-options="{
+      contain: false,
+      draggable: true,
+      wrapAround: true,
+      imagesLoaded: true,
+      variableWidth:false,
+      prevNextButtons: false,
+      pageDots: false,
+      autoPlay: 2000,
+      imagesLoaded: true
+    }">
 
       <div class="article-image-wrapper project-slider-slide">
 

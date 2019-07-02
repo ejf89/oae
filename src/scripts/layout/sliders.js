@@ -7,6 +7,8 @@ tools.sliderInit = function(){
 
       if (options.length) {
         eval('var options_obj = ' + options);
+        console.log("!!!!!!!!");
+        console.log(options_obj);
 
         var slider =  $('.' + sliderHandle)
         if (slider.hasClass('hero-slider')) {
