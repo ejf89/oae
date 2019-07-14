@@ -270,6 +270,14 @@
   // @include transform(rotate(90deg));
   @include transition(all 300ms);
 
+  @include media-query($small){
+    top: 4rem;
+    right: 0.5625vw;
+    a{
+      font-size: $med-font-mobile ;
+    }
+  };
+
   &:hover{
     .color-black{
       color: $color-green;

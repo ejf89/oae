@@ -50,6 +50,8 @@
                 <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ item.variant.title }}</a>
 
                 <br></br>
+                <input id="updates_{{ item.id }}" name="updates[]" size="4" type="text" value="{{ item.quantity }}" >+</input>
+
                 <span class="big-font" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
                 <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
                   {% include "black-x" %}

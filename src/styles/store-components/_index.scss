@@ -163,6 +163,9 @@ p{
     // margin-bottom: $mobile-x-space !important;
   };
 }
+.top-space__project-copy{
+  margin-top: 1vw;
+}
 
 .index-fix{
   @include media-query($widescreen){

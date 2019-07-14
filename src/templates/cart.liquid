@@ -65,7 +65,68 @@
                 <a class="text-left cart-item-title color-black big-font" href="{{ item.url }}">{{item.product.vendor}}, <span class="italic">{{ item.product.title }}</span>, {{ variant_title }}</a>
 
 
-                <span class="big-font item-quantity" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span>
+                <!-- <span class="big-font item-quantity" for="updates_{{ item.key }}">Quantity ({{item.quantity}})  </span> -->
+
+                <div class="cart-quantity big-font">
+                  Quantity
+                    <input type='button' value='-' class='qtyminus-{{ item.id }}' field='updates_{{ item.id }}' />
+                  <span class="big-font">( </span>   <input type="text" name="updates[]" id="updates_{{ item.id }}" class="quantity-input big-font item-quantity" value="{{ item.quantity }}" />  <span class="big-font">)</span>
+                    <input type='button' value='+' class='qtyplus-{{ item.id }}' field='updates_{{ item.id }}' />
+                </div>
+
+                <!-- <input class="cart__qty-input" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*"> -->
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  // This button will increment the value
+  $('.qtyplus-{{ item.id }}').click(function(e){
+      // Stop acting like a button
+      e.preventDefault();
+      e.stopPropagation()
+      // Get the field name
+      var $parent = $(e.target.closest('.responsive-table-row'))
+
+      fieldName = $(this).attr('field');
+      // Get its current value
+      var currentVal = parseInt($parent.find('.quantity-input').val());
+      console.log(currentVal );
+      // If is not undefined
+      if (!isNaN(currentVal)) {
+          // Increment
+          $parent.find('.quantity-input').val(currentVal + 1)
+          $parent.find('.quantity-input').attr('value', currentVal + 1 );
+           $(this).closest('form').submit();
+      } else {
+          // Otherwise put a 0 there
+          $('input[id='+fieldName+']').val(0);
+      }
+  });
+  // This button will decrement the value till 0
+  $('.qtyminus-{{ item.id }}').click(function(e){
+      // Stop acting like a button
+      e.preventDefault();
+      e.stopPropagation()
+      // Get the field name
+      var $parent = $(e.target.closest('.responsive-table-row'))
+
+      fieldName = $(this).attr('field');
+      // Get its current value
+      var currentVal = parseInt($parent.find('.quantity-input').val());
+      console.log(currentVal );
+      // If is not undefined
+      if (!isNaN(currentVal)) {
+          // Increment
+          $parent.find('.quantity-input').val(currentVal - 1);
+          $parent.find('.quantity-input').attr('value', currentVal - 1 );
+           $(this).closest('form').submit();
+      } else {
+          // Otherwise put a 0 there
+          $('input[id='+fieldName+']').val(0);
+      }
+  });
+});
+</script>
+
                 <a onclick="removeThis(event);" href="javascript:void(0);" data-value="{{forloop.index}}" class="cart-remove-link  color-black big-font no-underline black-x">
                   {% include "black-x" %}
                 </a>
@@ -87,10 +148,10 @@
                   <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                   {{ item.price | money }}
                   <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                  <s>{{ item.original_price | money }}</s>
+                  <s>{{ item.original_price| money }}</s>
                   {% else %}
                   <span class="">
-                      {{ item.price | money }}
+                      {{ item.price | times: item.quantity | money }}
                   </span>
 
                   {% endif %}

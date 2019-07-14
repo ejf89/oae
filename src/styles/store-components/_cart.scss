@@ -386,7 +386,29 @@ body.mini-cart-open{
     -webkit-border-radius:0px;
   };
 }
+.cart-quantity{
+  display: inline-flex;
+  align-items: center;
+  input{
+    border: none;
+  }
+  button{
+    background: transparent;
 
+  }
+  .quantity-input{
+  width: 4vw;
+  text-align: center;
+  @include media-query($small){
+    width: 11vw;
+  };
+}
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
 
 input[type="submit"],
 .input-checkbox {
